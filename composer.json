@@ -1,0 +1,32 @@
+{
+  "name": "slub/digas-fe-management",
+  "type": "typo3-cms-extension",
+  "description": "TYPO3 extension for the DiGAS frontend user management.",
+  "homepage": "https://github.com/slub/digas-fe-management",
+  "keywords": [
+    "TYPO3",
+    "extension",
+    "frontend user",
+  ],
+  "authors": [
+    {
+      "name": "Alexander Bigga",
+      "email": "typo3@slub-dresden.de",
+      "role": "Developer"
+    }
+  ],
+  "license": "GPL-3.0-or-later",
+  "require": {
+    "typo3/cms-core": "~9.5.20"
+  },
+  "autoload": {
+    "psr-4": {
+      "Slub\\DigasFeManagement\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Slub\\DigasFeManagement\\Tests\\": "Tests"
+    }
+  }
+}
