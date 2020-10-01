@@ -1,0 +1,57 @@
+<table class="digas-fe-management-administration-table">
+    <thead>
+    <tr>
+        <th><f:translate key="administration.listing.table.name"/></th>
+        <th><f:translate key="administration.listing.table.email"/></th>
+        <th><f:translate key="administration.listing.table.userType"/></th>
+        <th><f:translate key="administration.userStatus"/></th>
+        <th><f:translate key="administration.listing.table.actions"/></th>
+    </tr>
+    </thead>
+    <tbody>
+    <f:for each="{users}" as="user">
+        <tr>
+            <td><f:link.action action="show" arguments="{user:user}">{user.firstName} {user.lastName}</f:link.action></td>
+            <td>{user.email}</td>
+            <td>
+                <f:if condition="{user.companyType} > 0">
+                    <f:then><f:translate key="administration.listing.table.institutionalUser"/></f:then>
+                    <f:else><f:translate key="administration.listing.table.privateUser"/></f:else>
+                </f:if>
+            </td>
+            <td>
+                <f:if condition="{user.disable}">
+                    <f:then><f:translate key="administration.userInactive"/></f:then>
+                    <f:else><f:translate key="administration.userActive"/></f:else>
+                </f:if>
+            </td>
+            <td>
+                <span class="digas-fe-management-administration-action">
+                    <f:link.action
+                        action="show"
+                        arguments="{user:user}">
+                        <i class="icon-edit icon-white"></i>
+                        <f:translate key="administration.show.showUser"/>
+                    </f:link.action>
+                </span>
+                <span class="digas-fe-management-administration-action">
+                    <f:link.action action="editUser" arguments="{user:user}">
+                        <f:translate key="administration.show.editUser" />
+                    </f:link.action>
+                </span>
+                <f:if condition="!{user.disable}">
+                    <span class="digas-fe-management-administration-action">
+                    <f:link.action
+                        action="deactivateUser"
+                        arguments="{user:user}"
+                        additionalAttributes="{onclick:'return confirm(\'{f:translate(key:\'administration.show.UserDeactivateConfirmation\')}\');'}">
+                    <i class="icon-trash icon-white"></i>
+                    <f:translate key="administration.show.deactivateUser" />
+                </f:link.action>
+                </span>
+                </f:if>
+            </td>
+        </tr>
+    </f:for>
+    </tbody>
+</table>

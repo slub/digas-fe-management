@@ -1,0 +1,18 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<table class="fe-management-statistic-entries">
+    <thead>
+    <tr>
+        <th><f:translate key="statistic.table.document"/></th>
+        <th><f:translate key="statistic.table.downloads"/></th>
+    </tr>
+    </thead>
+    <tbody>
+    <f:for each="{statistic}" as="statisticEntry">
+        <tr>
+            <td>{statisticEntry.document.title}</td>
+            <td>{statisticEntry.downloads}</td>
+        </tr>
+    </f:for>
+    </tbody>
+</table>
+</html>

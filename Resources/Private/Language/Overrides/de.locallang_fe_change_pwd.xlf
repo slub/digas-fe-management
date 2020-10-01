@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2018-22-26T19:47:02Z" product-name="fe_change_pwd">
+        <header/>
+        <body>
+            <trans-unit id="passwordFieldsEmptyOrNotBothFilledOut">
+                <source>You must fill out both password fields</source>
+                <target>Bitte füllen Sie beide Passwortfelder aus</target>
+            </trans-unit>
+            <trans-unit id="passwordsDoNotMatch">
+                <source>The passwords do not match</source>
+                <target>Die Passwörter stimmen nicht überein</target>
+            </trans-unit>
+            <trans-unit id="passwordComplexity.failure.minLength">
+                <source>The password must at least have a length of %1s chars</source>
+                <target>Das Passwort muss mindestens %1s Zeichen lang sein</target>
+            </trans-unit>
+            <trans-unit id="passwordComplexity.failure.capitalCharCheck">
+                <source>The password must at least contain one capital char</source>
+                <target>Das Passwort muss mindestens ein Großbuchstaben enthalten</target>
+            </trans-unit>
+            <trans-unit id="passwordComplexity.failure.lowerCaseCharCheck">
+                <source>The password must at least contain one lower case char</source>
+                <target>Das Passwort muss mindestens ein Kleinbuchstaben enthalten</target>
+            </trans-unit>
+            <trans-unit id="passwordComplexity.failure.digitCheck">
+                <source>The password must at least contain one digit</source>
+                <target>Das Passwort muss mindestens eine Ziffer enthalten</target>
+            </trans-unit>
+            <trans-unit id="passwordComplexity.failure.specialCharCheck">
+                <source>The password must at least contain one special char</source>
+                <target>Das Passwort muss mindestens ein Sonderzeichen enthalten</target>
+            </trans-unit>
+            <trans-unit id="pwnedPasswordFailure">
+                <source>Dieses Passwort ist in einemDaten-Leak enthalten und wurde %1s Mal in der Datenbank haveibeenpwned.com gefunden. Bitte wählen Sie ein anderes Passwort.</source>
+                <target>Ihr Passwort wurde in einem </target>
+            </trans-unit>
+            <trans-unit id="oldPasswordFailure">
+                <source>This password can not be used, because it equals the old password.</source>
+                <target>Das Passwort kann nicht verwendet werden, weil es dem alten PAsswort entspricht.</target>
+            </trans-unit>
+            <trans-unit id="passwordUpdated">
+                <source>The password has been updated</source>
+                <target>Das Passwort wurde aktualisiert</target>
+            </trans-unit>
+            <trans-unit id="passwordUpdated.title">
+                <source>Password updated</source>
+                <target>Passwort aktualisiert</target>
+            </trans-unit>
+            <trans-unit id="currentPassword">
+                <source>Current Password</source>
+                <target>Aktuelles Passwort</target>
+            </trans-unit>
+            <trans-unit id="password">
+                <source>Password</source>
+                <target>Passwort</target>
+            </trans-unit>
+            <trans-unit id="repeatPassword">
+                <source>Repeat Password</source>
+                <target>Passwort wiederholen</target>
+            </trans-unit>
+            <trans-unit id="update">
+                <source>Update</source>
+                <target>Update</target>
+            </trans-unit>
+            <trans-unit id="validationErrorHeader">
+                <source>Please check your input for the following errors:</source>
+                <target>Bitte überprüfen Sie Ihre Eingabe auf folgende Fehler:</target>
+            </trans-unit>
+            <trans-unit id="changePasswordReason.forcedChange">
+                <source>You must change your password</source>
+                <target>Sie müssen Ihr Passwort ändern</target>
+            </trans-unit>
+            <trans-unit id="changePasswordReason.passwordExpired">
+                <source>Your password has expired and must be changed</source>
+                <target>Ihr Passwort ist nicht mehr gültig und muss neu vergeben werden.</target>
+            </trans-unit>
+            <trans-unit id="notLoggedIn">
+                <source>You need to be logged in to update your password</source>
+                <target>Sie müssen eingeloggt sein um ihr Passwort ändern zu können</target>
+            </trans-unit>
+            <trans-unit id="currentPasswordEmpty">
+                <source>Please enter your current password in the corresponding field.</source>
+                <target>Bitte geben sie ihr Passwort ein.</target>
+            </trans-unit>
+            <trans-unit id="currentPasswordFailure">
+                <source>The current password you entered is wrong.</source>
+                <target>Das eingegebene Passwort ist falsch.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

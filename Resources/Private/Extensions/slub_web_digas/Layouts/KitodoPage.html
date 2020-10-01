@@ -1,0 +1,36 @@
+{namespace dv=Slub\SlubWebDigas\ViewHelpers}
+{namespace dc=Slub\DigitalCollections\ViewHelpers}
+{namespace digas=Slub\DigasFeManagement\ViewHelpers}
+<dv:titleTag
+	title="<dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:titleInfo[not(@type=\"alternative\")]/mods:nonSort | //mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:titleInfo[not(@type=\"alternative\")]/mods:title | //mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:titleInfo[not(@type=\"alternative\")]/mods:partNumber | //mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:titleInfo[not(@type=\"alternative\")]/mods:partName)[1]' />"
+/>
+<div class="main-wrapper">
+    <f:comment>
+        <!--
+        check if access on certain document id is granted
+        -->
+    </f:comment>
+
+    <f:if condition="{digas:kitodoAccess(id:gp-id)}">
+        <f:then>
+         <f:render section="ControlBar" partial="ControlBar" arguments="{_all}" />
+        <!--TYPO3SEARCH_begin-->
+        <f:render section="PageView" partial="PageView" arguments="{_all}" />
+        <!--TYPO3SEARCH_end-->
+        </f:then>
+        <f:else>
+
+            <f:comment>
+                <!--
+                redirect to pre-filled contact form if access is not granted
+                -->
+            </f:comment>
+
+            <digas:redirect pageUid="{settings.contactFormUid}" additionalParams="{gp-id:'{gp-id}'}" />
+
+        </f:else>
+    </f:if>
+</div>
+<f:if condition="{piwik_idsite}">
+	<f:render section="Piwik" partial="Piwik" arguments="{_all}" />
+</f:if>

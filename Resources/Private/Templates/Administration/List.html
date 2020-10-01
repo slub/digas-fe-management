@@ -1,0 +1,31 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:layout name="Default"/>
+
+<f:section name="main">
+
+    <div class="femanager_list">
+        <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
+
+        <f:render partial="User/Searchform" arguments="{_all}"/>
+
+        <f:if condition="{users}">
+            <f:then>
+                <f:if condition="{settings.list.pagination} && {settings.list.limitPerPage} < {f:count(subject: users)}">
+                    <f:then>
+                        <f:widget.paginate objects="{users}" as="paginatedUsers" configuration="{itemsPerPage: '{settings.list.limitPerPage}', insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+                            <f:render partial="Administration/ListItems" arguments="{users:paginatedUsers}"/>
+                        </f:widget.paginate>
+                    </f:then>
+                    <f:else>
+                        <f:render partial="Administration/ListItems" arguments="{users:users}"/>
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                <div class="femanager_note">
+                    <f:translate key="noRecordsFound" extensionName="femanager"/>
+                </div>
+            </f:else>
+        </f:if>
+    </div>
+</f:section>

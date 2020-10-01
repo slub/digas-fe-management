@@ -1,0 +1,7 @@
+plugin.tx_fechangepwd {
+    view {
+        templateRootPath = EXT:digas_fe_management/Resources/Private/Extensions/fe_change_pwd/Templates/
+        partialRootPath = EXT:digas_fe_management/Resources/Private/Extensions/fe_change_pwd/Partials/
+        layoutRootPath = EXT:digas_fe_management/Resources/Private/Extensions/fe_change_pwd/Layouts/
+    }
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-13T15:49:07Z" product-name="digas_fe_management">
+		<header/>
+		<body>
+			<trans-unit id="tx_femanager_domain_model_user.disable">
+				<source>Hidden</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
+				<source>diverse</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.old_account">
+				<source>Reference to old account after change of e-mail / username</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company">
+				<source>Name of organization</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type">
+				<source>Type of organization</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item1">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item2">
+				<source>University</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item3">
+				<source>Research institute</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item4">
+				<source>other</source>
+			</trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.inactivemessage_tstamp">
+                <source>Inactive Message Date</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.kitodo_feuser_access">
+                <source>Kitodo FE user access</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tab.kitodo">
+                <source>Kitodo</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.saved_searches">
+                <source>Saved searches</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tab.saved_searches">
+                <source>Saved searches</source>
+            </trans-unit>
+
+            <trans-unit id="flexform.main.title">
+                <source>Main Settings</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view">
+                <source>Choose View</source>
+            </trans-unit>
+            <trans-unit id="pleaseChoose">
+                <source>Please choose</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.list">
+                <source>List</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.savesearch">
+                <source>Save search</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.editUser">
+                <source>Edit User</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.createUser">
+                <source>Create User</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.statistic">
+                <source>Statistic</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.userStatistic">
+                <source>User Statistic</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.adminStatistic">
+                <source>Admin Statistic</source>
+            </trans-unit>
+            <trans-unit id="flexform.list.title">
+                <source>List View</source>
+            </trans-unit>
+            <trans-unit id="flexform.list.pagination">
+                <source>Show Pagination</source>
+            </trans-unit>
+            <trans-unit id="flexform.list.limitPerPage">
+                <source>Limit per page</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_log.state.10000">
+                <source>Administration</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_log.state.10001">
+                <source>User deactivated</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_search">
+                <source>Search log</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

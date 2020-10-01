@@ -1,0 +1,145 @@
+plugin.tx_femanager {
+    settings {
+        edit {
+            validation {
+                _enable.client = 0
+                _enable.server = 1
+
+                email.required = 0
+                password.required = 0
+                password_repeat.required = 0
+                username.required = 0
+
+                firstName.required = 1
+                lastName.required = 1
+                address.required = 1
+                zip.required = 1
+                city.required = 1
+                company.required = 0
+                company_type.required = 0
+            }
+
+            email {
+                updateRequest {
+                    _enable.value = 0
+                }
+
+                updateRequestRefused {
+                    _enable.value = 0
+                }
+
+                notifyAdmin {
+                    _enable.value = 0
+                }
+            }
+        }
+    }
+}
+
+[page["uid"] == {$femanager.pids.editProfile}]
+    plugin.tx_femanager {
+        settings {
+            showCompanyFields = 0
+        }
+    }
+[end]
+
+[globalVar = TSFE:fe_user|user|company_type>0]
+    plugin.tx_femanager {
+        settings {
+            showCompanyFields = 1
+
+            edit {
+                validation {
+                    company.required = 1
+                    companyType.required = 1
+                }
+            }
+        }
+    }
+[end]
+
+
+[page["uid"] == {$femanager.pids.editEmail}]
+    plugin.tx_femanager {
+        view {
+            partialRootPaths.101 =  {$plugin.tx_femanager.view.partialRootPath}ChangeEmail/
+            templateRootPaths.101 =  {$plugin.tx_femanager.view.templateRootPath}ChangeEmail/
+        }
+
+        settings {
+            new {
+                login = 1
+                changeEmail = 1
+                currentUserFields = company,companyType,address,zip,city,lastName,firstName,gender,telephone,terms,password,usergroup
+
+                validation {
+                    email.required = 1
+                    password.required = 0
+                    password_repeat.required = 0
+                    username.required = 0
+
+                    firstName.required = 0
+                    lastName.required = 0
+                    address.required = 0
+                    zip.required = 0
+                    city.required = 0
+                    terms.required = 0
+                    company.required = 0
+                    companyType.required = 0
+                }
+                forceValues {
+                    # Overwrite on user confirmation (only if user confirmation was activated)
+                    onUserConfirmation {
+                        mustChangePassword = TEXT
+                        mustChangePassword.value = 0
+
+                        usergroup = TEXT
+                        usergroup.value = 2
+                    }
+                }
+                email {
+                    createUserConfirmation {
+                        _enable.value = 1
+                        subject.data = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:emailChangeUserConfirmationSubject
+                    }
+
+                    createUserNotify {
+                        _enable.value = 0
+                    }
+                }
+            }
+        }
+    }
+[end]
+
+//unset second confirmation mail
+[traverse(request.getQueryParams(), 'tx_femanager_pi1/noSecondMail') == 1]
+    plugin.tx_femanager {
+        settings {
+            new {
+                login = 1
+                forceValues {
+                    # Overwrite on user confirmation (only if user confirmation was activated)
+                    onUserConfirmation {
+                        mustChangePassword = TEXT
+                        mustChangePassword.value = 0
+
+                        usergroup = TEXT
+                        usergroup.value = 2
+                    }
+                }
+
+                email {
+                    createUserNotify {
+                        _enable.value = 0
+                    }
+                }
+            }
+        }
+    }
+[end]
+
+//set confirmation pid in e-mails
+lib.confirmUserPid = TEXT
+lib.confirmUserPid.value = {$femanager.pids.confirmUser}

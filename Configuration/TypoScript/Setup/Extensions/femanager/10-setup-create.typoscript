@@ -1,0 +1,107 @@
+plugin.tx_femanager {
+    settings {
+        languageFile = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf
+        showCompanyFields = 0
+
+        new {
+            login = 1
+
+            # redirect user after user clicks confirmation link in email (only if user confirmation is activated) (could be a PID, URL or fileadmin-Link)
+            userConfirmationRedirect = TEXT
+            userConfirmationRedirect {
+                typolink {
+                    parameter = {$femanager.pids.loginPage}
+                    returnLast = url
+                }
+            }
+
+            validation {
+                _enable.client = 0
+                _enable.server = 1
+
+                username.required = 0
+                email.uniqueInPage = 1
+                firstName.required = 1
+                lastName.required = 1
+                address.required = 1
+                zip.required = 1
+                city.required = 1
+                password.required = 0
+                password_repeat.required = 0
+                terms.required = 1
+            }
+
+
+            # All email settings within the creation process
+            email {
+
+                # Email for User confirmation (User must confirm his Email address)
+                createUserConfirmation {
+                    _enable.value = 1
+                }
+
+                # Email for Admin confirmation (Admin must confirm registration in an email)
+                createAdminConfirmation {
+                    _enable.value = 0
+                }
+
+                # Email to user to confirm his new profile (with and without admin confirmation)
+                createUserNotify {
+                    _enable.value = 1
+
+                }
+
+                createUserNotifyRefused {
+                    _enable.value = 0
+                }
+            }
+
+            # overwrite any user values with TypoScript
+            forceValues {
+                # Overwrite initally (default)
+                beforeAnyConfirmation {
+
+                }
+
+                # Overwrite on user confirmation (only if user confirmation was activated)
+                onUserConfirmation {
+                    mustChangePassword = TEXT
+                    mustChangePassword.value = 1
+
+                    usergroup = TEXT
+                    usergroup.value = 2
+                }
+
+                # Overwrite on admin confirmation (only if admin confirmation was activated)
+                onAdminConfirmation {
+
+                }
+            }
+
+            # Send Form values via POST to another system (e.g. CRM like salesforce or eloqua)
+            sendPost {
+                _enable.value = 0
+            }
+        }
+    }
+}
+
+[page["uid"] == {$femanager.pids.createInstitutional}]
+    plugin.tx_femanager {
+        settings {
+            showCompanyFields = 1
+
+            new {
+                validation {
+                    company {
+                        required = 1
+                    }
+
+                    companyType {
+                        required = 1
+                    }
+                }
+            }
+        }
+    }
+[end]

@@ -1,0 +1,152 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+{namespace digas=Slub\DigasFeManagement\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="main">
+
+	<div class="femanager_show">
+		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+
+		<f:if condition="{user}">
+			<f:then>
+                <ul class="digas-fe-management-actions">
+                    <li>
+                        <f:link.action action="editUser" arguments="{user:user}">
+                            <f:translate key="administration.show.editUser" />
+                        </f:link.action>
+                    </li>
+                    <f:if condition="!{user.disable}">
+                        <li>
+                            <f:link.action
+                                action="deactivateUser"
+                                arguments="{user:user}"
+                                class="btn btn-warning btn-large"
+                                additionalAttributes="{onclick:'return confirm(\'{f:translate(key:\'administration.show.UserDeactivateConfirmation\')}\');'}">
+                                <i class="icon-trash icon-white"></i>
+                                <f:translate key="administration.show.deactivateUser" />
+                            </f:link.action>
+                        </li>
+                    </f:if>
+                </ul>
+				<ul>
+                    <li>
+                        <f:translate key="administration.listing.table.userType"/>:
+                        <f:if condition="{user.companyType} > 0">
+                            <f:then><f:translate key="administration.listing.table.institutionalUser"/></f:then>
+                            <f:else><f:translate key="administration.listing.table.privateUser"/></f:else>
+                        </f:if>
+                    </li>
+                    <li>
+                        <f:translate key="administration.userStatus" />:
+                        <f:if condition="{user.disable}">
+                            <f:then><f:translate key="administration.userInactive"/></f:then>
+                            <f:else><f:translate key="administration.userActive"/></f:else>
+                        </f:if>
+                    </li>
+					<f:if condition="{user.username}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.username" extensionName="femanager" />:
+                            {user.username}
+						</li>
+					</f:if>
+					<f:if condition="{user.usergroup}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.usergroup" extensionName="femanager" />:
+							<f:for each="{user.usergroup}" as="usergroup" iteration="i">{usergroup.title}<f:if condition="{i.isLast}"><f:else>, </f:else></f:if></f:for>
+						</li>
+					</f:if>
+					<f:if condition="{user.firstName}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.firstName" extensionName="femanager" />:
+							{user.firstName}
+						</li>
+					</f:if>
+					<f:if condition="{user.lastName}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.lastName" extensionName="femanager" />:
+							{user.lastName}
+						</li>
+					</f:if>
+					<f:if condition="{user.email}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.email" extensionName="femanager" />:
+							<f:link.email email="{user.email}" />
+						</li>
+					</f:if>
+					<li>
+						<f:translate key="tx_femanager_domain_model_user.gender" extensionName="femanager" />:
+						<f:if condition="{user.gender} == 0">
+							<f:then>
+								<f:translate key="tx_femanager_domain_model_user.gender.item0" extensionName="femanager" />
+							</f:then>
+							<f:else>
+								<f:translate key="tx_femanager_domain_model_user.gender.item1" extensionName="femanager" />
+							</f:else>
+						</f:if>
+					</li>
+					<f:if condition="{user.dateOfBirth}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.dateOfBirth" extensionName="femanager" />:
+							<f:format.date format="{f:translate(key:'tx_femanager_domain_model_user.dateFormat')}">{user.dateOfBirth}</f:format.date>
+						</li>
+					</f:if>
+					<f:if condition="{user.address}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.address" />:
+							{user.address}
+						</li>
+					</f:if>
+					<f:if condition="{user.zip}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.zip" extensionName="femanager" />:
+							{user.zip}
+						</li>
+					</f:if>
+					<f:if condition="{user.city}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.city" extensionName="femanager" />:
+							{user.city}
+						</li>
+					</f:if>
+					<f:if condition="{user.country}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.country" extensionName="femanager" />:
+							{user.country}
+						</li>
+					</f:if>
+					<f:if condition="{user.state}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.state" extensionName="femanager" />:
+							<!-- // TODO: Check me if i was displayed -->
+							{user.state}
+						</li>
+					</f:if>
+                    <f:if condition="{user.kitodoFeuserAccess}">
+                        <li>
+                            <f:translate key="{settings.languageFile}:tx_femanager_domain_model_user.kitodo_feuser_access" extensionName="femanager" />:
+                            <f:for each="{digas:explodeNL(string:user.kitodoFeuserAccess)}" as="id" iteration="i">
+                                {id}{f:if(condition:'!{i.isLast}',then:', ')}
+                            </f:for>
+                        </li>
+                    </f:if>
+                    <f:if condition="{user.inactiveMessageTstamp}">
+                        <li>
+                            <f:translate key="tx_femanager_domain_model_user.inactivemessage_tstamp"/>:
+                            <f:format.date format="%d. %B %Y">{user.inactiveMessageTstamp}</f:format.date>
+
+                        </li>
+                    </f:if>
+				</ul>
+				<f:for each="{user.image}" as="image">
+					<f:image image="{image}" width="250" />
+				</f:for>
+			</f:then>
+			<f:else>
+				<div class="femanager_note">
+					<f:translate key="noRecordFoundShow" extensionName="femanager" />
+				</div>
+			</f:else>
+		</f:if>
+	</div>
+</f:section>

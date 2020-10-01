@@ -1,0 +1,72 @@
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Constants/Extensions/">
+
+femanager {
+    pids {
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid login plugin
+        loginPage =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Sysfolder uid with fe_users
+        feUsers =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "create institutional user" plugin
+        createInstitutional =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "create private user" plugin
+        createPrivate =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "confirmation" plugin - use same uid as "create private user" plugin page
+        confirmUser =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of page containing confirmation plugin for invited new users
+        confirmInviteUid =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "edit profile" plugin
+        editProfile =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "edit e-mail & username" plugin
+        editEmail =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of contact form with restricted access
+        contactFormUid =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of page containing search form
+        searchFormUid =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of page "terms of use"
+        termsOfUseUid =
+    }
+
+    # cat=plugin.tx_digasfemanagement/; type=int; label=Uid for frontend users
+    feUserGroup =
+
+    administration {
+        pids {
+
+            # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of admin create institutional user plugin
+            createInstitutional =
+
+            # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of admin create private user plugin
+            createPrivate =
+        }
+
+        #  cat=plugin.tx_digasfemanagement/; type=string; label=Listing View - Administration user search fields (possible values are address, city, company, country, email, fax, first_name, image, last_name, middle_name, name, telephone, title, usergroup.title, username, www, zip)
+        fieldsToSearch =
+    }
+}
+
+fe_change_pwd {
+    pids {
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid "change password" plugin
+        changePasswordPid =
+    }
+}
+
+plugin.tx_femanager {
+    settings {
+        # cat=plugin.tx_digasfemanagement/; type=string; label=E-mail-address for sending mails
+        adminName =
+
+        # cat=plugin.tx_digasfemanagement/; type=string; label=E-mail-address for sending mails
+        adminEmail =
+    }
+}

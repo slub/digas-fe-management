@@ -1,0 +1,80 @@
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            100 = EXT:digas_fe_management/Configuration/Yaml/CustomFormSetup.yaml
+        }
+    }
+}
+
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            100 = EXT:digas_fe_management/Configuration/Yaml/CustomFormSetup.yaml
+        }
+    }
+}
+
+plugin.tx_form.settings {
+    formDefinitionOverrides {
+        contactRegisteredUsers {
+            renderables {
+                0 {
+                    renderables {
+                        0 {
+                            defaultValue = TEXT
+                            defaultValue.data = TSFE:fe_user|user|last_name
+                        }
+                        1 {
+                            defaultValue = TEXT
+                            defaultValue.data = TSFE:fe_user|user|first_name
+                        }
+                        2 {
+                            defaultValue = TEXT
+                            defaultValue.data = TSFE:fe_user|user|company
+                        }
+                        3 {
+                            defaultValue = TEXT
+                            defaultValue.data = TSFE:fe_user|user|email
+                        }
+                        4 {
+                            defaultValue = TEXT
+                            defaultValue.data = TSFE:fe_user|user|telephone
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+[request.getQueryParams()['gp-id'] > 0]
+    plugin.tx_form.settings {
+        formDefinitionOverrides {
+            contactRegisteredUsers {
+                renderables {
+                    0 {
+                        renderables {
+                            5 {
+                                defaultValue = TEXT
+                                defaultValue {
+                                    value = {LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:kitodo_feuser_access.subject} {GP:gp-id}
+                                    insertData = 1
+                                }
+
+                            }
+                            6 {
+                                defaultValue = TEXT
+                                defaultValue {
+                                    value = {LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:kitodo_feuser_access.message} {GP:gp-id}
+                                    insertData = 1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+[end]
+
+plugin.tx_form.settings.formDefinitionOverrides.contactRegisteredUsersLocal < plugin.tx_form.settings.formDefinitionOverrides.contactRegisteredUsers

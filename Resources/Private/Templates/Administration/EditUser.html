@@ -1,0 +1,63 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"	xmlns:f="http://typo3.org/ns/fluid/ViewHelpers" >
+    <f:layout name="Default" />
+
+    User / Edit
+    Available variables:
+    {user}
+    {allUserGroups}
+
+    <f:section name="main">
+        <f:render partial="Misc/FlashMessages" arguments="{_all}" />
+        <f:render partial="Misc/FormErrors" arguments="{object:User}" />
+
+        <div class="femanager_edit">
+            <f:if condition="{user}">
+                <f:then>
+                    <f:form
+                        name="user"
+                        object="{user}"
+                        action="updateUser"
+                        enctype="multipart/form-data"
+                        additionalAttributes="{data-femanager-plugin:data.uid}"
+                        class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
+                        <fieldset>
+                            <legend>
+                                <f:translate key="titleUpdateProfile" extensionName="femanager" />
+                            </legend>
+
+                            <f:form.hidden name="token" value="{token}" />
+
+                            <f:render partial="Fields/FirstName" arguments="{_all}" />
+                            <f:render partial="Fields/LastName" arguments="{_all}" />
+                            <f:render partial="Fields/Gender" arguments="{_all}" />
+
+                            <f:if condition="{user.companyType} > 0">
+                                <f:render partial="Fields/Company" arguments="{_all}" />
+                                <f:render partial="Fields/AdministrationCompanyType" arguments="{_all}" />
+                            </f:if>
+
+                            <f:render partial="Fields/Telephone" arguments="{_all}" />
+                            <f:render partial="Fields/Address" arguments="{_all}" />
+                            <f:render partial="Fields/Zip" arguments="{_all}" />
+                            <f:render partial="Fields/City" arguments="{_all}" />
+                            <f:render partial="Fields/KitodoFeuserAccess" arguments="{_all}" />
+                            <f:render partial="Fields/Disable" arguments="{_all}" />
+
+                            <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+
+                        </fieldset>
+
+                        <f:render partial="Misc/DeleteLink" arguments="{_all}" />
+                    </f:form>
+                </f:then>
+                <f:else>
+                    <div class="femanager_note">
+                        <f:translate key="notLoggedIn" />
+                    </div>
+                </f:else>
+            </f:if>
+        </div>
+    </f:section>
+
+</div>

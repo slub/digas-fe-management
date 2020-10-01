@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-13T15:49:07Z" product-name="digas_fe_management">
+		<header/>
+		<body>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
+				<source>diverse</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.address">
+				<source>Street / Number</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.terms.pre">
+				<source>I / we accept the terms of use (Germany - attribution - version 2.0) of the data offered on this website in the current version.</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.terms">
+				<source>I accept the terms and conditions</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.terms.post">
+				<source>Information on data processing can be found in our</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.termslinktext">
+				<source>data protection declaration</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company">
+				<source>Name of organization</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type">
+				<source>Type of organization</source>
+			</trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.inactivemessage_tstamp">
+                <source>Inactive Message Date</source>
+            </trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item1">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item2">
+				<source>University</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item3">
+				<source>Research institute</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item4">
+				<source>other</source>
+			</trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.kitodo_feuser_access">
+                <source>Kitodo FE user access</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tab.kitodo">
+                <source>Kitodo</source>
+            </trans-unit>
+            <trans-unit id="kitodo_feuser_access.subject">
+                <source>Release request for catalog ID:</source>
+            </trans-unit>
+            <trans-unit id="kitodo_feuser_access.message">
+                <source>Please release the document with the catalog ID:</source>
+            </trans-unit>
+            <trans-unit id="extend.disable.button">
+				<source>Deactivate account</source>
+			</trans-unit>
+			<trans-unit id="extend.disable.button.no">
+				<source>Cancel</source>
+			</trans-unit>
+			<trans-unit id="extend.disable.step2">
+				<source>Do you really want to deactivate your account</source>
+			</trans-unit>
+			<trans-unit id="administration.show.showUser">
+				<source>View</source>
+			</trans-unit>
+			<trans-unit id="administration.show.editUser">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="administration.show.deactivateUser">
+				<source>Deactivate</source>
+			</trans-unit>
+			<trans-unit id="administration.show.UserDeactivateConfirmation">
+				<source>Do you really want to deactivate the user?</source>
+			</trans-unit>
+            <trans-unit id="tx_femanager_domain_model_log.state.10000">
+                <source>Administration</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_log.state.10001">
+                <source>User with username "%s" deactivated</source>
+            </trans-unit>
+            <trans-unit id="noChanges">
+                <source>No changes detected</source>
+            </trans-unit>
+            <trans-unit id="element.lastname.properties.label">
+                <source>Lastname</source>
+            </trans-unit>
+            <trans-unit id="element.firstname.properties.label">
+                <source>Firstname</source>
+            </trans-unit>
+            <trans-unit id="element.company.properties.label">
+                <source>Organization</source>
+            </trans-unit>
+            <trans-unit id="element.email.properties.label">
+                <source>E-mail</source>
+            </trans-unit>
+            <trans-unit id="element.phone.properties.label">
+                <source>Telephone</source>
+            </trans-unit>
+            <trans-unit id="element.subject.properties.label">
+                <source>Subject</source>
+            </trans-unit>
+            <trans-unit id="element.message.properties.label">
+                <source>Message</source>
+            </trans-unit>
+            <trans-unit id="element.Form.renderingOptions.submitButtonLabel">
+                <source>Send</source>
+            </trans-unit>
+            <trans-unit id="element.Page.renderingOptions.previousButtonLabel">
+                <source>back</source>
+            </trans-unit>
+            <trans-unit id="element.Page.renderingOptions.nextButtonLabel">
+                <source>next</source>
+            </trans-unit>
+            <trans-unit id="element.SummaryPage.renderingOptions.previousButtonLabel">
+                <source>back</source>
+            </trans-unit>
+            <trans-unit id="element.SummaryPage.renderingOptions.nextButtonLabel">
+                <source>next</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject">
+                <source>Your request to DIGAS</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject">
+                <source>New request via DIGAS</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsers.finisher.Confirmation.message">
+                <source>Thanks for your message. We're getting back to you as soon as possible.</source>
+            </trans-unit>
+            <trans-unit id="statistic.filterForm.dateFrom">
+                <source>Filter from Date</source>
+            </trans-unit>
+            <trans-unit id="statistic.filterForm.dateTo">
+                <source>Filter to Date</source>
+            </trans-unit>
+            <trans-unit id="statistic.filterForm.filter">
+                <source>filter</source>
+            </trans-unit>
+            <trans-unit id="statistic.dateFrom.validationError">
+                <source>Given Date from ist not valid.</source>
+            </trans-unit>
+            <trans-unit id="statistic.dateTo.validationError">
+                <source>Given Date to is not valid.</source>
+            </trans-unit>
+            <trans-unit id="statistic.noRecordsFound">
+                <source>No statistic data found.</source>
+            </trans-unit>
+            <trans-unit id="statistic.table.document">
+                <source>Documents</source>
+            </trans-unit>
+            <trans-unit id="statistic.table.downloads">
+                <source>Downloads</source>
+            </trans-unit>
+            <trans-unit id="administration.listing.table.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="administration.listing.table.email">
+                <source>E-Mail</source>
+            </trans-unit>
+            <trans-unit id="administration.listing.table.userType">
+                <source>Account-Type</source>
+            </trans-unit>
+            <trans-unit id="administration.listing.table.actions">
+                <source>Actions</source>
+            </trans-unit>
+            <trans-unit id="administration.listing.table.privateUser">
+                <source>Private user</source>
+            </trans-unit>
+            <trans-unit id="administration.listing.table.institutionalUser">
+                <source>Institutional user</source>
+            </trans-unit>
+            <trans-unit id="search.entry.delete">
+                <source>delete</source>
+            </trans-unit>
+            <trans-unit id="search.deleted.confirm">
+                <source>Do you really want to delete the entry?</source>
+            </trans-unit>
+            <trans-unit id="search.deleted.success">
+                <source>Entry was deleted successfully</source>
+            </trans-unit>
+            <trans-unit id="search.created.success">
+                <source>Search was saved</source>
+            </trans-unit>
+            <trans-unit id="administration.resetSearch">
+                <source>Reset</source>
+            </trans-unit>
+            <trans-unit id="submitChangeEmail">
+                <source>Change e-mail-address</source>
+            </trans-unit>
+            <trans-unit id="administration.userStatus">
+                <source>Account-Status</source>
+            </trans-unit>
+            <trans-unit id="administration.userInactive">
+                <source>Inactive</source>
+            </trans-unit>
+            <trans-unit id="administration.userActive">
+                <source>Active</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.disable">
+                <source>Deactivate Account</source>
+            </trans-unit>
+            <trans-unit id="search.save.button">
+                <source>Save search</source>
+            </trans-unit>
+            <trans-unit id="search.save.title">
+                <source>Please assign a name for the search</source>
+            </trans-unit>
+            <trans-unit id="search">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="changeEmailStatus">
+                <source>Change e-mail</source>
+            </trans-unit>
+            <trans-unit id="emailChangedRequestWaitingForUserConfirm">
+                <source>Thank you for your request. Please check your mail account to confirm your e-mail-address.</source>
+            </trans-unit>
+			<trans-unit id="emailCreateUserConfirmationTextChangeMail">
+				<source>Please confirm your change of e-mail request on our server by clicking the following link:</source>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationLinkConfirmEmail">
+				<source>Confirm e-mail-address</source>
+			</trans-unit>
+            <trans-unit id="emailChangeUserConfirmationSubject">
+                <source>Please confirm your e-mail change request</source>
+            </trans-unit>
+            <trans-unit id="titleInvitationSetPassword">
+                <source>Please set a new password. It must include at least one uppercase and one special character.</source>
+            </trans-unit>
+            <trans-unit id="validationErrorPasswordUpperCaseSpecialChar">
+                <source>Please use at least one uppercase and one special character</source>
+            </trans-unit>
+            <trans-unit id="remindUnusedAccounts.email.message">
+                <source>You didn't login the last %s days. Please login in the next %s days to avoid the account deletion.</source>
+            </trans-unit>
+            <trans-unit id="remindUnusedAccounts.email.messageLogin">
+                <source>You can use this url to login again:</source>
+            </trans-unit>
+            <trans-unit id="remindUnusedAccounts.email.subject">
+                <source>[DiGAS FE Management] Inactive Warning</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

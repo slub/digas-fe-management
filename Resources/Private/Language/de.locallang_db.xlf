@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file target-language="de" datatype="plaintext" original="messages" date="2020-09-15T15:49:07Z" product-name="digas_fe_management">
+		<header/>
+		<body>
+			<trans-unit id="tx_femanager_domain_model_user.disable">
+				<source>Hidden</source>
+				<target>Aktiviert</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
+				<source>diverse</source>
+				<target>divers</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.old_account">
+				<source>Reference to old account after change of e-mail / username</source>
+				<target>Referenz auf alten Account nach Update E-Mail / Username</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company">
+				<source>Name of organization</source>
+				<target>Name der Organisation</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type">
+				<source>Type of organization</source>
+				<target>Art der Organisation</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item1">
+				<source>Company</source>
+				<target>Firma</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item2">
+				<source>University</source>
+				<target>Universtität</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item3">
+				<source>Research institute</source>
+				<target>Forschungseinrichtung</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type.item4">
+				<source>other</source>
+				<target>Sonstiges</target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.inactivemessage_tstamp">
+				<source>Inactive Message Date</source>
+				<target>Inaktivitätsmeldung Datum</target>
+			</trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.kitodo_feuser_access">
+                <source>Kitodo FE user access</source>
+                <target>Freigabe Katalog-IDs für Fremdnutzer</target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tab.kitodo">
+                <source>Kitodo</source>
+                <target>Kitodo</target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.saved_searches">
+                <source>Saved searches</source>
+                <target>Gespeicherte Suchen</target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tab.saved_searches">
+                <source>Saved searches</source>
+                <target>Gespeicherte Suchen</target>
+            </trans-unit>
+            <trans-unit id="flexform.main.title">
+                <source>Main Settings</source>
+                <target>Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="flexform.main.view">
+                <source>Choose View</source>
+                <target>Ansicht auswählen</target>
+            </trans-unit>
+            <trans-unit id="pleaseChoose">
+                <source>Please choose</source>
+                <source>Bitte wählen</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.savesearch">
+                <source>Save search</source>
+                <target>Suche speichern</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

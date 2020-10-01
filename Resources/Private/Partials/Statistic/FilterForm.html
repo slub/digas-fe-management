@@ -1,0 +1,15 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:form action="{action}" name="statistic" object="{filter}">
+    <f:form.hidden value="1" property="filter"/>
+    <label for="date-from" class="accessibility">
+        <f:translate key="statistic.filterForm.dateFrom"/>
+    </label>
+    <f:form.textfield id="date-from" type="date" value="{dateFrom}" property="dateFrom" additionalAttributes="{max: '{f:format.date(date: \'now\', format: \'Y-m-d\')}'}"/>
+
+    <label for="date-to" class="accessibility">
+        <f:translate key="statistic.filterForm.dateTo"/>
+    </label>
+    <f:form.textfield id="date-to" type="date" value="{dateTo}" property="dateTo" additionalAttributes="{max: '{f:format.date(date: \'now\', format: \'Y-m-d\')}'}"/>
+    <f:form.submit value="{f:translate(key:'statistic.filterForm.filter')}"/>
+</f:form>
+</html>

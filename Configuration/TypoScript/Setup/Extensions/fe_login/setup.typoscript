@@ -1,0 +1,7 @@
+plugin.tx_felogin_pi1 {
+    redirectPageLogin = {$femanager.pids.loginPage}
+    redirectPageLoginError = {$femanager.pids.loginPage}
+    redirectPageLogout = {$femanager.pids.loginPage}
+    redirectDisable = 0
+    newPasswordMinLength = 8
+}

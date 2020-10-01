@@ -1,0 +1,34 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"	xmlns:f="http://typo3.org/ns/fluid/ViewHelpers" >
+
+    <f:security.ifAuthenticated>
+        <f:switch expression="{step}">
+            <f:case value="2">
+                <f:render section="step2" arguments="{_all}"/>
+            </f:case>
+            <f:defaultCase>
+                <f:render section="step1" />
+            </f:defaultCase>
+        </f:switch>
+    </f:security.ifAuthenticated>
+
+    <f:section name="step1">
+        <f:link.action class="btn" arguments="{step:2}">
+            <f:translate key="extend.disable.button" />
+        </f:link.action>
+    </f:section>
+
+    <f:section name="step2">
+        <p>
+            <f:translate key="extend.disable.step2" />
+        </p>
+
+        <f:link.action class="btn" arguments="{disable:1}">
+            <f:translate key="extend.disable.button" />
+        </f:link.action>
+
+        <f:link.page class="btn">
+            <f:translate key="extend.disable.button.no" />
+        </f:link.page>
+
+    </f:section>
+</div>

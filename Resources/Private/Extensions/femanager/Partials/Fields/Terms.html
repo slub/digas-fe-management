@@ -1,0 +1,37 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_terms form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+            <div>
+                <f:translate key="{settings.languageFile}:tx_femanager_domain_model_user.terms.pre" />
+            </div>
+            <label class="checkbox">
+                <f:form.checkbox
+                        id="femanager_field_terms"
+                        property="terms"
+                        value="Terms and conditions"
+                        checked="false"
+                        additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'terms')}" />
+
+                <f:link.typolink parameter="{settings.misc.termsOfUseUid}" target="_blank">
+                    <f:translate key="{settings.languageFile}:tx_femanager_domain_model_user.terms" />
+                </f:link.typolink>
+
+                <f:if condition="{femanager:Validation.IsRequiredField(fieldName:'terms')}">
+                    <span>*</span>
+                </f:if>
+
+                <f:if condition="{settings.misc.termsUrl}">
+                    <f:then>
+                        <div>
+                            <f:translate key="{settings.languageFile}:tx_femanager_domain_model_user.terms.post" />
+                            <f:link.page pageUid="{settings.misc.termsUrl}" target="_blank">
+                                <f:translate key="{settings.languageFile}:tx_femanager_domain_model_user.termslinktext" />
+                            </f:link.page>
+                        </div>
+                    </f:then>
+                </f:if>
+            </label>
+        </div>
+    </div>
+</div>

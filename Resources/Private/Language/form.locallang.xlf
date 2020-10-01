@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-13T15:49:07Z" product-name="digas_fe_management">
+		<header/>
+		<body>
+			<trans-unit id="element.lastname.properties.label">
+                <source>Lastname</source>
+            </trans-unit>
+            <trans-unit id="element.firstname.properties.label">
+                <source>Firstname</source>
+            </trans-unit>
+            <trans-unit id="element.company.properties.label">
+                <source>Company / Organization</source>
+            </trans-unit>
+            <trans-unit id="element.email.properties.label">
+                <source>E-mail</source>
+            </trans-unit>
+            <trans-unit id="element.phone.properties.label">
+                <source>Telephone</source>
+            </trans-unit>
+            <trans-unit id="element.subject.properties.label">
+                <source>Subject</source>
+            </trans-unit>
+            <trans-unit id="element.message.properties.label">
+                <source>Message</source>
+            </trans-unit>
+            <trans-unit id="element.Form.renderingOptions.submitButtonLabel">
+                <source>Send</source>
+            </trans-unit>
+            <trans-unit id="element.Page.renderingOptions.previousButtonLabel">
+                <source>back</source>
+            </trans-unit>
+            <trans-unit id="element.Page.renderingOptions.nextButtonLabel">
+                <source>next</source>
+            </trans-unit>
+            <trans-unit id="element.SummaryPage.renderingOptions.previousButtonLabel">
+                <source>back</source>
+            </trans-unit>
+            <trans-unit id="element.SummaryPage.renderingOptions.nextButtonLabel">
+                <source>next</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject">
+                <source>Your request to DIGAS</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject">
+                <source>New request via DIGAS</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsers.finisher.Confirmation.message">
+                <source>Thanks for your message. We're getting back to you as soon as possible.</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsersLocal.finisher.EmailToSender.subject">
+                <source>Your request to DIGAS</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsersLocal.finisher.EmailToReceiver.subject">
+                <source>New request via DIGAS</source>
+            </trans-unit>
+            <trans-unit id="contactRegisteredUsersLocal.finisher.Confirmation.message">
+                <source>Thanks for your message. We're getting back to you as soon as possible.</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,28 @@
+#fe_login
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/fe_login/">
+
+#femanager
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:femanager/Configuration/TypoScript/Main/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/femanager/">
+
+#fe_change_pwd
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fe_change_pwd/Configuration/TypoScript/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/fe_change_pwd/">
+
+#form
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.typoscript">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/form/">
+
+#slub_web_digas
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/slub_web_digas/">
+
+#slub_web_digas
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/slub_web_digas/">
+
+#base configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/config/">
+
+#save search
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/search/">
+
+config.no_cache = 1

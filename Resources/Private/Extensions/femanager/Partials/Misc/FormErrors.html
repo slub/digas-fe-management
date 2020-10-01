@@ -1,0 +1,51 @@
+<f:comment>
+	PHP Validation Errormessages
+</f:comment>
+
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:form.validationResults for="{object}">
+	<f:if condition="{validationResults.flattenedErrors}">
+		<ul class="femanager_error">
+			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+				<f:for each="{errors}" as="error">
+					<li>
+						<f:if condition="{error.code} == 1221560718">
+							<f:then>
+								<f:comment>
+									If any required field in model was empty (normally username or password)
+								</f:comment>
+								<f:translate extensionName="femanager" key="validationErrorRequiredModel" />
+							</f:then>
+							<f:else>
+								<f:if condition="{error.code} == 1307719788">
+									<f:then>
+										<f:comment>
+											If given date format failed
+										</f:comment>
+										<f:translate key="validationErrorWrongDateFormat" />
+									</f:then>
+                                    <f:comment>
+                                        Custom Error message for password must include special chars, uppercase
+                                    </f:comment>
+                                    <f:else if="{customPasswordValidation} == 1 && {error.message} == 'validationErrorMustInclude' && {error.code} == 'password'">
+                                        <f:translate extensionName="femanager" key="tx_femanager_domain_model_user.{error.code}" />:
+                                        <f:translate extensionName="femanager" key="validationErrorPasswordUpperCaseSpecialChar"/>
+                                    </f:else>
+									<f:else>
+										<f:comment>
+											If a validator check (see TypoScript) failed
+										</f:comment>
+										<f:translate extensionName="femanager" key="tx_femanager_domain_model_user.{error.code}" />:
+										<f:format.printf arguments="{0: '{fieldname -> f:translate(key:\'tx_femanager_domain_model_user.{error.code}\')}'}">
+											<f:translate extensionName="femanager" key="{error.message}">{error.message}</f:translate>
+										</f:format.printf>
+									</f:else>
+								</f:if>
+							</f:else>
+						</f:if>
+					</li>
+				</f:for>
+			</f:for>
+		</ul>
+	</f:if>
+</f:form.validationResults>

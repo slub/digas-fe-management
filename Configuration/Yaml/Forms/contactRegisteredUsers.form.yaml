@@ -1,0 +1,100 @@
+
+identifier: contactRegisteredUsers
+label: contactRegisteredUsers
+type: Form
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: 'finisher.EmailToReceiver.subject'
+      recipientAddress: example@example.com
+      recipientName: 'Your company'
+      senderAddress: example@example.com
+      senderName: 'Your company'
+      replyToAddress: '{email}'
+      format: html
+      attachUploads: false
+      translation:
+        language: ''
+    identifier: EmailToReceiver
+  -
+    options:
+      subject: 'finisher.EmailToSender.subject'
+      recipientAddress: '{email}'
+      recipientName: '{firstname} {lastname}'
+      senderAddress: example@example.com
+      senderName: 'Your company'
+      replyToAddress: example@example.com
+      format: html
+      attachUploads: false
+    identifier: EmailToSender
+  -
+    options:
+      subject: 'finisher.Confirmation.message'
+    identifier: Confirmation
+renderables:
+  -
+    identifier: page-1
+    type: Page
+    renderables:
+      -
+        defaultValue: ''
+        identifier: lastname
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            disabled: disabled
+            autocomplete: off
+      -
+        defaultValue: ''
+        identifier: firstname
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            disabled: disabled
+            autocomplete: off
+      -
+        defaultValue: ''
+        identifier: company
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            disabled: disabled
+            autocomplete: off
+      -
+        defaultValue: ''
+        identifier: email
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            disabled: disabled
+            autocomplete: off
+      -
+        defaultValue: ''
+        identifier: phone
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            disabled: disabled
+            autocomplete: off
+      -
+        defaultValue: ''
+        identifier: subject
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            autocomplete: off
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        identifier: message
+        type: Textarea
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty

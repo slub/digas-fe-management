@@ -1,0 +1,12 @@
+<f:flashMessages />
+<div id="save-search-container">
+    <f:form action="create" id="save-search-form">
+        <f:form.textfield name="title"
+                          id="save-search-title"
+                          placeholder="{f:translate(key:'search.save.title')}"
+                          additionalAttributes="{required:'required'}"/>
+        <f:form.button class="btn" type="submit">
+            <f:translate key="search.save.button" />
+        </f:form.button>
+    </f:form>
+</div>

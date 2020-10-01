@@ -1,0 +1,22 @@
+<f:flashMessages />
+
+<f:if condition="{savedSearches}">
+    <ul class="digasfemanager--search-list">
+        <f:for each="{savedSearches}" as="search">
+            <li class="digasfemanager--search-list__item">
+                <f:link.page pageUid="{settings.pids.searchFormUid}" additionalParams="{tx_dlf:'{search.searchParams}'}">
+                    {search.title}
+                </f:link.page>
+                <br/>
+                <small>{search.crdate -> f:format.date(format:'{settings.search.dateFormat}')}</small>
+                |
+                <f:link.action action="delete"
+                               class="digasfemanager--search-list__delete-link"
+                               arguments="{token:'{token}',user:'{user}',search:'{search}'}"
+                               additionalAttributes="{onclick:'return confirm(\'{f:translate(key:\'search.deleted.confirm\')}\');'}">
+                    <small><f:translate key="search.entry.delete" /></small>
+                </f:link.action>
+            </li>
+        </f:for>
+    </ul>
+</f:if>

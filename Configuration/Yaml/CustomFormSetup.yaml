@@ -1,0 +1,20 @@
+TYPO3:
+  CMS:
+    Form:
+      prototypes:
+        standard:
+          formElementsDefinition:
+            Form:
+              renderingOptions:
+                translation:
+                  #configuration for TYPO3 v9.5
+                  translationFile:
+                    10: 'EXT:form/Resources/Private/Language/locallang.xlf'
+                    20: 'EXT:digas_fe_management/Resources/Private/Language/form.locallang.xlf'
+                  #configuration for TYPO3 v10.4
+                  translationFiles:
+                    10: 'EXT:form/Resources/Private/Language/locallang.xlf'
+                    20: 'EXT:digas_fe_management/Resources/Private/Language/form.locallang.xlf'
+      persistenceManager:
+        allowedExtensionPaths:
+          10: EXT:digas_fe_management/Configuration/Yaml/Forms/

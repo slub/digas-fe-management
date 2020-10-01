@@ -1,0 +1,32 @@
+page.includeJSFooter {
+    digasFeManagement_search = EXT:digas_fe_management/Resources/Public/Js/Classes/SaveSearch.js
+}
+
+saveSearchAjaxRequest = PAGE
+saveSearchAjaxRequest {
+    typeNum = 199988
+    config {
+        no_cache = 1
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+    }
+
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = DigasFeManagement
+        pluginName = Search
+        vendorName = Slub
+
+        switchableControllerActions {
+            Search {
+                1 = create
+            }
+        }
+        view < plugin.tx_digasfemanagement.view
+        persistence < plugin.tx_digasfemanagement.persistence
+        settings < plugin.tx_digasfemanagement.settings
+    }
+}
+

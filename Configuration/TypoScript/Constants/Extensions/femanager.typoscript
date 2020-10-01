@@ -1,0 +1,14 @@
+plugin.tx_femanager {
+    view {
+        templateRootPath = EXT:digas_fe_management/Resources/Private/Extensions/femanager/Templates/
+        partialRootPath = EXT:digas_fe_management/Resources/Private/Extensions/femanager/Partials/
+        layoutRootPath = EXT:digas_fe_management/Resources/Private/Extensions/femanager/Layouts/
+    }
+    settings {
+        uploadFolder =
+        jQuery = 0
+        bootstrap = 0
+        bootstrapCSS = 0
+        showResendUserConfirmationRequestView = 0
+    }
+}

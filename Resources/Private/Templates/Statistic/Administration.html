@@ -1,0 +1,23 @@
+{namespace dc=Slub\DigitalCollections\ViewHelpers}
+<f:layout name="Default"/>
+
+<f:section name="main">
+
+    <div class="fe-management-statistic">
+        <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
+
+        <f:render partial="Statistic/FilterForm" arguments="{dateFrom: '{dateFrom}', dateTo: '{dateTo}', action: 'administration'}"/>
+
+        <f:if condition="{statistic}">
+            <f:then>
+                <f:render partial="Statistic/Result" arguments="{_all}"/>
+            </f:then>
+            <f:else>
+                <div class="fe-management-statistic--note">
+                    <f:translate key="statistic.noRecordsFound"/>
+                </div>
+            </f:else>
+        </f:if>
+
+    </div>
+</f:section>

@@ -1,0 +1,9 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_disable form-group">
+	<label for="femanager_field_disable" class="col-sm-2 control-label">
+		<f:translate key="tx_femanager_domain_model_user.disable" />
+	</label>
+	<div class="col-sm-10">
+        <f:form.checkbox id="femanager_field_disable" property="disable" value="1" checked="{user.disable} == 1" class="form-control"/>
+	</div>
+</div>

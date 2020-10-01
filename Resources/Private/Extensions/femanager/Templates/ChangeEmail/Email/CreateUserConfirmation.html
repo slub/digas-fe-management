@@ -1,0 +1,24 @@
+<f:layout name="Email" />
+
+	Email / CreateUserConfirmation
+
+	This mail will be send to the user, to confirm his new profile.
+	It's only activated, if the user-confirm-checkbox in the flexform setting was checked.
+
+	Available variables:
+		{user} User Object
+		{hash} Hash to ensure authentication of link
+
+<f:section name="main">
+	<p><f:translate key="emailCreateUserConfirmationSalutation" /> {user.username},</p>
+
+	<p>
+		<f:translate key="emailCreateUserConfirmationTextChangeMail" />
+		<br>
+        <f:link.action pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmUserPid')}" action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, noSecondMail:'1', status:'userConfirmation'}">
+			<f:translate key="emailCreateUserConfirmationLinkConfirmEmail" />
+		</f:link.action>
+	</p>
+
+	<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
+</f:section>

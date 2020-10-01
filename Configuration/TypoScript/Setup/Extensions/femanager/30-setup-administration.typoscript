@@ -1,0 +1,34 @@
+plugin.tx_femanager {
+    settings {
+        showCompanyFields = 1
+
+        administration {
+            validation {
+                _enable.client = 0
+                _enable.server = 1
+
+                email.required = 0
+                password.required = 0
+                password_repeat.required = 0
+                username.required = 0
+
+                firstName.required = 1
+                lastName.required = 1
+                address.required = 1
+                zip.required = 1
+                city.required = 1
+                company.required = 0
+                company_type.required = 0
+            }
+        }
+
+        # Search Fields for Administration -> list
+        list {
+            filter {
+                searchword {
+                    fieldsToSearch = {$femanager.administration.fieldsToSearch}
+                }
+            }
+        }
+    }
+}

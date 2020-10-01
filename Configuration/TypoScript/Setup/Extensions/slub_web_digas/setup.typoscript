@@ -1,0 +1,33 @@
+page.10 {
+    templateRootPaths {
+        150 = EXT:digas_fe_management/Resources/Private/Extensions/slub_web_digas/Templates/
+    }
+
+    partialRootPaths {
+        150 = EXT:digas_fe_management/Resources/Private/Extensions/slub_web_digas/Partials/
+    }
+
+    layoutRootPaths {
+        150 = EXT:digas_fe_management/Resources/Private/Extensions/slub_web_digas/Layouts/
+    }
+}
+
+# Download Statistic
+downloadHelper = PAGE
+downloadHelper {
+    typeNum = 20182126
+
+    10 = USER_INT
+    10 {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = DigasFeManagement
+        pluginName = Statistic
+        vendorName = Slub
+
+        switchableControllerActions {
+            Statistic {
+                1 = downloadLink
+            }
+        }
+    }
+}

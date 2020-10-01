@@ -1,0 +1,39 @@
+plugin.tx_digasfemanagement {
+    view {
+        templateRootPaths {
+            0 = EXT:femanager/Resources/Private/Templates/
+            1 = {$plugin.tx_femanager.view.templateRootPath}
+            10 = EXT:digas_fe_management/Resources/Private/Templates/
+        }
+        partialRootPaths {
+            0 = EXT:femanager/Resources/Private/Partials/
+            1 = {$plugin.tx_femanager.view.partialRootPath}
+            10 = EXT:digas_fe_management/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            0 = EXT:femanager/Resources/Private/Layouts/
+            1 = {$plugin.tx_femanager.view.layoutRootPath}
+            10 = EXT:digas_fe_management/Resources/Private/Layouts/
+        }
+    }
+
+    persistence < plugin.tx_femanager.persistence
+    settings < plugin.tx_femanager.settings
+    settings {
+        pids {
+            rootPage = 1
+        }
+
+        search {
+            dateFormat = %d.%m.%y - %H:%M
+        }
+    }
+}
+
+page {
+    10 {
+        settings {
+            contactFormUid = {$femanager.pids.contactFormUid}
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:comment>
+<f:for each="{femanager:misc.explode(string:'{settings.new.currentUserFields}')}" as="field">
+    <f:if condition="{field} != 'usergroup'">
+        <f:then>
+            <f:form.textfield property="{field}" value="{currentUser.{field}}" />
+        </f:then>
+        <f:else>
+            <f:form.textfield property="{field}" value="{currentUser.{field}.0.uid}" />
+        </f:else>
+    </f:if>
+
+    {field}<br/>
+</f:for>
+</f:comment>
+<f:comment>
+<f:form.textfield property="oldUser" value="{currentUser.uid}" />
+</f:comment>

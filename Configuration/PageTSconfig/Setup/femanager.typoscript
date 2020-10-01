@@ -1,0 +1,11 @@
+tx_femanager {
+    flexForm {
+        new {
+            addFieldOptions {
+                companyType = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.company_type
+                disable = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.disable
+            }
+        }
+        edit < tx_femanager.flexForm.new
+    }
+}

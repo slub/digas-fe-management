@@ -1,0 +1,50 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"	xmlns:f="http://typo3.org/ns/fluid/ViewHelpers" >
+	<f:layout name="Default" />
+
+	<f:section name="main">
+        <f:if condition="{settings.edit.showDeleteLink}">
+            <f:then>
+                <f:render partial="Misc/DeleteLink" arguments="{_all}" />
+            </f:then>
+            <f:else>
+                <f:render partial="Misc/FlashMessages" arguments="{_all}" />
+                <f:render partial="Misc/FormErrors" arguments="{object:User}" />
+
+                <f:render section="Form" arguments="{_all}" />
+            </f:else>
+        </f:if>
+	</f:section>
+
+    <f:section name="Form">
+        <div class="femanager_edit">
+            <f:if condition="{user}">
+                <f:then>
+                    <f:form
+                        name="user"
+                        object="{user}"
+                        action="update"
+                        enctype="multipart/form-data"
+                        additionalAttributes="{data-femanager-plugin:data.uid}"
+                        class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
+
+                        <f:form.hidden name="token" value="{token}" />
+
+                        <f:if condition="{settings.edit.fields}">
+                            <f:for each="{femanager:misc.explode(string:'{settings.edit.fields}')}" as="field">
+                                <f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+                            </f:for>
+                            <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+                        </f:if>
+
+                    </f:form>
+                </f:then>
+                <f:else>
+                    <div class="femanager_note">
+                        <f:translate key="notLoggedIn" />
+                    </div>
+                </f:else>
+            </f:if>
+        </div>
+    </f:section>
+</div>
