@@ -8,8 +8,8 @@
 				<target>Aktiviert</target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
-				<source>diverse</source>
-				<target>divers</target>
+				<source>Diverse</source>
+				<target>Divers</target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.old_account">
 				<source>Reference to old account after change of e-mail / username</source>

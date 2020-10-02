@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
-				<source>diverse</source>
+				<source>Diverse</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.address">
 				<source>Street / Number</source>

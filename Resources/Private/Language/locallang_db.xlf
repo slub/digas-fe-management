@@ -7,7 +7,7 @@
 				<source>Hidden</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
-				<source>diverse</source>
+				<source>Diverse</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.old_account">
 				<source>Reference to old account after change of e-mail / username</source>
