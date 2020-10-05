@@ -213,6 +213,9 @@
             <trans-unit id="changeEmailStatus">
                 <source>Change e-mail</source>
             </trans-unit>
+			<trans-unit id="createRequestWaitingForUserConfirm">
+				<source>Thank you for your request. Please check your mail account to confirm the profile.</source>
+			</trans-unit>
             <trans-unit id="emailChangedRequestWaitingForUserConfirm">
                 <source>Thank you for your request. Please check your mail account to confirm your e-mail-address.</source>
             </trans-unit>

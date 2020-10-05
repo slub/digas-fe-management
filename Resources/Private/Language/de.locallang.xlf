@@ -291,6 +291,10 @@
                 <source>Change e-mail</source>
                 <target>E-Mail-Adresse ändern</target>
             </trans-unit>
+            <trans-unit id="createRequestWaitingForUserConfirm">
+                <source>Thank you for your request. Please check your mail account to confirm the profile.</source>
+                <target state="translated">Vielen Dank für Ihre Anfrage. Bitte überprüfen Sie Ihr E-Mail-Postfach und bestätigen Sie Ihre Registrierung.</target>
+            </trans-unit>
             <trans-unit id="emailChangedRequestWaitingForUserConfirm">
                 <source>Thank you for your request. Please check your mail account to confirm your e-mail-address.</source>
                 <target>Vielen Dank für Ihre Anfrage. Bitte überprüfen Sie Ihren E-Mail-Account um Ihre E-Mail-Adresse zu bestätigen.</target>
