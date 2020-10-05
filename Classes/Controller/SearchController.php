@@ -82,7 +82,7 @@ class SearchController extends AbstractController {
                 $arguments = $this->request->getArguments();
 
                 $searchRequest = new Search();
-                $title = $arguments['title'] ? $arguments['title'] : LocalizationUtility::translate('LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:search','DigasFeManagement').': '.strftime('%d.%m.%y - %H:%M');
+                $title = $arguments['title'] ? $arguments['title'] : LocalizationUtility::translate('search', 'DigasFeManagement').': '.strftime('%d.%m.%y - %H:%M');
 
                 $searchRequest->setTitle($title);
                 $searchRequest->setSearchParams($searchParams);
@@ -91,7 +91,7 @@ class SearchController extends AbstractController {
                 $this->searchRepository->add($searchRequest);
 
                 $statusMessage = LocalizationUtility::translate(
-                    'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:search.created.success',
+                    'search.created.success',
                     'DigasFeManagement'
                 );
 
@@ -119,7 +119,7 @@ class SearchController extends AbstractController {
             $this->searchRepository->remove($search);
             $this->addFlashMessage(
                 LocalizationUtility::translate(
-                    'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:search.deleted.success',
+                    'search.deleted.success',
                     'DigasFeManagement'
                 )
             );

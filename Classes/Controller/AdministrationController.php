@@ -169,7 +169,7 @@ class AdministrationController extends AbstractController
     protected function redirectIfDirtyObject(User $user)
     {
         if (!ObjectUtility::isDirtyObject($user)) {
-            $this->addFlashMessage(LocalizationUtility::translate('noChanges'), '', FlashMessage::NOTICE);
+            $this->addFlashMessage(LocalizationUtility::translate('noChanges', 'DigasFeManagement'), '', FlashMessage::NOTICE);
             $this->redirect('editUser');
         }
     }

@@ -104,7 +104,7 @@ class NewController extends \In2code\Femanager\Controller\NewController
     protected function createUserConfirmationRequest(\In2code\Femanager\Domain\Model\User $user)
     {
         $this->sendCreateUserConfirmationMail($user);
-        $this->addFlashMessage(LocalizationUtility::translate($this->settings['new']['changeEmail'] ? 'emailChangedRequestWaitingForUserConfirm' : 'createRequestWaitingForUserConfirm'));
+        $this->addFlashMessage(LocalizationUtility::translate($this->settings['new']['changeEmail'] ? 'emailChangedRequestWaitingForUserConfirm' : 'createRequestWaitingForUserConfirm', 'DigasFeManagement'));
         $this->redirectByAction('new', 'requestRedirect');
     }
 }

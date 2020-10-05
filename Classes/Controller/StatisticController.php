@@ -165,7 +165,7 @@ class StatisticController extends AbstractController
             $dateFrom = $filterParams['dateFrom'];
             $dateFromError = $dateValidator->validate($dateFrom);
             if ($dateFromError->hasErrors() === true) {
-                $this->addFlashMessage(LocalizationUtility::translate('statistic.dateFrom.validationError', 'digas_fe_management'), '', FlashMessage::ERROR);
+                $this->addFlashMessage(LocalizationUtility::translate('statistic.dateFrom.validationError', 'DigasFeManagement'), '', FlashMessage::ERROR);
             }
         }
 
@@ -173,7 +173,7 @@ class StatisticController extends AbstractController
             $dateTo = $filterParams['dateTo'];
             $dateToError = $dateValidator->validate($dateTo);
             if ($dateToError->hasErrors() === true) {
-                $this->addFlashMessage(LocalizationUtility::translate('statistic.dateTo.validationError', 'digas_fe_management'), '', FlashMessage::ERROR);
+                $this->addFlashMessage(LocalizationUtility::translate('statistic.dateTo.validationError', 'DigasFeManagement'), '', FlashMessage::ERROR);
             }
         }
 
