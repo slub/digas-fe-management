@@ -82,6 +82,7 @@ renderables:
         identifier: subject
         type: Text
         properties:
+          rows: 12
           fluidAdditionalAttributes:
             autocomplete: off
             required: required
