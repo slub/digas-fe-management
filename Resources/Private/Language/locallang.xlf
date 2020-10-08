@@ -61,16 +61,31 @@
 				<source>Cancel</source>
 			</trans-unit>
 			<trans-unit id="extend.disable.step2">
-				<source>Do you really want to deactivate your account</source>
+				<source>Do you really want to deactivate your account?</source>
 			</trans-unit>
-			<trans-unit id="administration.show.showUser">
+			<trans-unit id="administration.show.view">
 				<source>View</source>
 			</trans-unit>
-			<trans-unit id="administration.show.editUser">
+			<trans-unit id="administration.show.viewUser">
+				<source>View User Details</source>
+			</trans-unit>
+			<trans-unit id="administration.show.edit">
 				<source>Edit</source>
 			</trans-unit>
-			<trans-unit id="administration.show.deactivateUser">
+			<trans-unit id="administration.show.editUser">
+				<source>Edit User Details</source>
+			</trans-unit>
+			<trans-unit id="administration.show.deactivate">
 				<source>Deactivate</source>
+			</trans-unit>
+			<trans-unit id="administration.show.deactivateUser">
+				<source>Deactivate user account</source>
+			</trans-unit>
+			<trans-unit id="administration.show.activate">
+				<source>Activate</source>
+			</trans-unit>
+			<trans-unit id="administration.show.activateUser">
+				<source>Activate user account</source>
 			</trans-unit>
 			<trans-unit id="administration.show.UserDeactivateConfirmation">
 				<source>Do you really want to deactivate the user?</source>
@@ -79,7 +94,10 @@
                 <source>Administration</source>
             </trans-unit>
             <trans-unit id="tx_femanager_domain_model_log.state.10001">
-                <source>User with username "%s" deactivated</source>
+                <source>User with username "%s" deactivated.</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_log.state.10002">
+                <source>User with username "%s" activated.</source>
             </trans-unit>
             <trans-unit id="noChanges">
                 <source>No changes detected</source>

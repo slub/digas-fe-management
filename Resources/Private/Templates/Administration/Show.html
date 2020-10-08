@@ -12,8 +12,11 @@
 			<f:then>
                 <ul class="digas-fe-management-actions">
                     <li>
-                        <f:link.action action="editUser" arguments="{user:user}">
-                            <f:translate key="administration.show.editUser" />
+						<f:link.action
+							action="editUser"
+							title="{f:translate(key:'administration.show.editUser')}"
+							arguments="{user:user}">
+                            <f:translate key="administration.show.edit" />
                         </f:link.action>
                     </li>
                     <f:if condition="!{user.disable}">

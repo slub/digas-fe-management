@@ -11,7 +11,13 @@
     <tbody>
     <f:for each="{users}" as="user">
         <tr>
-            <td><f:link.action action="show" arguments="{user:user}">{user.firstName} {user.lastName}</f:link.action></td>
+            <td>
+                <f:link.action
+                    action="show"
+                    title="{f:translate(key:'administration.show.viewUser')}"
+                    arguments="{user:user}">{user.firstName} {user.lastName}
+                </f:link.action>
+            </td>
             <td>{user.email}</td>
             <td>
                 <f:if condition="{user.companyType} > 0">
@@ -29,25 +35,43 @@
                 <span class="digas-fe-management-administration-action">
                     <f:link.action
                         action="show"
+                        title="{f:translate(key:'administration.show.viewUser')}"
                         arguments="{user:user}">
                         <i class="icon-edit icon-white"></i>
-                        <f:translate key="administration.show.showUser"/>
+                        <f:translate key="administration.show.view"/>
                     </f:link.action>
                 </span>
+                <span>&nbsp;</span>
                 <span class="digas-fe-management-administration-action">
-                    <f:link.action action="editUser" arguments="{user:user}">
-                        <f:translate key="administration.show.editUser" />
+                    <f:link.action
+                        action="editUser"
+                        title="{f:translate(key:'administration.show.editUser')}"
+                        arguments="{user:user}">
+                        <f:translate key="administration.show.edit" />
                     </f:link.action>
                 </span>
+                <span>&nbsp;</span>
                 <f:if condition="!{user.disable}">
-                    <span class="digas-fe-management-administration-action">
-                    <f:link.action
-                        action="deactivateUser"
-                        arguments="{user:user}"
-                        additionalAttributes="{onclick:'return confirm(\'{f:translate(key:\'administration.show.UserDeactivateConfirmation\')}\');'}">
-                    <i class="icon-trash icon-white"></i>
-                    <f:translate key="administration.show.deactivateUser" />
-                </f:link.action>
+                    <f:then>
+                        <span class="digas-fe-management-administration-action">
+                        <f:link.action
+                            action="deactivateUser"
+                            title="{f:translate(key:'administration.show.deactivateUser')}"
+                            arguments="{user:user}">
+                        <i class="icon-trash icon-white"></i>
+                        <f:translate key="administration.show.deactivate" />
+                        </f:link.action>
+                    </f:then>
+                    <f:else>
+                        <span class="digas-fe-management-administration-action">
+                            <f:link.action
+                                action="deactivateUser"
+                                title="{f:translate(key:'administration.show.activateUser')}"
+                                arguments="{user:user, setActiveState:1}">
+                            <i class="icon-trash icon-white"></i>
+                            <f:translate key="administration.show.activate" />
+                            </f:link.action>
+                    </f:else>
                 </span>
                 </f:if>
             </td>

@@ -30,5 +30,6 @@ namespace Slub\DigasFeManagement\Domain\Model;
  */
 class Log extends \In2code\Femanager\Domain\Model\Log
 {
+    const STATUS_ADMINISTRATION_PROFILE_ACTIVATE = 10002;
     const STATUS_ADMINISTRATION_PROFILE_DEACTIVATE = 10001;
 }

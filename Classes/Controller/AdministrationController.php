@@ -129,24 +129,38 @@ class AdministrationController extends AbstractController
      * Deactivate fe_user
      *
      * @param User $user
+     * @param boolean $setActiveState
      * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException
      * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException
      */
-    public function deactivateUserAction(User $user)
+    public function deactivateUserAction(User $user, $setActiveState = false)
     {
         if (!empty($user)) {
             $this->signalSlotDispatcher->dispatch(__CLASS__, __FUNCTION__, [$user, $this]);
             LogUtility::log(Log::STATUS_ADMINISTRATION_PROFILE_DEACTIVATE, $user);
-            $flashMessageText = ExtbaseLocalizationUtility::translate(
-                'tx_femanager_domain_model_log.state.' . Log::STATUS_ADMINISTRATION_PROFILE_DEACTIVATE,
-                'digas_fe_management',
-                [$user->getEmail()]
-            );
+            if ($setActiveState) {
+                $flashMessageText = ExtbaseLocalizationUtility::translate(
+                    'tx_femanager_domain_model_log.state.' . Log::STATUS_ADMINISTRATION_PROFILE_ACTIVATE,
+                    'digas_fe_management',
+                    [$user->getEmail()]
+                );
+            } else {
+                $flashMessageText = ExtbaseLocalizationUtility::translate(
+                    'tx_femanager_domain_model_log.state.' . Log::STATUS_ADMINISTRATION_PROFILE_DEACTIVATE,
+                    'digas_fe_management',
+                    [$user->getEmail()]
+                );
+            }
             $this->addFlashMessage($flashMessageText);
 
             try {
-                $user->setDisable(true);
-                $user->setInactivemessageTstamp(new \DateTime());
+                if ($setActiveState) {
+                    $user->setDisable(false);
+                    $user->setInactivemessageTstamp(new \DateTime());
+                } else {
+                    $user->setDisable(true);
+                    $user->setInactivemessageTstamp(new \DateTime());
+                }
                 $this->userRepository->update($user);
                 $this->persistenceManager->persistAll();
 
