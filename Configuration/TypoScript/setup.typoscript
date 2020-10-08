@@ -24,5 +24,3 @@
 
 #save search
 <INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/search/">
-
-config.no_cache = 1

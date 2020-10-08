@@ -29,4 +29,3 @@ saveSearchAjaxRequest {
         settings < plugin.tx_digasfemanagement.settings
     }
 }
-
