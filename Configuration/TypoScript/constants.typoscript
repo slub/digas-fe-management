@@ -39,6 +39,9 @@ femanager {
     # cat=plugin.tx_digasfemanagement/; type=int; label=Uid for frontend users
     feUserGroup =
 
+    # cat=plugin.tx_digasfemanagement/; type=int; label=Group access for documents (comma separated group uids)
+    kitodoAccessGroups =
+
     administration {
         pids {
 
