@@ -1,7 +1,5 @@
 plugin.tx_femanager {
     settings {
-        showCompanyFields = 1
-
         administration {
             validation {
                 _enable.client = 0
@@ -32,3 +30,11 @@ plugin.tx_femanager {
         }
     }
 }
+
+[page["uid"] == {$femanager.administration.pids.editUserUid}]
+    plugin.tx_femanager {
+        settings {
+            showCompanyFields = 1
+        }
+    }
+[end]
