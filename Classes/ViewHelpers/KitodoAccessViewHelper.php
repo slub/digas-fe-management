@@ -25,6 +25,7 @@ namespace Slub\DigasFeManagement\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
@@ -70,23 +71,71 @@ class KitodoAccessViewHelper extends AbstractViewHelper
      */
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        $configurationManager = $objectManager->get('TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface');
-        $typoscriptConfiguration = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
-
-        //check general access
-        if (!empty($settings = $typoscriptConfiguration['plugin.']['tx_digasfemanagement.']['settings.'])) {
-            $kitodoGroupsAccess = array_intersect(explode(',', $GLOBALS['TSFE']->fe_user->user['usergroup']), explode(',', $typoscriptConfiguration['plugin.']['tx_digasfemanagement.']['settings.']['kitodoAccessGroups']));
+        //return false if no id is given
+        if(!isset($arguments['id'])) {
+            return false;
         }
 
+        //check group access - return TRUE if access by group is granted
+        if (!empty($settings = KitodoAccessViewHelper::getSettings())) {
+            $kitodoGroupsAccess = array_intersect(
+                explode(',', $GLOBALS['TSFE']->fe_user->user['usergroup']),
+                explode(',', $settings['kitodoAccessGroups'])
+            );
+        }
         if(!empty($kitodoGroupsAccess)) {
             return true;
         }
 
+        //fetch document by uid
+        $kitodoDocument = KitodoAccessViewHelper::getDlfDocument(intval($arguments['id']));
+
+        //check if document could be fetched
+        if($kitodoDocument===false) {
+            return false;
+        }
+
+        //check if document has public access
+        if($kitodoDocument['restrictions'] === 'ja' ) {
+            return true;
+        }
+
+        //check decided access for current fe-user
         if(GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user','isLoggedIn')) {
             $accessIds = explode("\r\n", $GLOBALS['TSFE']->fe_user->user['kitodo_feuser_access']);
-            return in_array($arguments['id'], $accessIds);
+            return in_array($kitodoDocument['record_id'], $accessIds);
         }
         return false;
+    }
+
+    /**
+     * get extension settings
+     *
+     * @return void
+     */
+    protected static function getSettings() {
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $configurationManager = $objectManager->get('TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface');
+        $typoScriptConfiguration = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+        return $typoScriptConfiguration['plugin.']['tx_digasfemanagement.']['settings.'];
+    }
+
+    /**
+     * fetch dlf document by uid
+     *
+     * @param int $uid
+     * @return void
+     */
+    protected static function getDlfDocument($uid) {
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getQueryBuilderForTable('tx_dlf_documents');
+
+        return $queryBuilder
+            ->select('record_id', 'restrictions')
+            ->from('tx_dlf_documents')
+            ->where(
+                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid))
+            )
+            ->execute()->fetch();
     }
 }
