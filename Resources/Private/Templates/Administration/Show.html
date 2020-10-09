@@ -10,14 +10,16 @@
 
 		<f:if condition="{user}">
 			<f:then>
-				<f:link.action
-					action="editUser"
-					class="btn"
-					title="{f:translate(key:'administration.show.editUser')}"
-					arguments="{user:user}">
-					<f:translate key="administration.show.edit" />
-				</f:link.action>
 				<ul class="digas-fe-management-actions">
+					<li>
+						<f:link.action
+							action="editUser"
+							class="btn"
+							title="{f:translate(key:'administration.show.editUser')}"
+							arguments="{user:user}">
+							<f:translate key="administration.show.edit" />
+						</f:link.action>
+					</li>
                     <f:if condition="!{user.disable}">
                         <li>
                             <f:link.action
@@ -85,17 +87,12 @@
 							<f:link.email email="{user.email}" />
 						</li>
 					</f:if>
-					<li>
-						<f:translate key="tx_femanager_domain_model_user.gender" extensionName="femanager" />:
-						<f:if condition="{user.gender} == 0">
-							<f:then>
-								<f:translate key="tx_femanager_domain_model_user.gender.item0" extensionName="femanager" />
-							</f:then>
-							<f:else>
-								<f:translate key="tx_femanager_domain_model_user.gender.item1" extensionName="femanager" />
-							</f:else>
-						</f:if>
-					</li>
+					<f:if condition="{user.gender}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.gender" extensionName="femanager" />:
+							<f:translate key="tx_femanager_domain_model_user.gender.item{user.gender}" />
+						</li>
+					</f:if>
 					<f:if condition="{user.dateOfBirth}">
 						<li>
 							<f:translate key="tx_femanager_domain_model_user.dateOfBirth" extensionName="femanager" />:

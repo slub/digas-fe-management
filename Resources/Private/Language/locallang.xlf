@@ -3,7 +3,16 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-13T15:49:07Z" product-name="digas_fe_management">
 		<header/>
 		<body>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item0">
+				<source>No Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item1">
+				<source>Female</source>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
+				<source>Male</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item3">
 				<source>Diverse</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.address">

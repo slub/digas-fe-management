@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-10-08T09:52:14Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-10-09T14:38:26Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -317,7 +317,19 @@
 				<source><![CDATA[Deactivate Account]]></source>
 				<target><![CDATA[Account deaktivieren]]></target>
 			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item0" approved="yes">
+				<source><![CDATA[No Answer]]></source>
+				<target><![CDATA[Keine Angabe]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item1" approved="yes">
+				<source><![CDATA[Female]]></source>
+				<target><![CDATA[weiblich]]></target>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item2" approved="yes">
+				<source><![CDATA[Male]]></source>
+				<target><![CDATA[männlich]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item3" approved="yes">
 				<source><![CDATA[Diverse]]></source>
 				<target><![CDATA[divers]]></target>
 			</trans-unit>

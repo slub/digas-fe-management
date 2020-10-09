@@ -47,7 +47,7 @@
 			</trans-unit>
 			<trans-unit id="pleaseChoose" approved="yes">
 				<source><![CDATA[Please choose]]></source>
-				<target><![CDATA[Array]]></target>
+				<target><![CDATA[Bitte wählen Sie aus]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state.10000" approved="yes">
 				<source><![CDATA[Administration]]></source>
@@ -85,7 +85,7 @@
 				<source><![CDATA[Hidden]]></source>
 				<target><![CDATA[Aktiviert]]></target>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.gender.item2" approved="yes">
+			<trans-unit id="tx_femanager_domain_model_user.gender.item3" approved="yes">
 				<source><![CDATA[Diverse]]></source>
 				<target><![CDATA[Divers]]></target>
 			</trans-unit>
