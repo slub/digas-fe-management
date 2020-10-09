@@ -5,12 +5,12 @@
 
 <f:section name="main">
 
-	<div class="femanager_show">
+	<div class="digas-admin-show">
 		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
 
 		<f:if condition="{user}">
 			<f:then>
-				<ul class="digas-fe-management-actions">
+				<ul class="actions">
 					<li>
 						<f:link.action
 							action="editUser"
@@ -20,20 +20,33 @@
 							<f:translate key="administration.show.edit" />
 						</f:link.action>
 					</li>
-                    <f:if condition="!{user.disable}">
-                        <li>
-                            <f:link.action
-                                action="deactivateUser"
-                                arguments="{user:user}"
-                                class="btn btn-warning btn-large"
-                                additionalAttributes="{onclick:'return confirm(\'{f:translate(key:\'administration.show.UserDeactivateConfirmation\')}\');'}">
-                                <i class="icon-trash icon-white"></i>
-                                <f:translate key="administration.show.deactivateUser" />
-                            </f:link.action>
-                        </li>
-                    </f:if>
+					<li>
+						<f:if condition="!{user.disable}">
+							<f:then>
+								<f:link.action
+									action="deactivateUser"
+									arguments="{user:user}"
+									title="{f:translate(key:'administration.show.deactivateUser')}"
+									class="btn btn-warning btn-large"
+									additionalAttributes="{onclick:'return confirm(\'{f:translate(key:\'administration.show.UserDeactivateConfirmation\')}\');'}">
+									<i class="icon-trash icon-white"></i>
+									<f:translate key="administration.show.deactivateUser" />
+								</f:link.action>
+							</f:then>
+							<f:else>
+								<f:link.action
+									action="deactivateUser"
+									arguments="{user:user, setActiveState:1}"
+									title="{f:translate(key:'administration.show.activateUser')}"
+									class="btn btn-warning btn-large">
+									<i class="icon-trash icon-white"></i>
+									<f:translate key="administration.show.activate" />
+								</f:link.action>
+							</f:else>
+						</f:if>
+					</li>
                 </ul>
-				<ul class="account account-type">
+				<ul class="account-type">
                     <li>
                         <f:translate key="administration.listing.table.userType"/>:
                         <f:if condition="{user.companyType} > 0">
@@ -56,7 +69,7 @@
                         </li>
 					</f:if>
 				</ul>
-				<ul class="account user-details">
+				<ul class="user-details">
 					<f:if condition="{user.username}">
 						<li>
 							<f:translate key="tx_femanager_domain_model_user.username" extensionName="femanager" />:
