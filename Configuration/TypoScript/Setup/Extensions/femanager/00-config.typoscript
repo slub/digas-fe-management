@@ -62,6 +62,7 @@ plugin.tx_femanager {
             pids {
                 createInstitutional = {$femanager.administration.pids.createInstitutional}
                 createPrivate = {$femanager.administration.pids.createPrivate}
+                editUserUid = {$femanager.administration.pids.editUserUid}
             }
         }
 
