@@ -67,18 +67,6 @@ class StatisticController extends AbstractController
             return $this->redirectToUri($uri);
         }
 
-        //test, if access is granted
-        $arguments = GeneralUtility::_GP('tx_dlf');
-        $accessIds = explode("\r\n", $this->user->getKitodoFeuserAccess());
-        if(!in_array($arguments['id'], $accessIds)) {
-            $uriBuilder = $this->uriBuilder;
-            $uri = $uriBuilder
-                    ->setTargetPageUid($this->settings['pids']['contactFormUid'])
-                    ->setArguments(['gp-id' => $arguments['id']])
-                    ->build();
-            return $this->redirectToUri($uri);
-        }
-
         $statisticEntry = new Statistic();
 
         $statisticEntry->setFeUser($this->user);
