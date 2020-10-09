@@ -39,6 +39,9 @@ femanager {
     # cat=plugin.tx_digasfemanagement/; type=int; label=Uid for frontend users
     feUserGroup =
 
+    # cat=plugin.tx_digasfemanagement/; type=int; label=Group access for documents (comma separated group uids)
+    kitodoAccessGroups =
+
     administration {
         pids {
 
@@ -47,6 +50,9 @@ femanager {
 
             # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of admin create private user plugin
             createPrivate =
+
+            # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of admin list,edit,view plugin
+            editUserUid =
         }
 
         #  cat=plugin.tx_digasfemanagement/; type=string; label=Listing View - Administration user search fields (possible values are address, city, company, country, email, fax, first_name, image, last_name, middle_name, name, telephone, title, usergroup.title, username, www, zip)

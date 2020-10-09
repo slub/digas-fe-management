@@ -27,6 +27,8 @@ plugin.tx_digasfemanagement {
         search {
             dateFormat = %d.%m.%y - %H:%M
         }
+
+        kitodoAccessGroups = {$femanager.kitodoAccessGroups}
     }
 }
 

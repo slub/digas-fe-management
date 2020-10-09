@@ -25,6 +25,8 @@ namespace Slub\DigasFeManagement\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Core\Context\Context;
@@ -68,6 +70,19 @@ class KitodoAccessViewHelper extends AbstractViewHelper
      */
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $configurationManager = $objectManager->get('TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface');
+        $typoscriptConfiguration = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+
+        //check general access
+        if (!empty($settings = $typoscriptConfiguration['plugin.']['tx_digasfemanagement.']['settings.'])) {
+            $kitodoGroupsAccess = array_intersect(explode(',', $GLOBALS['TSFE']->fe_user->user['usergroup']), explode(',', $typoscriptConfiguration['plugin.']['tx_digasfemanagement.']['settings.']['kitodoAccessGroups']));
+        }
+
+        if(!empty($kitodoGroupsAccess)) {
+            return true;
+        }
+
         if(GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user','isLoggedIn')) {
             $accessIds = explode("\r\n", $GLOBALS['TSFE']->fe_user->user['kitodo_feuser_access']);
             return in_array($arguments['id'], $accessIds);
