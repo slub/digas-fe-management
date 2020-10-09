@@ -106,19 +106,57 @@ class StatisticController extends AbstractController
      */
     public function viewAction()
     {
+        if (!$this->user) {
+            // if no logged in user is present, the plugin will fail --> abort
+            return false;
+        }
+
         $requestMethod = $this->request->getMethod();
         $filterSubmit = $this->request->hasArgument('statistic');
 
         if ($requestMethod === 'POST' && $filterSubmit === true) {
             $filterParams = $this->request->getArgument('statistic');
             $statisticFilter = $this->validateStatisticFilter($filterParams);
-
             $statistic = $this->statisticRepository->findForFilter($statisticFilter['dateFrom'], $statisticFilter['dateTo'], $this->user->getUid());
         } else {
             $statistic = $this->statisticRepository->findForStatistic($this->user->getUid());
         }
 
         $this->view->assignMultiple([
+            'statistic' => $statistic,
+            'dateFrom' => $statisticFilter['dateFrom'] ?? null,
+            'dateTo' => $statisticFilter['dateTo'] ?? date('Y-m-d')
+        ]);
+    }
+
+    /**
+     * View single user statistic action
+     *
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
+     */
+    public function viewSingleAction()
+    {
+        $requestMethod = $this->request->getMethod();
+        $filterSubmit = $this->request->hasArgument('statistic');
+
+        $adminRequest = GeneralUtility::_GP('tx_digasfemanagement_administration');
+
+        if ($adminRequest['user'] > 0) {
+            $userId = $adminRequest['user'];
+        } else {
+            return false;
+        }
+
+        if ($requestMethod === 'POST' && $filterSubmit === true) {
+            $filterParams = $this->request->getArgument('statistic');
+            $statisticFilter = $this->validateStatisticFilter($filterParams);
+            $statistic = $this->statisticRepository->findForFilter($statisticFilter['dateFrom'], $statisticFilter['dateTo'], $userId);
+        } else {
+            $statistic = $this->statisticRepository->findForStatistic($userId);
+        }
+
+        $this->view->assignMultiple([
+            'userId' => $userId,
             'statistic' => $statistic,
             'dateFrom' => $statisticFilter['dateFrom'] ?? null,
             'dateTo' => $statisticFilter['dateTo'] ?? date('Y-m-d')

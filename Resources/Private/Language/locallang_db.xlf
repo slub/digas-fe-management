@@ -73,6 +73,9 @@
             <trans-unit id="flexform.main.view.userStatistic">
                 <source>User Statistic</source>
             </trans-unit>
+            <trans-unit id="flexform.main.view.userAdminStatistic">
+                <source>Single User Statistic for Admins</source>
+            </trans-unit>
             <trans-unit id="flexform.main.view.adminStatistic">
                 <source>Admin Statistic</source>
             </trans-unit>

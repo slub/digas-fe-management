@@ -1,6 +1,12 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 <f:form action="{action}" name="statistic" object="{filter}">
     <f:form.hidden value="1" property="filter"/>
+    <f:if condition="{userId}">
+        <f:comment><!-- helper to show viewSingle on administration detail page --></f:comment>
+        <input type="hidden" value="show" name="tx_digasfemanagement_administration[action]" />
+        <input type="hidden" value="Administration" name="tx_digasfemanagement_administration[controller]" />
+        <input type="hidden" value="{userId}" name="tx_digasfemanagement_administration[user]" />
+    </f:if>
     <label for="date-from" class="accessibility">
         <f:translate key="statistic.filterForm.dateFrom"/>
     </label>
