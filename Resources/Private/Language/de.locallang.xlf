@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-10-09T14:38:26Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-10-12T14:36:46Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -360,6 +360,10 @@
 			<trans-unit id="tx_femanager_domain_model_user.termslinktext" approved="yes">
 				<source><![CDATA[data protection declaration]]></source>
 				<target><![CDATA[Datenschutzerklärung]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.usergroup" approved="yes">
+				<source><![CDATA[Usergroup]]></source>
+				<target><![CDATA[Nutzergruppe]]></target>
 			</trans-unit>
 			<trans-unit id="validationErrorPasswordUpperCaseSpecialChar" approved="yes">
 				<source><![CDATA[Please use at least one uppercase and one special character]]></source>

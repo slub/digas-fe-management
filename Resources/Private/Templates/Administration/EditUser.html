@@ -32,6 +32,8 @@
                             <f:render partial="Fields/LastName" arguments="{_all}" />
                             <f:render partial="Fields/Gender" arguments="{_all}" />
 
+                            <f:render partial="Fields/Usergroup" arguments="{_all}" />
+
                             <f:if condition="{user.companyType} > 0">
                                 <f:render partial="Fields/Company" arguments="{_all}" />
                                 <f:render partial="Fields/AdministrationCompanyType" arguments="{_all}" />

@@ -57,6 +57,9 @@
             <trans-unit id="tx_femanager_domain_model_user.tab.kitodo">
                 <source>Kitodo</source>
             </trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.usergroup">
+				<source>Usergroup</source>
+			</trans-unit>
             <trans-unit id="kitodo_feuser_access.subject">
                 <source>Release request for catalog ID:</source>
             </trans-unit>
