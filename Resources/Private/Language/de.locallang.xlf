@@ -201,12 +201,12 @@
 				<source><![CDATA[[DiGAS FE Management] Inactive Warning]]></source>
 				<target><![CDATA[[DiGAS FE Management] Inaktivitätswarnung]]></target>
 			</trans-unit>
-			<trans-unit id="remindUnusedAccounts.message" approved="yes">
-				<source><![CDATA[]]></source>
+			<trans-unit id="remindUnusedAccounts.email.message" approved="yes">
+				<source><![CDATA[You didn't login the last %s days. Please login in the next %s days to avoid the account deletion.]]></source>
 				<target><![CDATA[Sie haben Ihren Account in den letzten %s Tagen nicht genutzt. Bitte loggen Sie sich in Ihr Benunutzerkonto innerhalb der nächsten %s Tage ein, um eine Account-Löschung zu vermeiden.]]></target>
 			</trans-unit>
-			<trans-unit id="remindUnusedAccounts.messageLogin" approved="yes">
-				<source><![CDATA[]]></source>
+			<trans-unit id="remindUnusedAccounts.email.messageLogin" approved="yes">
+				<source><![CDATA[You can use this url to login again:]]></source>
 				<target><![CDATA[Sie können sich über folgende Url wieder anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="search" approved="yes">
