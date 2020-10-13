@@ -99,7 +99,8 @@ class AdministrationController extends AbstractController
             }
             $this->view->assignMultiple([
                 'user' => $user,
-                'token' => $token
+                'token' => $token,
+                'allUserGroups' => $this->userGroupRepository->findAllForFrontendSelection('')
             ]);
             $this->assignForAll();
         }

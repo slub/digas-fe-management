@@ -6,7 +6,16 @@
 			<trans-unit id="tx_femanager_domain_model_user.disable">
 				<source>Hidden</source>
 			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item0">
+				<source>No Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item1">
+				<source>Female</source>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
+				<source>Male</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item3">
 				<source>Diverse</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.old_account">
@@ -72,6 +81,9 @@
             </trans-unit>
             <trans-unit id="flexform.main.view.userStatistic">
                 <source>User Statistic</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view.userAdminStatistic">
+                <source>Single User Statistic for Admins</source>
             </trans-unit>
             <trans-unit id="flexform.main.view.adminStatistic">
                 <source>Admin Statistic</source>

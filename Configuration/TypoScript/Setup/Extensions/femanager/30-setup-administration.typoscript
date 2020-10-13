@@ -10,6 +10,7 @@ plugin.tx_femanager {
                 password_repeat.required = 0
                 username.required = 0
 
+                usergroup.required = 1
                 firstName.required = 1
                 lastName.required = 1
                 address.required = 1

@@ -51,19 +51,18 @@
                     </f:link.action>
                 </span>
                 <span>&nbsp;</span>
-                <f:if condition="!{user.disable}">
-                    <f:then>
-                        <span class="digas-fe-management-administration-action">
-                        <f:link.action
-                            action="deactivateUser"
-                            title="{f:translate(key:'administration.show.deactivateUser')}"
-                            arguments="{user:user}">
-                        <i class="icon-trash icon-white"></i>
-                        <f:translate key="administration.show.deactivate" />
-                        </f:link.action>
-                    </f:then>
-                    <f:else>
-                        <span class="digas-fe-management-administration-action">
+                <span class="digas-fe-management-administration-action">
+                    <f:if condition="!{user.disable}">
+                        <f:then>
+                            <f:link.action
+                                action="deactivateUser"
+                                title="{f:translate(key:'administration.show.deactivateUser')}"
+                                arguments="{user:user}">
+                            <i class="icon-trash icon-white"></i>
+                            <f:translate key="administration.show.deactivate" />
+                            </f:link.action>
+                        </f:then>
+                        <f:else>
                             <f:link.action
                                 action="deactivateUser"
                                 title="{f:translate(key:'administration.show.activateUser')}"

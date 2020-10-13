@@ -3,12 +3,12 @@
 //add gender "diverse" to selection
 $GLOBALS['TCA']['fe_users']['columns']['gender']['config']['items'] = [
     [
-        'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
+        'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:' .
         'tx_femanager_domain_model_user.gender.item0',
         '0'
     ],
     [
-        'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
+        'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:' .
         'tx_femanager_domain_model_user.gender.item1',
         '1'
     ],
@@ -16,6 +16,11 @@ $GLOBALS['TCA']['fe_users']['columns']['gender']['config']['items'] = [
         'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:' .
         'tx_femanager_domain_model_user.gender.item2',
         '2'
+    ],
+    [
+        'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:' .
+        'tx_femanager_domain_model_user.gender.item3',
+        '3'
     ]
 ];
 

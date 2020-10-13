@@ -3,6 +3,7 @@ tx_femanager {
         new {
             addFieldOptions {
                 companyType = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.company_type
+                kitodoFeuserAccess = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.kitodo_feuser_access
                 disable = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.disable
             }
         }

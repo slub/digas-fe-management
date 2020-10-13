@@ -71,37 +71,38 @@ class KitodoAccessViewHelper extends AbstractViewHelper
      */
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
-        //return false if no id is given
-        if(!isset($arguments['id'])) {
+        // return false if no id is given
+        if (!isset($arguments['id'])) {
             return false;
         }
 
-        //check group access - return TRUE if access by group is granted
+        // check group access - return TRUE if access by group is granted
         if (!empty($settings = KitodoAccessViewHelper::getSettings())) {
             $kitodoGroupsAccess = array_intersect(
                 explode(',', $GLOBALS['TSFE']->fe_user->user['usergroup']),
                 explode(',', $settings['kitodoAccessGroups'])
             );
         }
-        if(!empty($kitodoGroupsAccess)) {
+        if (!empty($kitodoGroupsAccess)) {
             return true;
         }
 
-        //fetch document by uid
+        // fetch document by uid
         $kitodoDocument = KitodoAccessViewHelper::getDlfDocument(intval($arguments['id']));
 
-        //check if document could be fetched
-        if($kitodoDocument===false) {
+        // check if document could be fetched
+        if ($kitodoDocument === false) {
             return false;
         }
 
-        //check if document has public access
-        if($kitodoDocument['restrictions'] === 'ja' ) {
+        // check if document has public access
+        // restrictions === 'nein' means, there are no restrictions.
+        if ($kitodoDocument['restrictions'] === 'nein' ) {
             return true;
         }
 
-        //check decided access for current fe-user
-        if(GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user','isLoggedIn')) {
+        // check decided access for current fe-user
+        if (GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user','isLoggedIn')) {
             $accessIds = explode("\r\n", $GLOBALS['TSFE']->fe_user->user['kitodo_feuser_access']);
             return in_array($kitodoDocument['record_id'], $accessIds);
         }

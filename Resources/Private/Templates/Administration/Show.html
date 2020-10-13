@@ -5,34 +5,48 @@
 
 <f:section name="main">
 
-	<div class="femanager_show">
+	<div class="digas-admin-show">
 		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
 
 		<f:if condition="{user}">
 			<f:then>
-                <ul class="digas-fe-management-actions">
-                    <li>
+				<ul class="actions">
+					<li>
 						<f:link.action
 							action="editUser"
+							class="btn"
 							title="{f:translate(key:'administration.show.editUser')}"
 							arguments="{user:user}">
-                            <f:translate key="administration.show.edit" />
-                        </f:link.action>
-                    </li>
-                    <f:if condition="!{user.disable}">
-                        <li>
-                            <f:link.action
-                                action="deactivateUser"
-                                arguments="{user:user}"
-                                class="btn btn-warning btn-large"
-                                additionalAttributes="{onclick:'return confirm(\'{f:translate(key:\'administration.show.UserDeactivateConfirmation\')}\');'}">
-                                <i class="icon-trash icon-white"></i>
-                                <f:translate key="administration.show.deactivateUser" />
-                            </f:link.action>
-                        </li>
-                    </f:if>
+							<f:translate key="administration.show.edit" />
+						</f:link.action>
+					</li>
+					<li>
+						<f:if condition="!{user.disable}">
+							<f:then>
+								<f:link.action
+									action="deactivateUser"
+									arguments="{user:user}"
+									title="{f:translate(key:'administration.show.deactivateUser')}"
+									class="btn btn-warning btn-large"
+									additionalAttributes="{onclick:'return confirm(\'{f:translate(key:\'administration.show.UserDeactivateConfirmation\')}\');'}">
+									<i class="icon-trash icon-white"></i>
+									<f:translate key="administration.show.deactivateUser" />
+								</f:link.action>
+							</f:then>
+							<f:else>
+								<f:link.action
+									action="deactivateUser"
+									arguments="{user:user, setActiveState:1}"
+									title="{f:translate(key:'administration.show.activateUser')}"
+									class="btn btn-warning btn-large">
+									<i class="icon-trash icon-white"></i>
+									<f:translate key="administration.show.activate" />
+								</f:link.action>
+							</f:else>
+						</f:if>
+					</li>
                 </ul>
-				<ul>
+				<ul class="account-type">
                     <li>
                         <f:translate key="administration.listing.table.userType"/>:
                         <f:if condition="{user.companyType} > 0">
@@ -47,6 +61,15 @@
                             <f:else><f:translate key="administration.userActive"/></f:else>
                         </f:if>
                     </li>
+                    <f:if condition="{user.inactiveMessageTstamp}">
+                        <li>
+                            <f:translate key="tx_femanager_domain_model_user.inactivemessage_tstamp"/>:
+                            <f:format.date format="%d. %B %Y">{user.inactiveMessageTstamp}</f:format.date>
+
+                        </li>
+					</f:if>
+				</ul>
+				<ul class="user-details">
 					<f:if condition="{user.username}">
 						<li>
 							<f:translate key="tx_femanager_domain_model_user.username" extensionName="femanager" />:
@@ -77,17 +100,12 @@
 							<f:link.email email="{user.email}" />
 						</li>
 					</f:if>
-					<li>
-						<f:translate key="tx_femanager_domain_model_user.gender" extensionName="femanager" />:
-						<f:if condition="{user.gender} == 0">
-							<f:then>
-								<f:translate key="tx_femanager_domain_model_user.gender.item0" extensionName="femanager" />
-							</f:then>
-							<f:else>
-								<f:translate key="tx_femanager_domain_model_user.gender.item1" extensionName="femanager" />
-							</f:else>
-						</f:if>
-					</li>
+					<f:if condition="{user.gender}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.gender" extensionName="femanager" />:
+							<f:translate key="tx_femanager_domain_model_user.gender.item{user.gender}" />
+						</li>
+					</f:if>
 					<f:if condition="{user.dateOfBirth}">
 						<li>
 							<f:translate key="tx_femanager_domain_model_user.dateOfBirth" extensionName="femanager" />:
@@ -133,17 +151,7 @@
                             </f:for>
                         </li>
                     </f:if>
-                    <f:if condition="{user.inactiveMessageTstamp}">
-                        <li>
-                            <f:translate key="tx_femanager_domain_model_user.inactivemessage_tstamp"/>:
-                            <f:format.date format="%d. %B %Y">{user.inactiveMessageTstamp}</f:format.date>
-
-                        </li>
-                    </f:if>
 				</ul>
-				<f:for each="{user.image}" as="image">
-					<f:image image="{image}" width="250" />
-				</f:for>
 			</f:then>
 			<f:else>
 				<div class="femanager_note">

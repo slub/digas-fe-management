@@ -31,6 +31,10 @@
                                         <numIndex index="0">LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:flexform.main.view.adminStatistic</numIndex>
                                         <numIndex index="1">Statistic->administration;</numIndex>
                                     </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:flexform.main.view.userAdminStatistic</numIndex>
+                                        <numIndex index="1">Statistic->viewSingle;</numIndex>
+                                    </numIndex>
 								</items>
 								<maxitems>1</maxitems>
 								<size>1</size>

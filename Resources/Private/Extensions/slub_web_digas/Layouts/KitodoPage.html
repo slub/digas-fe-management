@@ -10,24 +10,20 @@
         check if access on certain document id is granted
         -->
     </f:comment>
-
     <f:if condition="{digas:kitodoAccess(id:gp-id)}">
         <f:then>
-         <f:render section="ControlBar" partial="ControlBar" arguments="{_all}" />
-        <!--TYPO3SEARCH_begin-->
-        <f:render section="PageView" partial="PageView" arguments="{_all}" />
-        <!--TYPO3SEARCH_end-->
+            <f:render section="ControlBar" partial="ControlBar" arguments="{_all}" />
+            <!--TYPO3SEARCH_begin-->
+            <f:render section="PageView" partial="PageView" arguments="{_all}" />
+            <!--TYPO3SEARCH_end-->
         </f:then>
         <f:else>
-
             <f:comment>
                 <!--
                 redirect to pre-filled contact form if access is not granted
                 -->
             </f:comment>
-
-            <digas:redirect pageUid="{settings.contactFormUid}" additionalParams="{gp-id:'{gp-id}'}" />
-
+            <digas:redirect pageUid="{settings.contactFormUid}" additionalParams="{gp-id:'{dc:xpath(xpath:\'(//mods:recordIdentifier[@source=\"LfULG\"])\')}'}" />
         </f:else>
     </f:if>
 </div>

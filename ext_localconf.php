@@ -71,10 +71,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
     'Slub.DigasFeManagement',
     'Statistic',
     [
-        'Statistic' => 'downloadLink,view,administration'
+        'Statistic' => 'downloadLink,view,viewSingle,administration'
     ],
     [
-        'Statistic' => 'downloadLink,view,administration'
+        'Statistic' => 'downloadLink,view,viewSingle,administration'
     ]
 );
 

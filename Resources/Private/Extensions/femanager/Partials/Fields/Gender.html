@@ -10,21 +10,21 @@
 		<div class="radio">
 			<label>
 				<f:form.radio
-						id="femanager_field_gender1"
-						property="gender"
-						value="1"
-						additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
-				<f:translate key="tx_femanager_domain_model_user.gender.item1" extensionName="femanager" />
+                    id="femanager_field_gender0"
+                    property="gender"
+                    value="0"
+                    additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
+                <f:translate key="tx_femanager_domain_model_user.gender.item0" extensionName="DigasFeManagement" />
 			</label>
 		</div>
         <div class="radio">
             <label>
                 <f:form.radio
-                    id="femanager_field_gender0"
+                    id="femanager_field_gender1"
                     property="gender"
-                    value="0"
+                    value="1"
                     additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
-                <f:translate key="tx_femanager_domain_model_user.gender.item0" extensionName="femanager" />
+                <f:translate key="tx_femanager_domain_model_user.gender.item1" extensionName="DigasFeManagement" />
             </label>
         </div>
         <div class="radio">
@@ -34,8 +34,18 @@
                     property="gender"
                     value="2"
                     additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
-                <f:translate key="{settings.languageFile}:tx_femanager_domain_model_user.gender.item2" />
+                <f:translate key="tx_femanager_domain_model_user.gender.item2" extensionName="DigasFeManagement" />
             </label>
         </div>
+		<div class="radio">
+			<label>
+				<f:form.radio
+                    id="femanager_field_gender3"
+                    property="gender"
+                    value="3"
+                    additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
+                <f:translate key="tx_femanager_domain_model_user.gender.item3" extensionName="DigasFeManagement" />
+			</label>
+		</div>
 	</div>
 </div>

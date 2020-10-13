@@ -5,7 +5,7 @@
     <div class="fe-management-statistic">
         <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
 
-        <f:render partial="Statistic/FilterForm" arguments="{dateFrom: '{dateFrom}', dateTo: '{dateTo}', action: 'view'}"/>
+        <f:render partial="Statistic/FilterForm" arguments="{dateFrom: '{dateFrom}', dateTo: '{dateTo}', action: 'viewSingle', userId: '{userId}'}"/>
 
         <f:if condition="{statistic}">
             <f:then>
