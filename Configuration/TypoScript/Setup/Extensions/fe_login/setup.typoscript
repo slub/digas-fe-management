@@ -4,4 +4,9 @@ plugin.tx_felogin_pi1 {
     redirectPageLogout = {$femanager.pids.loginPage}
     redirectDisable = 0
     newPasswordMinLength = 8
+
+    _LOCAL_LANG {
+        de.username = Email-Adresse
+        default.username = Email-Address
+    }
 }
