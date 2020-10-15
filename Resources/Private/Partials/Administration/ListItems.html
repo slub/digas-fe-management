@@ -21,8 +21,13 @@
             <td>{user.email}</td>
             <td>
                 <f:if condition="{user.companyType} > 0">
-                    <f:then><f:translate key="administration.listing.table.institutionalUser"/></f:then>
-                    <f:else><f:translate key="administration.listing.table.privateUser"/></f:else>
+                    <f:then>
+                            <f:translate key="tx_femanager_domain_model_user.company_type.item{user.companyType}"/> <br />
+                            {user.company}
+                    </f:then>
+                    <f:else>
+                        <f:translate key="administration.listing.table.privateUser"/>
+                    </f:else>
                 </f:if>
             </td>
             <td>
