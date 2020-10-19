@@ -8,9 +8,9 @@ finishers:
     options:
       subject: 'finisher.EmailToReceiver.subject'
       recipientAddress: example@example.com
-      recipientName: 'Your company'
+      recipientName: 'LfULG DiGAS'
       senderAddress: example@example.com
-      senderName: 'Your company'
+      senderName: 'LfULG DiGAS'
       replyToAddress: '{email}'
       format: html
       attachUploads: false
@@ -23,7 +23,7 @@ finishers:
       recipientAddress: '{email}'
       recipientName: '{firstname} {lastname}'
       senderAddress: example@example.com
-      senderName: 'Your company'
+      senderName: 'LfULG DiGAS'
       replyToAddress: example@example.com
       format: html
       attachUploads: false
