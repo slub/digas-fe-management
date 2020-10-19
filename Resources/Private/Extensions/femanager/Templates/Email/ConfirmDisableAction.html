@@ -1,0 +1,29 @@
+<f:layout name="Email" />
+
+	Email / Invitation
+
+	This mail will be send to the user, to confirm his new profile and set a password.
+	It's everytime activated.
+
+	Available variables:
+		{user} User Object
+		{hash} Hash to ensure authentication of link
+
+<f:section name="main">
+
+	<p><f:translate key="emailInvitationSalutation" /> {user.username},</p>
+
+	<p><f:translate key="emailDisable.text1" extensionName="DigasFeManagement" /></p>
+
+	<p>
+		<f:translate key="emailDisable.text2" extensionName="DigasFeManagement" />
+	</p>
+
+	<p>
+		<f:translate key="emailDisable.text3" extensionName="DigasFeManagement" />
+		<br>
+		<f:link.page pageUid="{settings.pids.rootPage}" absolute="1"><f:translate key="emailDisable.homepage" extensionName="DigasFeManagement" /></f:link.page>
+	</p>
+
+	<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
+</f:section>

@@ -26,6 +26,8 @@ namespace Slub\DigasFeManagement\Controller;
  ***************************************************************/
 
 use In2code\Femanager\Controller\AbstractController;
+use In2code\Femanager\Utility\StringUtility;
+use In2code\Femanager\Utility\HashUtility;
 
 /**
  * Class ExtendController
@@ -47,6 +49,23 @@ class ExtendController extends AbstractController {
             ]);
 
             if($arguments['disable']) {
+
+                // first send confirmation about deactivation of account
+                $variables = ['user' => $this->user, 'settings' => $this->settings, 'hash' => HashUtility::createHashForUser($this->user)];
+
+                $this->sendMailService->send(
+                    'confirmDisableAction',
+                    StringUtility::makeEmailArray($this->user->getEmail(), $this->user->getFirstName() . ' ' . $this->user->getLastName()),
+                    StringUtility::makeEmailArray(
+                        $this->settings['adminEmail'],
+                        $this->settings['adminName']
+                    ),
+                    'Your account has been disabled',
+                    $variables,
+                    $this->config['disable.']['email.']
+                );
+
+                // second disable the account
                 $this->user->setDisable(true);
                 $this->user->setInactivemessageTstamp(time());
                 $this->userRepository->update($this->user);

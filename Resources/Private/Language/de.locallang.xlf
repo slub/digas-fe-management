@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-10-12T14:36:46Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-10-19T12:00:53Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -165,6 +165,10 @@
 				<source><![CDATA[Thank you for your request. Please check your mail account to confirm your e-mail-address.]]></source>
 				<target><![CDATA[Vielen Dank für Ihre Anfrage. Bitte überprüfen Sie Ihren E-Mail-Account um Ihre E-Mail-Adresse zu bestätigen.]]></target>
 			</trans-unit>
+			<trans-unit id="emailConfirmDisableActionSubject" approved="yes">
+				<source><![CDATA[Your Account has been disabled]]></source>
+				<target><![CDATA[Ihr Nutzerkonto wurde deaktiviert]]></target>
+			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationLinkConfirmEmail" approved="yes">
 				<source><![CDATA[Confirm e-mail-address]]></source>
 				<target><![CDATA[E-Mail-Adresse bestätigen]]></target>
@@ -172,6 +176,22 @@
 			<trans-unit id="emailCreateUserConfirmationTextChangeMail" approved="yes">
 				<source><![CDATA[Please confirm your change of e-mail request on our server by clicking the following link:]]></source>
 				<target><![CDATA[Bitte bestätigen Sie die Änderung Ihr E-Mail-Adresse, indem sie auf den folgenden Link klicken:]]></target>
+			</trans-unit>
+			<trans-unit id="emailDisable.text1" approved="yes">
+				<source><![CDATA[Your Account has been disabled]]></source>
+				<target><![CDATA[Ihr Nutzerkonto wurde deaktiviert.]]></target>
+			</trans-unit>
+			<trans-unit id="emailDisable.text2" approved="yes">
+				<source><![CDATA[To reactivate your account, please send an email to the administrator.]]></source>
+				<target><![CDATA[Um Ihr Nutzerkonto zu reaktivieren, wenden Sie sich bitte an den Administrator.]]></target>
+			</trans-unit>
+			<trans-unit id="emailDisable.homepage" approved="yes">
+				<source><![CDATA[Homepage]]></source>
+				<target><![CDATA[Startseite]]></target>
+			</trans-unit>
+			<trans-unit id="emailDisable.text3" approved="yes">
+				<source><![CDATA[You may register a new account. Please note, you cannot use the same email address as in this disabled account.]]></source>
+				<target><![CDATA[Sie können ein neues Nutzerkonto registrieren. Bitte beachten Sie, dass Sie nicht die selbe Email-Adresse verwenden können.]]></target>
 			</trans-unit>
 			<trans-unit id="extend.disable.button" approved="yes">
 				<source><![CDATA[Deactivate account]]></source>
@@ -197,10 +217,6 @@
 				<source><![CDATA[No changes detected]]></source>
 				<target><![CDATA[Keine Änderungen festgestellt.]]></target>
 			</trans-unit>
-			<trans-unit id="remindUnusedAccounts.email.subject" approved="yes">
-				<source><![CDATA[[DiGAS FE Management] Inactive Warning]]></source>
-				<target><![CDATA[[DiGAS FE Management] Inaktivitätswarnung]]></target>
-			</trans-unit>
 			<trans-unit id="remindUnusedAccounts.email.message" approved="yes">
 				<source><![CDATA[You didn't login the last %s days. Please login in the next %s days to avoid the account deletion.]]></source>
 				<target><![CDATA[Sie haben Ihren Account in den letzten %s Tagen nicht genutzt. Bitte loggen Sie sich in Ihr Benunutzerkonto innerhalb der nächsten %s Tage ein, um eine Account-Löschung zu vermeiden.]]></target>
@@ -208,6 +224,10 @@
 			<trans-unit id="remindUnusedAccounts.email.messageLogin" approved="yes">
 				<source><![CDATA[You can use this url to login again:]]></source>
 				<target><![CDATA[Sie können sich über folgende Url wieder anmelden:]]></target>
+			</trans-unit>
+			<trans-unit id="remindUnusedAccounts.email.subject" approved="yes">
+				<source><![CDATA[[DiGAS FE Management] Inactive Warning]]></source>
+				<target><![CDATA[[DiGAS FE Management] Inaktivitätswarnung]]></target>
 			</trans-unit>
 			<trans-unit id="search" approved="yes">
 				<source><![CDATA[Search]]></source>

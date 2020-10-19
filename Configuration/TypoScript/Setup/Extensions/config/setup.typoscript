@@ -21,7 +21,7 @@ plugin.tx_digasfemanagement {
     settings < plugin.tx_femanager.settings
     settings {
         pids {
-            rootPage = 1
+            rootPage = {$femanager.pids.rootPage}
         }
 
         search {

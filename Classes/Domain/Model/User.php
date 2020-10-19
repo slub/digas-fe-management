@@ -196,8 +196,6 @@ class User extends \In2code\Femanager\Domain\Model\User
         $this->deleted = $deleted;
     }
 
-
-
     /**
      * Sets the inactivemessageTstamp
      *
@@ -245,8 +243,6 @@ class User extends \In2code\Femanager\Domain\Model\User
     {
         $this->oldAccount = $oldAccount;
     }
-
-
 
     /**
      * kitodoFeuserAccess
