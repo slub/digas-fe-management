@@ -166,7 +166,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $unusedTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $this->unusedTimespan);
 
         $feUsers = $this->UserRepository->findUnusedAccounts($unusedTimestamp, $this->settings['feUserGroup']);
-debug($feUsers);
+
         if (!empty($feUsers)) {
             foreach ($feUsers as $feUser) {
                 $feUser->setInactivemessageTstamp($time);
