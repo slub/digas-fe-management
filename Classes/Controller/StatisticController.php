@@ -29,7 +29,7 @@ use In2code\Femanager\Controller\AbstractController;
 use In2code\Femanager\Utility\LocalizationUtility;
 use Slub\DigasFeManagement\Domain\Model\Statistic;
 use Slub\DigasFeManagement\Domain\Validator\StatisticTstampValidator;
-use Slub\DigitalCollections\Helpers\GetDoc;
+use Slub\SlubDigitalcollections\Helpers\GetDoc;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
