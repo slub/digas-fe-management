@@ -2,6 +2,9 @@
 
 femanager {
     pids {
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Root Page of presentation
+        rootPage =
+
         # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid login plugin
         loginPage =
 

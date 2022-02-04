@@ -21,7 +21,7 @@ plugin.tx_fechangepwd {
             minLength = 8
             capitalCharCheck = 1
             lowerCaseCharCheck = 1
-            digitCheck = 0
+            digitCheck = 1
             specialCharCheck = 1
         }
 

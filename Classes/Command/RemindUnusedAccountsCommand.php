@@ -118,6 +118,17 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
      */
     protected function sendEmail($feUser)
     {
+        // hack to send english texts to user only if user registered on english page (sys_language_uid==1)
+        switch ($feUser->getLocale()) {
+            case '1':  setlocale(LC_ALL, 'en_US.utf8');
+                        $GLOBALS['LANG']->init('en');
+                        break;
+            case '0':
+            default:    setlocale(LC_ALL, 'de_DE.utf8');
+                        $GLOBALS['LANG']->init('de');
+                        break;
+        }
+
         $userEmail = $feUser->getEmail();
         $userFullName = $feUser->getFullName();
         if (!GeneralUtility::validEmail($userEmail)) {

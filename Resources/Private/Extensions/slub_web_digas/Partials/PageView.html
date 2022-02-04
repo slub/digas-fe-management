@@ -1,5 +1,7 @@
-{namespace dc=Slub\DigitalCollections\ViewHelpers}
-<div xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:dc="http://typo3.org/ns/Slub/SlubDigitalcollections/ViewHelpers"
+      data-namespace-typo3-fluid="true"
+      lang="en">
 
     <f:section name="PageView">
         <div class="document-view">
@@ -225,7 +227,6 @@
                         </ul>
                     </f:else>
                 </f:if>
-                <div class="tx-dlf-toolbox"></div>
             </div>
             <div class="page-control">
                 <f:if condition="{gp-pagegrid} == 1">
@@ -240,3 +241,5 @@
 
         </div>
     </f:section>
+
+    </html>

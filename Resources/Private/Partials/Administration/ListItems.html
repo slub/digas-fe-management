@@ -21,8 +21,13 @@
             <td>{user.email}</td>
             <td>
                 <f:if condition="{user.companyType} > 0">
-                    <f:then><f:translate key="administration.listing.table.institutionalUser"/></f:then>
-                    <f:else><f:translate key="administration.listing.table.privateUser"/></f:else>
+                    <f:then>
+                            <f:translate key="tx_femanager_domain_model_user.company_type.item{user.companyType}"/> <br />
+                            {user.company}
+                    </f:then>
+                    <f:else>
+                        <f:translate key="administration.listing.table.privateUser"/>
+                    </f:else>
                 </f:if>
             </td>
             <td>
@@ -35,19 +40,20 @@
                 <span class="digas-fe-management-administration-action">
                     <f:link.action
                         action="show"
+                        class="icon"
                         title="{f:translate(key:'administration.show.viewUser')}"
                         arguments="{user:user}">
-                        <i class="icon-edit icon-white"></i>
-                        <f:translate key="administration.show.view"/>
+                        <span class="icon-eye" title="{f:translate(key:'administration.show.viewUser')}"></span>
                     </f:link.action>
                 </span>
                 <span>&nbsp;</span>
                 <span class="digas-fe-management-administration-action">
                     <f:link.action
                         action="editUser"
+                        class="icon"
                         title="{f:translate(key:'administration.show.editUser')}"
                         arguments="{user:user}">
-                        <f:translate key="administration.show.edit" />
+                        <span  class="icon-pencil" title="{f:translate(key:'administration.show.editUser')}"></span >
                     </f:link.action>
                 </span>
                 <span>&nbsp;</span>
@@ -56,19 +62,19 @@
                         <f:then>
                             <f:link.action
                                 action="deactivateUser"
+                                class="icon"
                                 title="{f:translate(key:'administration.show.deactivateUser')}"
                                 arguments="{user:user}">
-                            <i class="icon-trash icon-white"></i>
-                            <f:translate key="administration.show.deactivate" />
+                            <span  class="icon-user" title="{f:translate(key:'administration.show.deactivate')}"></span >
                             </f:link.action>
                         </f:then>
                         <f:else>
                             <f:link.action
                                 action="deactivateUser"
+                                class="icon"
                                 title="{f:translate(key:'administration.show.activateUser')}"
                                 arguments="{user:user, setActiveState:1}">
-                            <i class="icon-trash icon-white"></i>
-                            <f:translate key="administration.show.activate" />
+                            <span  class="icon-user-minus" title="{f:translate(key:'administration.show.activate')}"></span >
                             </f:link.action>
                     </f:else>
                 </span>

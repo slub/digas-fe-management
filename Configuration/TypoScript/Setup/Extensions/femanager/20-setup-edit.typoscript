@@ -33,6 +33,17 @@ plugin.tx_femanager {
                 }
             }
         }
+        disable {
+            email {
+                # (de)activate email completely
+                _enable = TEXT
+                _enable.value = 1
+
+                # Overwrite Subject
+                subject = TEXT
+                subject.data = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:emailConfirmDisableActionSubject
+            }
+        }
     }
 }
 

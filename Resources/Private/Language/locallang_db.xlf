@@ -54,7 +54,9 @@
             <trans-unit id="tx_femanager_domain_model_user.tab.saved_searches">
                 <source>Saved searches</source>
             </trans-unit>
-
+            <trans-unit id="tx_femanager_domain_model_user.locale">
+                <source>Locale</source>
+            </trans-unit>
             <trans-unit id="flexform.main.title">
                 <source>Main Settings</source>
             </trans-unit>

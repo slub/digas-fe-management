@@ -50,6 +50,34 @@ class User extends \In2code\Femanager\Domain\Model\User
     protected $inactivemessageTstamp;
 
     /**
+     * Locale setting (sys_language_uid)
+     *
+     * @var int
+     */
+    protected $locale;
+
+    /**
+     * Returns the companyType
+     *
+     * @return int $companyType
+     */
+    public function getCompanyType()
+    {
+        return $this->companyType;
+    }
+
+    /**
+     * Sets the companyType
+     *
+     * @param int $companyType
+     * @return void
+     */
+    public function setCompanyType($companyType)
+    {
+        $this->companyType = $companyType;
+    }
+
+    /**
      * Get the inactivemessageTstamp
      *
      * @return \DateTime
@@ -71,24 +99,24 @@ class User extends \In2code\Femanager\Domain\Model\User
     }
 
     /**
-     * Returns the companyType
+     * Returns the locale
      *
-     * @return int $companyType
+     * @return int $locale
      */
-    public function getCompanyType()
+    public function getLocale()
     {
-        return $this->companyType;
+        return $this->locale;
     }
 
     /**
-     * Sets the companyType
+     * Sets the locale
      *
-     * @param int $companyType
+     * @param int $locale
      * @return void
      */
-    public function setCompanyType($companyType)
+    public function setLocale($locale)
     {
-        $this->companyType = $companyType;
+        $this->locale = $locale;
     }
 
     /**
@@ -168,8 +196,6 @@ class User extends \In2code\Femanager\Domain\Model\User
         $this->deleted = $deleted;
     }
 
-
-
     /**
      * Sets the inactivemessageTstamp
      *
@@ -217,8 +243,6 @@ class User extends \In2code\Femanager\Domain\Model\User
     {
         $this->oldAccount = $oldAccount;
     }
-
-
 
     /**
      * kitodoFeuserAccess

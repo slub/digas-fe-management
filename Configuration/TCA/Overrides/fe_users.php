@@ -126,6 +126,16 @@ $tmp_columns = [
                 ],
             ],
         ]
+    ],
+    'locale' => [
+        'exclude' => true,
+        'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.locale',
+        'config' => [
+            'type' => 'input',
+            'size' => 10,
+            'eval' => 'trim',
+            'max' => 20
+        ]
     ]
 ];
 
@@ -144,6 +154,13 @@ $tmp_columns = [
     'inactivemessage_tstamp',
     '',
     'after:lastlogin'
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    'fe_users',
+    'locale',
+    '',
+    'after:inactivemessage_tstamp'
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(

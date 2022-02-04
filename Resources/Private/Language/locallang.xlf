@@ -273,6 +273,21 @@
             <trans-unit id="remindUnusedAccounts.email.subject">
                 <source>[DiGAS FE Management] Inactive Warning</source>
             </trans-unit>
+			<trans-unit id="emailConfirmDisableActionSubject">
+				<source>Your Account has been disabled</source>
+			</trans-unit>
+			<trans-unit id="emailDisable.text1">
+				<source>Your Account has been disabled</source>
+			</trans-unit>
+			<trans-unit id="emailDisable.text2">
+				<source>To reactivate your account, please send an email to the administrator.</source>
+			</trans-unit>
+			<trans-unit id="emailDisable.text3">
+				<source>You may register a new account. Please note, you cannot use the same email address as in this disabled account.</source>
+			</trans-unit>
+			<trans-unit id="emailDisable.homepage">
+				<source>Homepage</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

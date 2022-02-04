@@ -30,13 +30,18 @@
   ],
   "license": "GPL-3.0-or-later",
   "require": {
-    "typo3/cms-core": "~9.5.20",
+    "typo3/cms-core": "~9.5.28",
     "in2code/femanager": "^5.4",
     "derhansen/fe_change_pwd": "^2.0"
   },
   "autoload": {
     "psr-4": {
       "Slub\\DigasFeManagement\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "digas_fe_management"
     }
   }
 }

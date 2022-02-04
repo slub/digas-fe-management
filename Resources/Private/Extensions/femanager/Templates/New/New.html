@@ -25,6 +25,8 @@
                     <f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
                 </f:for>
 
+				<f:render partial="Fields/Locale" arguments="{_all}" />
+
                 <f:if condition="{settings.new.changeEmail}">
                     <f:then>
                         <f:render partial="ChangeEmail/Fields" arguments="{_all}" />

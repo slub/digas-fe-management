@@ -47,10 +47,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
     'Slub.DigasFeManagement',
     'Femanagerextended',
     [
-        'Extend' => 'disable,logout'
+        'Extend' => 'disable'
     ],
     [
-        'Extend' => 'disable,logout'
+        'Extend' => 'disable'
     ]
 );
 
