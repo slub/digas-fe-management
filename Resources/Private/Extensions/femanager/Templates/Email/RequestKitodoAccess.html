@@ -1,0 +1,11 @@
+<f:layout name="Email" />
+
+<f:section name="main">
+
+    <f:render partial="Basket/Table" arguments="{documents:documents, showRemoveLink:0}" />
+
+    <f:if condition="{message}">
+        <p><f:format.nl2br>{message}</f:format.nl2br></p>
+    </f:if>
+
+</f:section>

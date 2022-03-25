@@ -48,10 +48,10 @@ class UserRepository extends Repository
 
     /**
      * @param int $deleteTimespan The crdate timestamp to check
-     * @param string $feUserGroup Frontend user group (must be set in constants {$femanager.feUserGroup})
+     * @param array $feUserGroups Array of Frontend user groups (must be set in constants {$femanager.feUserGroups})
      * @return User[]
      */
-    public function findInactiveAccounts($deleteTimespan, $feUserGroup)
+    public function findInactiveAccounts(int $deleteTimespan, array $feUserGroups)
     {
         $query = $this->createQuery();
         $query->getQuerySettings()
@@ -62,7 +62,7 @@ class UserRepository extends Repository
         $user = $query->matching(
             $query->logicalAnd([
                 $query->equals('disable', true),
-                $query->equals('usergroup', $feUserGroup),
+                $query->in('usergroup', $feUserGroups),
                 $query->equals('tx_femanager_confirmedbyuser', 0),
                 $query->equals('tx_femanager_confirmedbyadmin', 0),
                 $query->lessThan('crdate', $deleteTimespan)
@@ -75,11 +75,11 @@ class UserRepository extends Repository
 
     /**
      * @param int $unusedTimestamp
-     * @param string $feUserGroup Frontend user group (must be set in constants {$femanager.feUserGroup})
+     * @param array $feUserGroups Array of Frontend user groups (must be set in constants {$femanager.feUserGroups})
      * @return User[]
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
      */
-    public function findUnusedAccounts(int $unusedTimestamp, $feUserGroup)
+    public function findUnusedAccounts(int $unusedTimestamp, array $feUserGroups)
     {
         $query = $this->createQuery();
         $query->getQuerySettings()->setStoragePageIds([$this->storagePid]);
@@ -90,7 +90,7 @@ class UserRepository extends Repository
                 $query->lessThan('lastlogin', $unusedTimestamp),
                 $query->equals('disable', false),
                 $query->equals('tx_femanager_confirmedbyuser', 1),
-                $query->equals('usergroup', $feUserGroup),
+                $query->in('usergroup', $feUserGroups),
                 $query->equals('inactivemessage_tstamp', null)
             ]))
             ->execute()
@@ -101,11 +101,11 @@ class UserRepository extends Repository
 
     /**
      * @param int $deleteTimestamp
-     * @param string $feUserGroup Frontend user group (must be set in constants {$femanager.feUserGroup})
+     * @param array $feUserGroups Array of Frontend user groups (must be set in constants {$femanager.feUserGroups})
      * @return User[]
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
      */
-    public function findAccountsToDelete(int $deleteTimestamp, $feUserGroup)
+    public function findAccountsToDelete(int $deleteTimestamp, array $feUserGroups)
     {
         $query = $this->createQuery();
         $query->getQuerySettings()->setStoragePageIds([$this->storagePid]);
@@ -114,7 +114,7 @@ class UserRepository extends Repository
         $user = $query->matching(
             $query->logicalAnd([
                 $query->lessThan('lastlogin', $deleteTimestamp),
-                $query->equals('usergroup', $feUserGroup),
+                $query->in('usergroup', $feUserGroups),
                 $query->lessThan('inactivemessage_tstamp', $deleteTimestamp)
             ]))
             ->execute()
@@ -125,11 +125,11 @@ class UserRepository extends Repository
 
     /**
      * @param int $timestamp
-     * @param string $feUserGroup Frontend user group (must be set in constants {$femanager.feUserGroup})
+     * @param array $feUserGroups Array of Frontend user groups (must be set in constants {$femanager.feUserGroups})
      * @return User[]
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
      */
-    public function findDeactivatedAccounts(int $timestamp, $feUserGroup)
+    public function findDeactivatedAccounts(int $timestamp, array $feUserGroups)
     {
         $query = $this->createQuery();
         $query->getQuerySettings()
@@ -140,7 +140,7 @@ class UserRepository extends Repository
         $user = $query->matching(
             $query->logicalAnd([
                 $query->equals('disable', true),
-                $query->equals('usergroup', $feUserGroup),
+                $query->in('usergroup', $feUserGroups),
                 $query->lessThan('inactivemessage_tstamp', $timestamp)
             ]))
             ->execute()

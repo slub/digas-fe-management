@@ -1,0 +1,39 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:layout name="Default"/>
+
+<f:section name="main">
+
+    <h3 class="access-user">
+        <f:translate key="access.action.reject"/>
+    </h3>
+
+    <h4 class="access-item-heading">
+        <f:if condition="{access.recordId}">
+            <f:then>{access.recordId}</f:then>
+            <f:else>{access.dlfDocument.recordId}</f:else>
+        </f:if>
+        <br/><strong>{access.dlfDocument.title}</strong>
+    </h4>
+    <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
+
+    <f:form name="access" object="{access}" action="reject" arguments="{user:user}" additionalParams="{autocomplete:off}">
+
+        <div class="form-group">
+            <label for="access-rejectedReason" class="access-control-label">
+                <f:translate key="access.rejectedReason" />
+            </label>
+            <f:form.textarea property="rejectedReason" id="access-rejectedReason" class="form-control" />
+        </div>
+
+        <div class="access-form-row">
+            <div class="access-form-group">
+                <f:form.button type="submit">
+                    <f:translate key="access.action.reject" />
+                </f:form.button>
+            </div>
+        </div>
+
+    </f:form>
+
+
+</f:section>

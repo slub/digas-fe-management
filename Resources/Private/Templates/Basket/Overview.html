@@ -1,0 +1,48 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:layout name="Default"/>
+
+<f:section name="main">
+    <div class="fe-management-basket">
+        <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
+
+        <div class="fe-management-basket--steps">
+            <div class="fe-management-basket--step active"><span>1</span></div>
+            <div class="fe-management-basket--step active"><span>2</span></div>
+            <div class="fe-management-basket--step"><span>3</span></div>
+        </div>
+
+        <h4><f:translate key="basket.note.step2" /></h4>
+
+        <f:if condition="{documents}">
+            <f:render partial="Basket/Table" arguments="{documents:documents, showRemoveLink:0}" />
+
+            <f:form name="request" object="{request}" additionalAttributes="{autocomplete:'off'}">
+                <div class="form-row">
+                    <f:if condition="{request.message}">
+                        <p class="fe-management-basket--message">
+                            <label for="basketMessage">
+                                <f:translate key="basket.message" />
+                            </label><br/>
+                            <f:format.nl2br>{request.message}</f:format.nl2br>
+                        </p>
+                    </f:if>
+                    <f:form.textarea id="basketMessage" property="message" style="display:none;" readonly="1" />
+                </div>
+
+                <div class="access-form-row">
+                    <div class="access-form-group">
+                        <f:form.button type="submit" name="action" value="index" class="btn" title="{f:translate(key:'basket.request')}">
+                            <f:translate key="basket.back" />
+                        </f:form.button>
+                    </div>
+                    <div class="access-form-group">
+                        <f:form.button type="submit" name="action" value="request" class="btn" title="{f:translate(key:'basket.request')}">
+                            <f:translate key="basket.request" />
+                        </f:form.button>
+                    </div>
+                </div>
+            </f:form>
+        </f:if>
+    </div>
+</f:section>
+</html>

@@ -1,0 +1,30 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<div>
+    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessGranted"/></p>
+    <ul>
+    <f:for each="{documentsList}" as="accessGrantedEntry">
+        <f:if condition="!{accessGrantedEntry.rejected}">
+            <li>{accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle}</li>
+        </f:if>
+    </f:for>
+    </ul>
+    <hr/>
+    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessRejected"/></p>
+    <ul>
+        <f:for each="{documentsList}" as="accessGrantedEntry">
+            <f:if condition="{accessGrantedEntry.rejected}">
+                <li>
+                    {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle}
+                    <f:if condition="{accessGrantedEntry.rejectedReason}">
+                        <br/><f:translate extensionName="DigasFeManagement" key="tx_digasfemanagement_domain_model_access.rejected_reason"/>
+                        <em><f:format.nl2br>{accessGrantedEntry.rejectedReason}</f:format.nl2br></em>
+                    </f:if>
+                </li>
+            </f:if>
+        </f:for>
+    </ul>
+    <hr/>
+    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.messageLogin"/></p>
+    <p><f:link.typolink parameter="{loginPid}">{f:uri.typolink(parameter:'{loginPid}')}</f:link.typolink></p>
+</div>
+</html>

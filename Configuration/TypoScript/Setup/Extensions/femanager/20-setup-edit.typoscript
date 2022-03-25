@@ -55,15 +55,21 @@ plugin.tx_femanager {
     }
 [end]
 
-[globalVar = TSFE:fe_user|user|company_type>0]
+[getTSFE().fe_user.user["usergroup"] in [{$femanager.institutionalFeUserGroups}]]
     plugin.tx_femanager {
+        # override "lastName" label
+        _LOCAL_LANG.de.tx_femanager_domain_model_user.lastName = Gesetzlicher Vertreter
+        _LOCAL_LANG.en.tx_femanager_domain_model_user.lastName = Legal representatives
+
         settings {
             showCompanyFields = 1
+            showFirstNameField = 0
 
             edit {
                 validation {
                     company.required = 1
-                    companyType.required = 1
+                    companyType.required = 0
+                    firstName.required = 0
                 }
             }
         }
@@ -82,7 +88,7 @@ plugin.tx_femanager {
             new {
                 login = 1
                 changeEmail = 1
-                currentUserFields = company,companyType,address,zip,city,lastName,firstName,gender,telephone,terms,password,usergroup
+                currentUserFields = company,companyType,address,zip,city,district,country,lastName,firstName,gender,telephone,terms,password,usergroup
 
                 validation {
                     email.required = 1
@@ -95,6 +101,7 @@ plugin.tx_femanager {
                     address.required = 0
                     zip.required = 0
                     city.required = 0
+                    district.required = 0
                     terms.required = 0
                     company.required = 0
                     companyType.required = 0
@@ -104,9 +111,6 @@ plugin.tx_femanager {
                     onUserConfirmation {
                         mustChangePassword = TEXT
                         mustChangePassword.value = 0
-
-                        usergroup = TEXT
-                        usergroup.value = 2
                     }
                 }
                 email {
@@ -135,9 +139,6 @@ plugin.tx_femanager {
                     onUserConfirmation {
                         mustChangePassword = TEXT
                         mustChangePassword.value = 0
-
-                        usergroup = TEXT
-                        usergroup.value = 2
                     }
                 }
 

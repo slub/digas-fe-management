@@ -3,10 +3,14 @@ tx_femanager {
         new {
             addFieldOptions {
                 companyType = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.company_type
-                kitodoFeuserAccess = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.kitodo_feuser_access
                 disable = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.disable
+                tempUserOrderingParty = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.temp_user_ordering_party
+                tempUserAreaLocation = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.temp_user_area_location
+                tempUserPurpose = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.temp_user_purpose
+                district = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_femanager_domain_model_user.district
             }
         }
+
         edit < tx_femanager.flexForm.new
     }
 }

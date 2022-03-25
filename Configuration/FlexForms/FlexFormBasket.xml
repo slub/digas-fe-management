@@ -1,0 +1,40 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<main>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:flexform.main.title</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<!-- Also set allowed controller actions in \In2code\Femanager\Domain\Repository\PluginRepository::$scaString -->
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:flexform.main.view</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:pleaseChoose</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:flexform.main.view.list</numIndex>
+										<numIndex index="1">Basket->index;Basket->request;</numIndex>
+									</numIndex>
+								</items>
+								<maxitems>1</maxitems>
+								<size>1</size>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+				</el>
+			</ROOT>
+		</main>
+	</sheets>
+</T3DataStructure>

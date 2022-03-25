@@ -26,6 +26,7 @@ namespace Slub\DigasFeManagement\Controller;
  ***************************************************************/
 
 use In2code\Femanager\Controller\AbstractController;
+use In2code\Femanager\Domain\Model\UserGroup;
 use In2code\Femanager\Utility\LocalizationUtility;
 use In2code\Femanager\Utility\LogUtility;
 use In2code\Femanager\Utility\ObjectUtility;
@@ -93,13 +94,18 @@ class AdministrationController extends AbstractController
     public function editUserAction(User $user)
     {
         if (!empty($user) && !empty($user->getUid())) {
-            $token = '';
-            if ($user) {
-                $token = GeneralUtility::hmac($user->getUid(), (string)$user->getCrdate()->getTimestamp());
+            $token = GeneralUtility::hmac($user->getUid(), (string)$user->getCrdate()->getTimestamp());
+
+            /** @var UserGroup[] $feUserGroup */
+            $feUserGroup = $user->getUsergroup()->getArray();
+            if (!empty($feUserGroup[0])) {
+                $feUserGroup = $feUserGroup[0]->getUid();
             }
+
             $this->view->assignMultiple([
                 'user' => $user,
                 'token' => $token,
+                'currentFeUserGroup' => $feUserGroup ?: null,
                 'allUserGroups' => $this->userGroupRepository->findAllForFrontendSelection('')
             ]);
             $this->assignForAll();

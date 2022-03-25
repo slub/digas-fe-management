@@ -118,17 +118,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
      */
     protected function sendEmail($feUser)
     {
-        // hack to send english texts to user only if user registered on english page (sys_language_uid==1)
-        switch ($feUser->getLocale()) {
-            case '1':  setlocale(LC_ALL, 'en_US.utf8');
-                        $GLOBALS['LANG']->init('en');
-                        break;
-            case '0':
-            default:    setlocale(LC_ALL, 'de_DE.utf8');
-                        $GLOBALS['LANG']->init('de');
-                        break;
-        }
-
+        $this->initUserLocal($feUser);
         $userEmail = $feUser->getEmail();
         $userFullName = $feUser->getFullName();
         if (!GeneralUtility::validEmail($userEmail)) {
@@ -165,7 +155,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $time = new \DateTime();
         $unusedTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $this->unusedTimespan);
 
-        $feUsers = $this->UserRepository->findUnusedAccounts($unusedTimestamp, $this->settings['feUserGroup']);
+        $feUsers = $this->UserRepository->findUnusedAccounts($unusedTimestamp, $this->feUserGroups);
 
         if (!empty($feUsers)) {
             foreach ($feUsers as $feUser) {
@@ -197,7 +187,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $time = new \DateTime();
         $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $this->deleteTimespan);
 
-        $feUsers = $this->UserRepository->findAccountsToDelete($deleteTimestamp, $this->settings['feUserGroup']);
+        $feUsers = $this->UserRepository->findAccountsToDelete($deleteTimestamp, $this->feUserGroups);
 
         if (!empty($feUsers)) {
             foreach ($feUsers as $feUser) {

@@ -29,6 +29,28 @@ plugin.tx_digasfemanagement {
         }
 
         kitodoAccessGroups = {$femanager.kitodoAccessGroups}
+
+        access {
+            endTimeFieldDefaultValue = {$femanager.access.endTimeFieldDefaultValue}
+        }
+
+        dialog {
+            cookieName = {$femanager.kitodoSessionCookieName}
+
+            assets {
+                css {
+                    digasCss {
+                        file = EXT:slub_web_digas/Resources/Public/Css/digasStyles.css
+                        forceOnTop = 1
+                    }
+
+                    dialogCSS {
+                        file = EXT:digas_fe_management/Resources/Public/Css/dialog.css
+                        forceOnTop = 0
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -36,6 +58,9 @@ page {
     10 {
         settings {
             contactFormUid = {$femanager.pids.contactFormUid}
+            kitodoSessionCookieName = {$femanager.kitodoSessionCookieName}
+            basketUid = {$femanager.pids.basketUid}
+            generalAccessFeUserGroup = {$femanager.generalAccessFeUserGroup}
         }
     }
 }

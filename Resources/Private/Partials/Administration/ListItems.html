@@ -20,11 +20,8 @@
             </td>
             <td>{user.email}</td>
             <td>
-                <f:if condition="{user.companyType} > 0">
-                    <f:then>
-                            <f:translate key="tx_femanager_domain_model_user.company_type.item{user.companyType}"/> <br />
-                            {user.company}
-                    </f:then>
+                <f:if condition="{user.company} != ''">
+                    <f:then>{user.company}</f:then>
                     <f:else>
                         <f:translate key="administration.listing.table.privateUser"/>
                     </f:else>
@@ -37,6 +34,17 @@
                 </f:if>
             </td>
             <td>
+                <span class="digas-fe-management-administration-action">
+                    <f:link.action
+                        pageUid="{settings.pids.kitodoAccessAdministriationPid}"
+                        action="list"
+                        controller="Access"
+                        title="{f:translate(key:'access.list')}"
+                        arguments="{user:user}">
+                        {f:translate(key:'access.list.short')}</f:link.action>
+                </span>
+                <span>&nbsp;</span>
+
                 <span class="digas-fe-management-administration-action">
                     <f:link.action
                         action="show"

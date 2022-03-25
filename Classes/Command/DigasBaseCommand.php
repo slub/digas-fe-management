@@ -25,6 +25,9 @@ namespace Slub\DigasFeManagement\Command;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Slub\DigasFeManagement\Domain\Model\Access;
+use Slub\DigasFeManagement\Domain\Model\User;
+use Slub\DigasFeManagement\Domain\Repository\AccessRepository;
 use Slub\DigasFeManagement\Domain\Repository\UserRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -34,6 +37,7 @@ use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
+use TYPO3\CMS\Fluid\View\StandaloneView;
 
 /**
  * Class DigasBaseCommand
@@ -52,6 +56,11 @@ class DigasBaseCommand extends Command
     protected $UserRepository;
 
     /**
+     * @var AccessRepository
+     */
+    protected $AccessRepository;
+
+    /**
      * @var PersistenceManager
      */
     protected $persistenceManager;
@@ -67,6 +76,11 @@ class DigasBaseCommand extends Command
     protected $settings;
 
     /**
+     * @var array
+     */
+    protected $feUserGroups;
+
+    /**
      * @param InputInterface $input
      * @param OutputInterface $output
      */
@@ -76,6 +90,7 @@ class DigasBaseCommand extends Command
 
         $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         $this->UserRepository = $this->objectManager->get(UserRepository::class);
+        $this->AccessRepository = $this->objectManager->get(AccessRepository::class);
         $this->persistenceManager = $this->objectManager->get(PersistenceManager::class);
 
         $configurationManager = $this->objectManager->get('TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface');
@@ -83,6 +98,8 @@ class DigasBaseCommand extends Command
         if (!empty($extSettings = $typoscriptConfiguration['plugin.']['tx_femanager.']['settings.'])) {
             $this->settings = $extSettings;
             $this->UserRepository->setStoragePid($this->settings['pids.']['feUsers']);
+            $this->AccessRepository->setStoragePid($this->settings['pids.']['feUsers']);
+            $this->feUserGroups = explode(',', $this->settings['feUserGroups']);
         }
     }
 
@@ -108,8 +125,8 @@ class DigasBaseCommand extends Command
             return;
         }
 
-        if (empty($this->settings['feUserGroup'])) {
-            $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.feUserGroup} is not set. Abort.');
+        if (empty($this->settings['feUserGroups'])) {
+            $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.feUserGroups} is not set. Abort.');
             return;
         }
 
@@ -144,5 +161,101 @@ class DigasBaseCommand extends Command
             }
         }
         return $deleteCounter;
+    }
+
+    /**
+     * Init user locale to send emails in users selected language
+     *
+     * @param \Slub\DigasFeManagement\Domain\Model\User $feUser
+     * @return void
+     */
+    protected function initUserLocal(\Slub\DigasFeManagement\Domain\Model\User $feUser)
+    {
+        // hack to send english texts to user only if user registered on english page (sys_language_uid==1)
+        switch ($feUser->getLocale()) {
+            case '1':
+                setlocale(LC_ALL, 'en_US.utf8');
+                $GLOBALS['LANG']->init('en');
+                break;
+            case '0':
+            default:
+                setlocale(LC_ALL, 'de_DE.utf8');
+                $GLOBALS['LANG']->init('de');
+                break;
+        }
+    }
+
+    /**
+     * Prepare notification email for kitodo access
+     *
+     * @param User $feUser
+     * @param Access[] $userDocumentEntries
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
+     */
+    protected function notifyUser(User $feUser, array $userDocumentEntries)
+    {
+        // get fe_user data
+        if (!empty($feUser) && !empty($userDocumentEntries)) {
+            $documentsList = [];
+            foreach ($userDocumentEntries as $accessEntry) {
+                $documentsList[] = [
+                    'recordId' => $accessEntry->getDlfDocument()->getRecordId(),
+                    'documentTitle' => $accessEntry->getDlfDocument()->getTitle(),
+                    'rejected' => $accessEntry->getRejected(),
+                    'rejectedReason' => $accessEntry->getRejectedReason()
+                ];
+
+                $notificationTimestamp = strtotime('now');
+                $this->updateAccessEntry($accessEntry, $notificationTimestamp);
+            }
+
+            $this->sendNotificationEmail($feUser, $documentsList);
+        }
+    }
+
+    /**
+     * Generate notification mail content
+     *
+     * @param array $documentsList List of kitodo documents
+     * @param string $emailTemplate Path to email template
+     * @param string $emailType Email type (html or text)
+     * @return string
+     */
+    protected function generateNotificationEmail(array $documentsList, string $emailTemplate, string $emailType = 'text')
+    {
+        // generate email template by given emailType
+        $template = GeneralUtility::getFileAbsFileName($emailTemplate);
+        $htmlView = GeneralUtility::makeInstance(StandaloneView::class);
+        $htmlView->setFormat($emailType);
+        $htmlView->setTemplatePathAndFilename($template);
+        $htmlView->assignMultiple([
+            'loginPid' => $this->settings['pids.']['loginPage'],
+            'documentsList' => $documentsList
+        ]);
+
+        return $htmlView->render();
+    }
+
+    /**
+     * Update access entry with access_granted_notification or expire_notification timestamp
+     *
+     * @param Access $accessEntry
+     * @param int $notificationTimestamp
+     */
+    protected function updateAccessEntry(Access $accessEntry, int $notificationTimestamp)
+    {
+        // must be overridden in child class
+    }
+
+    /**
+     * Send email to fe_users for kitodo documents access
+     *
+     * @param User $feUser
+     * @param array $documentsList
+     */
+    protected function sendNotificationEmail(User $feUser, array $documentsList)
+    {
+        // must be overridden in child class
     }
 }

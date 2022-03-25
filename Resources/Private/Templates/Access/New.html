@@ -1,0 +1,37 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:layout name="Default"/>
+
+<f:section name="main">
+
+    <h3 class="access-user">
+        <f:translate key="access.new.headline" arguments="{0:'{user.firstName} {user.lastName}'}" />
+    </h3>
+
+    <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
+
+    <f:form name="access" object="{access}" action="create" arguments="{user:user}" additionalParams="{autocomplete:off}">
+
+        <div class="access-form-row">
+            <div class="access-form-group">
+                <label for="access-recordId" class="access-control-label">
+                    <f:translate key="access.recordId" />
+                </label>
+                <f:form.textfield id="access-recordId" required="required" property="recordId" class="form-control" />
+            </div>
+        </div>
+
+        <f:render partial="Access/DateFields" arguments="{access:access}" />
+
+        <div class="access-form-row">
+            <div class="access-form-group">
+                <f:form.button type="submit">
+                    <f:translate key="access.new.submit" />
+                </f:form.button>
+            </div>
+        </div>
+
+
+    </f:form>
+
+
+</f:section>

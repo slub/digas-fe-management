@@ -1,0 +1,80 @@
+<div class="access-item {f:if(condition:'{access.uid} == {errorItem}',then:'error')}" id="access-item-{access.uid}">
+
+    <h3 class="access-item-heading">
+        <f:if condition="{access.recordId}">
+            <f:then>{access.recordId}</f:then>
+            <f:else>{access.dlfDocument.recordId}</f:else>
+        </f:if>
+    </h3>
+
+    <strong>
+        <small>{access.dlfDocument.title}</small>
+    </strong>
+
+    <f:form name="access" object="{access}" action="approve" arguments="{user:user}" additionalParams="{autocomplete:off}">
+
+        <f:render partial="Access/DateFields" arguments="{access:access,rejected:rejected}" />
+
+
+        <f:if condition="{access.rejected}">
+            <div class="form-group">
+                <label class="access-control-label"><f:translate key="access.rejectedReason" />:</label>
+                <div class="access-item-rejectedReason">
+                    <f:if condition="{access.rejectedReason}">
+                        <f:then>
+                            {access.rejectedReason->f:format.nl2br()}
+                        </f:then>
+                        <f:else>
+                            -
+                        </f:else>
+                    </f:if>
+                </div>
+            </div>
+        </f:if>
+
+        <f:if condition="!{access.rejected} && {access.hidden} && {access.rejectedReason}">
+            <small class="fe-management-basket-entries--old">
+                <f:translate key="access.rejectedReason.new" />
+            </small>
+            <br/>
+            <label class="access-control-label">
+                <f:translate key="access.rejectedReason" />:
+            </label>
+            <div class="access-item-rejectedReason">
+                {access.rejectedReason->f:format.nl2br()}
+            </div>
+        </f:if>
+
+        <div class="access-form-row">
+            <div class="access-form-group">
+                <f:form.button type="submit">
+                    <f:if condition="{edit} || {rejected}">
+                        <f:then>
+                            <f:form.hidden name="edit" value="1"/>
+                            <f:translate key="access.action.adjust"/>
+                        </f:then>
+                        <f:else>
+                            <f:translate key="access.action.grant"/>
+                        </f:else>
+                    </f:if>
+                </f:form.button>
+            </div>
+            <f:if condition="!{rejected}">
+                <div class="access-form-group">
+                    <f:link.action class="btn" action="rejectReason" arguments="{user:user,access:access}">
+                        <f:if condition="{edit}">
+                            <f:then>
+                                <f:translate key="access.action.delete"/>
+                            </f:then>
+                            <f:else>
+                                <f:translate key="access.action.reject"/>
+                            </f:else>
+                        </f:if>
+                    </f:link.action>
+                </div>
+            </f:if>
+        </div>
+
+    </f:form>
+
+</div>

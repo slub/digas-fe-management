@@ -7,16 +7,13 @@
 				<source>Hidden</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item0">
-				<source>No Answer</source>
+				<source>-</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item1">
-				<source>Female</source>
+				<source>Mrs</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
-				<source>Male</source>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.gender.item3">
-				<source>Diverse</source>
+				<source>Mr</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.old_account">
 				<source>Reference to old account after change of e-mail / username</source>
@@ -24,25 +21,13 @@
 			<trans-unit id="tx_femanager_domain_model_user.company">
 				<source>Name of organization</source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type">
-				<source>Type of organization</source>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type.item1">
-				<source>Company</source>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type.item2">
-				<source>University</source>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type.item3">
-				<source>Research institute</source>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type.item4">
-				<source>other</source>
-			</trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.company_type">
+                <source>Organizational unit</source>
+            </trans-unit>
             <trans-unit id="tx_femanager_domain_model_user.inactivemessage_tstamp">
                 <source>Inactive Message Date</source>
             </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.kitodo_feuser_access">
+            <trans-unit id="tx_femanager_domain_model_user.kitodo_document_access">
                 <source>Kitodo FE user access</source>
             </trans-unit>
             <trans-unit id="tx_femanager_domain_model_user.tab.kitodo">
@@ -54,8 +39,23 @@
             <trans-unit id="tx_femanager_domain_model_user.tab.saved_searches">
                 <source>Saved searches</source>
             </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tab.temp_user">
+                <source>Temporary commercial user</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.temp_user_ordering_party">
+                <source>Ordering party</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.temp_user_area_location">
+                <source>Location of the area for which geological data are requested</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.temp_user_purpose">
+                <source>Purpose of the visit</source>
+            </trans-unit>
             <trans-unit id="tx_femanager_domain_model_user.locale">
                 <source>Locale</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.pw_changed_on_confirmation">
+                <source>Password changed after confirmation</source>
             </trans-unit>
             <trans-unit id="flexform.main.title">
                 <source>Main Settings</source>
@@ -107,6 +107,54 @@
             </trans-unit>
             <trans-unit id="tx_digasfemanagement_domain_model_search">
                 <source>Search log</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access">
+                <source>Kitodo FE user access</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.starttime">
+                <source>Access start</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.endtime">
+                <source>Access end</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.dlf_document">
+                <source>Kitodo document uid</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.record_id">
+                <source>Kitodo document record_id</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.district">
+                <source>District</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.zip">
+                <source>Zipcode</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.city">
+                <source>City</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.email">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.gender">
+                <source>Salutation</source>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.lastName">
+                <source>Lastname</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.access_granted_notification">
+                <source>Dispatch date email for access granted</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.expire_notification">
+                <source>Dispatch date email for expiration notification</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.rejected">
+                <source>Rejected</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.rejected_reason">
+                <source>Rejected reason</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_access.inform_user">
+                <source>Inform user (flag for mailing queue)</source>
             </trans-unit>
 		</body>
 	</file>

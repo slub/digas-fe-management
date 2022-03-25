@@ -8,7 +8,7 @@
 <dv:titleTag
 	title="<dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:titleInfo[not(@type=\"alternative\")]/mods:nonSort | //mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:titleInfo[not(@type=\"alternative\")]/mods:title | //mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:titleInfo[not(@type=\"alternative\")]/mods:partNumber | //mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:titleInfo[not(@type=\"alternative\")]/mods:partName)[1]' />"
 />
-<div class="main-wrapper">
+
     <f:comment>
         <!--
         check if access on certain document id is granted
@@ -16,10 +16,26 @@
     </f:comment>
     <f:if condition="{digas:kitodoAccess(id:gp-id)}">
         <f:then>
-            <f:render section="ControlBar" partial="ControlBar" arguments="{_all}" />
-            <!--TYPO3SEARCH_begin-->
-            <f:render section="PageView" partial="PageView" arguments="{_all}" />
-            <!--TYPO3SEARCH_end-->
+            <f:comment>
+                <!--
+                check if user is logged in OR has already confirmed the dialog
+
+                lib.kitodoDialogIfLoggedOut:
+                    - checks if cookie for private usage is set OR user is logged in
+                    - redirects to kitodo view if create action of femanager is called
+                -->
+            </f:comment>
+
+            <f:cObject typoscriptObjectPath="lib.kitodoDialogIfLoggedOut" />
+
+            <digas:KitodoSession cookieName="{settings.kitodoSessionCookieName}">
+                <div class="main-wrapper">
+                    <f:render section="ControlBar" partial="ControlBar" arguments="{_all}" />
+                    <!--TYPO3SEARCH_begin-->
+                    <f:render section="PageView" partial="PageView" arguments="{_all}" />
+                    <!--TYPO3SEARCH_end-->
+                </div>
+            </digas:KitodoSession>
         </f:then>
         <f:else>
             <f:comment>
@@ -27,10 +43,11 @@
                 redirect to pre-filled contact form if access is not granted
                 -->
             </f:comment>
-            <digas:redirect pageUid="{settings.contactFormUid}" additionalParams="{gp-id:'{dc:xpath(xpath:\'(//mods:recordIdentifier[@source=\"LfULG\"])\')}'}" />
+
+            <digas:redirect pageUid="{settings.basketUid}" additionalParams="{setCookie:1,gp-id:'{dc:xpath(xpath:\'(//mods:recordIdentifier[@source=\"LfULG\"])\')}'}" />
         </f:else>
     </f:if>
-</div>
+
 <f:if condition="{piwik_idsite}">
 	<f:render section="Piwik" partial="Piwik" arguments="{_all}" />
 </f:if>

@@ -1,0 +1,15 @@
+.digas-fe-management--dialog {
+    text-align: left;
+    margin: 4rem auto 0;
+    max-width: 768px;
+    width: auto;
+    min-height: auto;
+    background: #fff;
+    padding: 2rem;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+.digas-fe-management--hidden {
+    display: none;
+}

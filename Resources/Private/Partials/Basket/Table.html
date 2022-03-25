@@ -1,0 +1,37 @@
+<table class="fe-management-basket-entries">
+    <thead>
+    <tr>
+        <th><f:translate key="basket.table.recordId"/></th>
+        <th><f:translate key="basket.table.title"/></th>
+        <f:if condition="{showRemoveLink}">
+            <th><f:translate key="basket.table.actions"/></th>
+        </f:if>
+    </tr>
+    </thead>
+    <tbody>
+    <f:for each="{documents}" as="document">
+
+        <f:comment>
+            <!--
+            document was already rejected
+            - access can be requested again
+            -->
+        </f:comment>
+        <f:if condition="{document.dlfDocument}">
+            <f:variable name="document" value="{document.dlfDocument}" />
+        </f:if>
+
+        <tr class="fe-management-basket-entry">
+            <td>{document.recordId}</td>
+            <td>{document.title}</td>
+            <f:if condition="{showRemoveLink}">
+                <td>
+                    <a class="fe-management-basket-remove-link" data-id="{document.recordId}" href="javascript:void(0)">
+                        <f:translate key="basket.table.actions.remove" />
+                    </a>
+                </td>
+            </f:if>
+        </tr>
+    </f:for>
+    </tbody>
+</table>

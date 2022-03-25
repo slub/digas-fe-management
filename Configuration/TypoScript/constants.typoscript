@@ -11,7 +11,7 @@ femanager {
         # cat=plugin.tx_digasfemanagement/; type=int+; label=Sysfolder uid with fe_users
         feUsers =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "create institutional user" plugin
+        # cat=plugin.tx_digasfemanagement/; type=string; label=Page uids of "create institutional user" plugin (comma-separated)
         createInstitutional =
 
         # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "create private user" plugin
@@ -37,18 +37,44 @@ femanager {
 
         # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of page "terms of use"
         termsOfUseUid =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Sysfolder uid with temp fe_users
+        kitodoTempUserPid =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of kitodo access administration plugin
+        kitodoAccessAdministriationPid =
+
+        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid basket plugin
+        basketUid =
     }
 
-    # cat=plugin.tx_digasfemanagement/; type=int; label=Uid for frontend users
-    feUserGroup =
+    # cat=plugin.tx_digasfemanagement/; type=string; label=Comma-separated list of uids for frontend users
+    feUserGroups =
+
+    # cat=plugin.tx_digasfemanagement/; type=string; label=Comma-separated list of uids of institutional fe_user groups
+    institutionalFeUserGroups =
+
+    # cat=plugin.tx_digasfemanagement/; type=ing; label=FE-usergroup with general access to login area (excludes temp user group)
+    generalAccessFeUserGroup =
 
     # cat=plugin.tx_digasfemanagement/; type=string; label=Group access for documents (comma separated group uids)
     kitodoAccessGroups =
 
+    # cat=plugin.tx_digasfemanagement/; type=string+; label=Cookie name for kitodo private user
+    kitodoSessionCookieName = fe_kitodo_dialog
+
+    # cat=plugin.tx_digasfemanagement/; type=int; label=Uid for kitodo temp users group
+    kitodoTempUserGroup =
+
+    access {
+        # cat=plugin.tx_digasfemanagement/; type=string; label=Endtime field default value for document access administration - format strtotime, e.g. "today +1 month"
+        endTimeFieldDefaultValue =
+    }
+
     administration {
         pids {
 
-            # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of admin create institutional user plugin
+            # cat=plugin.tx_digasfemanagement/; type=string; label=Page uids of admin create institutional user plugin (comma-separated)
             createInstitutional =
 
             # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of admin create private user plugin

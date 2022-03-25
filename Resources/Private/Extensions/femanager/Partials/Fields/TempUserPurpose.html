@@ -1,0 +1,16 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_temp_user_purpose form-group">
+    <label for="femanager_field_temp_user_purpose" class="col-sm-2 control-label">
+        <f:translate key="tx_femanager_domain_model_user.temp_user_purpose" />
+        <f:if condition="{femanager:Validation.IsRequiredField(fieldName:'tempUserPurpose')}">
+            <span>*</span>
+        </f:if>
+    </label>
+    <div class="col-sm-10">
+        <f:form.textarea
+            id="femanager_field_temp_user_purpose"
+            property="tempUserPurpose"
+            class="form-control"
+            additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'temp_user_purpose')}" />
+    </div>
+</div>

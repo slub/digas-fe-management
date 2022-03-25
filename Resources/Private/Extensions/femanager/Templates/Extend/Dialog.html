@@ -1,0 +1,67 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:digas="http://typo3.org/ns/Slub/DigasFeManagement/ViewHelpers"
+      data-namespace-typo3-fluid="true"
+      lang="en">
+
+    <div class="content-wrapper container digas-fe-management--dialog">
+
+        <h2><f:translate key="dialog.title" /></h2>
+        <p>
+            <f:translate key="dialog.question" />
+        </p>
+
+        <div class="femanager_fieldset femanager_gender form-group">
+            <div class="radio">
+                <label for="user_commercial">
+                    <input type="radio" id="user_commercial" name="user_type" {f:if(condition:'{checkYes}',then:'checked="checked"')} value="1"/>
+                    <f:translate key="dialog.yes" />
+                </label>
+            </div>
+            <div class="radio">
+                <label for="user_private">
+                    <input type="radio" id="user_private" name="user_type" value="1" />
+                    <f:translate key="dialog.no" />
+                </label>
+            </div>
+        </div>
+
+
+        <div id="user_private_form" class="digas-fe-management--hidden">
+            <f:form class="form-horizontal"
+                    action="dialog"
+                    arguments="{setCookie:1}"
+                    additionalParams="{tx_dlf:{id:'{kitodoParams.id}',page:'{kitodoParams.page}'}}">
+                <input type="submit" class="btn btn-primary btn-large" value="{f:translate(key:'dialog.continue')}" />
+            </f:form>
+        </div>
+
+
+        <div id="user_commercial_form" class="{f:if(condition:'!{checkYes}',then:'digas-fe-management--hidden')}">
+            <f:cObject typoscriptObjectPath="lib.kitodoTempUserForm" />
+        </div>
+
+
+        <p>
+            <em><f:translate key="dialog.hint" /></em>
+        </p>
+
+
+        <script type="text/javascript">
+            var digasFeManagementExtendDialog = function (radio) {
+                var hide = radio.target.id === 'user_private' ? 'user_commercial_form' : 'user_private_form';
+
+                if(document.getElementById(radio.target.id).checked === true) {
+                    document.getElementById(radio.target.id + '_form').style.display='block';
+                    document.getElementById(hide).style.display='none';
+                }
+                else {
+                    document.getElementById('user_private_form').style.display='none';
+                    document.getElementById('user_commercial_form').style.display='none';
+                }
+            };
+            document.getElementById('user_private').addEventListener('click', digasFeManagementExtendDialog);
+            document.getElementById('user_commercial').addEventListener('click', digasFeManagementExtendDialog);
+        </script>
+    </div>
+
+</html>

@@ -2,6 +2,7 @@ plugin.tx_femanager {
     settings {
         languageFile = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf
         showCompanyFields = 0
+        showFirstNameField = 1
 
         new {
             login = 1
@@ -26,6 +27,7 @@ plugin.tx_femanager {
                 address.required = 1
                 zip.required = 1
                 city.required = 1
+                district.required = 0
                 password.required = 0
                 password_repeat.required = 0
                 terms.required = 1
@@ -47,10 +49,18 @@ plugin.tx_femanager {
 
                 # Email to user to confirm his new profile (with and without admin confirmation)
                 createUserNotify {
-                    _enable.value = 1
+                    _enable.value = 0
 
                 }
 
+                # Email to user to confirm his new profile AFTER password change
+                # extension for slot \Slub\DigasFeManagement\Slots\AfterPasswordChange
+                createUserNotifyAfterPwChange < plugin.tx_femanager.settings.new.email.createUserNotify
+                createUserNotifyAfterPwChange {
+                    _enable.value = 1
+                }
+
+                # Email for User notify, if admin refused profile registration
                 createUserNotifyRefused {
                     _enable.value = 0
                 }
@@ -67,9 +77,6 @@ plugin.tx_femanager {
                 onUserConfirmation {
                     mustChangePassword = TEXT
                     mustChangePassword.value = 1
-
-                    usergroup = TEXT
-                    usergroup.value = 2
                 }
 
                 # Overwrite on admin confirmation (only if admin confirmation was activated)
@@ -86,10 +93,15 @@ plugin.tx_femanager {
     }
 }
 
-[page["uid"] == {$femanager.pids.createInstitutional}]
+[page["uid"] in [{$femanager.pids.createInstitutional}]]
     plugin.tx_femanager {
+        # override "lastName" label
+        _LOCAL_LANG.de.tx_femanager_domain_model_user.lastName = Gesetzlicher Vertreter
+        _LOCAL_LANG.en.tx_femanager_domain_model_user.lastName = Legal representatives
+
         settings {
             showCompanyFields = 1
+            showFirstNameField = 0
 
             new {
                 validation {
@@ -98,7 +110,11 @@ plugin.tx_femanager {
                     }
 
                     companyType {
-                        required = 1
+                        required = 0
+                    }
+
+                    firstName {
+                        required = 0
                     }
                 }
             }

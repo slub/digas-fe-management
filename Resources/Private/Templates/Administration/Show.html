@@ -49,7 +49,7 @@
 				<ul class="account-type">
                     <li>
                         <f:translate key="administration.listing.table.userType"/>:
-                        <f:if condition="{user.companyType} > 0">
+                        <f:if condition="{user.company} != ''">
                             <f:then><f:translate key="administration.listing.table.institutionalUser"/></f:then>
                             <f:else><f:translate key="administration.listing.table.privateUser"/></f:else>
                         </f:if>
@@ -130,6 +130,12 @@
 							{user.city}
 						</li>
 					</f:if>
+					<f:if condition="{user.district}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.district" extensionName="femanager" />:
+							{user.district}
+						</li>
+					</f:if>
 					<f:if condition="{user.country}">
 						<li>
 							<f:translate key="tx_femanager_domain_model_user.country" extensionName="femanager" />:
@@ -143,14 +149,6 @@
 							{user.state}
 						</li>
 					</f:if>
-                    <f:if condition="{user.kitodoFeuserAccess}">
-                        <li>
-                            <f:translate key="{settings.languageFile}:tx_femanager_domain_model_user.kitodo_feuser_access" extensionName="femanager" />:
-                            <f:for each="{digas:explodeNL(string:user.kitodoFeuserAccess)}" as="id" iteration="i">
-                                {id}{f:if(condition:'!{i.isLast}',then:', ')}
-                            </f:for>
-                        </li>
-                    </f:if>
 				</ul>
 			</f:then>
 			<f:else>
