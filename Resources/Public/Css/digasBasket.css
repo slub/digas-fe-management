@@ -1,0 +1,113 @@
+.tx-dlf-request {
+    display: none;
+}
+
+.tx-dlf-request.tx-dlf-request--restricted {
+    display: inline-block;
+}
+
+.tx-dlf-request span {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+}
+
+.tx-dlf-request .tx-dlf-request--add-basket {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tx-dlf-request .tx-dlf-request--remove-basket {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tx-dlf-request--in-basket .tx-dlf-request--add-basket {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tx-dlf-request--in-basket .tx-dlf-request--remove-basket {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fe-management-basket-entries--old {
+    background: #fff8c4;
+    margin-bottom: 1.5rem;
+}
+
+.fe-management-basket--steps {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.fe-management-basket--step {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    justify-content: right;
+}
+
+.fe-management-basket--step:first-child {
+    flex-grow: 0;
+}
+
+.fe-management-basket--step span {
+    box-sizing: border-box;
+    background: #a6a6a6;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.fe-management-basket--step.active span {
+    background-color: #429942;
+}
+
+.fe-management-basket--step:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-top: 4px solid #a6a6a6;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+}
+
+.fe-management-basket--step.active:before {
+    border-color: #429942;
+}
+
+.fe-management-basket--step:first-child:before {
+    display: none;
+}
+
+.fe-management-basket--message {
+    background: #f0f0f0;
+    padding: 1rem;
+}
+
+.basket-link {
+    position: absolute;
+    top: 0;
+    right: 150px;
+    height: 30px;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.basket-link .basket-link-counter {
+    margin-left: 5px;
+}

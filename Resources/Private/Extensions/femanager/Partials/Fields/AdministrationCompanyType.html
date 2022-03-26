@@ -9,18 +9,11 @@
 		</f:if>
 	</label>
 	<div class="col-sm-10">
-        <f:form.select
+        <femanager:form.textfield
+            id="femanager_field_company_type"
             property="companyType"
             class="form-control"
-            id="femanager_field_company_type"
-            options="{
-               1:'{f:translate(key:\'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:tx_femanager_domain_model_user.company_type.item1\')}',
-               2:'{f:translate(key:\'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:tx_femanager_domain_model_user.company_type.item2\')}',
-               3:'{f:translate(key:\'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:tx_femanager_domain_model_user.company_type.item3\')}',
-               4:'{f:translate(key:\'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:tx_femanager_domain_model_user.company_type.item4\')}'
-       }">
-
-        </f:form.select>
+            additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'companyType')}" />
 	</div>
 </div>
 </f:if>

@@ -10,3 +10,25 @@ plugin.tx_felogin_pi1 {
         default.username = Email-Address
     }
 }
+
+# change logout form labels if temp user
+[usergroup('{$femanager.kitodoTempUserGroup}')]
+    page.headerData.100100101 = TEXT
+    page.headerData.100100101 {
+        value (
+            <style>
+            .tx-felogin-pi1 dl.username {display:none;}
+            .tx-felogin-pi1 .status-message{font-size:1rem;}
+            </style>
+        )
+    }
+
+    plugin.tx_felogin_pi1 {
+        _LOCAL_LANG {
+            de.logout = Jetzt anmelden
+            default.logout = Login now
+            de.ll_status_message = Falls Sie bereits einen Login besitzen, können Sie sich hier anmelden:
+            default.ll_status_message = If you already have a login, you can register here:
+        }
+    }
+[end]

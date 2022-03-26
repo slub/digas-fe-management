@@ -32,6 +32,24 @@ page {
 }
 
 plugin.tx_femanager {
+    view {
+        templateRootPaths {
+            0 = EXT:femanager/Resources/Private/Templates/
+            1 = {$plugin.tx_femanager.view.templateRootPath}
+            10 = EXT:digas_fe_management/Resources/Private/Templates/
+        }
+        partialRootPaths {
+            0 = EXT:femanager/Resources/Private/Partials/
+            1 = {$plugin.tx_femanager.view.partialRootPath}
+            10 = EXT:digas_fe_management/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            0 = EXT:femanager/Resources/Private/Layouts/
+            1 = {$plugin.tx_femanager.view.layoutRootPath}
+            10 = EXT:digas_fe_management/Resources/Private/Layouts/
+        }
+    }
+
     persistence {
         storagePid = {$femanager.pids.feUsers}
     }
@@ -40,7 +58,8 @@ plugin.tx_femanager {
         adminName = {$plugin.tx_femanager.settings.adminName}
         adminEmail = {$plugin.tx_femanager.settings.adminEmail}
 
-        feUserGroup = {$femanager.feUserGroup}
+        feUserGroups = {$femanager.feUserGroups}
+        generalAccessFeUserGroup = {$femanager.generalAccessFeUserGroup}
 
         languageFile = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf
 
@@ -56,6 +75,9 @@ plugin.tx_femanager {
 
             editProfile = {$femanager.pids.editProfile}
             editEmail = {$femanager.pids.editEmail}
+
+            kitodoAccessAdministriationPid = {$femanager.pids.kitodoAccessAdministriationPid}
+            basketUid = {$femanager.pids.basketUid}
         }
 
         administration {

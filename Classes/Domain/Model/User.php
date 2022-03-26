@@ -35,7 +35,7 @@ class User extends \In2code\Femanager\Domain\Model\User
     /**
      * companyType
      *
-     * @var int
+     * @var string
      */
     protected $companyType;
 
@@ -57,9 +57,74 @@ class User extends \In2code\Femanager\Domain\Model\User
     protected $locale;
 
     /**
+     * pwChangedOnConfirmation
+     *
+     * @var bool
+     */
+    protected $pwChangedOnConfirmation;
+
+    /**
+     * mustChangePassword
+     *
+     * @var bool
+     */
+    protected $mustChangePassword;
+
+    /**
+     * hidden
+     *
+     * @var bool
+     */
+    protected $hidden;
+
+    /**
+     * Sets the inactivemessageTstamp
+     *
+     * @param \DateTime $inactivemessageTstamp
+     * @return void
+     * @var int
+     */
+    protected $isOnline = false;
+
+    /**
+     * oldAccount
+     *
+     * @var int
+     */
+    protected $oldAccount;
+
+    /**
+     * tempUserOrderingParty
+     *
+     * @var string
+     */
+    protected $tempUserOrderingParty;
+
+    /**
+     * tempUserAreaLocation
+     *
+     * @var string
+     */
+    protected $tempUserAreaLocation;
+
+    /**
+     * tempUserPurpose
+     *
+     * @var string
+     */
+    protected $tempUserPurpose;
+
+    /**
+     * district
+     *
+     * @var string
+     */
+    protected $district;
+
+    /**
      * Returns the companyType
      *
-     * @return int $companyType
+     * @return string $companyType
      */
     public function getCompanyType()
     {
@@ -69,7 +134,7 @@ class User extends \In2code\Femanager\Domain\Model\User
     /**
      * Sets the companyType
      *
-     * @param int $companyType
+     * @param string $companyType
      * @return void
      */
     public function setCompanyType($companyType)
@@ -120,13 +185,6 @@ class User extends \In2code\Femanager\Domain\Model\User
     }
 
     /**
-     * mustChangePassword
-     *
-     * @var bool
-     */
-    protected $mustChangePassword;
-
-    /**
      * Returns the mustChangePassword
      *
      * @return bool $mustChangePassword
@@ -146,13 +204,6 @@ class User extends \In2code\Femanager\Domain\Model\User
     {
         $this->mustChangePassword = $mustChangePassword;
     }
-
-    /**
-     * hidden
-     *
-     * @var bool
-     */
-    protected $hidden;
 
     /**
      * Returns the hidden
@@ -197,15 +248,6 @@ class User extends \In2code\Femanager\Domain\Model\User
     }
 
     /**
-     * Sets the inactivemessageTstamp
-     *
-     * @param \DateTime $inactivemessageTstamp
-     * @var int
-     * @return void
-     */
-    protected $isOnline = false;
-
-    /**
      * Sets the isOnline
      *
      * @param bool $isOnline
@@ -215,13 +257,6 @@ class User extends \In2code\Femanager\Domain\Model\User
     {
         $this->isOnline = $isOnline;
     }
-
-    /**
-     * oldAccount
-     *
-     * @var int
-     */
-    protected $oldAccount;
 
     /**
      * Returns the oldAccount
@@ -245,32 +280,21 @@ class User extends \In2code\Femanager\Domain\Model\User
     }
 
     /**
-     * kitodoFeuserAccess
+     * savedSearches
      *
-     * @var string
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Search>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
-    protected $kitodoFeuserAccess;
+    protected $savedSearches;
+
 
     /**
-     * Returns the kitodoFeuserAccess
+     * kitodoDocumentAccess
      *
-     * @return string $kitodoFeuserAccess
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Access>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
-    public function getKitodoFeuserAccess()
-    {
-        return $this->kitodoFeuserAccess;
-    }
-
-    /**
-     * Sets the kitodoFeuserAccess
-     *
-     * @param string $kitodoFeuserAccess
-     * @return void
-     */
-    public function setKitodoFeuserAccess($kitodoFeuserAccess)
-    {
-        $this->kitodoFeuserAccess = $kitodoFeuserAccess;
-    }
+    protected $kitodoDocumentAccess;
 
     /**
      * __construct
@@ -293,15 +317,8 @@ class User extends \In2code\Femanager\Domain\Model\User
     protected function initStorageObjects()
     {
         $this->savedSearches = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->kitodoDocumentAccess = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
-
-    /**
-     * savedSearches
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Search>
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
-     */
-    protected $savedSearches;
 
     /**
      * Adds a savedSearch
@@ -354,5 +371,153 @@ class User extends \In2code\Femanager\Domain\Model\User
     public function getFullName()
     {
         return $this->firstName . ' ' . $this->lastName;
+    }
+
+    /**
+     * Sets the pwChangedOnConfirmation
+     *
+     * @param bool $pwChangedOnConfirmation
+     * @return void
+     */
+    public function setPwChangedOnConfirmation(bool $pwChangedOnConfirmation)
+    {
+        $this->pwChangedOnConfirmation = $pwChangedOnConfirmation;
+    }
+
+    /**
+     * Returns the pwChangedOnConfirmation
+     *
+     * @return bool $pwChangedOnConfirmation
+     */
+    public function getPwChangedOnConfirmation()
+    {
+        return $this->pwChangedOnConfirmation;
+    }
+
+    /**
+     * Returns the tempUserOrderingParty
+     *
+     * @return string $tempUserOrderingParty
+     */
+    public function getTempUserOrderingParty()
+    {
+        return $this->tempUserOrderingParty;
+    }
+
+    /**
+     * Sets the tempUserOrderingParty
+     *
+     * @param string $tempUserOrderingParty
+     * @return void
+     */
+    public function setTempUserOrderingParty($tempUserOrderingParty)
+    {
+        $this->tempUserOrderingParty = $tempUserOrderingParty;
+    }
+
+    /**
+     * Returns the tempUserAreaLocation
+     *
+     * @return string $tempUserAreaLocation
+     */
+    public function getTempUserAreaLocation()
+    {
+        return $this->tempUserAreaLocation;
+    }
+
+    /**
+     * Sets the tempUserAreaLocation
+     *
+     * @param string $tempUserAreaLocation
+     * @return void
+     */
+    public function setTempUserAreaLocation($tempUserAreaLocation)
+    {
+        $this->tempUserAreaLocation = $tempUserAreaLocation;
+    }
+
+    /**
+     * Returns the tempUserPurpose
+     *
+     * @return string $tempUserPurpose
+     */
+    public function getTempUserPurpose()
+    {
+        return $this->tempUserPurpose;
+    }
+
+    /**
+     * Sets the tempUserPurpose
+     *
+     * @param string $tempUserPurpose
+     * @return void
+     */
+    public function setTempUserPurpose($tempUserPurpose)
+    {
+        $this->tempUserPurpose = $tempUserPurpose;
+    }
+
+    /**
+     * Adds a kitodoDocumentAccess
+     *
+     * @param \Slub\DigasFeManagement\Domain\Model\Access $kitodoDocumentAccess
+     * @return void
+     */
+    public function addKitodoDocumentAccess(\Slub\DigasFeManagement\Domain\Model\Access $kitodoDocumentAccess)
+    {
+        $this->kitodoDocumentAccess->attach($kitodoDocumentAccess);
+    }
+
+    /**
+     * Removes a kitodoDocumentAccess
+     *
+     * @param \Slub\DigasFeManagement\Domain\Model\Access $kitodoDocumentAccessSearchToRemove The savedSearch to be removed
+     * @return void
+     */
+    public function removeKitodoDocumentAccess(\Slub\DigasFeManagement\Domain\Model\Access $kitodoDocumentAccessSearchToRemove)
+    {
+        $this->kitodoDocumentAccess->detach($kitodoDocumentAccessSearchToRemove);
+    }
+
+    /**
+     * Returns the kitodoDocumentAccess
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Access> $kitodoDocumentAccess
+     */
+    public function getKitodoDocumentAccess()
+    {
+        return $this->kitodoDocumentAccess;
+    }
+
+    /**
+     * Sets the kitodoDocumentAccess
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Access> $icons
+     * @return void
+     */
+    public function setKitodoDocumentAccess(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $kitodoDocumentAccess)
+    {
+        $this->kitodoDocumentAccess = $kitodoDocumentAccess;
+    }
+
+    /**
+     * Returns the district
+     *
+     * @return string $district
+     */
+    public function getDistrict()
+    {
+        return $this->district;
+    }
+
+    /**
+     * Sets the district
+     *
+     * @param string $district
+     * @return void
+     */
+    public function setDistrict($district)
+    {
+        $this->district = $district;
     }
 }

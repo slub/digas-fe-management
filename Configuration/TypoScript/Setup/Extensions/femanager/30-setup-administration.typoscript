@@ -11,11 +11,12 @@ plugin.tx_femanager {
                 username.required = 0
 
                 usergroup.required = 1
-                firstName.required = 1
+                firstName.required = 0
                 lastName.required = 1
                 address.required = 1
                 zip.required = 1
                 city.required = 1
+                district.required = 0
                 company.required = 0
                 company_type.required = 0
             }

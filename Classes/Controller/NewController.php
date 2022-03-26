@@ -27,6 +27,7 @@ namespace Slub\DigasFeManagement\Controller;
 
 use In2code\Femanager\Utility\LocalizationUtility;
 use Slub\DigasFeManagement\Domain\Model\User;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
 
 /**
@@ -55,6 +56,10 @@ class NewController extends \In2code\Femanager\Controller\NewController
      */
     public function newAction(\In2code\Femanager\Domain\Model\User $user = null)
     {
+        //get kitodo ID if set
+        $kitodoParams = GeneralUtility::_GET('tx_dlf');
+        $this->view->assign('kitodoParams', $kitodoParams);
+
         $this->view->assign('currentUser', $this->user);
         parent::newAction($user);
     }

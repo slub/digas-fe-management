@@ -1,0 +1,45 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:layout name="Default"/>
+
+<f:section name="main">
+    <div class="fe-management-basket">
+
+        <f:if condition="{documents.oldDocumentRequests}">
+            <f:render partial="Basket/TableOldRequests" arguments="{documents:documents.oldDocumentRequests}" />
+        </f:if>
+
+        <f:if condition="{documents.newDocumentRequests} || {request.sent}">
+            <div class="fe-management-basket--steps">
+                <div class="fe-management-basket--step active"><span>1</span></div>
+                <div class="fe-management-basket--step {f:if(condition:'{request.sent}',then:'active')}"><span>2</span></div>
+                <div class="fe-management-basket--step {f:if(condition:'{request.sent}',then:'active')}"><span>3</span></div>
+            </div>
+        </f:if>
+
+        <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
+
+        <f:if condition="{documents.newDocumentRequests}">
+            <f:if condition="!{request.sent}">
+                <h4><f:translate key="basket.note.step1" /></h4>
+            </f:if>
+
+
+            <f:if condition="{documents.newDocumentRequests}">
+                <f:render partial="Basket/Table" arguments="{documents:documents.newDocumentRequests, showRemoveLink:1}" />
+            </f:if>
+
+            <f:form name="request" object="{request}" action="overview">
+                <div class="form-row">
+                    <label for="basketMessage">
+                        <f:translate key="basket.message" />
+                    </label>
+                    <f:form.textarea id="basketMessage" property="message" />
+                </div>
+                <f:form.button type="submit" class="btn" title="{f:translate(key:'basket.request')}">
+                    <f:translate key="basket.continue" />
+                </f:form.button>
+            </f:form>
+        </f:if>
+    </div>
+</f:section>
+</html>

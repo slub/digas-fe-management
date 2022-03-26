@@ -1,0 +1,42 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:layout name="Default" />
+
+	User / New
+		Available variables:
+			{user}
+			{allUserGroups}
+
+<f:section name="main">
+
+
+	<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+	<f:render partial="Misc/FormErrors" arguments="{object:User}" />
+	<f:render partial="Misc/ResendConfirmation" arguments="{_all}" />
+	<div class="femanager_new">
+
+		<f:form
+				name="user"
+				object="{user}"
+				action="create"
+                controller="New"
+                pluginName="Pi1"
+                extensionName="Femanager"
+				enctype="multipart/form-data"
+				additionalAttributes="{data-femanager-plugin:data.uid}"
+                additionalParams="{tx_dlf:{id:'{kitodoParams.id}',page:'{kitodoParams.page}'}}"
+				class="form-horizontal {f:if(condition:'{settings.new.validation._enable.client}',then:'feManagerValidation',else:'')}">
+
+            <f:if condition="{settings.new.fields}">
+
+                <f:for each="{femanager:misc.explode(string:'{settings.new.fields}')}" as="field">
+                    <f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+                </f:for>
+
+				<f:render partial="Fields/Locale" arguments="{_all}" />
+
+                <f:render partial="Fields/SubmitCreate" arguments="{_all}" />
+
+            </f:if>
+		</f:form>
+	</div>
+</f:section>

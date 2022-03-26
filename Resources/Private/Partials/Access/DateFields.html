@@ -1,0 +1,39 @@
+<div class="access-form-row">
+    <div class="access-form-group">
+        <label class="access-control-label">
+            <f:translate key="access.list.starttime" />
+        </label>
+        <f:if condition="{access.starttime}>0">
+            <f:then>
+                <f:format.date date="{access.starttime}" format="%d.%m.%Y" />
+            </f:then>
+            <f:else>
+                <f:format.date date="today" format="%d.%m.%Y" />
+            </f:else>
+        </f:if>
+    </div>
+
+
+    <div class="access-form-group">
+        <label class="access-control-label" for="access-endtime-{access.uid}">
+            <f:translate key="access.list.endtime" />
+        </label>
+
+        <f:if condition="{access.endtime}>0">
+            <f:then>
+                <f:variable name="endDateValue" value="{access.endtime->f:format.date(format:'%Y-%m-%d')}" />
+            </f:then>
+            <f:else>
+                <f:variable name="endDateValue" value="{f:if(condition:settings.access.endTimeFieldDefaultValue,then:'{f:format.date(date:settings.access.endTimeFieldDefaultValue,format:\'%Y-%m-%d\')}')}" />
+            </f:else>
+        </f:if>
+
+        <f:form.textfield id="access-endtime-{access.uid}"
+                          maxlength="10"
+                          type="date"
+                          required="required"
+                          property="endtimeString"
+                          value="{endDateValue}"
+                          additionalAttributes="{min:'{f:format.date(date:\'today + 1 day\',format:\'%Y-%m-%d\')}'}"/>
+    </div>
+</div>

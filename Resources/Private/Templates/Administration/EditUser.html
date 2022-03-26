@@ -28,22 +28,26 @@
 
                             <f:form.hidden name="token" value="{token}" />
 
-                            <f:render partial="Fields/FirstName" arguments="{_all}" />
-                            <f:render partial="Fields/LastName" arguments="{_all}" />
-                            <f:render partial="Fields/Gender" arguments="{_all}" />
-
                             <f:render partial="Fields/Usergroup" arguments="{_all}" />
 
-                            <f:if condition="{user.companyType} > 0">
+                            <f:if condition="{user.company} != ''">
                                 <f:render partial="Fields/Company" arguments="{_all}" />
                                 <f:render partial="Fields/AdministrationCompanyType" arguments="{_all}" />
                             </f:if>
 
-                            <f:render partial="Fields/Telephone" arguments="{_all}" />
+                            <f:render partial="Fields/Gender" arguments="{_all}" />
+
+                            <f:render partial="Fields/LastName" arguments="{_all}" />
+                            <f:if condition="{user.company} == ''">
+                                <f:render partial="Fields/FirstName" arguments="{_all}" />
+                            </f:if>
+
                             <f:render partial="Fields/Address" arguments="{_all}" />
                             <f:render partial="Fields/Zip" arguments="{_all}" />
                             <f:render partial="Fields/City" arguments="{_all}" />
-                            <f:render partial="Fields/KitodoFeuserAccess" arguments="{_all}" />
+                            <f:render partial="Fields/District" arguments="{_all}" />
+                            <f:render partial="Fields/Country" arguments="{_all}" />
+                            <f:render partial="Fields/Telephone" arguments="{_all}" />
                             <f:render partial="Fields/Disable" arguments="{_all}" />
 
                             <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />

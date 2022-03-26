@@ -301,9 +301,17 @@
 				<source><![CDATA[User with username "%s" activated.]]></source>
 				<target><![CDATA[Nutzer mit der E-Mail-Adresse "%s" wurde aktiviert.]]></target>
 			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.name" approved="yes">
+				<source><![CDATA[Name]]></source>
+				<target><![CDATA[Name]]></target>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.address" approved="yes">
 				<source><![CDATA[Street / Number]]></source>
 				<target><![CDATA[Straße / Hausnummer]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.new_email">
+				<source><![CDATA[new E-Mail-Address]]></source>
+				<target><![CDATA[neue E-Mail-Adresse]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.company" approved="yes">
 				<source><![CDATA[Name of organization]]></source>
@@ -314,52 +322,28 @@
 				<target><![CDATA[Art der Organisation]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.company_type" approved="yes">
-				<source><![CDATA[Type of organization]]></source>
-				<target><![CDATA[Art der Organisation]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type.item1" approved="yes">
-				<source><![CDATA[Company]]></source>
-				<target><![CDATA[Firma]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type.item2" approved="yes">
-				<source><![CDATA[University]]></source>
-				<target><![CDATA[Universtität]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type.item3" approved="yes">
-				<source><![CDATA[Research institute]]></source>
-				<target><![CDATA[Forschungseinrichtung]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type.item4" approved="yes">
-				<source><![CDATA[other]]></source>
-				<target><![CDATA[Sonstiges]]></target>
+				<source><![CDATA[Organizational unit]]></source>
+				<target><![CDATA[Organisationseinheit]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.disable" approved="yes">
 				<source><![CDATA[Deactivate Account]]></source>
 				<target><![CDATA[Account deaktivieren]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item0" approved="yes">
-				<source><![CDATA[No Answer]]></source>
-				<target><![CDATA[Keine Angabe]]></target>
+				<source><![CDATA[-]]></source>
+				<target><![CDATA[-]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item1" approved="yes">
-				<source><![CDATA[Female]]></source>
-				<target><![CDATA[weiblich]]></target>
+				<source><![CDATA[Mrs]]></source>
+				<target><![CDATA[Frau]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.gender.item2" approved="yes">
-				<source><![CDATA[Male]]></source>
-				<target><![CDATA[männlich]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.gender.item3" approved="yes">
-				<source><![CDATA[Diverse]]></source>
-				<target><![CDATA[divers]]></target>
+				<source><![CDATA[Mr]]></source>
+				<target><![CDATA[Herr]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.inactivemessage_tstamp" approved="yes">
 				<source><![CDATA[Inactive Message Date]]></source>
 				<target><![CDATA[Datum der Deaktivierung]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.kitodo_feuser_access" approved="yes">
-				<source><![CDATA[Kitodo FE user access]]></source>
-				<target><![CDATA[Freigabe Katalog-IDs für Fremdnutzer]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.tab.kitodo" approved="yes">
 				<source><![CDATA[Kitodo]]></source>
@@ -385,9 +369,329 @@
 				<source><![CDATA[Usergroup]]></source>
 				<target><![CDATA[Nutzergruppe]]></target>
 			</trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.temp_user_ordering_party">
+                <source><![CDATA[Ordering party]]></source>
+                <target><![CDATA[Auftraggeber]]></target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.temp_user_area_location">
+                <source><![CDATA[Location of the area for which geological data are requested]]></source>
+                <target><![CDATA[Lage des Gebiets, für das geologische Daten begehrt werden]]></target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.temp_user_purpose">
+                <source><![CDATA[Purpose of the visit]]></source>
+                <target><![CDATA[Zweck des Besuchs]]></target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tempUserOrderingParty">
+                <source><![CDATA[Ordering party]]></source>
+                <target><![CDATA[Auftraggeber]]></target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tempUserAreaLocation">
+                <source><![CDATA[Location of the area for which geological data are requested]]></source>
+                <target><![CDATA[Lage des Gebiets, für das geologische Daten begehrt werden]]></target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.tempUserPurpose">
+                <source><![CDATA[Purpose of the visit]]></source>
+                <target><![CDATA[Zweck des Besuchs]]></target>
+            </trans-unit>
 			<trans-unit id="validationErrorPasswordUpperCaseSpecialChar" approved="yes">
 				<source><![CDATA[Please use at least one uppercase and one special character]]></source>
 				<target><![CDATA[Bitte verwenden Sie mindestens einen Großbuchstaben und ein Sonderzeichen]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationText1" approved="yes">
+				<source><![CDATA[Vielen Dank für Ihre Registrierung in DiGAS – dem Digitalen Geologischen Archiv Sachsens.]]></source>
+				<target><![CDATA[Vielen Dank für Ihre Registrierung in DiGAS – dem Digitalen Geologischen Archiv Sachsens.]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationText2" approved="yes">
+				<source><![CDATA[Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:]]></source>
+				<target><![CDATA[Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationText3" approved="yes">
+				<source><![CDATA[Beachten Sie bitte, dass der Link nur für 12 Stunden gültig ist.]]></source>
+				<target><![CDATA[Beachten Sie bitte, dass der Link nur für 12 Stunden gültig ist.]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationText4" approved="yes">
+				<source><![CDATA[Wenn Sie die Registrierung auf der Website nicht selbst vorgenommen haben, können Sie diese E-Mail ignorieren.]]></source>
+				<target><![CDATA[Wenn Sie die Registrierung auf der Website nicht selbst vorgenommen haben, können Sie diese E-Mail ignorieren.]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationLinkConfirm" approved="yes">
+				<source><![CDATA[Registrierung abschließen]]></source>
+				<target><![CDATA[Registrierung abschließen]]></target>
+			</trans-unit>
+            <trans-unit id="dialog.title">
+                <source><![CDATA[Purpose of use]]></source>
+                <target><![CDATA[Zweck der Nutzung]]></target>
+            </trans-unit>
+            <trans-unit id="dialog.question">
+                <source><![CDATA[Soll die Einsichtnahme und Nutzung der markierten Dokumente im Rahmen einer gewerblichen Tätigkeit erfolgen?]]></source>
+                <target><![CDATA[Soll die Einsichtnahme und Nutzung der markierten Dokumente im Rahmen einer gewerblichen Tätigkeit erfolgen?]]></target>
+            </trans-unit>
+            <trans-unit id="dialog.hint">
+                <source><![CDATA[Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGAS starten.]]></source>
+                <target><![CDATA[Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGAS starten.]]></target>
+            </trans-unit>
+            <trans-unit id="dialog.continue">
+                <source><![CDATA[continue]]></source>
+                <target><![CDATA[weiter]]></target>
+            </trans-unit>
+            <trans-unit id="dialog.yes">
+                <source><![CDATA[yes]]></source>
+                <target><![CDATA[ja]]></target>
+            </trans-unit>
+            <trans-unit id="dialog.no">
+                <source><![CDATA[no]]></source>
+                <target><![CDATA[nein]]></target>
+            </trans-unit>
+            <trans-unit id="access.user.inform">
+                <source><![CDATA[Inform user about new access / rejected access]]></source>
+                <target><![CDATA[Nutzer über neue Freigaben / Ablehungen informieren]]></target>
+            </trans-unit>
+            <trans-unit id="access.user.inform.queued">
+                <source><![CDATA[Message to user about new document access / rejection was queued]]></source>
+                <target><![CDATA[Nachricht an Benutzer über neuen Dokumentenzugriff / Ablehnung wurde in die Warteschlange gestellt]]></target>
+            </trans-unit>
+            <trans-unit id="access.new.headline">
+                <source><![CDATA[Create new document access for user "%s"]]></source>
+                <target><![CDATA[Neue Freigabe für User "%s" anlegen]]></target>
+            </trans-unit>
+            <trans-unit id="access.new.create">
+                <source><![CDATA[Create document access]]></source>
+                <target><![CDATA[Neue Freigabe anlegen]]></target>
+            </trans-unit>
+            <trans-unit id="access.new.submit">
+                <source><![CDATA[Create document access]]></source>
+                <target><![CDATA[Dokument freigeben]]></target>
+            </trans-unit>
+            <trans-unit id="access.list">
+                <source><![CDATA[Manage access to documents]]></source>
+                <target><![CDATA[Zugriff auf Dokumente verwalten]]></target>
+            </trans-unit>
+            <trans-unit id="access.list.starttime">
+                <source><![CDATA[Access start date]]></source>
+                <target><![CDATA[Freigabe Start]]></target>
+            </trans-unit>
+            <trans-unit id="access.list.endtime">
+                <source><![CDATA[Access end date]]></source>
+                <target><![CDATA[Freigabe Ende]]></target>
+            </trans-unit>
+            <trans-unit id="access.list.short">
+                <source><![CDATA[Access]]></source>
+                <target><![CDATA[Freigaben]]></target>
+            </trans-unit>
+            <trans-unit id="access.list.granted">
+                <source><![CDATA[Access granted]]></source>
+                <target><![CDATA[Bewilligte Freigaben]]></target>
+            </trans-unit>
+            <trans-unit id="access.list.expired">
+                <source><![CDATA[Access expired]]></source>
+                <target><![CDATA[Abgelaufene Freigaben]]></target>
+            </trans-unit>
+            <trans-unit id="access.list.pending">
+                <source><![CDATA[Access pending]]></source>
+                <target><![CDATA[Ausstehende Freigaben]]></target>
+            </trans-unit>
+            <trans-unit id="access.list.rejected">
+                <source><![CDATA[Access rejected]]></source>
+                <target><![CDATA[Abgelehnte Freigaben]]></target>
+            </trans-unit>
+            <trans-unit id="access.recordId">
+                <source><![CDATA[Document Identifier]]></source>
+                <target><![CDATA[Datensatz Identifikator]]></target>
+            </trans-unit>
+            <trans-unit id="access.rejectedReason">
+                <source><![CDATA[Reason for rejection]]></source>
+                 <target><![CDATA[Grund der Ablehnung]]></target>
+            </trans-unit>
+            <trans-unit id="access.rejectedReason.new">
+                <source><![CDATA[Release has been denied before and has been requested again.]]></source>
+                <target><![CDATA[Freigabe wurde schon einmal abgelehnt und wurde erneut angefragt.]]></target>
+            </trans-unit>
+            <trans-unit id="access.action.grant">
+                <source><![CDATA[Grant access]]></source>
+                <target><![CDATA[Freigabe erteilen]]></target>
+            </trans-unit>
+            <trans-unit id="access.action.reject">
+                <source><![CDATA[Reject access]]></source>
+                <target><![CDATA[Freigabe ablehnen]]></target>
+            </trans-unit>
+            <trans-unit id="access.action.adjust">
+                <source><![CDATA[Adjust access]]></source>
+                <target><![CDATA[Freigabe anpassen]]></target>
+            </trans-unit>
+            <trans-unit id="access.action.delete">
+                <source><![CDATA[Delete access]]></source>
+                <target><![CDATA[Freigabe löschen]]></target>
+            </trans-unit>
+            <trans-unit id="access.success.granted">
+                <source><![CDATA[Access for document "%s" was granted]]></source>
+                <target><![CDATA[Freigabe für Dokument "%s" wurde erteilt]]></target>
+            </trans-unit>
+            <trans-unit id="access.success.updated">
+                <source><![CDATA[Access for document "%s" was updated]]></source>
+                <target><![CDATA[Freigabe für Dokument "%s" wurde angepasst]]></target>
+            </trans-unit>
+            <trans-unit id="access.success.deleted">
+                <source><![CDATA[Access for document "%s" was deleted]]></source>
+                <target><![CDATA[Freigabe für Dokument "%s" wurde entfernt]]></target>
+            </trans-unit>
+            <trans-unit id="access.error.starttime">
+                <source><![CDATA[Access date must be today or in the future]]></source>
+                <target><![CDATA[Freigabe Start muss in der Zukunft liegen]]></target>
+            </trans-unit>
+            <trans-unit id="access.error.recordId.missing">
+                <source><![CDATA[Please enter a document identifierIdentifier]]></source>
+                <target><![CDATA[Bitte geben Sie einen Datensatz Identifikator ein]]></target>
+            </trans-unit>
+            <trans-unit id="access.error.recordId.notFound">
+                <source><![CDATA[No document for given identifier was found]]></source>
+                <target><![CDATA[Für den angegebenen Datensatz Identifikator konnte kein Dokument gefunden werden]]></target>
+            </trans-unit>
+            <trans-unit id="access.error.endtime">
+                <source><![CDATA[Release end must be at least one day in the future]]></source>
+                <target><![CDATA[Freigabe Ende muss mindestens einen Tag in der Zukunft liegen]]></target>
+            </trans-unit>
+            <trans-unit id="access.error.dlfDocument.exists">
+                <source><![CDATA[Document is already in users access list. It's either not accessible yet, the access is expired or the document is accessible]]></source>
+                <target><![CDATA[Das Dokument befindet sich bereits in der Zugriffsliste des Benutzers. Es ist entweder noch nicht freigegeben, der Zugang ist abgelaufen oder das Dokument ist bereits freigegeben]]></target>
+            </trans-unit>
+            <trans-unit id="access.confirm.reject">
+                <source><![CDATA[Are you sure to reject access to the document "%s"?]]></source>
+                <target><![CDATA[Wollen Sie die Freigabe für Dokument "%s" wirklich ablehnen?]]></target>
+            </trans-unit>
+			<trans-unit id="requestKitodoAccess.success">
+				<source><![CDATA[Access to documents were successfully requested]]></source>
+				<target><![CDATA[Zugang zu Dokumenten wurde erfolgreich beantragt]]></target>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.error">
+				<source><![CDATA[Error while access to documents requested]]></source>
+				<target><![CDATA[Fehler beim angeforderten Zugriff auf Dokumente]]></target>
+			</trans-unit>
+			<trans-unit id="basket.table.recordId">
+				<source><![CDATA[Identifier]]></source>
+				<target><![CDATA[Identifier]]></target>
+			</trans-unit>
+			<trans-unit id="basket.table.title">
+				<source><![CDATA[Title]]></source>
+				<target><![CDATA[Titel]]></target>
+			</trans-unit>
+			<trans-unit id="basket.table.actions">
+				<source><![CDATA[Actions]]></source>
+				<target><![CDATA[Aktionen]]></target>
+			</trans-unit>
+            <trans-unit id="basket.table.actions.remove">
+                <source><![CDATA[remove from basket]]></source>
+                <target><![CDATA[aus Warenkorb entfernen]]></target>
+            </trans-unit>
+            <trans-unit id="basket.table.status">
+                <source><![CDATA[Status]]></source>
+                <target><![CDATA[Status]]></target>
+            </trans-unit>
+            <trans-unit id="basket.request">
+                <source><![CDATA[Request basket]]></source>
+                <target><![CDATA[Warenkorb anfragen]]></target>
+            </trans-unit>
+            <trans-unit id="basket.back">
+                <source><![CDATA[go back]]></source>
+                <target><![CDATA[zurück]]></target>
+            </trans-unit>
+            <trans-unit id="basket.continue">
+                <source><![CDATA[continue]]></source>
+                <target><![CDATA[weiter]]></target>
+            </trans-unit>
+            <trans-unit id="basket.empty">
+                <source><![CDATA[Basket empty]]></source>
+                <target><![CDATA[Warenkorb leer]]></target>
+            </trans-unit>
+            <trans-unit id="basket.note.step1">
+                <source><![CDATA[Submit your request and gain access to the listed documents]]></source>
+                <target><![CDATA[Antrag zu zugangsbeschränkten Dokumenten stellen]]></target>
+            </trans-unit>
+            <trans-unit id="basket.note.step2">
+                <source><![CDATA[Please check the data you wish to request]]></source>
+                <target><![CDATA[Bitte überprüfen Sie die Daten, die Sie anfragen wollen]]></target>
+            </trans-unit>
+            <trans-unit id="basket.message">
+                <source><![CDATA[Your message]]></source>
+                <target><![CDATA[Ihre Nachricht]]></target>
+            </trans-unit>
+            <trans-unit id="basket.header.alreadyRequested">
+                <source><![CDATA[Documents already requested for release]]></source>
+                <target><![CDATA[Bereits für die Freigabe angefragte Dokumente]]></target>
+            </trans-unit>
+            <trans-unit id="basket.message.alreadyRequested">
+                <source><![CDATA[These documents cannot be requested again]]></source>
+                <target><![CDATA[Diese Dokumente können nicht erneut angefragt werden]]></target>
+            </trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.subject" approved="yes">
+				<source><![CDATA[[DiGAS FE Management] Access granted]]></source>
+				<target><![CDATA[[DiGAS FE Management] Zugriff gewährt]]></target>
+			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.message" approved="yes">
+				<source><![CDATA[The access to the requested documents were granted:]]></source>
+				<target><![CDATA[Der Zugriff auf die folgenden Dokumente wurde gewährt:]]></target>
+			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.messageLogin" approved="yes">
+				<source><![CDATA[You can use this url to login:]]></source>
+				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
+			</trans-unit>
+            <trans-unit id="kitodoAccessGrantedNotification.email.accessRejected">
+                <source><![CDATA[The access to the requested documents were rejected:]]></source>
+                <target><![CDATA[Der Zugriff auf die folgenden Dokumente wurde abgelehnt:]]></target>
+            </trans-unit>
+            <trans-unit id="kitodoAccessGrantedNotification.email.accessGranted">
+                <source><![CDATA[The access to the requested documents were granted:]]></source>
+				<target><![CDATA[Der Zugriff auf die folgenden Dokumente wurde gewährt:]]></target>
+            </trans-unit>
+			<trans-unit id="kitodoAccessExpirationNotification.email.subject" approved="yes">
+				<source><![CDATA[[DiGAS FE Management] Expiration Information]]></source>
+				<target><![CDATA[[DiGAS FE Management] Freigabe läuft bald ab]]></target>
+			</trans-unit>
+			<trans-unit id="kitodoAccessExpirationNotification.email.message" approved="yes">
+				<source><![CDATA[The access to the following documents will expire soon:]]></source>
+				<target><![CDATA[Der Zugriff auf die folgenden Dokumente läuft bald ab:]]></target>
+			</trans-unit>
+			<trans-unit id="kitodoAccessExpirationNotification.email.messageLogin" approved="yes">
+				<source><![CDATA[You can use this url to login:]]></source>
+				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
+			</trans-unit>
+            <trans-unit id="requestKitodoAccess.email.subject">
+                <source><![CDATA[[DiGAS FE Management] Access requested]]></source>
+                <target><![CDATA[Dokumentenfreigabe beantragt]]></target>
+            </trans-unit>
+            <trans-unit id="requestKitodoAccessUser.email.subject">
+                <source><![CDATA[[DiGAS FE Management] Access requested]]></source>
+                <target><![CDATA[Dokumentenfreigabe beantragt]]></target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.district">
+                <source><![CDATA[District]]></source>
+                <target><![CDATA[Ortsteil]]></target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.zip">
+                <source><![CDATA[Zipcode]]></source>
+                <target><![CDATA[Postleitzahl]]></target>
+            </trans-unit>
+            <trans-unit id="tx_femanager_domain_model_user.city">
+                <source><![CDATA[City]]></source>
+                <target><![CDATA[Ort]]></target>
+            </trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.email">
+				<source><![CDATA[Email]]></source>
+				<target><![CDATA[Email-Adresse]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender">
+				<source><![CDATA[Salutation]]></source>
+				<target><![CDATA[Anrede]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.lastName">
+				<source><![CDATA[Lastname]]></source>
+				<target><![CDATA[Name]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.lastName_institutional">
+				<source><![CDATA[Legal representatives]]></source>
+				<target><![CDATA[Gesetzlicher Vertreter]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.country">
+				<source><![CDATA[Country]]></source>
+				<target><![CDATA[Land]]></target>
 			</trans-unit>
 		</body>
 	</file>

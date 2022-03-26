@@ -1,0 +1,40 @@
+<h4>
+    <f:translate key="basket.header.alreadyRequested" />
+</h4>
+<small><f:translate key="basket.message.alreadyRequested" /></small>
+<table class="fe-management-basket-entries--old">
+    <thead>
+    <tr>
+        <th><f:translate key="basket.table.recordId"/></th>
+        <th><f:translate key="basket.table.title"/></th>
+        <th><f:translate key="basket.table.status"/></th>
+        <th><f:translate key="basket.table.actions"/></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <f:for each="{documents}" as="document">
+        <tr class="fe-management-basket-entry">
+            <td>{document.recordId}</td>
+            <td>{document.dlfDocument.title}</td>
+            <td>
+                <small>
+                    <f:if condition="{document.hidden}==1">
+                        <f:then>
+                            Freigabe ausstehend
+                        </f:then>
+                        <f:else>
+                            bereits freigegeben
+                        </f:else>
+                    </f:if>
+                </small>
+            </td>
+            <td>
+                <a class="fe-management-basket-remove-link" data-id="{document.recordId}" href="javascript:void(0)">
+                    <f:translate key="basket.table.actions.remove" />
+                </a>
+            </td>
+        </tr>
+    </f:for>
+    </tbody>
+</table>

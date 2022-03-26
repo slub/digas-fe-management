@@ -84,7 +84,7 @@ class DeleteDeactivatedAccountsCommand extends DigasBaseCommand
         $time = new \DateTime();
         $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timespan);
 
-        $feUsers = $this->UserRepository->findDeactivatedAccounts($deleteTimestamp, $this->settings['feUserGroup']);
+        $feUsers = $this->UserRepository->findDeactivatedAccounts($deleteTimestamp, $this->feUserGroups);
 
         if (!empty($feUsers)) {
             $deleteCounter = $this->deleteFeUsers($feUsers);

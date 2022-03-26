@@ -1,0 +1,11 @@
+<f:spaceless>
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:format.raw><f:translate extensionName="DigasFeManagement" key="kitodoAccessExpirationNotification.email.message"/></f:format.raw>
+<f:format.raw>
+<f:for each="{documentsList}" as="expirationEntry">
+{expirationEntry.recordId} - {expirationEntry.documentTitle}
+</f:for>
+</f:format.raw>
+<f:format.raw><f:translate extensionName="DigasFeManagement" key="kitodoAccessExpirationNotification.email.messageLogin"/></f:format.raw>
+{f:uri.typolink(parameter:'{loginPid}')}
+</f:spaceless>

@@ -7,45 +7,14 @@
 		</f:if>
 	</label>
 	<div class="col-sm-10">
-		<div class="radio">
-			<label>
-				<f:form.radio
-                    id="femanager_field_gender0"
-                    property="gender"
-                    value="0"
-                    additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
-                <f:translate key="tx_femanager_domain_model_user.gender.item0" extensionName="DigasFeManagement" />
-			</label>
-		</div>
-        <div class="radio">
-            <label>
-                <f:form.radio
-                    id="femanager_field_gender1"
-                    property="gender"
-                    value="1"
-                    additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
-                <f:translate key="tx_femanager_domain_model_user.gender.item1" extensionName="DigasFeManagement" />
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <f:form.radio
-                    id="femanager_field_gender2"
-                    property="gender"
-                    value="2"
-                    additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
-                <f:translate key="tx_femanager_domain_model_user.gender.item2" extensionName="DigasFeManagement" />
-            </label>
-        </div>
-		<div class="radio">
-			<label>
-				<f:form.radio
-                    id="femanager_field_gender3"
-                    property="gender"
-                    value="3"
-                    additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
-                <f:translate key="tx_femanager_domain_model_user.gender.item3" extensionName="DigasFeManagement" />
-			</label>
-		</div>
+        <femanager:form.select
+            property="gender"
+            class="form-control"
+            id="femanager_field_gender"
+            options="{
+               0:'{f:translate(key:\'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:tx_femanager_domain_model_user.gender.item0\')}',
+               1:'{f:translate(key:\'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:tx_femanager_domain_model_user.gender.item1\')}',
+               2:'{f:translate(key:\'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:tx_femanager_domain_model_user.gender.item2\')}'
+           }"/>
 	</div>
 </div>

@@ -25,9 +25,12 @@ namespace Slub\DigasFeManagement\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Slub\DigasFeManagement\Domain\Model\User;
+use Slub\DigasFeManagement\Domain\Repository\UserRepository;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Core\Context\Context;
@@ -91,7 +94,7 @@ class KitodoAccessViewHelper extends AbstractViewHelper
         $kitodoDocument = KitodoAccessViewHelper::getDlfDocument(intval($arguments['id']));
 
         // check if document could be fetched
-        if ($kitodoDocument === false) {
+        if ($kitodoDocument == false) {
             return false;
         }
 
@@ -103,7 +106,15 @@ class KitodoAccessViewHelper extends AbstractViewHelper
 
         // check decided access for current fe-user
         if (GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user','isLoggedIn')) {
-            $accessIds = explode("\r\n", $GLOBALS['TSFE']->fe_user->user['kitodo_feuser_access']);
+            //invoke user repository
+            $userRepository = GeneralUtility::makeInstance(ObjectManager::class)->get(UserRepository::class);
+            /**
+             * @var User $currentUser
+             */
+            $currentUser = $userRepository->findByUid($GLOBALS['TSFE']->fe_user->user['uid']);
+            //get accessible documents of current fe_user
+            $accessIds = KitodoAccessViewHelper::getKitodoDocmentAccessIdsAsArray($currentUser->getKitodoDocumentAccess());
+
             return in_array($kitodoDocument['record_id'], $accessIds);
         }
         return false;
@@ -121,13 +132,34 @@ class KitodoAccessViewHelper extends AbstractViewHelper
         return $typoScriptConfiguration['plugin.']['tx_digasfemanagement.']['settings.'];
     }
 
+
+    /**
+     * iterate over accessible documents of current fe_user
+     * return accessible document ids as array
+     *
+     * @param ObjectStorage $kitodoDocumentAccess
+     * @return array
+     */
+    protected static function getKitodoDocmentAccessIdsAsArray(ObjectStorage $kitodoDocumentAccess) : array
+    {
+        $accessIds = [];
+
+        if(!empty($kitodoDocumentAccess)) {
+            foreach ($kitodoDocumentAccess as $document) {
+                array_push($accessIds, trim($document->getRecordId()));
+            }
+        }
+
+        return $accessIds;
+    }
+
     /**
      * fetch dlf document by uid
      *
      * @param int $uid
      * @return void
      */
-    protected static function getDlfDocument($uid) {
+    protected static function getDlfDocument(int $uid) {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
             ->getQueryBuilderForTable('tx_dlf_documents');
 
