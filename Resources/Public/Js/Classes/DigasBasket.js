@@ -9,8 +9,8 @@ class DigasBasket {
             basketOverviewCls: 'fe-management-basket',
             basketMapCls: 'digas-view-map',
             basketListingCls: 'tx-dlf-listview',
-            listIdentifierCls: 'dlf-identifier',
-            listRestrictionCLs: 'dlf-restriction',
+            listIdentifierCls: 'tx-dlf-metadata-record_id',
+            listRestrictionCLs: 'tx-dlf-metadata-restrictions',
             basketLinkCountCls: 'basket-link-counter',
             restrictionContext: {
                 de: 'ja',
