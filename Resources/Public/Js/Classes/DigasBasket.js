@@ -9,8 +9,8 @@ class DigasBasket {
             basketOverviewCls: 'fe-management-basket',
             basketMapCls: 'digas-view-map',
             basketListingCls: 'tx-dlf-listview',
-            listIdentifierCls: 'tx-dlf-metadata-record_id',
-            listRestrictionCLs: 'tx-dlf-metadata-restrictions',
+            listIdentifierCls: 'dd.tx-dlf-metadata-record_id',
+            listRestrictionCLs: 'dd.tx-dlf-metadata-restrictions',
             basketLinkCountCls: 'basket-link-counter',
             restrictionContext: {
                 de: 'ja',
@@ -71,16 +71,15 @@ class DigasBasket {
 
     initializeListing() {
         this.basketLinks = document.querySelectorAll(`.${this.options.basketLinkCls}`);
-
         if (this.basketLinks !== null) {
             this.basketLinks.forEach((basketLink) => {
                 const listEntry = basketLink.parentNode;
 
-                const entryIdentifier = listEntry.querySelector(`.${this.options.listIdentifierCls}`);
-                const entryRestriction = listEntry.querySelector(`.${this.options.listRestrictionCLs}`);
+                const entryIdentifier = listEntry.querySelector(`${this.options.listIdentifierCls}`);
+                const entryRestriction = listEntry.querySelector(`${this.options.listRestrictionCLs}`);
 
                 if (entryRestriction !== null) {
-                    if (entryRestriction.textContent !== this.restrictionString) {
+                    if (entryRestriction.textContent.trim() !== this.restrictionString) {
                         return;
                     }
                 }
