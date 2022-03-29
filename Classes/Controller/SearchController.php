@@ -33,7 +33,8 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 /**
  * Class SearchController
  */
-class SearchController extends AbstractController {
+class SearchController extends AbstractController
+{
 
     /**
      * searchRepository
@@ -48,7 +49,8 @@ class SearchController extends AbstractController {
      *
      * @return void
      */
-    public function listAction() {
+    public function listAction()
+    {
         $userUid = $this->user->getUid();
 
         $this->view->assignMultiple([
@@ -63,7 +65,8 @@ class SearchController extends AbstractController {
      *
      * @return void
      */
-    public function saveAction() {
+    public function saveAction()
+    {
 
     }
 
@@ -76,16 +79,16 @@ class SearchController extends AbstractController {
     {
         if($this->user !==NULL && $this->user->getUid()) {
 
-            $searchParams = GeneralUtility::_GP('tx_dlf');
+            $searchParams = GeneralUtility::_GP('tx_dlf_search');
 
-            if(array_key_exists('query',$searchParams) && array_key_exists('fulltext',$searchParams)) {
+            if (is_array($searchParams) && array_key_exists('query',$searchParams['searchParameter']) && array_key_exists('fulltext',$searchParams['searchParameter'])) {
                 $arguments = $this->request->getArguments();
 
                 $searchRequest = new Search();
                 $title = $arguments['title'] ? $arguments['title'] : LocalizationUtility::translate('search', 'DigasFeManagement').': '.strftime('%d.%m.%y - %H:%M');
 
                 $searchRequest->setTitle($title);
-                $searchRequest->setSearchParams($searchParams);
+                $searchRequest->setSearchParams($searchParams['searchParameter']);
                 $searchRequest->setFeUser($this->user->getUid());
 
                 $this->searchRepository->add($searchRequest);
@@ -95,7 +98,7 @@ class SearchController extends AbstractController {
                     'DigasFeManagement'
                 );
 
-                if(GeneralUtility::_GET('type')>0) {
+                if (GeneralUtility::_GET('type')>0) {
                     return $statusMessage;
                 }
 
