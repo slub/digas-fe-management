@@ -39,7 +39,6 @@
             </f:if>
             <div class="document-functions">
                 <div class="provider">
-
                     <dl class="mobile-meta">
                         <dt class="tx-dlf-title">Titel</dt>
                         <dd class="tx-dlf-title">
@@ -48,7 +47,8 @@
                             </a>
                         </dd>
                         <dt>Autor</dt>
-                        <dd><dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:relatedItem[@type="host"]/mods:name[//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:name/mods:role/mods:roleTerm[@authority="marcrelator"][@type="code"]="aut"]/mods:displayForm)[1]' />
+                        <dd>
+                            <dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:relatedItem[@type="host"]/mods:name[//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:name/mods:role/mods:roleTerm[@authority="marcrelator"][@type="code"]="aut"]/mods:displayForm)[1]' />
                         </dd>
                     </dl>
                 </div>
@@ -58,49 +58,49 @@
                         <a href="#" title="Links">Links</a>
                         <ul>
                             <f:if condition="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:presentation)[1]' />">
-                            <li>
-                                <f:link.external uri="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:presentation)[1]' />" class="local-presentation" title="<f:translate key='provider.local_presentation' extensionName='SlubWebDigas' />"><f:translate key='provider.local_presentation' extensionName='SlubWebDigas' /></f:link.external>
-                            </li>
+                                <li>
+                                    <f:link.external uri="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:presentation)[1]' />" class="local-presentation" title="<f:translate key='provider.local_presentation' extensionName='SlubWebDigas' />"><f:translate key='provider.local_presentation' extensionName='SlubWebDigas' /></f:link.external>
+                                </li>
                             </f:if>
                             <f:for each="{0: '1', 1: '2', 2: '3'}" as="index">
                                 <f:if condition="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:reference)[{index}]' />">
-                                <li>
-                                    <f:if condition="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:reference/@linktext)[{index}]' />">
-                                    <f:then>
-                                        <f:link.external uri="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:reference)[{index}]' />" class="local-catalog" title="<f:translate key='provider.local_catalogue' extensionName='SlubWebDigas' />"><dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE="DVLINKS"]/mets:xmlData/dv:links/dv:reference/@linktext)[{index}]' /></f:link.external>
-                                    </f:then>
-                                    <f:else>
-                                        <f:link.external uri="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:reference)[{index}]' />" class="local-catalog" title="<f:translate key='provider.local_catalogue' extensionName='SlubWebDigas' />"><f:translate key='provider.local_catalogue' extensionName='SlubWebDigas' /></f:link.external>
-                                    </f:else>
-                                    </f:if>
-                                </li>
+                                    <li>
+                                        <f:if condition="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:reference/@linktext)[{index}]' />">
+                                            <f:then>
+                                                <f:link.external uri="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:reference)[{index}]' />" class="local-catalog" title="<f:translate key='provider.local_catalogue' extensionName='SlubWebDigas' />"><dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE="DVLINKS"]/mets:xmlData/dv:links/dv:reference/@linktext)[{index}]' /></f:link.external>
+                                            </f:then>
+                                            <f:else>
+                                                <f:link.external uri="<dc:xpath xpath='(//mets:amdSec/mets:digiprovMD/mets:mdWrap[@OTHERMDTYPE=\"DVLINKS\"]/mets:xmlData/dv:links/dv:reference)[{index}]' />" class="local-catalog" title="<f:translate key='provider.local_catalogue' extensionName='SlubWebDigas' />"><f:translate key='provider.local_catalogue' extensionName='SlubWebDigas' /></f:link.external>
+                                            </f:else>
+                                        </f:if>
+                                    </li>
                                 </f:if>
                             </f:for>
                             <li>
-                                <f:link.email email="<dc:xpath xpath='(//mets:amdSec/mets:rightsMD/mets:mdWrap[@OTHERMDTYPE=\"DVRIGHTS\"]/mets:xmlData/dv:rights/dv:ownerContact)[1]' />" class="local-contact" title="<f:translate key='provider.email_provider' extensionName='SlubWebDigas' /> (<dc:xpath xpath='(//mets:amdSec/mets:rightsMD/mets:mdWrap[@OTHERMDTYPE=\'DVRIGHTS\']/mets:xmlData/dv:rights/dv:owner)[1]' />)"><f:translate key='provider.email_provider' extensionName='SlubWebDigas' /></f:link.email>
+                                <f:link.external uri="<dc:xpath xpath='(//mets:amdSec/mets:rightsMD/mets:mdWrap[@OTHERMDTYPE=\"DVRIGHTS\"]/mets:xmlData/dv:rights/dv:ownerContact)[1]' />" class="local-contact" title="<f:translate key='provider.email_provider' extensionName='SlubWebDigas' /> (<dc:xpath xpath='(//mets:amdSec/mets:rightsMD/mets:mdWrap[@OTHERMDTYPE=\'DVRIGHTS\']/mets:xmlData/dv:rights/dv:owner)[1]' />)"><f:translate key='provider.email_provider' extensionName='SlubWebDigas' /></f:link.external>
                             </li>
                             <f:comment><!-- [Permalink] ----------------------------------------- --></f:comment>
                             <f:if condition="<dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type=\"purl\"])[1]' />">
-                            <li class="permalink">
-                                <f:link.external
-                                    uri="<dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type=\"purl\"])[1]' />"
-                                class="persistence-document"
-                                target="_blank"
-                                title="<f:translate key='purl.document' extensionName='SlubWebDigas' />">
-                                <f:translate key='purl.document' extensionName='SlubWebDigas' /><br />
-                                <dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type="purl"])[1]' />
-                                </f:link.external>
-                            </li>
-                            <li class="permalink">
-                                <f:link.external
-                                    uri="<dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type=\"purl\"])[1]' />/{gp-page}"
-                                class="persistence-page"
-                                target="_blank"
-                                title="<f:translate key='purl.singlePage' extensionName='SlubWebDigas' />">
-                                <f:translate key='purl.singlePage' extensionName='SlubWebDigas' /><br />
-                                <dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type="purl"])[1]' />/{gp-page}
-                                </f:link.external>
-                            </li>
+                                <li class="permalink">
+                                    <f:link.external
+                                        uri="<dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type=\"purl\"])[1]' />"
+                                        class="persistence-document"
+                                        target="_blank"
+                                        title="<f:translate key='purl.document' extensionName='SlubWebDigas' />">
+                                            <f:translate key='purl.document' extensionName='SlubWebDigas' /><br />
+                                            <dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type="purl"])[1]' />
+                                    </f:link.external>
+                                </li>
+                                <li class="permalink">
+                                    <f:link.external
+                                        uri="<dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type=\"purl\"])[1]' />/{gp-page}"
+                                        class="persistence-page"
+                                        target="_blank"
+                                        title="<f:translate key='purl.singlePage' extensionName='SlubWebDigas' />">
+                                            <f:translate key='purl.singlePage' extensionName='SlubWebDigas' /><br />
+                                            <dc:xpath xpath='(//mets:dmdSec/mets:mdWrap/mets:xmlData/mods:mods/mods:identifier[@type="purl"])[1]' />/{gp-page}
+                                    </f:link.external>
+                                </li>
                             </f:if>
                         </ul>
                     </li>
@@ -109,42 +109,12 @@
                             <f:then>
                                 <a href="#" title="Downloads">Downloads</a>
                                 <ul>
-                                    <f:if condition="{gp-double} == 1">
-                                        <f:then>
-                                            <li>
-                                                <f:link.external
-                                                    uri="{dc:downloadLinks(type:\"page-left\", pagenumber:\"{gp-page}\")}"
-                                                class="download-page"
-                                                title="<f:translate key='download.leftPage' extensionName='SlubWebDigas' />">
-                                                <f:translate key="download.leftPage"  extensionName="SlubWebDigas" />
-                                                </f:link.external>
-                                            </li>
-                                            <f:if condition="<dc:downloadLinks type='page-right' pagenumber='{gp-page}' /> !=''">
-                                                <li>
-                                                    <f:link.external
-                                                        uri="{dc:downloadLinks(type:\"page-right\", pagenumber:\"{gp-page}\")}"
-                                                    class="download-page"
-                                                    title="<f:translate key='download.rightPage' extensionName='SlubWebDigas' />">
-                                                    <f:translate key="download.rightPage"  extensionName="SlubWebDigas" />
-                                                    </f:link.external>
-                                                </li>
-                                            </f:if>
-                                        </f:then>
-                                        <f:else>
-                                            <f:if condition="<dc:downloadLinks type='page-left' pagenumber='{gp-page}' /> !=''">
-                                                <li>
-                                                    <f:link.external
-                                                        uri="{dc:downloadLinks(type:\"page-left\", pagenumber:\"{gp-page}\")}"
-                                                    class="download-page"
-                                                    title="<f:translate key='download.singlePage' extensionName='SlubWebDigas' />">
-                                                    <f:translate key="download.singlePage"  extensionName="SlubWebDigas" />
-                                                    </f:link.external>
-                                                </li>
-                                            </f:if>
-                                        </f:else>
-                                    </f:if>
-                                    <f:if condition="<dc:downloadLinks type='work' /> !=''">
-                                        <f:then>
+                                    <li class="pdf-download has-multilinks">
+                                        <f:cObject typoscriptObjectPath="plugin.tx_dlf_pdfdownloadtool" />
+                                    </li>
+                                </ul>
+                                <f:comment>
+                                    <!--
                                             <li>
                                                 <f:link.page
                                                     pageType="20182126"
@@ -155,9 +125,8 @@
                                                     <f:translate key="download.work" extensionName="SlubWebDigas"/>
                                                 </f:link.page>
                                             </li>
-                                        </f:then>
-                                    </f:if>
-                                </ul>
+                                    -->
+                                </f:comment>
                             </f:then>
                             <f:else>
                                 <span title="Downloads">Downloads</span>
@@ -176,70 +145,62 @@
                         </f:if>
                     </li>
                     <f:if condition="<dc:xpath xpath='(//mets:fileSec/mets:fileGrp[@USE=\"FULLTEXT\"]/mets:file[1]/mets:FLocat/@xlink:href)[1]' />">
-                    <li class="fulltext">
-                        <f:if condition="{gp-double} == 1">
-                            <f:then>
-                                <span class="select switchoff" id="tx-dlf-tools-fulltext" title="<f:translate key='fulltext.no_fulltext_double' extensionName='SlubWebDigas' />"><f:translate key='fulltext.no_fulltext_double' extensionName='SlubWebDigas' /></span>
-                            </f:then>
-                            <f:else>
-                                <f:if condition="{gp-pagegrid} == 1">
-                                    <f:then>
-                                        <span class="select switchoff" id="tx-dlf-tools-fulltext" title="<f:translate key='fulltext.no_fulltext_gridpage' extensionName='SlubWebDigas' />"><f:translate key='fulltext.no_fulltext_gridpage' extensionName='SlubWebDigas' /></span>
-                                    </f:then>
-                                    <f:else>
-                                        <f:cObject typoscriptObjectPath="plugin.tx_dlf_fulltexttool" />
-                                    </f:else>
-                                </f:if>
-                            </f:else>
-                        </f:if>
-                    </li>
+                        <li class="fulltext">
+                            <f:if condition="{gp-double} == 1">
+                                <f:then>
+                                    <span class="select switchoff" id="tx-dlf-tools-fulltext" title="<f:translate key='fulltext.no_fulltext_double' extensionName='SlubWebDigas' />"><f:translate key='fulltext.no_fulltext_double' extensionName='SlubWebDigas' /></span>
+                                </f:then>
+                                <f:else>
+                                    <f:if condition="{gp-pagegrid} == 1">
+                                        <f:then>
+                                            <span class="select switchoff" id="tx-dlf-tools-fulltext" title="<f:translate key='fulltext.no_fulltext_gridpage' extensionName='SlubWebDigas' />"><f:translate key='fulltext.no_fulltext_gridpage' extensionName='SlubWebDigas' /></span>
+                                        </f:then>
+                                        <f:else>
+                                            <f:cObject typoscriptObjectPath="plugin.tx_dlf_fulltexttool" />
+                                        </f:else>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </li>
                     </f:if>
                     <li class="grid">
                         <f:if condition="<dc:xpath xpath='(//mets:fileSec/mets:fileGrp[@USE=\"THUMBS\"]//mets:file/mets:FLocat/@xlink:href)[1]' />">
-                        <f:then>
-                            <f:if condition="{gp-pagegrid} == 1">
-                                <f:then>
-                                    <f:link.page pageUid="{kitodoPageView}" additionalParams="{tx_dlf:{page:'{gp-page}', double:'0', id:'{gp-id}', pagegrid:'0'}}" class="active" title="<f:translate key='double.singlePageView' extensionName='SlubWebDigas' />"><f:translate key='double.singlePageView' extensionName='SlubWebDigas' /></f:link.page>
-                                </f:then>
-                                <f:else>
-                                    <f:link.page pageUid="{kitodoPageView}" additionalParams="{tx_dlf:{page:'{gp-page}', double:'0', id:'{gp-id}', pagegrid:'1'}}" title="<f:translate key='gridpage.preview' extensionName='SlubWebDigas' />"><f:translate key='gridpage.preview' extensionName='SlubWebDigas' /></f:link.page>
-                                </f:else>
-                            </f:if>
-                        </f:then>
-                        <f:else>
-                            <span title="<f:translate key='gridpage.preview' extensionName='SlubWebDigas' />"><f:translate key='gridpage.preview' extensionName='SlubWebDigas' /></span>
-                        </f:else>
+                            <f:then>
+                                <f:if condition="{gp-pagegrid} == 1">
+                                    <f:then>
+                                        <f:link.page pageUid="{kitodoPageView}" additionalParams="{tx_dlf:{page:'{gp-page}', double:'0', id:'{gp-id}', pagegrid:'0'}}" class="active" title="<f:translate key='double.singlePageView' extensionName='SlubWebDigas' />"><f:translate key='double.singlePageView' extensionName='SlubWebDigas' /></f:link.page>
+                                    </f:then>
+                                    <f:else>
+                                        <f:link.page pageUid="{kitodoPageView}" additionalParams="{tx_dlf:{page:'{gp-page}', double:'0', id:'{gp-id}', pagegrid:'1'}}" title="<f:translate key='gridpage.preview' extensionName='SlubWebDigas' />"><f:translate key='gridpage.preview' extensionName='SlubWebDigas' /></f:link.page>
+                                    </f:else>
+                                </f:if>
+                            </f:then>
+                            <f:else>
+                                <span title="<f:translate key='gridpage.preview' extensionName='SlubWebDigas' />"><f:translate key='gridpage.preview' extensionName='SlubWebDigas' /></span>
+                            </f:else>
                         </f:if>
                     </li>
                 </ul>
             </div>
             <div class="view-functions">
                 <f:if condition="{gp-pagegrid} == 1">
-                    <f:then>
-                        <ul>
-                            <f:cObject typoscriptObjectPath="lib.navigation_viewfunction_deactivated" />
-                        </ul>
-                    </f:then>
                     <f:else>
                         <ul>
-                            <f:cObject typoscriptObjectPath="lib.navigation_viewfunction" />
-                            <li class="tx-dlf-imagemanipulationtool"><f:cObject typoscriptObjectPath="plugin.tx_dlf_imagemanipulationtool" /></li>
+                          <f:cObject typoscriptObjectPath="lib.kitodo.navigation.viewfunction" />
+                          <li class="tx-dlf-imagemanipulationtool"><f:cObject typoscriptObjectPath="plugin.tx_dlf_imagemanipulationtool" /></li>
                         </ul>
-                    </f:else>
+                      </f:else>
                 </f:if>
             </div>
             <div class="page-control">
                 <f:if condition="{gp-pagegrid} == 1">
-                    <f:then>
-                        <f:cObject typoscriptObjectPath="plugin.tx_slubwebdigas_gridpager" />
-                    </f:then>
                     <f:else>
-                        <f:cObject typoscriptObjectPath="lib.navigation_pagecontrol" />
+                      <f:cObject typoscriptObjectPath="lib.kitodo.navigation.pagecontrol" />
                     </f:else>
-                </f:if>
+                  </f:if>
             </div>
 
         </div>
     </f:section>
 
-    </html>
+</html>

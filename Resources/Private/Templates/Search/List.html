@@ -4,7 +4,7 @@
     <ul class="digasfemanager--search-list">
         <f:for each="{savedSearches}" as="search">
             <li class="digasfemanager--search-list__item">
-                <f:link.page pageUid="{settings.pids.searchFormUid}" additionalParams="{tx_dlf:'{search.searchParams}'}">
+                <f:link.page pageUid="{settings.pids.searchFormUid}" additionalParams="{tx_dlf_search: {searchParameter: '{search.searchParams}'}}">
                     {search.title}
                 </f:link.page>
                 <br/>
