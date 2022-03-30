@@ -26,7 +26,20 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 //xclass for PHP error thrown because of extended user model
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Extbase\\Mvc\\Controller\\Argument'] = ['className' => 'Slub\\DigasFeManagement\\Xclass\\Extbase\\Mvc\\Controller\\Argument'];
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Extbase\Mvc\Controller\Argument::class] = [
+    'className' => Slub\DigasFeManagement\Xclass\Extbase\Mvc\Controller\Argument::class
+];
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][In2code\Femanager\Controller\NewController::class] = [
+    'className' => Slub\DigasFeManagement\Controller\NewController::class,
+];
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][In2code\Femanager\Controller\EditController::class] = [
+    'className' => Slub\DigasFeManagement\Controller\EditController::class,
+];
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][In2code\Femanager\Controller\InvitationController::class] = [
+    'className' => Slub\DigasFeManagement\Controller\InvitationController::class,
+];
+
 
 //override femanager extension settings
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['femanager']['setCookieOnLogin'] = '1';
