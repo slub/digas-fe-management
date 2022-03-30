@@ -1,29 +1,3 @@
-config.tx_extbase {
-    persistence {
-        classes {
-            In2code\Femanager\Domain\Model\User {
-                subclasses {
-                    0 = Slub\DigasFeManagement\Domain\Model\User
-                }
-            }
-
-            Slub\DigasFeManagement\Domain\Model\User {
-                mapping {
-                    tableName = fe_users
-                    recordType = 0
-                }
-            }
-        }
-    }
-
-    objects {
-        In2code\Femanager\Controller\NewController.className = Slub\DigasFeManagement\Controller\NewController
-        In2code\Femanager\Controller\EditController.className = Slub\DigasFeManagement\Controller\EditController
-        In2code\Femanager\Controller\InvitationController.className = Slub\DigasFeManagement\Controller\InvitationController
-    }
-}
-
-
 page {
     includeJSFooter {
         femanagerValidation >

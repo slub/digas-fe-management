@@ -30,7 +30,8 @@ use Slub\DigasFeManagement\Domain\Model\User;
 /**
  * Class EditController
  */
-class EditController extends \In2code\Femanager\Controller\EditController {
+class EditController extends \In2code\Femanager\Controller\EditController
+{
 
     /**
      * @return void
@@ -49,9 +50,9 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      * action update
      *
      * @param User|\In2code\Femanager\Domain\Model\User $user
-     * @validate $user In2code\Femanager\Domain\Validator\ServersideValidator
-     * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
-     * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator
+     * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\ServersideValidator", param="user")
+     * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\PasswordValidator", param="user")
+     * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\CaptchaValidator", param="user")
      * @return void
      */
     public function updateAction(\In2code\Femanager\Domain\Model\User $user) {

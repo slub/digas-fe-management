@@ -82,6 +82,7 @@ return [
             'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_access.dlf_document',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_dlf_documents',
                 'foreign_table_where' => 'AND tx_dlf_documents.restrictions="ja"',
                 'items' => [
@@ -89,7 +90,6 @@ return [
                 ],
                 'minitems' => 1,
                 'maxitems' => 1,
-                'eval' => 'required,int'
             ],
         ],
         'fe_user' => [

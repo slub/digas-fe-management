@@ -68,15 +68,16 @@ class NewController extends \In2code\Femanager\Controller\NewController
      * action create
      *
      * @param User|\In2code\Femanager\Domain\Model\User $user
-     * @validate $user In2code\Femanager\Domain\Validator\ServersideValidator
-     * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
-     * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator
+     * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\ServersideValidator", param="user")
+     * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\PasswordValidator", param="user")
+     * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\CaptchaValidator", param="user")
      * @return void
      */
-    public function createAction(\In2code\Femanager\Domain\Model\User $user) {
+    public function createAction(\In2code\Femanager\Domain\Model\User $user)
+    {
 
         //change e-mail
-        if($this->settings['new']['changeEmail']) {
+        if ($this->settings['new']['changeEmail']) {
 
             //get new e-mail-address
             $newEmailAddress = $user->getEmail();
