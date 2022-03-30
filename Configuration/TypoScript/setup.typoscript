@@ -2,7 +2,7 @@
 <INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/fe_login/">
 
 #femanager
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:femanager/Configuration/TypoScript/Main/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:femanager/Configuration/TypoScript/Main/setup.typoscript">
 <INCLUDE_TYPOSCRIPT: source="DIR:EXT:digas_fe_management/Configuration/TypoScript/Setup/Extensions/femanager/">
 
 #fe_change_pwd

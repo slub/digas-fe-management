@@ -21,9 +21,6 @@ return [
         'searchFields' => 'title,fe_user,search_params',
         'iconfile' => 'EXT:digas_fe_management/Resources/Public/Icons/tx_digasfemanagement_domain_model_search.gif'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title,fe_user,search_params,crdate',
-    ],
     'types' => [
         '1' => ['showitem' => 'title,search_params,fe_user,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,sys_language_uid, l10n_parent, l10n_diffsource,
@@ -49,7 +46,6 @@ return [
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',

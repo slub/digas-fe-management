@@ -16,7 +16,6 @@ return [
         'searchFields' => 'uid,document,fe_user',
     ],
     'interface' => [
-        'showRecordFieldList' => 'uid,document,fe_user',
         'maxDBListItems' => 25,
         'maxSingleDBListItems' => 50,
     ],

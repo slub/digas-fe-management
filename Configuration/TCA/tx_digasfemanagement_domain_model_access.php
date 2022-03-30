@@ -18,9 +18,6 @@ return [
         'searchFields' => '',
         'iconfile' => 'EXT:digas_fe_management/Resources/Public/Icons/tx_digasfemanagement_domain_model_access.gif'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden,starttime,endtime,dlf_document,record_id, fe_user',
-    ],
     'types' => [
         '1' => [
             'showitem' => '--palette--;;dlf_document,--palette--;;access_dlf_documents,rejected_reason,fe_user,--palette--;;access_notifications'
