@@ -170,8 +170,8 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
             ->setTo([
                 $userEmail => $userFullName
             ])
-            ->setBody($textEmail)
-            ->addPart($htmlEmail, 'text/html')
+            ->text($textEmail)
+            ->html($htmlEmail)
             ->send();
     }
 }

@@ -111,7 +111,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $deleteCounter = $this->deleteUnusedAccounts();
         $this->io->success('Task finished successfully. Deleted fe_users entries: ' . $deleteCounter);
 
-        return 1;
+        return 0;
     }
 
     /**
@@ -140,8 +140,8 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
             ->setTo([
                 $userEmail => $userFullName
             ])
-            ->setBody($textEmail)
-            ->addPart($htmlEmail, 'text/html')
+            ->text($textEmail)
+            ->html($htmlEmail)
             ->send();
     }
 
