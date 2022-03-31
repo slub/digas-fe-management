@@ -66,6 +66,7 @@ class DeleteDeactivatedAccountsCommand extends DigasBaseCommand
      * @param InputInterface $input
      * @param OutputInterface $output
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
+     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -79,7 +80,7 @@ class DeleteDeactivatedAccountsCommand extends DigasBaseCommand
         $deleteCounter = 0;
         if ($timespan <= 0) {
             $this->io->error('"timespan" has to a positive integer value. Abort.');
-            return;
+            return 1;
         }
         $time = new \DateTime();
         $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timespan);
@@ -92,10 +93,12 @@ class DeleteDeactivatedAccountsCommand extends DigasBaseCommand
                 $this->persistenceManager->persistAll();
             } else {
                 $this->io->error('Task not finished successfully due to former errors.');
-                return;
+                return 1;
             }
         }
 
         $this->io->success('Task finished successfully. Deleted fe_users entries: ' . $deleteCounter);
+
+        return 0;
     }
 }

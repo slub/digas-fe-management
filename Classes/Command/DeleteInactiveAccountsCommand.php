@@ -65,6 +65,7 @@ class DeleteInactiveAccountsCommand extends DigasBaseCommand
      *
      * @param InputInterface $input
      * @param OutputInterface $output
+     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -78,7 +79,7 @@ class DeleteInactiveAccountsCommand extends DigasBaseCommand
         }
         if ($timespan <= 0) {
             $this->io->error('"timespan" has to a positive integer value. Abort.');
-            return;
+            return 1;
         }
         $deleteTimespan = time() - (60 * 60 * (int)$timespan);
 
@@ -90,10 +91,12 @@ class DeleteInactiveAccountsCommand extends DigasBaseCommand
                 $this->persistenceManager->persistAll();
             } else {
                 $this->io->error('Task not finished successfully due to former errors.');
-                return;
+                return 1;
             }
         }
 
         $this->io->success('Task finished successfully. Deleted fe_users entries: ' . $deleteCounter);
+
+        return 0;
     }
 }

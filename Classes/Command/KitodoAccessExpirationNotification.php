@@ -75,6 +75,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
      * @param InputInterface $input
      * @param OutputInterface $output
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
+     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -87,7 +88,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
 
         if ($this->expirationTimestamp <= 0) {
             $this->io->error('"expirationTimestamp" has to a positive integer value. Abort.');
-            return;
+            return 1;
         }
 
         $time = new \DateTime();
@@ -115,6 +116,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
 
         $this->io->success('Task finished successfully.');
 
+        return 0;
     }
 
     /**

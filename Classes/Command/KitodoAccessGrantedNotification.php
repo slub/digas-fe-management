@@ -64,6 +64,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
      * @param InputInterface $input
      * @param OutputInterface $output
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
+     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -92,6 +93,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
 
         $this->io->success('Task finished successfully.');
 
+        return 0;
     }
 
     /**

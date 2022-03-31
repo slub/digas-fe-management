@@ -108,7 +108,7 @@ class DigasBaseCommand extends Command
      *
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return int|void
+     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -118,27 +118,29 @@ class DigasBaseCommand extends Command
         // throw error if necessary typoscript configuration is missing
         if (empty($this->settings['pids.']['feUsers'])) {
             $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.feUsers} is not set. Abort.');
-            return;
+            return 1;
         }
         if (empty($this->settings['pids.']['loginPage'])) {
             $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.loginPage} is not set. Abort.');
-            return;
+            return 1;
         }
 
         if (empty($this->settings['feUserGroups'])) {
             $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.feUserGroups} is not set. Abort.');
-            return;
+            return 1;
         }
 
         if (empty($this->settings['adminName'])) {
             $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.adminName} is not set. Abort.');
-            return;
+            return 1;
         }
 
         if (empty($this->settings['adminEmail'])) {
             $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.adminEmail} is not set. Abort.');
-            return;
+            return 1;
         }
+
+        return 0;
     }
 
     /**

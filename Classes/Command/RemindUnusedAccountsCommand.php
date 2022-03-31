@@ -85,6 +85,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
      * @param InputInterface $input
      * @param OutputInterface $output
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
+     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -100,7 +101,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
 
         if ($this->unusedTimespan <= 0 || $this->deleteTimespan <= 0) {
             $this->io->error('"unusedTimespan" and "deleteTimespan" have to a positive integer value. Abort.');
-            return;
+            return 1;
         }
         $this->io->text('Begin Task "remindUnusedAccounts"');
         $remindCounter = $this->remindUnusedAccounts();
@@ -110,6 +111,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $deleteCounter = $this->deleteUnusedAccounts();
         $this->io->success('Task finished successfully. Deleted fe_users entries: ' . $deleteCounter);
 
+        return 1;
     }
 
     /**
