@@ -13,8 +13,11 @@ class DigasBasket {
             listRestrictionCLs: 'dd.tx-dlf-metadata-restrictions',
             basketLinkCountCls: 'basket-link-counter',
             restrictionContext: {
-                de: 'ja',
-                en: 'yes'
+                'de': 'ja',
+                'de-DE': 'ja',
+                'en': 'yes',
+                'en-GB': 'yes',
+                'en-US': 'yes'
             },
             cookieName: 'dlf-requests'
         }
