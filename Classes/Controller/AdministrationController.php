@@ -116,7 +116,7 @@ class AdministrationController extends AbstractController
      * Update specific fe_user
      *
      * @param User $user
-     * @validate $user Slub\DigasFeManagement\Domain\Validator\ServersideValidator
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Slub\DigasFeManagement\Domain\Validator\ServersideValidator", param="user")
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      */
