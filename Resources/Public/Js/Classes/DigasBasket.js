@@ -10,7 +10,7 @@ class DigasBasket {
             basketMapCls: 'digas-view-map', /* geosearch-frontend */
             basketListingCls: 'tx-dlf-listview',
             listIdentifierCls: 'dd.tx-dlf-metadata-record_id, span.tx-dlf-metadata-record_id', /* <dd> in Kitodo, <span> in geosearch-frontend */
-            listRestrictionCLs: 'dd.tx-dlf-metadata-restrictions',
+            listRestrictionCLs: 'dd.tx-dlf-metadata-restrictions, span.tx-dlf-metadata-restrictions',
             basketLinkCountCls: 'basket-link-counter',
             restrictionContext: {
                 'de': 'ja',
