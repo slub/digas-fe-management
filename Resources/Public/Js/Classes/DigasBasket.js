@@ -7,9 +7,9 @@ class DigasBasket {
             basketEntryCls: 'fe-management-basket-entry',
             basketRemoveLinkCls: 'fe-management-basket-remove-link',
             basketOverviewCls: 'fe-management-basket',
-            basketMapCls: 'digas-view-map',
+            basketMapCls: 'digas-view-map', /* geosearch-frontend */
             basketListingCls: 'tx-dlf-listview',
-            listIdentifierCls: 'dd.tx-dlf-metadata-record_id',
+            listIdentifierCls: 'dd.tx-dlf-metadata-record_id, span.tx-dlf-metadata-record_id', /* <dd> in Kitodo, <span> in geosearch-frontend */
             listRestrictionCLs: 'dd.tx-dlf-metadata-restrictions',
             basketLinkCountCls: 'basket-link-counter',
             restrictionContext: {
