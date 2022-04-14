@@ -81,6 +81,11 @@ class DigasBaseCommand extends Command
     protected $feUserGroups;
 
     /**
+     * @var array
+     */
+    protected $kitodoTempUserGroup;
+
+    /**
      * @param InputInterface $input
      * @param OutputInterface $output
      */
@@ -100,6 +105,7 @@ class DigasBaseCommand extends Command
             $this->UserRepository->setStoragePid($this->settings['pids.']['feUsers']);
             $this->AccessRepository->setStoragePid($this->settings['pids.']['feUsers']);
             $this->feUserGroups = explode(',', $this->settings['feUserGroups']);
+            $this->kitodoTempUserGroup = explode(',', $this->settings['kitodoTempUserGroup']);
         }
     }
 
