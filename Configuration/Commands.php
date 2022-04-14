@@ -15,6 +15,9 @@ return [
     ],
     'digas-fe-management:kitodoAccessExpirationNotification' => [
         'class' => \Slub\DigasFeManagement\Command\KitodoAccessExpirationNotification::class,
+    ],
+    'digas-fe-management:DeleteTemporaryUsersCommand' => [
+        'class' => \Slub\DigasFeManagement\Command\DeleteTemporaryUsersCommand::class,
     ]
 ];
 

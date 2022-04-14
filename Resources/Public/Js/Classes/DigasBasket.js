@@ -31,15 +31,13 @@ class DigasBasket {
         this.updateBasketCount(this.basketIds.length);
 
         // initialize basket overview
-        if (typeof document.querySelector(`.${this.options.basketOverviewCls}`) !== 'undefined') {
+        if (document.querySelector(`.${this.options.basketOverviewCls}`)) {
             this.initializeBasketOverview();
         }
 
         // initialize listing view / map view
-        if (
-            typeof document.querySelector(`.${this.options.basketMapCls}`) !== 'undefined' ||
-            typeof document.querySelector(`.${this.options.basketListingCls}`) !== 'undefined'
-        ) {
+        if (document.querySelector(`.${this.options.basketListingCls}`) ||
+            document.querySelector(`.${this.options.basketMapCls}`)) {
             this.getRestrictionString();
             this.initializeListing();
         }

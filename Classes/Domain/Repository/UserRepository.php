@@ -148,4 +148,25 @@ class UserRepository extends Repository
 
         return $user;
     }
+
+    /**
+     * @param int $timestamp
+     * @param array $tempFeUserGroups Array of temporary commercial frontend user groups (must be set in constants {$femanager.kitodoTempUserGroup})
+     * @return User[]
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
+     */
+    public function findTemporaryAccounts(int $timestamp, array $tempFeUserGroups)
+    {
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setStoragePageIds([$this->storagePid]);
+
+        /** @var User[] $user */
+        return $query->matching(
+            $query->logicalAnd([
+                $query->in('usergroup', $tempFeUserGroups),
+                $query->lessThan('crdate', $timestamp)
+            ]))
+            ->execute()
+            ->toArray();
+    }
 }

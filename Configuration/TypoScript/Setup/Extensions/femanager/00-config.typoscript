@@ -34,6 +34,7 @@ plugin.tx_femanager {
 
         feUserGroups = {$femanager.feUserGroups}
         generalAccessFeUserGroup = {$femanager.generalAccessFeUserGroup}
+        kitodoTempUserGroup = {$femanager.kitodoTempUserGroup}
 
         languageFile = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf
 
@@ -52,6 +53,8 @@ plugin.tx_femanager {
 
             kitodoAccessAdministriationPid = {$femanager.pids.kitodoAccessAdministriationPid}
             basketUid = {$femanager.pids.basketUid}
+
+            kitodoTempUserPid = {$femanager.pids.kitodoTempUserPid}
         }
 
         administration {
