@@ -16,7 +16,9 @@
 
     <p>
         <f:translate key="emailCreateUserConfirmationText2"/>
-        <br>
+    </p>
+
+    <p>
         <f:link.action pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmUserPid')}" action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
 			<f:translate key="emailCreateUserConfirmationLinkConfirm" />
 		</f:link.action>

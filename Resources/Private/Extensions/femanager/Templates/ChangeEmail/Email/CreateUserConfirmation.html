@@ -12,7 +12,9 @@
 <f:section name="main">
 	<p>
 		<f:translate key="emailCreateUserConfirmationTextChangeMail" />
-		<br>
+    </p>
+
+    <p>
         <f:link.action pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmUserPid')}" action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, noSecondMail:'1', status:'userConfirmation'}">
 			<f:translate key="emailCreateUserConfirmationLinkConfirmEmail" />
 		</f:link.action>
@@ -20,10 +22,6 @@
 
 	<p>
         <f:translate key="emailCreateUserConfirmationText3"/>
-    </p>
-
-    <p>
-        <f:translate key="emailCreateUserConfirmationText4"/>
     </p>
 
 </f:section>
