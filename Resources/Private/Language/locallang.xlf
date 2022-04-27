@@ -277,7 +277,7 @@
                 <source>You can use this url to login again:</source>
             </trans-unit>
             <trans-unit id="remindUnusedAccounts.email.subject">
-                <source>[DiGAS FE Management] Inactive Warning</source>
+                <source>[DiGA.Sax FE Management] Inactive Warning</source>
             </trans-unit>
 			<trans-unit id="emailConfirmDisableActionSubject">
 				<source>Your Account has been disabled</source>
@@ -295,7 +295,7 @@
 				<source>Homepage</source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText1">
-				<source>Vielen Dank für Ihre Registrierung in DiGAS –   dem Digitalen Geologischen Archiv Sachsens.</source>
+				<source>Vielen Dank für Ihre Registrierung in DiGA.Sax –   dem Digitalen Geologischen Archiv Sachsens.</source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText2">
 				<source>Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:</source>
@@ -316,7 +316,7 @@
                 <source>Soll die Einsichtnahme und Nutzung der markierten Dokumente im Rahmen einer gewerblichen Tätigkeit erfolgen?</source>
             </trans-unit>
             <trans-unit id="dialog.hint">
-                <source>Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGAS starten.</source>
+                <source>Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGA.Sax starten.</source>
             </trans-unit>
             <trans-unit id="dialog.continue">
                 <source>continue</source>
@@ -464,7 +464,7 @@
                 <source>These documents cannot be requested again</source>
             </trans-unit>
             <trans-unit id="kitodoAccessGrantedNotification.email.subject">
-                <source>[DiGAS FE Management] Access granted</source>
+                <source>[DiGA.Sax FE Management] Access granted</source>
             </trans-unit>
             <trans-unit id="kitodoAccessGrantedNotification.email.message">
                 <source>The access to the requested documents were granted:</source>
@@ -479,7 +479,7 @@
                 <source>The access to the requested documents were granted:</source>
             </trans-unit>
             <trans-unit id="kitodoAccessExpirationNotification.email.subject">
-                <source>[DiGAS FE Management] Expiration Information</source>
+                <source>[DiGA.Sax FE Management] Expiration Information</source>
             </trans-unit>
             <trans-unit id="kitodoAccessExpirationNotification.email.message">
                 <source>The access to the following documents will expire soon:</source>
@@ -488,10 +488,10 @@
                 <source>You can use this url to login:</source>
             </trans-unit>
             <trans-unit id="requestKitodoAccess.email.subject">
-                <source>[DiGAS FE Management] Access requested</source>
+                <source>[DiGA.Sax FE Management] Access requested</source>
             </trans-unit>
             <trans-unit id="requestKitodoAccessUser.email.subject">
-                <source>[DiGAS FE Management] Access requested</source>
+                <source>[DiGA.Sax FE Management] Access requested</source>
             </trans-unit>
             <trans-unit id="tx_femanager_domain_model_user.district">
                 <source>District</source>

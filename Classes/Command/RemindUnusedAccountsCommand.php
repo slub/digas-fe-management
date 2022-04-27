@@ -65,7 +65,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
      */
     protected function configure()
     {
-        $this->setDescription('[DiGAS FE Management] Remind fe_users which have not logged in for a while. Unused fe_users will be deleted after given timespan.')
+        $this->setDescription('[DiGA.Sax FE Management] Remind fe_users which have not logged in for a while. Unused fe_users will be deleted after given timespan.')
             ->addArgument(
                 'unusedTimespan',
                 InputArgument::REQUIRED,
@@ -124,7 +124,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $userEmail = $feUser->getEmail();
         $userFullName = $feUser->getFullName();
         if (!GeneralUtility::validEmail($userEmail)) {
-            $this->io->warning(sprintf('[DiGAS FE Management] Remind inactive warning to user (UID: %s) could not be sent. No valid email address.', $feUser->getUid()));
+            $this->io->warning(sprintf('[DiGA.Sax FE Management] Remind inactive warning to user (UID: %s) could not be sent. No valid email address.', $feUser->getUid()));
             return;
         }
         $email = GeneralUtility::makeInstance(MailMessage::class);
@@ -168,7 +168,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
                     $this->sendEmail($feUser);
                     $remindCounter++;
                 } catch (Exception $e) {
-                    $this->io->warning(sprintf('[DiGAS FE Management] User (UID: %s) could not be reminded. Error Message: %s', $feUser->getUid(), $e->getMessage()));
+                    $this->io->warning(sprintf('[DiGA.Sax FE Management] User (UID: %s) could not be reminded. Error Message: %s', $feUser->getUid(), $e->getMessage()));
                 }
             }
             $this->persistenceManager->persistAll();
@@ -197,7 +197,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
                     $this->UserRepository->remove($feUser);
                     $deleteCounter++;
                 } catch (Exception $e) {
-                    $this->io->warning(sprintf('[DiGAS FE Management] User (UID: %s) could not be deleted. Error Message: %s', $feUser->getUid(), $e->getMessage()));
+                    $this->io->warning(sprintf('[DiGA.Sax FE Management] User (UID: %s) could not be deleted. Error Message: %s', $feUser->getUid(), $e->getMessage()));
                 }
             }
             $this->persistenceManager->persistAll();

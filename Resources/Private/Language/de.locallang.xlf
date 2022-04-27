@@ -226,8 +226,8 @@
 				<target><![CDATA[Sie können sich über folgende Url wieder anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="remindUnusedAccounts.email.subject" approved="yes">
-				<source><![CDATA[[DiGAS FE Management] Inactive Warning]]></source>
-				<target><![CDATA[[DiGAS FE Management] Inaktivitätswarnung]]></target>
+				<source><![CDATA[[DiGA.Sax FE Management] Inactive Warning]]></source>
+				<target><![CDATA[[DiGA.Sax FE Management] Inaktivitätswarnung]]></target>
 			</trans-unit>
 			<trans-unit id="search" approved="yes">
 				<source><![CDATA[Search]]></source>
@@ -398,8 +398,8 @@
 				<target><![CDATA[Bitte verwenden Sie mindestens einen Großbuchstaben und ein Sonderzeichen]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText1" approved="yes">
-				<source><![CDATA[Vielen Dank für Ihre Registrierung in DiGAS – dem Digitalen Geologischen Archiv Sachsens.]]></source>
-				<target><![CDATA[Vielen Dank für Ihre Registrierung in DiGAS – dem Digitalen Geologischen Archiv Sachsens.]]></target>
+				<source><![CDATA[Vielen Dank für Ihre Registrierung in DiGA.Sax – dem Digitalen Geologischen Archiv Sachsens.]]></source>
+				<target><![CDATA[Vielen Dank für Ihre Registrierung in DiGA.Sax – dem Digitalen Geologischen Archiv Sachsens.]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText2" approved="yes">
 				<source><![CDATA[Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:]]></source>
@@ -426,8 +426,8 @@
                 <target><![CDATA[Soll die Einsichtnahme und Nutzung der markierten Dokumente im Rahmen einer gewerblichen Tätigkeit erfolgen?]]></target>
             </trans-unit>
             <trans-unit id="dialog.hint">
-                <source><![CDATA[Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGAS starten.]]></source>
-                <target><![CDATA[Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGAS starten.]]></target>
+                <source><![CDATA[Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGA.Sax starten.]]></source>
+                <target><![CDATA[Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGA.Sax starten.]]></target>
             </trans-unit>
             <trans-unit id="dialog.continue">
                 <source><![CDATA[continue]]></source>
@@ -622,8 +622,8 @@
                 <target><![CDATA[Diese Dokumente können nicht erneut angefragt werden]]></target>
             </trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.subject" approved="yes">
-				<source><![CDATA[[DiGAS FE Management] Access granted]]></source>
-				<target><![CDATA[[DiGAS FE Management] Zugriff gewährt]]></target>
+				<source><![CDATA[[DiGA.Sax FE Management] Access granted]]></source>
+				<target><![CDATA[[DiGA.Sax FE Management] Zugriff gewährt]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.message" approved="yes">
 				<source><![CDATA[The access to the requested documents were granted:]]></source>
@@ -642,8 +642,8 @@
 				<target><![CDATA[Der Zugriff auf die folgenden Dokumente wurde gewährt:]]></target>
             </trans-unit>
 			<trans-unit id="kitodoAccessExpirationNotification.email.subject" approved="yes">
-				<source><![CDATA[[DiGAS FE Management] Expiration Information]]></source>
-				<target><![CDATA[[DiGAS FE Management] Freigabe läuft bald ab]]></target>
+				<source><![CDATA[[DiGA.Sax FE Management] Expiration Information]]></source>
+				<target><![CDATA[[DiGA.Sax FE Management] Freigabe läuft bald ab]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessExpirationNotification.email.message" approved="yes">
 				<source><![CDATA[The access to the following documents will expire soon:]]></source>
@@ -654,11 +654,11 @@
 				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
 			</trans-unit>
             <trans-unit id="requestKitodoAccess.email.subject">
-                <source><![CDATA[[DiGAS FE Management] Access requested]]></source>
+                <source><![CDATA[[DiGA.Sax FE Management] Access requested]]></source>
                 <target><![CDATA[Dokumentenfreigabe beantragt]]></target>
             </trans-unit>
             <trans-unit id="requestKitodoAccessUser.email.subject">
-                <source><![CDATA[[DiGAS FE Management] Access requested]]></source>
+                <source><![CDATA[[DiGA.Sax FE Management] Access requested]]></source>
                 <target><![CDATA[Dokumentenfreigabe beantragt]]></target>
             </trans-unit>
             <trans-unit id="tx_femanager_domain_model_user.district">

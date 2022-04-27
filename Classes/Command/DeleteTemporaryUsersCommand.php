@@ -50,7 +50,7 @@ class DeleteTemporaryUsersCommand extends DigasBaseCommand
      */
     protected function configure()
     {
-        $this->setDescription('[DiGAS FE Management] Delete temporary commercial created fe_users.')
+        $this->setDescription('[DiGA.Sax FE Management] Delete temporary commercial created fe_users.')
             ->addArgument(
                 'timespan',
                 InputArgument::REQUIRED,

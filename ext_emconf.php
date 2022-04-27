@@ -1,7 +1,7 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'SLUB DiGAS FE Management',
-    'description' => 'TYPO3 extension for the DiGAS frontend user management.',
+    'title' => 'SLUB DiGA.Sax FE Management',
+    'description' => 'TYPO3 extension for the DiGA.Sax frontend user management.',
     'category' => 'templates',
     'author' => 'Stephan Gonder, Felix Franz, Alexander Bigga',
     'author_email' => 'typo3@slub-dresden.de',

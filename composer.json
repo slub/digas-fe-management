@@ -1,7 +1,7 @@
 {
   "name": "slub/digas-fe-management",
   "type": "typo3-cms-extension",
-  "description": "TYPO3 extension for the DiGAS frontend user management.",
+  "description": "TYPO3 extension for the DiGA.Sax frontend user management.",
   "homepage": "https://github.com/slub/digas-fe-management",
   "keywords": [
     "TYPO3",
