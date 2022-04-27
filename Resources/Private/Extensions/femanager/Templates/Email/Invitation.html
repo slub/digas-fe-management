@@ -10,25 +10,32 @@
 		{hash} Hash to ensure authentication of link
 
 <f:section name="main">
-	<p><f:translate key="emailInvitationSalutation" /> {user.username},</p>
-
-	<p><f:translate key="emailInvitationText1" /></p>
+	<p>
+        <f:translate key="emailInvitationText1" />
+    </p>
 
 	<p>
 		<f:translate key="emailInvitationText2" />
-		<br>
+    </p>
+
+    <p>
 		<f:link.action action="edit" controller="Invitation" absolute="1" pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmInivitedUserPid')}" arguments="{user:user, hash:hash}">
-			<f:translate key="emailInvitationLinkConfirm" />
+			<f:translate key="emailCreateUserConfirmationLinkConfirm" />
 		</f:link.action>
 	</p>
 
-	<p>
+    <p>
+        <f:translate key="emailCreateUserConfirmationText3"/>
+    </p>
+
+    <p>
 		<f:translate key="emailInvitationText3" />
-		<br>
+    </p>
+
+    <p>
 		<f:link.action action="delete" controller="Invitation" absolute="1" pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmInivitedUserPid')}" arguments="{user:user, hash:hash}">
 			<f:translate key="emailInvitationLinkConfirmRefused" />
 		</f:link.action>
 	</p>
 
-	<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
 </f:section>

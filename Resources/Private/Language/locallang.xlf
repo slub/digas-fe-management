@@ -518,6 +518,19 @@
             <trans-unit id="emailCreateUserNotifyText1">
                 <source>Your user account was confirmed and successfully created.</source>
             </trans-unit>
+
+            <trans-unit id="emailInvitationText1">
+                <source>Ihr Benutzerkonto für DiGA.Sax - dem Digitalen Geologischen Archiv Sachsens - wurde soeben erstellt.</source>
+            </trans-unit>
+
+            <trans-unit id="emailInvitationText2">
+                <source>Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:</source>
+            </trans-unit>
+
+            <trans-unit id="emailInvitationLinkConfirm">
+                <source>Confirm user account</source>
+            </trans-unit>
+
 		</body>
 	</file>
 </xliff>
