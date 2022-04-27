@@ -406,8 +406,8 @@
 				<target><![CDATA[Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText3" approved="yes">
-				<source><![CDATA[Beachten Sie bitte, dass der Link nur für 12 Stunden gültig ist.]]></source>
-				<target><![CDATA[Beachten Sie bitte, dass der Link nur für 12 Stunden gültig ist.]]></target>
+				<source><![CDATA[Beachten Sie bitte, dass der Link nur für 24 Stunden gültig ist.]]></source>
+				<target><![CDATA[Beachten Sie bitte, dass der Link nur für 24 Stunden gültig ist.]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText4" approved="yes">
 				<source><![CDATA[Wenn Sie die Registrierung auf der Website nicht selbst vorgenommen haben, können Sie diese E-Mail ignorieren.]]></source>

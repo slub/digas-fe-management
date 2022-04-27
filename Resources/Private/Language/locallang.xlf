@@ -295,13 +295,13 @@
 				<source>Homepage</source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText1">
-				<source>Vielen Dank für Ihre Registrierung in DiGA.Sax –   dem Digitalen Geologischen Archiv Sachsens.</source>
+				<source>Vielen Dank für Ihre Registrierung in DiGA.Sax – dem Digitalen Geologischen Archiv Sachsens.</source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText2">
 				<source>Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:</source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText3">
-				<source>Beachten Sie bitte, dass der Link nur für 12 Stunden gültig ist.</source>
+				<source>Beachten Sie bitte, dass der Link nur für 24 Stunden gültig ist.</source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText4">
 				<source>Wenn Sie die Registrierung auf der Website nicht selbst vorgenommen haben, können Sie diese E-Mail ignorieren.</source>
