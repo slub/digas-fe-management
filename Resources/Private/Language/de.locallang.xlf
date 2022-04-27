@@ -693,6 +693,12 @@
 				<source><![CDATA[Country]]></source>
 				<target><![CDATA[Land]]></target>
 			</trans-unit>
+
+            <trans-unit id="emailCreateUserNotifyText1">
+				<source><![CDATA[Your user account was confirmed and successfully created.]]></source>
+				<target><![CDATA[Ihr Benutzerkonto wurde erfolgreich bestätigt und erstellt.]]></target>
+            </trans-unit>
+
 		</body>
 	</file>
 </xliff>

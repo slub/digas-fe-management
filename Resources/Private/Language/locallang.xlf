@@ -514,6 +514,10 @@
             <trans-unit id="tx_femanager_domain_model_user.country">
                 <source>Country</source>
             </trans-unit>
+
+            <trans-unit id="emailCreateUserNotifyText1">
+                <source>Your user account was confirmed and successfully created.</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>
