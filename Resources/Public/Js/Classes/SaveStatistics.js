@@ -5,7 +5,7 @@ class SaveStatistics {
             downloadWorkLinkCls: 'download-document.work',
             downloadPageLinkCls: 'download-document.page',
         }
-        this.documentId = document.getElementById('save-search-title');
+        this.documentId = document.querySelector('.dlf-identifier').dataset.id;
 
         // initialize listener
         if (document.querySelector(`.${this.options.downloadWorkLinkCls}`)) {
@@ -17,10 +17,10 @@ class SaveStatistics {
     /**
      * send ajax request
      */
-    sendRequestOld() {
+    sendRequest() {
         let that = this,
             XMLHttp,
-            params = this.saveSearchTitle.name+'='+this.saveSearchTitle.value;
+            params = 'id'+'='+this.documentId;
 
         XMLHttp = new XMLHttpRequest();
         XMLHttp.onreadystatechange = function(){
@@ -35,34 +35,14 @@ class SaveStatistics {
         this.downloadWorkLinks = document.querySelectorAll(`.${this.options.downloadWorkLinkCls}`);
         this.downloadPageLinks = document.querySelectorAll(`.${this.options.downloadPageLinkCls}`);
 
-        if (this.downloadLinks !== null) {
-            this.downloadLinks.forEach((downloadLink) => {
-                const listEntry = downloadLink.parentNode;
-
+        if (this.downloadWorkLinks !== null) {
+            this.downloadWorkLinks.forEach((downloadLink) => {
                 downloadLink.addEventListener('click', (event) => {
                         this.sendRequest(event, downloadLink);
                     });
             });
         }
     }
-
-    /**
-     * send ajax request
-     */
-     sendRequest(id, page) {
-        let that = this,
-            XMLHttp,
-            params = 'id'+'='+id;
-
-        XMLHttp = new XMLHttpRequest();
-        XMLHttp.onreadystatechange = function(){
-        }
-
-        XMLHttp.open("POST", '/?type=20182126', true);
-        XMLHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        XMLHttp.send(params);
-    }
-
 
 }
 
