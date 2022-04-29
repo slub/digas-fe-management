@@ -50,7 +50,7 @@ class DeleteDeactivatedAccountsCommand extends DigasBaseCommand
      */
     protected function configure()
     {
-        $this->setDescription('[DiGAS FE Management] Delete deactivated (disable=1) fe_users.')
+        $this->setDescription('[DiGA.Sax FE Management] Delete deactivated (disable=1) fe_users.')
             ->addArgument(
                 'timespan',
                 InputArgument::REQUIRED,

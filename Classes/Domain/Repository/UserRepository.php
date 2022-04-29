@@ -29,7 +29,7 @@ use Slub\DigasFeManagement\Domain\Model\User;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * DiGAS Frontend User repository
+ * DiGA.Sax Frontend User repository
  */
 class UserRepository extends Repository
 {

@@ -52,7 +52,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
      */
     protected function configure()
     {
-        $this->setDescription('[DiGAS FE Management] Notify fe_users about access granted for kitodo documents.')
+        $this->setDescription('[DiGA.Sax FE Management] Notify fe_users about access granted for kitodo documents.')
             ->setHelp(
                 'This command informs fe_users with granted kitodo document access.'
             );
@@ -124,7 +124,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
         $userEmail = $feUser->getEmail();
         $userFullName = $feUser->getFullName();
         if (!GeneralUtility::validEmail($userEmail)) {
-            $this->io->warning(sprintf('[DiGAS FE Management] Granted access notification warning to user (UID: %s) could not be sent. No valid email address.', $feUser->getUid()));
+            $this->io->warning(sprintf('[DiGA.Sax FE Management] Granted access notification warning to user (UID: %s) could not be sent. No valid email address.', $feUser->getUid()));
             return;
         }
         $email = GeneralUtility::makeInstance(MailMessage::class);

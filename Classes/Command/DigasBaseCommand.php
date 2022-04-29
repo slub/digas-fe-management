@@ -123,26 +123,26 @@ class DigasBaseCommand extends Command
 
         // throw error if necessary typoscript configuration is missing
         if (empty($this->settings['pids.']['feUsers'])) {
-            $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.feUsers} is not set. Abort.');
+            $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.feUsers} is not set. Abort.');
             return 1;
         }
         if (empty($this->settings['pids.']['loginPage'])) {
-            $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.loginPage} is not set. Abort.');
+            $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.loginPage} is not set. Abort.');
             return 1;
         }
 
         if (empty($this->settings['feUserGroups'])) {
-            $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.feUserGroups} is not set. Abort.');
+            $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.feUserGroups} is not set. Abort.');
             return 1;
         }
 
         if (empty($this->settings['adminName'])) {
-            $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.adminName} is not set. Abort.');
+            $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.adminName} is not set. Abort.');
             return 1;
         }
 
         if (empty($this->settings['adminEmail'])) {
-            $this->io->error('[DiGAS FE Management] Typoscript variable {plugin.tx_femanager.settings.adminEmail} is not set. Abort.');
+            $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.adminEmail} is not set. Abort.');
             return 1;
         }
 
@@ -164,7 +164,7 @@ class DigasBaseCommand extends Command
                 $this->UserRepository->remove($feUser);
                 $deleteCounter++;
             } catch (Exception $e) {
-                $this->io->error(sprintf('[DiGAS FE Management] User (UID: %s) could not be deleted. Error Message: %s', $feUser->getUid(), $e->getMessage()));
+                $this->io->error(sprintf('[DiGA.Sax FE Management] User (UID: %s) could not be deleted. Error Message: %s', $feUser->getUid(), $e->getMessage()));
                 return false;
             }
         }

@@ -50,7 +50,7 @@ class DeleteInactiveAccountsCommand extends DigasBaseCommand
      */
     protected function configure()
     {
-        $this->setDescription('[DiGAS FE Management] Delete fe_users registrations which were not activated.')
+        $this->setDescription('[DiGA.Sax FE Management] Delete fe_users registrations which were not activated.')
             ->addArgument(
                 'timespan',
                 InputArgument::REQUIRED,

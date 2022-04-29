@@ -34,7 +34,7 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * DiGAS Frontend User repository
+ * DiGA.Sax Frontend User repository
  */
 class AccessRepository extends Repository
 {

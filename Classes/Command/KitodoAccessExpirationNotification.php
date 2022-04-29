@@ -59,7 +59,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
      */
     protected function configure()
     {
-        $this->setDescription('[DiGAS FE Management] Notify fe_users about expiring kitodo documents.')
+        $this->setDescription('[DiGA.Sax FE Management] Notify fe_users about expiring kitodo documents.')
             ->addArgument(
                 'expirationTimestamp',
                 InputArgument::REQUIRED,
@@ -146,7 +146,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
         $userEmail = $feUser->getEmail();
         $userFullName = $feUser->getFullName();
         if (!GeneralUtility::validEmail($userEmail)) {
-            $this->io->warning(sprintf('[DiGAS FE Management] Expiration notification warning to user (UID: %s) could not be sent. No valid email address.', $feUser->getUid()));
+            $this->io->warning(sprintf('[DiGA.Sax FE Management] Expiration notification warning to user (UID: %s) could not be sent. No valid email address.', $feUser->getUid()));
             return;
         }
         $email = GeneralUtility::makeInstance(MailMessage::class);

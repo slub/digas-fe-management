@@ -10,15 +10,18 @@
 		{hash} Hash to ensure authentication of link
 
 <f:section name="main">
-	<p><f:translate key="emailCreateUserConfirmationSalutation" /> {user.username},</p>
-
 	<p>
 		<f:translate key="emailCreateUserConfirmationTextChangeMail" />
-		<br>
+    </p>
+
+    <p>
         <f:link.action pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmUserPid')}" action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, noSecondMail:'1', status:'userConfirmation'}">
 			<f:translate key="emailCreateUserConfirmationLinkConfirmEmail" />
 		</f:link.action>
 	</p>
 
-	<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
+	<p>
+        <f:translate key="emailCreateUserConfirmationText3"/>
+    </p>
+
 </f:section>
