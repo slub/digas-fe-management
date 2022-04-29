@@ -32,12 +32,21 @@ use Slub\DigasFeManagement\Domain\Validator\StatisticTstampValidator;
 use Slub\SlubDigitalcollections\Helpers\GetDoc;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Slub\SlubWebDigas\Domain\Repository\KitodoDocumentRepository;
 
 /**
  * Class StatisticController
  */
 class StatisticController extends AbstractController
 {
+    /**
+     * This holds the current document
+     *
+     * @var \Kitodo\Dlf\Domain\Model\Document
+     * @access protected
+     */
+    protected $document;
+
     /**
      * @var \Slub\DigasFeManagement\Domain\Repository\StatisticRepository
      */
@@ -52,31 +61,50 @@ class StatisticController extends AbstractController
     }
 
     /**
+     * kitodoDocumentRepository
+     *
+     * @var KitodoDocumentRepository
+     */
+    protected $kitodoDocumentRepository = null;
+
+    /**
+     * @param KitodoDocumentRepository $kitodoDocumentRepository
+     */
+    public function injectKitodoDocumentRepository(KitodoDocumentRepository $kitodoDocumentRepository)
+    {
+        $this->kitodoDocumentRepository = $kitodoDocumentRepository;
+    }
+
+    /**
      * Download link action - adds statistic entry for dlf_document download
      * @param int $id
+     * @param int $page
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      */
-    public function downloadLinkAction(int $id)
+    public function downloadLinkAction(int $id, int $page)
     {
-        //test is user is logged in
+        // make sure, the user is logged in
         if (empty($this->user) || empty($this->user->getUid())) {
             $uriBuilder = $this->uriBuilder;
             $uri = $uriBuilder->setTargetPageUid($this->settings['pids']['loginPage'])->build();
             return $this->redirectToUri($uri);
         }
 
+        // first count the new download
         $statisticEntry = new Statistic();
 
         $statisticEntry->setFeUser($this->user);
         $statisticEntry->setDocument($id);
 
         $this->statisticRepository->add($statisticEntry);
-        $this->persistenceManager->persistAll();
+        // $this->persistenceManager->persistAll();
 
-        $documentLink = new GetDoc();
-        $documentLink = $documentLink->getWorkLink();
+        // second we get the proper link and redirect the user
+        $this->document = $this->kitodoDocumentRepository->findByUid($id);
+
+        $documentLink = $this->getPageLink($page);
 
 
         if (!empty($documentLink) && GeneralUtility::isValidUrl($documentLink)) {
@@ -208,4 +236,55 @@ class StatisticController extends AbstractController
             'dateTo' => $dateTo,
         ];
     }
+
+    /**
+     * Get page's download link
+     *
+     * @access protected
+     *
+     * @return array Link to downloadable page
+     */
+    protected function getPageLink(int $page)
+    {
+        $pageLink = '';
+        // Get image link.
+        if (!empty($this->document->getDoc()->physicalStructureInfo[$this->document->getDoc()->physicalStructure[$page]]['files']['DOWNLOADS'])) {
+            $page1Link = $this->document->getDoc()->getFileLocation($this->document->getDoc()->physicalStructureInfo[$this->document->getDoc()->physicalStructure[$page]]['files']['DOWNLOADS']);
+        }
+
+        return $pageLink;
+    }
+
+    /**
+     * Get work's download link
+     *
+     * @access protected
+     *
+     * @return string Link to downloadable work
+     */
+    protected function getWorkLink()
+    {
+        $workLink = '';
+        $fileGrpsDownload = GeneralUtility::trimExplode(',', $this->extConf['fileGrpDownload']);
+        // Get work link.
+        while ($fileGrpDownload = array_shift($fileGrpsDownload)) {
+            if (!empty($this->document->getDoc()->physicalStructureInfo[$this->document->getDoc()->physicalStructure[0]]['files'][$fileGrpDownload])) {
+                $workLink = $this->document->getDoc()->getFileLocation($this->document->getDoc()->physicalStructureInfo[$this->document->getDoc()->physicalStructure[0]]['files'][$fileGrpDownload]);
+                break;
+            } else {
+                $details = $this->document->getDoc()->getLogicalStructure($this->document->getDoc()->toplevelId);
+                if (!empty($details['files'][$fileGrpDownload])) {
+                    $workLink = $this->document->getDoc()->getFileLocation($details['files'][$fileGrpDownload]);
+                    break;
+                }
+            }
+        }
+        if (!empty($workLink)) {
+            $workLink = $workLink;
+        } else {
+            $this->logger->warning('File not found in fileGrps "' . $this->extConf['fileGrpDownload'] . '"');
+        }
+        return $workLink;
+    }
+
 }

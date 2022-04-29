@@ -31,3 +31,7 @@ downloadHelper {
         }
     }
 }
+
+page.includeJSFooter {
+    digasFeManagement_statistics = EXT:digas_fe_management/Resources/Public/Js/Classes/SaveStatistics.js
+}
