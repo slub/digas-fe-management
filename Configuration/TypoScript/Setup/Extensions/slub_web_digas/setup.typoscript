@@ -13,6 +13,20 @@ page.10 {
 }
 
 # Download Statistic
+[getTSFE().type == 20182126]
+
+config {
+    disableAllHeaderCode = 1
+    additionalHeaders {
+        10 {
+            header = Content-type:application/json; charset=utf-8
+        }
+    }
+    xhtml_cleaning = 0
+    admPanel = 0
+    debug = 0
+}
+
 downloadHelper = PAGE
 downloadHelper {
     typeNum = 20182126
@@ -31,6 +45,7 @@ downloadHelper {
         }
     }
 }
+[GLOBAL]
 
 page.includeJSFooter {
     digasFeManagement_statistics = EXT:digas_fe_management/Resources/Public/Js/Classes/SaveStatistics.js

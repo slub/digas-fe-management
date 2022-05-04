@@ -29,10 +29,12 @@ use In2code\Femanager\Controller\AbstractController;
 use In2code\Femanager\Utility\LocalizationUtility;
 use Slub\DigasFeManagement\Domain\Model\Statistic;
 use Slub\DigasFeManagement\Domain\Validator\StatisticTstampValidator;
-use Slub\SlubDigitalcollections\Helpers\GetDoc;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Slub\SlubWebDigas\Domain\Repository\KitodoDocumentRepository;
+
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 /**
  * Class StatisticController
@@ -76,43 +78,88 @@ class StatisticController extends AbstractController
     }
 
     /**
-     * Download link action - adds statistic entry for dlf_document download
-     * @param int $id
-     * @param int $page
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * Set the Kitodo storagePid to plugin.tx_dlf.persistence.storagePid
+     *
+     * Background: We need two different settings here:
+     *    * one for Kitodo.Presentation (dlf) Repository
+     *    * one for User-Data, which is set via plugin.tx_digasfemangement.persistence.storagePid
+     *
+     * It is not that simple (or I found no better way) to set the storagePid manually. This is one possible way.
+     *
      */
-    public function downloadLinkAction(int $id, int $page)
+    protected function setKitodoStoragePid()
+    {
+        $typoscriptConfiguration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+
+        if (!empty($typoscriptConfiguration['plugin.']['tx_dlf.']['persistence.']['storagePid'])) {
+            /** @var $defaultQuerySettings Typo3QuerySettings */
+            $defaultQuerySettings = $this->objectManager->get(Typo3QuerySettings::class);
+
+            // overwrite (probably empty) storagePid
+            $defaultQuerySettings->setStoragePageIds([$typoscriptConfiguration['plugin.']['tx_dlf.']['persistence.']['storagePid']]);
+            $this->kitodoDocumentRepository->setDefaultQuerySettings($defaultQuerySettings);
+        }
+    }
+
+    /**
+     * Download link action - adds statistic entry for dlf_document download
+     * @param string $id
+     * @param string $countType
+     */
+    public function downloadLinkAction(string $id, string $countType)
     {
         // make sure, the user is logged in
         if (empty($this->user) || empty($this->user->getUid())) {
-            $uriBuilder = $this->uriBuilder;
-            $uri = $uriBuilder->setTargetPageUid($this->settings['pids']['loginPage'])->build();
-            return $this->redirectToUri($uri);
+            $this->view->assign('counted', -1);
+            return;
         }
 
-        // first count the new download
-        $statisticEntry = new Statistic();
+        // set the storagePid of kitodoDocumentRepository
+        $this->setKitodoStoragePid();
 
-        $statisticEntry->setFeUser($this->user);
-        $statisticEntry->setDocument($id);
+        // first we find the document object
+        $this->document = $this->kitodoDocumentRepository->findOneByRecordId($id);
 
-        $this->statisticRepository->add($statisticEntry);
-        // $this->persistenceManager->persistAll();
+        if (! $this->document) {
+            $this->view->assign('counted', -1);
+            return;
+        }
 
-        // second we get the proper link and redirect the user
-        $this->document = $this->kitodoDocumentRepository->findByUid($id);
+        // check, if there is a record from the last 24h
+        $statisticEntry = $this->statisticRepository->findOneByFeUserAndDocument($this->user, $this->document->getUid());
 
-        $documentLink = $this->getPageLink($page);
+        $isUpdate = true;
 
+        if ($statisticEntry == null) {
+            $isUpdate = false;
+            // second we count the new download
+            $statisticEntry = new Statistic();
 
-        if (!empty($documentLink) && GeneralUtility::isValidUrl($documentLink)) {
-            return $this->redirectToUri($documentLink);
+            $statisticEntry->setFeUser($this->user);
+            $statisticEntry->setDocument($this->document->getUid());
+        }
+
+        switch ($countType) {
+            case 'work':
+                $statisticEntry->setDownloadWork(1);
+                break;
+            case 'page':
+                $statisticEntry->incDownloadPages();
+                break;
+            case 'workview':
+                $statisticEntry->setWorkViews(1);
+                break;
+        }
+
+        if ($isUpdate === true) {
+            $this->statisticRepository->update($statisticEntry);
+            $this->view->assign('counted', 1);
         } else {
-            // @todo redirect if no document could be loaded.
-            return false;
+            $this->statisticRepository->add($statisticEntry);
+            $this->view->assign('counted', 2);
         }
+
+        return;
     }
 
     /**
@@ -237,54 +284,5 @@ class StatisticController extends AbstractController
         ];
     }
 
-    /**
-     * Get page's download link
-     *
-     * @access protected
-     *
-     * @return array Link to downloadable page
-     */
-    protected function getPageLink(int $page)
-    {
-        $pageLink = '';
-        // Get image link.
-        if (!empty($this->document->getDoc()->physicalStructureInfo[$this->document->getDoc()->physicalStructure[$page]]['files']['DOWNLOADS'])) {
-            $page1Link = $this->document->getDoc()->getFileLocation($this->document->getDoc()->physicalStructureInfo[$this->document->getDoc()->physicalStructure[$page]]['files']['DOWNLOADS']);
-        }
-
-        return $pageLink;
-    }
-
-    /**
-     * Get work's download link
-     *
-     * @access protected
-     *
-     * @return string Link to downloadable work
-     */
-    protected function getWorkLink()
-    {
-        $workLink = '';
-        $fileGrpsDownload = GeneralUtility::trimExplode(',', $this->extConf['fileGrpDownload']);
-        // Get work link.
-        while ($fileGrpDownload = array_shift($fileGrpsDownload)) {
-            if (!empty($this->document->getDoc()->physicalStructureInfo[$this->document->getDoc()->physicalStructure[0]]['files'][$fileGrpDownload])) {
-                $workLink = $this->document->getDoc()->getFileLocation($this->document->getDoc()->physicalStructureInfo[$this->document->getDoc()->physicalStructure[0]]['files'][$fileGrpDownload]);
-                break;
-            } else {
-                $details = $this->document->getDoc()->getLogicalStructure($this->document->getDoc()->toplevelId);
-                if (!empty($details['files'][$fileGrpDownload])) {
-                    $workLink = $this->document->getDoc()->getFileLocation($details['files'][$fileGrpDownload]);
-                    break;
-                }
-            }
-        }
-        if (!empty($workLink)) {
-            $workLink = $workLink;
-        } else {
-            $this->logger->warning('File not found in fileGrps "' . $this->extConf['fileGrpDownload'] . '"');
-        }
-        return $workLink;
-    }
 
 }

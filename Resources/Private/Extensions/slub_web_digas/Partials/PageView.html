@@ -109,46 +109,10 @@
                             <f:then>
                                 <a href="#" title="Downloads">Downloads</a>
                                 <ul>
-                                    <li>
-                                        <f:link.page
-                                            pageType="20182126"
-                                            class="download-document"
-                                            title="{f:translate(key: 'downloadWork', extensionName: 'Dlf')}"
-                                            additionalParams="{tx_digasfemanagement_statistic: {id: '{gp-id}', page: '-1'}, tx_dlf: {id: '{gp-id}'}}"
-                                        >
-                                            <f:translate key="downloadWork" extensionName="Dlf"/> (PDF)
-                                        </f:link.page>
-                                    </li>
-
-                                    <li>
-                                        <f:link.page
-                                            pageType="20182126"
-                                            class="download-document"
-                                            title="{f:translate(key: 'downloadSinglePage', extensionName: 'Dlf')}"
-                                            additionalParams="{tx_digasfemanagement_statistic: {id: '{gp-id}', page: '{gp-page}'}, tx_dlf: {id: '{gp-id}'}}"
-                                        >
-                                            <f:translate key="downloadSinglePage" extensionName="Dlf"/> (PDF)
-                                        </f:link.page>
-                                    </li>
-
                                     <li class="pdf-download has-multilinks">
                                         <f:cObject typoscriptObjectPath="plugin.tx_dlf_pdfdownloadtool" />
                                     </li>
                                 </ul>
-                                <f:comment>
-                                    <!--
-                                            <li>
-                                                <f:link.page
-                                                    pageType="20182126"
-                                                    class="download-document"
-                                                    title="{f:translate(key: 'download.work', extensionName: 'SlubWebDigas')}"
-                                                    additionalParams="{tx_digasfemanagement_statistic: {id: '{gp-id}'}, tx_dlf: {id: '{gp-id}'}}"
-                                                >
-                                                    <f:translate key="download.work" extensionName="SlubWebDigas"/>
-                                                </f:link.page>
-                                            </li>
-                                    -->
-                                </f:comment>
                             </f:then>
                             <f:else>
                                 <span title="Downloads">Downloads</span>

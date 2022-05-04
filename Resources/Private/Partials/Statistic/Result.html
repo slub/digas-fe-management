@@ -3,14 +3,18 @@
     <thead>
     <tr>
         <th><f:translate key="statistic.table.document"/></th>
-        <th><f:translate key="statistic.table.downloads"/></th>
+        <th><f:translate key="statistic.table.downloadPages"/></th>
+        <th><f:translate key="statistic.table.downloadWork"/></th>
+        <th><f:translate key="statistic.table.workViews"/></th>
     </tr>
     </thead>
     <tbody>
     <f:for each="{statistic}" as="statisticEntry">
         <tr>
             <td>{statisticEntry.document.title}</td>
-            <td>{statisticEntry.downloads}</td>
+            <td>{statisticEntry.downloadPages}</td>
+            <td>{statisticEntry.downloadWork}</td>
+            <td>{statisticEntry.workViews}</td>
         </tr>
     </f:for>
     </tbody>

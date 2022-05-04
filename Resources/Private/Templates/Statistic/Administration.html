@@ -4,6 +4,7 @@
 <f:section name="main">
 
     <div class="fe-management-statistic">
+        <f:debug>{_all}</f:debug>
         <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
 
         <f:render partial="Statistic/FilterForm" arguments="{dateFrom: '{dateFrom}', dateTo: '{dateTo}', action: 'administration'}"/>

@@ -17,10 +17,12 @@ class SaveStatistics {
     /**
      * send ajax request
      */
-    sendRequest() {
+    sendRequest(countType = 'work') {
+
         let that = this,
             XMLHttp,
-            params = 'id'+'='+this.documentId;
+            params = 'tx_digasfemanagement_statistic[id]'+'='+this.documentId
+                    +'&tx_digasfemanagement_statistic[countType]'+'='+countType;
 
         XMLHttp = new XMLHttpRequest();
         XMLHttp.onreadystatechange = function(){
@@ -35,11 +37,23 @@ class SaveStatistics {
         this.downloadWorkLinks = document.querySelectorAll(`.${this.options.downloadWorkLinkCls}`);
         this.downloadPageLinks = document.querySelectorAll(`.${this.options.downloadPageLinkCls}`);
 
+        if (this.documentId !== null) {
+            this.sendRequest('workview');
+        }
+
         if (this.downloadWorkLinks !== null) {
             this.downloadWorkLinks.forEach((downloadLink) => {
                 downloadLink.addEventListener('click', (event) => {
-                        this.sendRequest(event, downloadLink);
-                    });
+                        this.sendRequest('work');
+                });
+            });
+        }
+
+        if (this.downloadPageLinks !== null) {
+            this.downloadPageLinks.forEach((downloadLink) => {
+                downloadLink.addEventListener('click', (event) => {
+                        this.sendRequest('page');
+                });
             });
         }
     }
