@@ -5,7 +5,12 @@ class SaveStatistics {
             downloadWorkLinkCls: 'download-document.work',
             downloadPageLinkCls: 'download-document.page',
         }
-        this.documentId = document.querySelector('.dlf-identifier').dataset.id;
+        this.documentId = null;
+        const documentIdMetadata = document.querySelector('.dlf-identifier');
+
+        if (documentIdMetadata !== null && typeof documentIdMetadata.dataset.id !== 'undefined') {
+                this.documentId = documentIdMetadata.dataset.id;
+        }
 
         // initialize listener
         if (document.querySelector(`.${this.options.downloadWorkLinkCls}`)) {
