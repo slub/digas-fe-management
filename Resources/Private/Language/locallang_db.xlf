@@ -156,6 +156,24 @@
             <trans-unit id="tx_digasfemanagement_domain_model_access.inform_user">
                 <source>Inform user (flag for mailing queue)</source>
             </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_statistic">
+                <source>Statistic Data</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_statistic.download_pages">
+                <source>Download of pages per document</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_statistic.download_work">
+                <source>Download of full documents</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_statistic.work_views">
+                <source>Workview views</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_statistic.document">
+                <source>Document</source>
+            </trans-unit>
+            <trans-unit id="tx_digasfemanagement_domain_model_statistic.fe_user">
+                <source>Frontend User</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>

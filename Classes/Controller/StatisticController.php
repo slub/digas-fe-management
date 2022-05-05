@@ -29,15 +29,26 @@ use In2code\Femanager\Controller\AbstractController;
 use In2code\Femanager\Utility\LocalizationUtility;
 use Slub\DigasFeManagement\Domain\Model\Statistic;
 use Slub\DigasFeManagement\Domain\Validator\StatisticTstampValidator;
-use Slub\SlubDigitalcollections\Helpers\GetDoc;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Slub\SlubWebDigas\Domain\Repository\KitodoDocumentRepository;
+
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 /**
  * Class StatisticController
  */
 class StatisticController extends AbstractController
 {
+    /**
+     * This holds the current document
+     *
+     * @var \Kitodo\Dlf\Domain\Model\Document
+     * @access protected
+     */
+    protected $document;
+
     /**
      * @var \Slub\DigasFeManagement\Domain\Repository\StatisticRepository
      */
@@ -52,39 +63,103 @@ class StatisticController extends AbstractController
     }
 
     /**
-     * Download link action - adds statistic entry for dlf_document download
-     * @param int $id
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * kitodoDocumentRepository
+     *
+     * @var KitodoDocumentRepository
      */
-    public function downloadLinkAction(int $id)
+    protected $kitodoDocumentRepository = null;
+
+    /**
+     * @param KitodoDocumentRepository $kitodoDocumentRepository
+     */
+    public function injectKitodoDocumentRepository(KitodoDocumentRepository $kitodoDocumentRepository)
     {
-        //test is user is logged in
+        $this->kitodoDocumentRepository = $kitodoDocumentRepository;
+    }
+
+    /**
+     * Set the Kitodo storagePid to plugin.tx_dlf.persistence.storagePid
+     *
+     * Background: We need two different settings here:
+     *    * one for Kitodo.Presentation (dlf) Repository
+     *    * one for User-Data, which is set via plugin.tx_digasfemangement.persistence.storagePid
+     *
+     * It is not that simple (or I found no better way) to set the storagePid manually. This is one possible way.
+     *
+     */
+    protected function setKitodoStoragePid()
+    {
+        $typoscriptConfiguration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+
+        if (!empty($typoscriptConfiguration['plugin.']['tx_dlf.']['persistence.']['storagePid'])) {
+            /** @var $defaultQuerySettings Typo3QuerySettings */
+            $defaultQuerySettings = $this->objectManager->get(Typo3QuerySettings::class);
+
+            // overwrite (probably empty) storagePid
+            $defaultQuerySettings->setStoragePageIds([$typoscriptConfiguration['plugin.']['tx_dlf.']['persistence.']['storagePid']]);
+            $this->kitodoDocumentRepository->setDefaultQuerySettings($defaultQuerySettings);
+        }
+    }
+
+    /**
+     * Download link action - adds statistic entry for dlf_document download
+     * @param string $id
+     * @param string $countType
+     */
+    public function downloadLinkAction(string $id, string $countType)
+    {
+        // make sure, the user is logged in
         if (empty($this->user) || empty($this->user->getUid())) {
-            $uriBuilder = $this->uriBuilder;
-            $uri = $uriBuilder->setTargetPageUid($this->settings['pids']['loginPage'])->build();
-            return $this->redirectToUri($uri);
+            $this->view->assign('counted', -1);
+            return;
         }
 
-        $statisticEntry = new Statistic();
+        // set the storagePid of kitodoDocumentRepository
+        $this->setKitodoStoragePid();
 
-        $statisticEntry->setFeUser($this->user);
-        $statisticEntry->setDocument($id);
+        // first we find the document object
+        $this->document = $this->kitodoDocumentRepository->findOneByRecordId($id);
 
-        $this->statisticRepository->add($statisticEntry);
-        $this->persistenceManager->persistAll();
+        if (! $this->document) {
+            $this->view->assign('counted', -1);
+            return;
+        }
 
-        $documentLink = new GetDoc();
-        $documentLink = $documentLink->getWorkLink();
+        // check, if there is a record from the last 24h
+        $statisticEntry = $this->statisticRepository->findOneByFeUserAndDocument($this->user, $this->document->getUid());
 
+        $isUpdate = true;
 
-        if (!empty($documentLink) && GeneralUtility::isValidUrl($documentLink)) {
-            return $this->redirectToUri($documentLink);
+        if ($statisticEntry == null) {
+            $isUpdate = false;
+            // second we count the new download
+            $statisticEntry = new Statistic();
+
+            $statisticEntry->setFeUser($this->user);
+            $statisticEntry->setDocument($this->document->getUid());
+        }
+
+        switch ($countType) {
+            case 'work':
+                $statisticEntry->setDownloadWork(1);
+                break;
+            case 'page':
+                $statisticEntry->incDownloadPages();
+                break;
+            case 'workview':
+                $statisticEntry->setWorkViews(1);
+                break;
+        }
+
+        if ($isUpdate === true) {
+            $this->statisticRepository->update($statisticEntry);
+            $this->view->assign('counted', 1);
         } else {
-            // @todo redirect if no document could be loaded.
-            return false;
+            $this->statisticRepository->add($statisticEntry);
+            $this->view->assign('counted', 2);
         }
+
+        return;
     }
 
     /**
@@ -208,4 +283,6 @@ class StatisticController extends AbstractController
             'dateTo' => $dateTo,
         ];
     }
+
+
 }

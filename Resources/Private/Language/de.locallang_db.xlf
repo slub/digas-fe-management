@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-10-09T14:00:20Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-04T15:29:14Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -49,6 +49,70 @@
 				<source><![CDATA[Please choose]]></source>
 				<target><![CDATA[Bitte wählen Sie aus]]></target>
 			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access" approved="yes">
+				<source><![CDATA[Kitodo FE user access]]></source>
+				<target><![CDATA[Freigabe Katalog-IDs für Fremdnutzer]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.access_granted_notification" approved="yes">
+				<source><![CDATA[Dispatch date email for access granted]]></source>
+				<target><![CDATA[Versanddatum E-Mail Zugriff gewährt]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.dlf_document" approved="yes">
+				<source><![CDATA[Kitodo document uid]]></source>
+				<target><![CDATA[Kitodo uid]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.endtime" approved="yes">
+				<source><![CDATA[Access end]]></source>
+				<target><![CDATA[Zugriff ende]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.expire_notification" approved="yes">
+				<source><![CDATA[Dispatch date email for expiration notification]]></source>
+				<target><![CDATA[Versanddatum E-Mail Ablaufbenachrichtigung]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.inform_user" approved="yes">
+				<source><![CDATA[Inform user (flag for mailing queue)]]></source>
+				<target><![CDATA[User benachrichtigen (Flag für Mailing-Queue)]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.record_id" approved="yes">
+				<source><![CDATA[Kitodo document record_id]]></source>
+				<target><![CDATA[Kitodo Datensatz Identifikator]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.rejected" approved="yes">
+				<source><![CDATA[Rejected]]></source>
+				<target><![CDATA[Zugriff verweigert]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.rejected_reason" approved="yes">
+				<source><![CDATA[Rejected reason]]></source>
+				<target><![CDATA[Zugriff verweigert Begründung]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_access.starttime" approved="yes">
+				<source><![CDATA[Access start]]></source>
+				<target><![CDATA[Zugriff start]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_statistic" approved="yes">
+				<source><![CDATA[Statistic Data]]></source>
+				<target><![CDATA[Statistik Daten]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_statistic.document" approved="yes">
+				<source><![CDATA[Document]]></source>
+				<target><![CDATA[Dokumente]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_statistic.download_pages" approved="yes">
+				<source><![CDATA[Download of pages per document]]></source>
+				<target><![CDATA[Downloads von Einzelseiten pro Dokument]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_statistic.download_work" approved="yes">
+				<source><![CDATA[Download of full documents]]></source>
+				<target><![CDATA[Download ganzer Dokumente]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_statistic.fe_user" approved="yes">
+				<source><![CDATA[Frontend User]]></source>
+				<target><![CDATA[Angemeldete Nutzer]]></target>
+			</trans-unit>
+			<trans-unit id="tx_digasfemanagement_domain_model_statistic.work_views" approved="yes">
+				<source><![CDATA[Workview views]]></source>
+				<target><![CDATA[Werkansichten]]></target>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state.10000" approved="yes">
 				<source><![CDATA[Administration]]></source>
 				<target><![CDATA[Administration]]></target>
@@ -56,6 +120,10 @@
 			<trans-unit id="tx_femanager_domain_model_log.state.10001" approved="yes">
 				<source><![CDATA[User deactivated]]></source>
 				<target><![CDATA[Nutzer deaktiviert]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.city" approved="yes">
+				<source><![CDATA[City]]></source>
+				<target><![CDATA[Ort]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.company" approved="yes">
 				<source><![CDATA[Name of organization]]></source>
@@ -69,17 +137,37 @@
 				<source><![CDATA[Hidden]]></source>
 				<target><![CDATA[Aktiviert]]></target>
 			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.district" approved="yes">
+				<source><![CDATA[District]]></source>
+				<target><![CDATA[Ortsteil]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.email" approved="yes">
+				<source><![CDATA[Email]]></source>
+				<target><![CDATA[Email-Adresse]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender" approved="yes">
+				<source><![CDATA[Salutation]]></source>
+				<target><![CDATA[Anrede]]></target>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.inactivemessage_tstamp" approved="yes">
 				<source><![CDATA[Inactive Message Date]]></source>
 				<target><![CDATA[Inaktivitätsmeldung Datum]]></target>
 			</trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.kitodo_document_access">
-                <source><![CDATA[Kitodo FE user access]]></source>
-                <target><![CDATA[Freigabe Katalog-IDs für Fremdnutzer]]></target>
-            </trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.kitodo_document_access" approved="yes">
+				<source><![CDATA[Kitodo FE user access]]></source>
+				<target><![CDATA[Freigabe Katalog-IDs für Fremdnutzer]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.lastName" approved="yes">
+				<source><![CDATA[Lastname]]></source>
+				<target><![CDATA[Name]]></target>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.old_account" approved="yes">
 				<source><![CDATA[Reference to old account after change of e-mail / username]]></source>
 				<target><![CDATA[Referenz auf alten Account nach Update E-Mail / Username]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.pw_changed_on_confirmation" approved="yes">
+				<source><![CDATA[Password changed after confirmation]]></source>
+				<target><![CDATA[Passwort nach Registrierungsbestätigung geändert]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.saved_searches" approved="yes">
 				<source><![CDATA[Saved searches]]></source>
@@ -93,88 +181,25 @@
 				<source><![CDATA[Saved searches]]></source>
 				<target><![CDATA[Gespeicherte Suchen]]></target>
 			</trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.pw_changed_on_confirmation">
-                <source><![CDATA[Password changed after confirmation]]></source>
-                <target><![CDATA[Passwort nach Registrierungsbestätigung geändert]]></target>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.tab.temp_user">
-                <source><![CDATA[Temporary commercial user]]></source>
-                <target><![CDATA[Temporärer gewerblicher Nutzer]]></target>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.temp_user_ordering_party">
-                <source><![CDATA[Ordering party]]></source>
-                <target><![CDATA[Auftraggeber]]></target>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.temp_user_area_location">
-                <source><![CDATA[Location of the area for which geological data are requested]]></source>
-                <target><![CDATA[Lage des Gebiets, für das geologische Daten begehrt werden]]></target>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.temp_user_purpose">
-                <source><![CDATA[Purpose of the visit]]></source>
-                <target><![CDATA[Zweck des Besuchs]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access">
-                <source>Kitodo FE user access</source>
-                <target><![CDATA[Freigabe Katalog-IDs für Fremdnutzer]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.starttime">
-                <source>Access start</source>
-                <target><![CDATA[Zugriff start]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.endtime">
-                <source>Access end</source>
-                <target><![CDATA[Zugriff ende]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.dlf_document">
-                <source>Kitodo document uid</source>
-                <target><![CDATA[Kitodo uid]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.record_id">
-                <source>Kitodo document record_id</source>
-                <target><![CDATA[Kitodo Datensatz Identifikator]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.access_granted_notification">
-                <source>Dispatch date email for access granted</source>
-                <target><![CDATA[Versanddatum E-Mail Zugriff gewährt]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.expire_notification">
-                <source>Dispatch date email for expiration notification</source>
-                <target><![CDATA[Versanddatum E-Mail Ablaufbenachrichtigung]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.rejected">
-                <source>Rejected</source>
-                <target><![CDATA[Zugriff verweigert]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.rejected_reason">
-                <source>Rejected reason</source>
-                <target><![CDATA[Zugriff verweigert Begründung]]></target>
-            </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.inform_user">
-                <source><![CDATA[User benachrichtigen (Flag für Mailing-Queue)]]></source>
-            </trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.district">
-				<source><![CDATA[District]]></source>
-				<target><![CDATA[Ortsteil]]></target>
+			<trans-unit id="tx_femanager_domain_model_user.tab.temp_user" approved="yes">
+				<source><![CDATA[Temporary commercial user]]></source>
+				<target><![CDATA[Temporärer gewerblicher Nutzer]]></target>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.zip">
+			<trans-unit id="tx_femanager_domain_model_user.temp_user_area_location" approved="yes">
+				<source><![CDATA[Location of the area for which geological data are requested]]></source>
+				<target><![CDATA[Lage des Gebiets, für das geologische Daten begehrt werden]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.temp_user_ordering_party" approved="yes">
+				<source><![CDATA[Ordering party]]></source>
+				<target><![CDATA[Auftraggeber]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.temp_user_purpose" approved="yes">
+				<source><![CDATA[Purpose of the visit]]></source>
+				<target><![CDATA[Zweck des Besuchs]]></target>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.zip" approved="yes">
 				<source><![CDATA[Zipcode]]></source>
 				<target><![CDATA[Postleitzahl]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.city">
-				<source><![CDATA[City]]></source>
-				<target><![CDATA[Ort]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.email">
-				<source><![CDATA[Email]]></source>
-				<target><![CDATA[Email-Adresse]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.gender">
-				<source><![CDATA[Salutation]]></source>
-				<target><![CDATA[Anrede]]></target>
-			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.lastName">
-				<source><![CDATA[Lastname]]></source>
-				<target><![CDATA[Name]]></target>
 			</trans-unit>
 		</body>
 	</file>

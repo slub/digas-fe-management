@@ -186,8 +186,14 @@
             <trans-unit id="statistic.table.document">
                 <source>Documents</source>
             </trans-unit>
-            <trans-unit id="statistic.table.downloads">
-                <source>Downloads</source>
+            <trans-unit id="statistic.table.downloadPages">
+                <source>Single Page Downloads</source>
+            </trans-unit>
+            <trans-unit id="statistic.table.downloadWork">
+                <source>Full PDF Downloads</source>
+            </trans-unit>
+            <trans-unit id="statistic.table.workViews">
+                <source>Views in Workview</source>
             </trans-unit>
             <trans-unit id="administration.listing.table.name">
                 <source>Name</source>
@@ -527,8 +533,8 @@
                 <source>Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:</source>
             </trans-unit>
 
-            <trans-unit id="emailInvitationLinkConfirm">
-                <source>Confirm user account</source>
+            <trans-unit id="emailInvitationLinkConfirmRefused">
+                <source>Delete user account</source>
             </trans-unit>
 
 		</body>

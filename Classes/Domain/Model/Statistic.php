@@ -53,7 +53,17 @@ class Statistic extends AbstractEntity
     /**
      * @var int
      */
-    protected $downloads;
+    protected $downloadPages;
+
+    /**
+     * @var int
+     */
+    protected $downloadWork;
+
+    /**
+     * @var int
+     */
+    protected $workViews;
 
     /**
      * @return \DateTime
@@ -61,32 +71,6 @@ class Statistic extends AbstractEntity
     public function getTstamp()
     {
         return $this->tstamp;
-    }
-
-    /**
-     * Returns the document
-     *
-     * @return \Slub\SlubWebDigas\Domain\Model\KitodoDocument $document
-     */
-    public function getDocument()
-    {
-        return $this->document;
-    }
-
-    /**
-     * @return \Slub\DigasFeManagement\Domain\Model\User $feUser
-     */
-    public function getFeUser()
-    {
-        return $this->feUser;
-    }
-
-    /**
-     * @return int
-     */
-    public function getDownloads()
-    {
-        return $this->downloads;
     }
 
     /**
@@ -99,13 +83,13 @@ class Statistic extends AbstractEntity
     }
 
     /**
+     * Returns the document
      *
-     * @param \Slub\DigasFeManagement\Domain\Model\User|\In2code\Femanager\Domain\Model\User $feUser
-     * @return void
+     * @return \Slub\SlubWebDigas\Domain\Model\KitodoDocument $document
      */
-    public function setFeUser($feUser)
+    public function getDocument()
     {
-        $this->feUser = $feUser;
+        return $this->document;
     }
 
     /**
@@ -120,11 +104,80 @@ class Statistic extends AbstractEntity
     }
 
     /**
-     * @param int $downloads
+     * @return \Slub\DigasFeManagement\Domain\Model\User $feUser
+     */
+    public function getFeUser()
+    {
+        return $this->feUser;
+    }
+
+    /**
+     *
+     * @param \Slub\DigasFeManagement\Domain\Model\User|\In2code\Femanager\Domain\Model\User $feUser
      * @return void
      */
-    public function setDownloads($downloads)
+    public function setFeUser($feUser)
     {
-        $this->downloads = $downloads;
+        $this->feUser = $feUser;
     }
+
+    /**
+     * @return int
+     */
+    public function getDownloadPages()
+    {
+        return $this->downloadPages;
+    }
+
+    /**
+     * @param int $downloadPages
+     * @return void
+     */
+    public function setDownloadPages($downloadPages)
+    {
+        $this->downloadPages = $downloadPages;
+    }
+
+    /**
+     * @return void
+     */
+    public function incDownloadPages()
+    {
+        $this->downloadPages++;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDownloadWork()
+    {
+        return $this->downloadWork;
+    }
+
+    /**
+     * @param int $downloadWork
+     * @return void
+     */
+    public function setDownloadWork($downloadWork)
+    {
+        $this->downloadWork = $downloadWork;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWorkViews()
+    {
+        return $this->workViews;
+    }
+
+    /**
+     * @param int $workViews
+     * @return void
+     */
+    public function setWorkViews($workViews)
+    {
+        $this->workViews = $workViews;
+    }
+
 }

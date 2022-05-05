@@ -4,7 +4,7 @@ return [
     'ctrl' => [
         'title' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_statistic',
         'label' => 'uid',
-        'hideTable' => true,
+        'hideTable' => false,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'delete' => 'deleted',
@@ -21,16 +21,41 @@ return [
     ],
     'columns' => [
         'hidden' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => [
                 'type' => 'check',
-                'default' => 0,
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
             ],
         ],
-        'downloads' => [
+        'download_pages' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_statistic.download_pages',
+            'config' => [
+                'type' => 'input',
+                'default' => 0,
+                'readOnly' => true,
+            ],
+        ],
+        'download_work' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_statistic.download_work',
+            'config' => [
+                'type' => 'input',
+                'default' => 0,
+                'readOnly' => true,
+            ],
+        ],
+        'work_views' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_statistic.work_views',
             'config' => [
                 'type' => 'input',
                 'default' => 0,
@@ -65,7 +90,7 @@ return [
         ],
     ],
     'types' => [
-        '1' => ['showitem' => 'uid,document,fe_user,tstamp,
+        '1' => ['showitem' => 'uid,document,fe_user,download_pages,download_work,work_views,
          --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, hidden'],
     ],
 ];

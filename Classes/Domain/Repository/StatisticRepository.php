@@ -117,10 +117,12 @@ class StatisticRepository extends Repository
     protected function createStatisticQuery()
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->tableName)->createQueryBuilder();
-        $queryBuilder->select('uid', 'document')
-            ->addSelectLiteral($queryBuilder->expr()->count('uid', 'downloads'))
+        $queryBuilder->select('*')
+            ->addSelectLiteral($queryBuilder->expr()->count('uid', 'download_work'))
+            ->addSelectLiteral($queryBuilder->expr()->sum('download_pages', 'download_pages'))
+            ->addSelectLiteral($queryBuilder->expr()->sum('work_views', 'work_views'))
             ->from($this->tableName)
-            ->orderBy('downloads', 'DESC')
+            ->orderBy('download_work', 'DESC')
             ->groupBy('document');
 
         return $queryBuilder;
@@ -158,5 +160,30 @@ class StatisticRepository extends Repository
 
         return $this->dataMapQueryResult($rows);
 
+    }
+
+
+    /**
+     * Find one statistic record for the given user and document of the last 24h.
+     *
+     * @param int $feUserUid
+     * @param int $documentId
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findOneByFeUserAndDocument($feUserUid, $documentId)
+    {
+        $query = $this->createQuery();
+
+        $constraints = [];
+        $constraints[] = $query->equals('fe_user', $feUserUid);
+        $constraints[] = $query->equals('document', $documentId);
+        $constraints[] = $query->greaterThan('tstamp', time() - 86400);
+
+        if (count($constraints)) {
+            $query->matching($query->logicalAnd($constraints));
+        }
+
+        return $query->execute()->getFirst();
     }
 }

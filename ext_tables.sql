@@ -36,6 +36,9 @@ CREATE TABLE tx_digasfemanagement_domain_model_statistic (
     hidden smallint(6) DEFAULT '0' NOT NULL,
     document int(11) unsigned NOT NULL,
     fe_user int(11) unsigned NOT NULL,
+    download_pages int(11) unsigned DEFAULT '0' NOT NULL,
+    download_work int(11) unsigned DEFAULT '0' NOT NULL,
+    work_views int(11) unsigned DEFAULT '0' NOT NULL,
 
     PRIMARY KEY (uid),
     KEY document (document),
