@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T15:57:23Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T20:32:53Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -404,6 +404,10 @@
 			<trans-unit id="emailCreateUserConfirmationTextChangeMail" approved="yes">
 				<source><![CDATA[Please confirm your change of e-mail request on our server by clicking the following link:]]></source>
 				<target><![CDATA[Bitte bestätigen Sie die Änderung Ihr E-Mail-Adresse, indem sie auf den folgenden Link klicken:]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserNotifySubject" approved="yes">
+				<source><![CDATA[[DiGA.Sax] Your registration was confirmed]]></source>
+				<target><![CDATA[[DiGA.Sax] Ihre Registrierung wurde bestätigt]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserNotifyText1" approved="yes">
 				<source><![CDATA[Your user account was confirmed and successfully created.]]></source>
