@@ -52,24 +52,24 @@
                 <target>weiter</target>
             </trans-unit>
             <trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject">
-                <source>Your request to DIGAS</source>
-                <target>Ihre Anfrage DIGAS</target>
+                <source>Your request to DiGA.Sax</source>
+                <target>Ihre Anfrage DiGA.Sax</target>
             </trans-unit>
             <trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject">
-                <source>New request via DIGAS</source>
-                <target>Neue Anfrage DIGAS</target>
+                <source>New request via DiGA.Sax</source>
+                <target>Neue Anfrage DiGA.Sax</target>
             </trans-unit>
             <trans-unit id="contactRegisteredUsers.finisher.Confirmation.message">
                 <source>Thanks for your message. We're getting back to you as soon as possible.</source>
                 <target>Vielen Dank für Ihre Nachricht. Wir melden uns schnellstmöglich bei Ihnen.</target>
             </trans-unit>
             <trans-unit id="contactRegisteredUsersLocal.finisher.EmailToSender.subject">
-                <source>Your request to DIGAS</source>
-                <target>Ihre Anfrage DIGAS</target>
+                <source>Your request to DiGA.Sax</source>
+                <target>Ihre Anfrage DiGA.Sax</target>
             </trans-unit>
             <trans-unit id="contactRegisteredUsersLocal.finisher.EmailToReceiver.subject">
-                <source>New request via DIGAS</source>
-                <target>Neue Anfrage DIGAS</target>
+                <source>New request via DiGA.Sax</source>
+                <target>Neue Anfrage DiGA.Sax</target>
             </trans-unit>
             <trans-unit id="contactRegisteredUsersLocal.finisher.Confirmation.message">
                 <source>Thanks for your message. We're getting back to you as soon as possible.</source>

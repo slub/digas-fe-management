@@ -270,12 +270,12 @@
 				<target><![CDATA[Vielen Dank für Ihre Nachricht. Wir melden uns schnellstmöglich bei Ihnen.]]></target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject" approved="yes">
-				<source><![CDATA[New request via DIGAS]]></source>
-				<target><![CDATA[Neue Anfrage an DIGAS]]></target>
+				<source><![CDATA[New request via DiGA.Sax]]></source>
+				<target><![CDATA[Neue Anfrage an DiGA.Sax]]></target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject" approved="yes">
-				<source><![CDATA[Your request to DIGAS]]></source>
-				<target><![CDATA[Ihre Anfrage an DIGAS]]></target>
+				<source><![CDATA[Your request to DiGA.Sax]]></source>
+				<target><![CDATA[Ihre Anfrage an DiGA.Sax]]></target>
 			</trans-unit>
 			<trans-unit id="createRequestWaitingForUserConfirm" approved="yes">
 				<source><![CDATA[Thank you for your request. Please check your mail account to confirm the profile.]]></source>

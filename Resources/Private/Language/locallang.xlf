@@ -157,10 +157,10 @@
                 <source>next</source>
             </trans-unit>
             <trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject">
-                <source>Your request to DIGAS</source>
+                <source>Your request to DiGA.Sax</source>
             </trans-unit>
             <trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject">
-                <source>New request via DIGAS</source>
+                <source>New request via DiGA.Sax</source>
             </trans-unit>
             <trans-unit id="contactRegisteredUsers.finisher.Confirmation.message">
                 <source>Thanks for your message. We're getting back to you as soon as possible.</source>
