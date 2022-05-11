@@ -11,8 +11,8 @@
         <f:if condition="{documents.newDocumentRequests} || {request.sent}">
             <div class="fe-management-basket--steps">
                 <div class="fe-management-basket--step active"><span>1</span></div>
-                <div class="fe-management-basket--step {f:if (condition:'{request.sent}',then:'active')}"><span>2</span></div>
-                <div class="fe-management-basket--step {f:if (condition:'{request.sent}',then:'active')}"><span>3</span></div>
+                <div class="fe-management-basket--step {f:if(condition:'{request.sent}',then:'active')}"><span>2</span></div>
+                <div class="fe-management-basket--step {f:if(condition:'{request.sent}',then:'active')}"><span>3</span></div>
             </div>
         </f:if>
 
