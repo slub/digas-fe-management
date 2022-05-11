@@ -123,11 +123,11 @@ class DigasBaseCommand extends Command
 
         // throw error if necessary typoscript configuration is missing
         if (empty($this->settings['pids.']['feUsers'])) {
-            $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.feUsers} is not set. Abort.');
+            $this->io->error('[DiGA.Sax] Typoscript variable {plugin.tx_femanager.settings.pids.feUsers} is not set. Abort.');
             return 1;
         }
         if (empty($this->settings['pids.']['loginPage'])) {
-            $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.loginPage} is not set. Abort.');
+            $this->io->error('[DiGA.Sax] Typoscript variable {plugin.tx_femanager.settings.pids.loginPage} is not set. Abort.');
             return 1;
         }
 
