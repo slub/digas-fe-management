@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T15:12:05Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T15:57:23Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -369,6 +369,10 @@
 				<source><![CDATA[Your Account has been disabled]]></source>
 				<target><![CDATA[Ihr Nutzerkonto wurde deaktiviert]]></target>
 			</trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationSubject" approved="yes">
+				<source><![CDATA[[DiGA.Sax] Please confirm the user account for DiGA.Sax which has been created for you]]></source>
+				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie das angelegte DiGA.Sax Benutzerkonto]]></target>
+			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationLinkConfirm" approved="yes">
 				<source><![CDATA[Registrierung abschließen]]></source>
 				<target><![CDATA[Registrierung abschließen]]></target>
@@ -376,6 +380,10 @@
 			<trans-unit id="emailCreateUserConfirmationLinkConfirmEmail" approved="yes">
 				<source><![CDATA[Confirm e-mail-address]]></source>
 				<target><![CDATA[E-Mail-Adresse bestätigen]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationSubject" approved="yes">
+				<source><![CDATA[[DiGA.Sax] Please confirm your account creation request]]></source>
+				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie Ihre Registrierungsanfrage]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText1" approved="yes">
 				<source><![CDATA[Vielen Dank für Ihre Registrierung in DiGA.Sax – dem Digitalen Geologischen Archiv Sachsens.]]></source>
