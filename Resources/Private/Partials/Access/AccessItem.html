@@ -1,4 +1,4 @@
-<div class="access-item {f:if(condition:'{access.uid} == {errorItem}',then:'error')}" id="access-item-{access.uid}">
+<div class="access-item {f:if (condition:'{access.uid} == {errorItem}',then:'error')}" id="access-item-{access.uid}">
 
     <h3 class="access-item-heading">
         <f:if condition="{access.recordId}">
@@ -14,7 +14,6 @@
     <f:form name="access" object="{access}" action="approve" arguments="{user:user}" additionalParams="{autocomplete:off}">
 
         <f:render partial="Access/DateFields" arguments="{access:access,rejected:rejected}" />
-
 
         <f:if condition="{access.rejected}">
             <div class="form-group">
@@ -50,11 +49,11 @@
                 <f:form.button type="submit">
                     <f:if condition="{edit} || {rejected}">
                         <f:then>
-                            <f:form.hidden name="edit" value="1"/>
-                            <f:translate key="access.action.adjust"/>
+                            <f:form.hidden name="edit" value="1" />
+                            <f:translate key="access.action.adjust" />
                         </f:then>
                         <f:else>
-                            <f:translate key="access.action.grant"/>
+                            <f:translate key="access.action.grant" />
                         </f:else>
                     </f:if>
                 </f:form.button>
@@ -64,10 +63,10 @@
                     <f:link.action class="btn" action="rejectReason" arguments="{user:user,access:access}">
                         <f:if condition="{edit}">
                             <f:then>
-                                <f:translate key="access.action.delete"/>
+                                <f:translate key="access.action.delete" />
                             </f:then>
                             <f:else>
-                                <f:translate key="access.action.reject"/>
+                                <f:translate key="access.action.reject" />
                             </f:else>
                         </f:if>
                     </f:link.action>

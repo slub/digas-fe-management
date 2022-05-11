@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-05T11:20:36Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T09:28:16Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -99,7 +99,7 @@
 			</trans-unit>
 			<trans-unit id="access.rejectedReason.new" approved="yes">
 				<source><![CDATA[Release has been denied before and has been requested again.]]></source>
-				<target><![CDATA[Freigabe wurde schon einmal abgelehnt und wurde erneut angefragt.]]></target>
+				<target><![CDATA[Die Freigabe wurde bereits einmal angefragt und abgelehnt. Dies ist eine erneuter Antrag.]]></target>
 			</trans-unit>
 			<trans-unit id="access.success.deleted" approved="yes">
 				<source><![CDATA[Access for document "%s" was deleted]]></source>
@@ -270,12 +270,12 @@
 				<target><![CDATA[Vielen Dank für Ihre Nachricht. Wir melden uns schnellstmöglich bei Ihnen.]]></target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject" approved="yes">
-				<source><![CDATA[New request via DIGAS]]></source>
-				<target><![CDATA[Neue Anfrage an DIGAS]]></target>
+				<source><![CDATA[[DiGA.Sax] New request via DiGA.Sax]]></source>
+				<target><![CDATA[[DiGA.Sax] Neue Anfrage an DiGA.Sax]]></target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject" approved="yes">
-				<source><![CDATA[Your request to DIGAS]]></source>
-				<target><![CDATA[Ihre Anfrage an DIGAS]]></target>
+				<source><![CDATA[[DiGA.Sax] Your request to DiGA.Sax]]></source>
+				<target><![CDATA[[DiGA.Sax] Ihre Anfrage an DiGA.Sax]]></target>
 			</trans-unit>
 			<trans-unit id="createRequestWaitingForUserConfirm" approved="yes">
 				<source><![CDATA[Thank you for your request. Please check your mail account to confirm the profile.]]></source>
@@ -354,8 +354,8 @@
 				<target><![CDATA[Betreff]]></target>
 			</trans-unit>
 			<trans-unit id="emailChangeUserConfirmationSubject" approved="yes">
-				<source><![CDATA[Please confirm your e-mail change request]]></source>
-				<target><![CDATA[Bitte bestätigen Sie die Änderung Ihrer E-Mail-Adresse]]></target>
+				<source><![CDATA[[DiGA.Sax] Please confirm your e-mail change request]]></source>
+				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie die Änderung Ihrer E-Mail-Adresse]]></target>
 			</trans-unit>
 			<trans-unit id="emailChangedRequestWaitingForUserConfirm" approved="yes">
 				<source><![CDATA[Thank you for your request. Please check your mail account to confirm your e-mail-address.]]></source>
@@ -446,8 +446,8 @@
 				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessExpirationNotification.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax FE Management] Expiration Information]]></source>
-				<target><![CDATA[[DiGA.Sax FE Management] Freigabe läuft bald ab]]></target>
+				<source><![CDATA[[DiGA.Sax] Expiration Information]]></source>
+				<target><![CDATA[[DiGA.Sax] Freigabe läuft bald ab]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.accessGranted" approved="yes">
 				<source><![CDATA[The access to the requested documents were granted:]]></source>
@@ -466,36 +466,40 @@
 				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax FE Management] Access granted]]></source>
-				<target><![CDATA[[DiGA.Sax FE Management] Zugriff gewährt]]></target>
+				<source><![CDATA[[DiGA.Sax] Access granted]]></source>
+				<target><![CDATA[[DiGA.Sax] Zugriff gewährt]]></target>
 			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.message" approved="yes">
 				<source><![CDATA[Please release the document with the catalog ID:]]></source>
 				<target><![CDATA[Ich bitte um Freigabe des Dokuments mit der Katalog-ID:]]></target>
 			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.subject" approved="yes">
-				<source><![CDATA[Release request for catalog ID:]]></source>
-				<target><![CDATA[Freigabewunsch für Katalog-ID:]]></target>
+				<source><![CDATA[[DiGA.Sax] Release request for catalog ID:]]></source>
+				<target><![CDATA[[DiGA.Sax] Freigabewunsch für Katalog-ID:]]></target>
 			</trans-unit>
 			<trans-unit id="noChanges" approved="yes">
 				<source><![CDATA[No changes detected]]></source>
 				<target><![CDATA[Keine Änderungen festgestellt.]]></target>
 			</trans-unit>
-			<trans-unit id="remindUnusedAccounts.email.message" approved="yes">
-				<source><![CDATA[You didn't login the last %s days. Please login in the next %s days to avoid the account deletion.]]></source>
-				<target><![CDATA[Sie haben Ihren Account in den letzten %s Tagen nicht genutzt. Bitte loggen Sie sich in Ihr Benunutzerkonto innerhalb der nächsten %s Tage ein, um eine Account-Löschung zu vermeiden.]]></target>
+			<trans-unit id="remindUnusedAccounts.email.message" approved="yes" xml:space="preserve">
+				<source><![CDATA[You didn't login the last %s days.
+
+Please login in the next %s days to avoid the account deletion.]]></source>
+				<target><![CDATA[Sie haben Ihren Zugang zum DiGA.Sax Benutzerkonto in den letzten %s Tagen nicht genutzt.
+
+Bitte melden Sie sich in Ihr Benutzerkonto innerhalb der nächsten %s Tage ein, um eine Löschung des Zugangs zu vermeiden.]]></target>
 			</trans-unit>
 			<trans-unit id="remindUnusedAccounts.email.messageLogin" approved="yes">
-				<source><![CDATA[You can use this url to login again:]]></source>
-				<target><![CDATA[Sie können sich über folgende Url wieder anmelden:]]></target>
+				<source><![CDATA[You can use this address to login again:]]></source>
+				<target><![CDATA[Sie können sich über folgende Adresse wieder anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="remindUnusedAccounts.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax FE Management] Inactive Warning]]></source>
-				<target><![CDATA[[DiGA.Sax FE Management] Inaktivitätswarnung]]></target>
+				<source><![CDATA[[DiGA.Sax] Inactive Warning]]></source>
+				<target><![CDATA[[DiGA.Sax] Inaktivitätswarnung]]></target>
 			</trans-unit>
 			<trans-unit id="requestKitodoAccess.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax FE Management] Access requested]]></source>
-				<target><![CDATA[Dokumentenfreigabe beantragt]]></target>
+				<source><![CDATA[[DiGA.Sax] Access requested]]></source>
+				<target><![CDATA[[DiGA.Sax] Dokumentenfreigabe beantragt]]></target>
 			</trans-unit>
 			<trans-unit id="requestKitodoAccess.error" approved="yes">
 				<source><![CDATA[Error while access to documents requested]]></source>
@@ -506,8 +510,8 @@
 				<target><![CDATA[Zugang zu Dokumenten wurde erfolgreich beantragt]]></target>
 			</trans-unit>
 			<trans-unit id="requestKitodoAccessUser.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax FE Management] Access requested]]></source>
-				<target><![CDATA[Dokumentenfreigabe beantragt]]></target>
+				<source><![CDATA[[DiGA.Sax] Access requested]]></source>
+				<target><![CDATA[[DiGA.Sax] Dokumentenfreigabe beantragt]]></target>
 			</trans-unit>
 			<trans-unit id="search" approved="yes">
 				<source><![CDATA[Search]]></source>

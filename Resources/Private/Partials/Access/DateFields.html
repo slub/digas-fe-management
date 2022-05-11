@@ -24,7 +24,7 @@
                 <f:variable name="endDateValue" value="{access.endtime->f:format.date(format:'%Y-%m-%d')}" />
             </f:then>
             <f:else>
-                <f:variable name="endDateValue" value="{f:if(condition:settings.access.endTimeFieldDefaultValue,then:'{f:format.date(date:settings.access.endTimeFieldDefaultValue,format:\'%Y-%m-%d\')}')}" />
+                <f:variable name="endDateValue" value="{f:if (condition:settings.access.endTimeFieldDefaultValue,then:'{f:format.date(date:settings.access.endTimeFieldDefaultValue,format:\'%Y-%m-%d\')}')}" />
             </f:else>
         </f:if>
 

@@ -128,7 +128,7 @@ class AccessRepository extends Repository
     }
 
     /**
-     * Get uids of fe_users with expiring document acccess
+     * Get uids of fe_users with expiring document access
      *
      * @param int $expirationTimestamp
      * @return Access[]

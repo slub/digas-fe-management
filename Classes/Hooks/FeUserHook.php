@@ -79,14 +79,14 @@ class FeUserHook {
         // detect if user is "temporary" and therefore linked to another account
         // that has requested to changed username / email
         //
-        if($GLOBALS['TSFE']->fe_user->user['old_account']) {
+        if ($GLOBALS['TSFE']->fe_user->user['old_account']) {
             //initialize UserRepository
             $this->initUserRepository();
 
             //test if user exists
             /** @var User $userToChange */
             $userToChange = $this->userRepository->findByUid($this->user->getOldAccount());
-            if($userToChange !== null) {
+            if ($userToChange !== null) {
 
                 //set new values to existing user record
                 $userToChange->setEmail($this->user->getEmail());
@@ -148,7 +148,7 @@ class FeUserHook {
      * @return void
      */
     public function loginUser(User $user) {
-        if($user !== null) {
+        if ($user !== null) {
             $GLOBALS['TSFE']->fe_user->checkPid = 0;
             $GLOBALS['TSFE']->fe_user->createUserSession(['uid' => $user->getUid()]);
             $GLOBALS['TSFE']->fe_user->user = $GLOBALS['TSFE']->fe_user->fetchUserSession();

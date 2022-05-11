@@ -67,7 +67,7 @@ class ExtendController extends AbstractController
             } catch (StopActionException | UnsupportedRequestTypeException $e) {
             }
         }
-        elseif($femanagerParams['action'] === 'create') {
+        elseif ($femanagerParams['action'] === 'create') {
             $this->view->assign('checkYes', true);
         }
 

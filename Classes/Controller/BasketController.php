@@ -204,7 +204,7 @@ class BasketController extends AbstractController
 
         if (!empty($documents)) {
             //request new documents
-            if(!empty($this->documents['newDocumentRequests'])) {
+            if (!empty($this->documents['newDocumentRequests'])) {
                 foreach ($documents as $key => $document) {
                     $requestAccess = new Access();
                     $requestAccess->setFeUser($this->user->getUid());
@@ -219,7 +219,7 @@ class BasketController extends AbstractController
             }
 
             //request rejected documents again
-            if(!empty($this->documents['rejectedDocumentRequests'])) {
+            if (!empty($this->documents['rejectedDocumentRequests'])) {
                 /** @var Access $accessRejectedNewRequest */
                 foreach($this->documents['rejectedDocumentRequests'] as $accessRejectedNewRequest) {
                     $accessRejectedNewRequest->setExpireNotification(0);

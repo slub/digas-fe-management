@@ -1,542 +1,540 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-13T15:49:07Z" product-name="digas_fe_management">
-		<header/>
+	<file source-language="en" datatype="plaintext" original="messages" date="2022-05-11T09:28:16Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
 		<body>
-			<trans-unit id="tx_femanager_domain_model_user.gender.item0">
-				<source>-</source>
+			<trans-unit id="access.action.adjust">
+				<source><![CDATA[Adjust release]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.gender.item1">
-				<source>Mrs</source>
+			<trans-unit id="access.action.delete">
+				<source><![CDATA[Delete release]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
-				<source>Mr</source>
+			<trans-unit id="access.action.grant">
+				<source><![CDATA[Grant release]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.name" approved="yes">
-				<source>Name</source>
+			<trans-unit id="access.action.reject">
+				<source><![CDATA[Reject release]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.address">
-				<source>Street / Number</source>
+			<trans-unit id="access.confirm.reject">
+				<source><![CDATA[Are you sure to reject access to the document "%s"?]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.new_email">
-				<source>new E-Mail-Address</source>
+			<trans-unit id="access.error.dlfDocument.exists">
+				<source><![CDATA[Document is already in users access list. It's either not accessible yet, the access is expired or the document already been made accessible]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.terms.pre">
-				<source>I / we accept the terms of use (Germany - attribution - version 2.0) of the data offered on this website in the current version.</source>
+			<trans-unit id="access.error.endtime">
+				<source><![CDATA[Release end must be at least one day in the future]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.terms">
-				<source>I accept the terms and conditions</source>
+			<trans-unit id="access.error.recordId.missing">
+				<source><![CDATA[Please enter a document identifier]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.terms.post">
-				<source>Information on data processing can be found in our</source>
+			<trans-unit id="access.error.recordId.notFound">
+				<source><![CDATA[No document for given identifier was found]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.termslinktext">
-				<source>data protection declaration</source>
+			<trans-unit id="access.error.starttime">
+				<source><![CDATA[Start date must be today or in the future]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company">
-				<source>Name of organization</source>
+			<trans-unit id="access.list">
+				<source><![CDATA[Manage access to documents]]></source>
 			</trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.company_type">
-				<source>Organizational unit</source>
+			<trans-unit id="access.list.endtime">
+				<source><![CDATA[Access end date]]></source>
 			</trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.inactivemessage_tstamp">
-                <source>Inactive Message Date</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.tab.kitodo">
-                <source>Kitodo</source>
-            </trans-unit>
-			<trans-unit id="tx_femanager_domain_model_user.usergroup">
-				<source>Usergroup</source>
+			<trans-unit id="access.list.expired">
+				<source><![CDATA[Access expired]]></source>
 			</trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.temp_user_ordering_party">
-                <source>Ordering party</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.temp_user_area_location">
-                <source>Location of the area for which geological data are requested</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.temp_user_purpose">
-                <source>Purpose of the visit</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.tempUserOrderingParty">
-                <source>Ordering party</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.tempUserAreaLocation">
-                <source>Location of the area for which geological data are requested</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.tempUserPurpose">
-                <source>Purpose of the visit</source>
-            </trans-unit>
-            <trans-unit id="kitodo_feuser_access.subject">
-                <source>Release request for catalog ID:</source>
-            </trans-unit>
-            <trans-unit id="kitodo_feuser_access.message">
-                <source>Please release the document with the catalog ID:</source>
-            </trans-unit>
-            <trans-unit id="extend.disable.button">
-				<source>Deactivate account</source>
+			<trans-unit id="access.list.granted">
+				<source><![CDATA[Access granted]]></source>
 			</trans-unit>
-			<trans-unit id="extend.disable.button.no">
-				<source>Cancel</source>
+			<trans-unit id="access.list.pending">
+				<source><![CDATA[Access pending]]></source>
 			</trans-unit>
-			<trans-unit id="extend.disable.step2">
-				<source>Do you really want to deactivate your account?</source>
+			<trans-unit id="access.list.rejected">
+				<source><![CDATA[Access rejected]]></source>
 			</trans-unit>
-			<trans-unit id="administration.show.view">
-				<source>View</source>
+			<trans-unit id="access.list.short">
+				<source><![CDATA[Access]]></source>
 			</trans-unit>
-			<trans-unit id="administration.show.viewUser">
-				<source>View User Details</source>
+			<trans-unit id="access.list.starttime">
+				<source><![CDATA[Access start date]]></source>
 			</trans-unit>
-			<trans-unit id="administration.show.edit">
-				<source>Edit</source>
+			<trans-unit id="access.new.create">
+				<source><![CDATA[Create document access]]></source>
 			</trans-unit>
-			<trans-unit id="administration.show.editUser">
-				<source>Edit User Details</source>
+			<trans-unit id="access.new.headline">
+				<source><![CDATA[Create new document access for user "%s"]]></source>
 			</trans-unit>
-			<trans-unit id="administration.show.deactivate">
-				<source>Deactivate</source>
+			<trans-unit id="access.new.submit">
+				<source><![CDATA[Create document access]]></source>
 			</trans-unit>
-			<trans-unit id="administration.show.deactivateUser">
-				<source>Deactivate user account</source>
+			<trans-unit id="access.recordId">
+				<source><![CDATA[Document Identifier]]></source>
 			</trans-unit>
-			<trans-unit id="administration.show.activate">
-				<source>Activate</source>
+			<trans-unit id="access.rejectedReason">
+				<source><![CDATA[Reason for rejection]]></source>
 			</trans-unit>
-			<trans-unit id="administration.show.activateUser">
-				<source>Activate user account</source>
+			<trans-unit id="access.rejectedReason.new">
+				<source><![CDATA[Release has been denied before and has been requested again.]]></source>
+			</trans-unit>
+			<trans-unit id="access.success.deleted">
+				<source><![CDATA[Access for document "%s" was deleted]]></source>
+			</trans-unit>
+			<trans-unit id="access.success.granted">
+				<source><![CDATA[Access for document "%s" was granted]]></source>
+			</trans-unit>
+			<trans-unit id="access.success.updated">
+				<source><![CDATA[Access for document "%s" was updated]]></source>
+			</trans-unit>
+			<trans-unit id="access.user.inform">
+				<source><![CDATA[Inform user about new access / rejected access]]></source>
+			</trans-unit>
+			<trans-unit id="access.user.inform.queued">
+				<source><![CDATA[Message to user about new document access / rejection was queued]]></source>
+			</trans-unit>
+			<trans-unit id="administration.listing.table.actions">
+				<source><![CDATA[Actions]]></source>
+			</trans-unit>
+			<trans-unit id="administration.listing.table.email">
+				<source><![CDATA[E-Mail]]></source>
+			</trans-unit>
+			<trans-unit id="administration.listing.table.institutionalUser">
+				<source><![CDATA[Institutional user]]></source>
+			</trans-unit>
+			<trans-unit id="administration.listing.table.name">
+				<source><![CDATA[Name]]></source>
+			</trans-unit>
+			<trans-unit id="administration.listing.table.privateUser">
+				<source><![CDATA[Private user]]></source>
+			</trans-unit>
+			<trans-unit id="administration.listing.table.userType">
+				<source><![CDATA[Account-Type]]></source>
+			</trans-unit>
+			<trans-unit id="administration.resetSearch">
+				<source><![CDATA[Reset]]></source>
 			</trans-unit>
 			<trans-unit id="administration.show.UserDeactivateConfirmation">
-				<source>Do you really want to deactivate the user?</source>
+				<source><![CDATA[Do you really want to deactivate the user?]]></source>
 			</trans-unit>
-            <trans-unit id="tx_femanager_domain_model_log.state.10000">
-                <source>Administration</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_log.state.10001">
-                <source>User with username "%s" deactivated.</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_log.state.10002">
-                <source>User with username "%s" activated.</source>
-            </trans-unit>
-            <trans-unit id="noChanges">
-                <source>No changes detected</source>
-            </trans-unit>
-            <trans-unit id="element.lastname.properties.label">
-                <source>Lastname</source>
-            </trans-unit>
-            <trans-unit id="element.firstname.properties.label">
-                <source>Firstname</source>
-            </trans-unit>
-            <trans-unit id="element.company.properties.label">
-                <source>Organization</source>
-            </trans-unit>
-            <trans-unit id="element.email.properties.label">
-                <source>E-mail</source>
-            </trans-unit>
-            <trans-unit id="element.phone.properties.label">
-                <source>Telephone</source>
-            </trans-unit>
-            <trans-unit id="element.subject.properties.label">
-                <source>Subject</source>
-            </trans-unit>
-            <trans-unit id="element.message.properties.label">
-                <source>Message</source>
-            </trans-unit>
-            <trans-unit id="element.Form.renderingOptions.submitButtonLabel">
-                <source>Send</source>
-            </trans-unit>
-            <trans-unit id="element.Page.renderingOptions.previousButtonLabel">
-                <source>back</source>
-            </trans-unit>
-            <trans-unit id="element.Page.renderingOptions.nextButtonLabel">
-                <source>next</source>
-            </trans-unit>
-            <trans-unit id="element.SummaryPage.renderingOptions.previousButtonLabel">
-                <source>back</source>
-            </trans-unit>
-            <trans-unit id="element.SummaryPage.renderingOptions.nextButtonLabel">
-                <source>next</source>
-            </trans-unit>
-            <trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject">
-                <source>Your request to DIGAS</source>
-            </trans-unit>
-            <trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject">
-                <source>New request via DIGAS</source>
-            </trans-unit>
-            <trans-unit id="contactRegisteredUsers.finisher.Confirmation.message">
-                <source>Thanks for your message. We're getting back to you as soon as possible.</source>
-            </trans-unit>
-            <trans-unit id="statistic.filterForm.dateFrom">
-                <source>Filter from Date</source>
-            </trans-unit>
-            <trans-unit id="statistic.filterForm.dateTo">
-                <source>Filter to Date</source>
-            </trans-unit>
-            <trans-unit id="statistic.filterForm.filter">
-                <source>filter</source>
-            </trans-unit>
-            <trans-unit id="statistic.dateFrom.validationError">
-                <source>Given Date from ist not valid.</source>
-            </trans-unit>
-            <trans-unit id="statistic.dateTo.validationError">
-                <source>Given Date to is not valid.</source>
-            </trans-unit>
-            <trans-unit id="statistic.noRecordsFound">
-                <source>No statistic data found.</source>
-            </trans-unit>
-            <trans-unit id="statistic.table.document">
-                <source>Documents</source>
-            </trans-unit>
-            <trans-unit id="statistic.table.downloadPages">
-                <source>Single Page Downloads</source>
-            </trans-unit>
-            <trans-unit id="statistic.table.downloadWork">
-                <source>Full PDF Downloads</source>
-            </trans-unit>
-            <trans-unit id="statistic.table.workViews">
-                <source>Views in Workview</source>
-            </trans-unit>
-            <trans-unit id="administration.listing.table.name">
-                <source>Name</source>
-            </trans-unit>
-            <trans-unit id="administration.listing.table.email">
-                <source>E-Mail</source>
-            </trans-unit>
-            <trans-unit id="administration.listing.table.userType">
-                <source>Account-Type</source>
-            </trans-unit>
-            <trans-unit id="administration.listing.table.actions">
-                <source>Actions</source>
-            </trans-unit>
-            <trans-unit id="administration.listing.table.privateUser">
-                <source>Private user</source>
-            </trans-unit>
-            <trans-unit id="administration.listing.table.institutionalUser">
-                <source>Institutional user</source>
-            </trans-unit>
-            <trans-unit id="search.entry.delete">
-                <source>delete</source>
-            </trans-unit>
-            <trans-unit id="search.deleted.confirm">
-                <source>Do you really want to delete the entry?</source>
-            </trans-unit>
-            <trans-unit id="search.deleted.success">
-                <source>Entry was deleted successfully</source>
-            </trans-unit>
-            <trans-unit id="search.created.success">
-                <source>Search was saved</source>
-            </trans-unit>
-            <trans-unit id="administration.resetSearch">
-                <source>Reset</source>
-            </trans-unit>
-            <trans-unit id="submitChangeEmail">
-                <source>Change e-mail-address</source>
-            </trans-unit>
-            <trans-unit id="administration.userStatus">
-                <source>Account-Status</source>
-            </trans-unit>
-            <trans-unit id="administration.userInactive">
-                <source>Inactive</source>
-            </trans-unit>
-            <trans-unit id="administration.userActive">
-                <source>Active</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.disable">
-                <source>Deactivate Account</source>
-            </trans-unit>
-            <trans-unit id="search.save.button">
-                <source>Save search</source>
-            </trans-unit>
-            <trans-unit id="search.save.title">
-                <source>Please assign a name for the search</source>
-            </trans-unit>
-            <trans-unit id="search">
-                <source>Search</source>
-            </trans-unit>
-            <trans-unit id="changeEmailStatus">
-                <source>Change e-mail</source>
-            </trans-unit>
+			<trans-unit id="administration.show.activate">
+				<source><![CDATA[Activate]]></source>
+			</trans-unit>
+			<trans-unit id="administration.show.activateUser">
+				<source><![CDATA[Activate user account]]></source>
+			</trans-unit>
+			<trans-unit id="administration.show.deactivate">
+				<source><![CDATA[Deactivate]]></source>
+			</trans-unit>
+			<trans-unit id="administration.show.deactivateUser">
+				<source><![CDATA[Deactivate user account]]></source>
+			</trans-unit>
+			<trans-unit id="administration.show.edit">
+				<source><![CDATA[Edit]]></source>
+			</trans-unit>
+			<trans-unit id="administration.show.editUser">
+				<source><![CDATA[Edit User Details]]></source>
+			</trans-unit>
+			<trans-unit id="administration.show.view">
+				<source><![CDATA[View]]></source>
+			</trans-unit>
+			<trans-unit id="administration.show.viewUser">
+				<source><![CDATA[View User Details]]></source>
+			</trans-unit>
+			<trans-unit id="administration.userActive">
+				<source><![CDATA[Active]]></source>
+			</trans-unit>
+			<trans-unit id="administration.userInactive">
+				<source><![CDATA[Inactive]]></source>
+			</trans-unit>
+			<trans-unit id="administration.userStatus">
+				<source><![CDATA[Account-Status]]></source>
+			</trans-unit>
+			<trans-unit id="basket.back">
+				<source><![CDATA[go back]]></source>
+			</trans-unit>
+			<trans-unit id="basket.continue">
+				<source><![CDATA[continue]]></source>
+			</trans-unit>
+			<trans-unit id="basket.empty">
+				<source><![CDATA[Basket empty]]></source>
+			</trans-unit>
+			<trans-unit id="basket.header.alreadyRequested">
+				<source><![CDATA[Documents already requested for release]]></source>
+			</trans-unit>
+			<trans-unit id="basket.message">
+				<source><![CDATA[Your message]]></source>
+			</trans-unit>
+			<trans-unit id="basket.message.alreadyRequested">
+				<source><![CDATA[These documents cannot be requested again]]></source>
+			</trans-unit>
+			<trans-unit id="basket.note.step1">
+				<source><![CDATA[Submit your request and gain access to the listed documents]]></source>
+			</trans-unit>
+			<trans-unit id="basket.note.step2">
+				<source><![CDATA[Please check the data you wish to request]]></source>
+			</trans-unit>
+			<trans-unit id="basket.request">
+				<source><![CDATA[Request basket]]></source>
+			</trans-unit>
+			<trans-unit id="basket.table.actions">
+				<source><![CDATA[Actions]]></source>
+			</trans-unit>
+			<trans-unit id="basket.table.actions.remove">
+				<source><![CDATA[remove from basket]]></source>
+			</trans-unit>
+			<trans-unit id="basket.table.recordId">
+				<source><![CDATA[Identifier]]></source>
+			</trans-unit>
+			<trans-unit id="basket.table.status">
+				<source><![CDATA[Status]]></source>
+			</trans-unit>
+			<trans-unit id="basket.table.title">
+				<source><![CDATA[Title]]></source>
+			</trans-unit>
+			<trans-unit id="changeEmailStatus">
+				<source><![CDATA[Change e-mail]]></source>
+			</trans-unit>
+			<trans-unit id="contactRegisteredUsers.finisher.Confirmation.message">
+				<source><![CDATA[Thanks for your message. We're getting back to you as soon as possible.]]></source>
+			</trans-unit>
+			<trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject">
+				<source><![CDATA[[DiGA.Sax] New request via DiGA.Sax]]></source>
+			</trans-unit>
+			<trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject">
+				<source><![CDATA[[DiGA.Sax] Your request to DiGA.Sax]]></source>
+			</trans-unit>
 			<trans-unit id="createRequestWaitingForUserConfirm">
-				<source>Thank you for your request. Please check your mail account to confirm the profile.</source>
+				<source><![CDATA[Thank you for your request. Please check your mail account to confirm the profile.]]></source>
 			</trans-unit>
-            <trans-unit id="emailChangedRequestWaitingForUserConfirm">
-                <source>Thank you for your request. Please check your mail account to confirm your e-mail-address.</source>
-            </trans-unit>
-			<trans-unit id="emailCreateUserConfirmationTextChangeMail">
-				<source>Please confirm your change of e-mail request on our server by clicking the following link:</source>
+			<trans-unit id="dialog.continue">
+				<source><![CDATA[continue]]></source>
+			</trans-unit>
+			<trans-unit id="dialog.hint">
+				<source><![CDATA[Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGA.Sax starten.]]></source>
+			</trans-unit>
+			<trans-unit id="dialog.no">
+				<source><![CDATA[no]]></source>
+			</trans-unit>
+			<trans-unit id="dialog.question">
+				<source><![CDATA[Soll die Einsichtnahme und Nutzung der markierten Dokumente im Rahmen einer gewerblichen Tätigkeit erfolgen?]]></source>
+			</trans-unit>
+			<trans-unit id="dialog.title">
+				<source><![CDATA[Purpose of use]]></source>
+			</trans-unit>
+			<trans-unit id="dialog.yes">
+				<source><![CDATA[yes]]></source>
+			</trans-unit>
+			<trans-unit id="element.Form.renderingOptions.submitButtonLabel">
+				<source><![CDATA[Send]]></source>
+			</trans-unit>
+			<trans-unit id="element.Page.renderingOptions.nextButtonLabel">
+				<source><![CDATA[next]]></source>
+			</trans-unit>
+			<trans-unit id="element.Page.renderingOptions.previousButtonLabel">
+				<source><![CDATA[back]]></source>
+			</trans-unit>
+			<trans-unit id="element.SummaryPage.renderingOptions.nextButtonLabel">
+				<source><![CDATA[next]]></source>
+			</trans-unit>
+			<trans-unit id="element.SummaryPage.renderingOptions.previousButtonLabel">
+				<source><![CDATA[back]]></source>
+			</trans-unit>
+			<trans-unit id="element.company.properties.label">
+				<source><![CDATA[Organization]]></source>
+			</trans-unit>
+			<trans-unit id="element.email.properties.label">
+				<source><![CDATA[E-mail]]></source>
+			</trans-unit>
+			<trans-unit id="element.firstname.properties.label">
+				<source><![CDATA[Firstname]]></source>
+			</trans-unit>
+			<trans-unit id="element.lastname.properties.label">
+				<source><![CDATA[Lastname]]></source>
+			</trans-unit>
+			<trans-unit id="element.message.properties.label">
+				<source><![CDATA[Message]]></source>
+			</trans-unit>
+			<trans-unit id="element.phone.properties.label">
+				<source><![CDATA[Telephone]]></source>
+			</trans-unit>
+			<trans-unit id="element.subject.properties.label">
+				<source><![CDATA[Subject]]></source>
+			</trans-unit>
+			<trans-unit id="emailChangeUserConfirmationSubject">
+				<source><![CDATA[[DiGA.Sax] Please confirm your e-mail change request]]></source>
+			</trans-unit>
+			<trans-unit id="emailChangedRequestWaitingForUserConfirm">
+				<source><![CDATA[Thank you for your request. Please check your mail account to confirm your e-mail-address.]]></source>
+			</trans-unit>
+			<trans-unit id="emailConfirmDisableActionSubject">
+				<source><![CDATA[Your Account has been disabled]]></source>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationLinkConfirm">
+				<source><![CDATA[Registrierung abschließen]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationLinkConfirmEmail">
-				<source>Confirm e-mail-address</source>
-			</trans-unit>
-            <trans-unit id="emailChangeUserConfirmationSubject">
-                <source>Please confirm your e-mail change request</source>
-            </trans-unit>
-            <trans-unit id="titleInvitationSetPassword">
-                <source>Please set a new password. It must include at least one uppercase and one special character.</source>
-            </trans-unit>
-            <trans-unit id="validationErrorPasswordUpperCaseSpecialChar">
-                <source>Please use at least one uppercase and one special character</source>
-            </trans-unit>
-            <trans-unit id="remindUnusedAccounts.email.message">
-                <source>You didn't login the last %s days. Please login in the next %s days to avoid the account deletion.</source>
-            </trans-unit>
-            <trans-unit id="remindUnusedAccounts.email.messageLogin">
-                <source>You can use this url to login again:</source>
-            </trans-unit>
-            <trans-unit id="remindUnusedAccounts.email.subject">
-                <source>[DiGA.Sax FE Management] Inactive Warning</source>
-            </trans-unit>
-			<trans-unit id="emailConfirmDisableActionSubject">
-				<source>Your Account has been disabled</source>
-			</trans-unit>
-			<trans-unit id="emailDisable.text1">
-				<source>Your Account has been disabled</source>
-			</trans-unit>
-			<trans-unit id="emailDisable.text2">
-				<source>To reactivate your account, please send an email to the administrator.</source>
-			</trans-unit>
-			<trans-unit id="emailDisable.text3">
-				<source>You may register a new account. Please note, you cannot use the same email address as in this disabled account.</source>
-			</trans-unit>
-			<trans-unit id="emailDisable.homepage">
-				<source>Homepage</source>
+				<source><![CDATA[Confirm e-mail-address]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText1">
-				<source>Vielen Dank für Ihre Registrierung in DiGA.Sax – dem Digitalen Geologischen Archiv Sachsens.</source>
+				<source><![CDATA[Vielen Dank für Ihre Registrierung in DiGA.Sax – dem Digitalen Geologischen Archiv Sachsens.]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText2">
-				<source>Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:</source>
+				<source><![CDATA[Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText3">
-				<source>Beachten Sie bitte, dass der Link nur für 24 Stunden gültig ist.</source>
+				<source><![CDATA[Beachten Sie bitte, dass der Link nur für 24 Stunden gültig ist.]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText4">
-				<source>Wenn Sie die Registrierung auf der Website nicht selbst vorgenommen haben, können Sie diese E-Mail ignorieren.</source>
+				<source><![CDATA[Wenn Sie die Registrierung auf der Website nicht selbst vorgenommen haben, können Sie diese E-Mail ignorieren.]]></source>
 			</trans-unit>
-            <trans-unit id="emailCreateUserConfirmationLinkConfirm">
-                <source>Registrierung abschließen</source>
-            </trans-unit>
-            <trans-unit id="dialog.title">
-                <source>Purpose of use</source>
-            </trans-unit>
-            <trans-unit id="dialog.question">
-                <source>Soll die Einsichtnahme und Nutzung der markierten Dokumente im Rahmen einer gewerblichen Tätigkeit erfolgen?</source>
-            </trans-unit>
-            <trans-unit id="dialog.hint">
-                <source>Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGA.Sax starten.</source>
-            </trans-unit>
-            <trans-unit id="dialog.continue">
-                <source>continue</source>
-            </trans-unit>
-            <trans-unit id="dialog.yes">
-                <source>yes</source>
-            </trans-unit>
-            <trans-unit id="dialog.no">
-                <source>no</source>
-            </trans-unit>
+			<trans-unit id="emailCreateUserConfirmationTextChangeMail">
+				<source><![CDATA[Please confirm your change of e-mail request on our server by clicking the following link:]]></source>
+			</trans-unit>
+			<trans-unit id="emailCreateUserNotifyText1">
+				<source><![CDATA[Your user account was confirmed and successfully created.]]></source>
+			</trans-unit>
+			<trans-unit id="emailDisable.homepage">
+				<source><![CDATA[Homepage]]></source>
+			</trans-unit>
+			<trans-unit id="emailDisable.text1">
+				<source><![CDATA[Your Account has been disabled]]></source>
+			</trans-unit>
+			<trans-unit id="emailDisable.text2">
+				<source><![CDATA[To reactivate your account, please send an email to the administrator.]]></source>
+			</trans-unit>
+			<trans-unit id="emailDisable.text3">
+				<source><![CDATA[You may register a new account. Please note, you cannot use the same email address as in this disabled account.]]></source>
+			</trans-unit>
+			<trans-unit id="emailInvitationLinkConfirmRefused">
+				<source><![CDATA[Delete user account]]></source>
+			</trans-unit>
+			<trans-unit id="emailInvitationText1">
+				<source><![CDATA[Ihr Benutzerkonto für DiGA.Sax - dem Digitalen Geologischen Archiv Sachsens - wurde soeben erstellt.]]></source>
+			</trans-unit>
+			<trans-unit id="emailInvitationText2">
+				<source><![CDATA[Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:]]></source>
+			</trans-unit>
+			<trans-unit id="extend.disable.button">
+				<source><![CDATA[Deactivate account]]></source>
+			</trans-unit>
+			<trans-unit id="extend.disable.button.no">
+				<source><![CDATA[Cancel]]></source>
+			</trans-unit>
+			<trans-unit id="extend.disable.step2">
+				<source><![CDATA[Do you really want to deactivate your account?]]></source>
+			</trans-unit>
+			<trans-unit id="kitodoAccessExpirationNotification.email.message">
+				<source><![CDATA[The access to the following documents will expire soon:]]></source>
+			</trans-unit>
+			<trans-unit id="kitodoAccessExpirationNotification.email.messageLogin">
+				<source><![CDATA[You can use this url to login:]]></source>
+			</trans-unit>
+			<trans-unit id="kitodoAccessExpirationNotification.email.subject">
+				<source><![CDATA[[DiGA.Sax] Expiration Information]]></source>
+			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.accessGranted">
+				<source><![CDATA[The access to the requested documents were granted:]]></source>
+			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.accessRejected">
+				<source><![CDATA[The access to the requested documents were rejected:]]></source>
+			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.message">
+				<source><![CDATA[The access to the requested documents were granted:]]></source>
+			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.messageLogin">
+				<source><![CDATA[You can use this url to login:]]></source>
+			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.subject">
+				<source><![CDATA[[DiGA.Sax] Access granted]]></source>
+			</trans-unit>
+			<trans-unit id="kitodo_feuser_access.message">
+				<source><![CDATA[Please release the document with the catalog ID:]]></source>
+			</trans-unit>
+			<trans-unit id="kitodo_feuser_access.subject">
+				<source><![CDATA[[DiGA.Sax] Release request for catalog ID:]]></source>
+			</trans-unit>
+			<trans-unit id="noChanges">
+				<source><![CDATA[No changes detected]]></source>
+			</trans-unit>
+			<trans-unit id="remindUnusedAccounts.email.message" xml:space="preserve">
+				<source><![CDATA[You didn't login the last %s days.
 
-            <trans-unit id="access.user.inform">
-                <source>Inform user about new access / rejected access</source>
-            </trans-unit>
-            <trans-unit id="access.user.inform.queued">
-                <source>Message to user about new document access / rejection was queued</source>
-            </trans-unit>
-            <trans-unit id="access.new.headline">
-                <source>Create new document access for user "%s"</source>
-            </trans-unit>
-            <trans-unit id="access.new.submit">
-                <source>Create document access</source>
-            </trans-unit>
-            <trans-unit id="access.new.create">
-                <source>Create document access</source>
-            </trans-unit>
-            <trans-unit id="access.list">
-                <source>Manage access to documents</source>
-            </trans-unit>
-            <trans-unit id="access.list.starttime">
-                <source>Access start date</source>
-            </trans-unit>
-            <trans-unit id="access.list.endtime">
-                <source>Access end date</source>
-            </trans-unit>
-            <trans-unit id="access.list.short">
-                <source>Access</source>
-            </trans-unit>
-            <trans-unit id="access.list.granted">
-                <source>Access granted</source>
-            </trans-unit>
-            <trans-unit id="access.list.pending">
-                <source>Access pending</source>
-            </trans-unit>
-            <trans-unit id="access.list.expired">
-                <source>Access expired</source>
-            </trans-unit>
-            <trans-unit id="access.list.rejected">
-                <source>Access rejected</source>
-            </trans-unit>
-            <trans-unit id="access.recordId">
-                <source>Document Identifier</source>
-            </trans-unit>
-            <trans-unit id="access.rejectedReason">
-                <source>Reason for rejection</source>
-            </trans-unit>
-            <trans-unit id="access.rejectedReason.new">
-                <source>Release has been denied before and has been requested again.</source>
-            </trans-unit>
-            <trans-unit id="access.action.grant">
-                <source>Grant release</source>
-            </trans-unit>
-            <trans-unit id="access.action.reject">
-                <source>Reject release</source>
-            </trans-unit>
-            <trans-unit id="access.action.adjust">
-                <source>Adjust release</source>
-            </trans-unit>
-            <trans-unit id="access.action.delete">
-                <source>Delete release</source>
-            </trans-unit>
-            <trans-unit id="access.success.granted">
-                <source>Access for document "%s" was granted</source>
-            </trans-unit>
-            <trans-unit id="access.success.updated">
-                <source>Access for document "%s" was updated</source>
-            </trans-unit>
-            <trans-unit id="access.success.deleted">
-                <source>Access for document "%s" was deleted</source>
-            </trans-unit>
-            <trans-unit id="access.error.starttime">
-                <source>Start date must be today or in the future</source>
-            </trans-unit>
-            <trans-unit id="access.error.endtime">
-                <source>Release end must be at least one day in the future</source>
-            </trans-unit>
-            <trans-unit id="access.error.recordId.missing">
-                <source>Please enter a document identifier</source>
-            </trans-unit>
-            <trans-unit id="access.error.recordId.notFound">
-                <source>No document for given identifier was found</source>
-            </trans-unit>
-            <trans-unit id="access.error.dlfDocument.exists">
-                <source>Document is already in users access list. It's either not accessible yet, the access is expired or the document already been made accessible</source>
-            </trans-unit>
-            <trans-unit id="access.confirm.reject">
-                <source>Are you sure to reject access to the document "%s"?</source>
-            </trans-unit>
-            <trans-unit id="requestKitodoAccess.success">
-                <source>Access to documents were successfully requested</source>
-            </trans-unit>
-            <trans-unit id="requestKitodoAccess.error">
-                <source>Error while access to documents requested</source>
-            </trans-unit>
-            <trans-unit id="basket.table.recordId">
-                <source>Identifier</source>
-            </trans-unit>
-            <trans-unit id="basket.table.title">
-                <source>Title</source>
-            </trans-unit>
-            <trans-unit id="basket.table.actions">
-                <source>Actions</source>
-            </trans-unit>
-            <trans-unit id="basket.table.actions.remove">
-                <source>remove from basket</source>
-            </trans-unit>
-            <trans-unit id="basket.table.status">
-                <source>Status</source>
-            </trans-unit>
-            <trans-unit id="basket.request">
-                <source>Request basket</source>
-            </trans-unit>
-            <trans-unit id="basket.back">
-                <source>go back</source>
-            </trans-unit>
-            <trans-unit id="basket.empty">
-                <source>Basket empty</source>
-            </trans-unit>
-            <trans-unit id="basket.continue">
-                <source>continue</source>
-            </trans-unit>
-            <trans-unit id="basket.note.step1">
-                <source>Submit your request and gain access to the listed documents</source>
-            </trans-unit>
-            <trans-unit id="basket.note.step2">
-                <source>Please check the data you wish to request</source>
-            </trans-unit>
-            <trans-unit id="basket.message">
-                <source>Your message</source>
-            </trans-unit>
-            <trans-unit id="basket.header.alreadyRequested">
-                <source>Documents already requested for release</source>
-            </trans-unit>
-            <trans-unit id="basket.message.alreadyRequested">
-                <source>These documents cannot be requested again</source>
-            </trans-unit>
-            <trans-unit id="kitodoAccessGrantedNotification.email.subject">
-                <source>[DiGA.Sax FE Management] Access granted</source>
-            </trans-unit>
-            <trans-unit id="kitodoAccessGrantedNotification.email.message">
-                <source>The access to the requested documents were granted:</source>
-            </trans-unit>
-            <trans-unit id="kitodoAccessGrantedNotification.email.messageLogin">
-                <source>You can use this url to login:</source>
-            </trans-unit>
-            <trans-unit id="kitodoAccessGrantedNotification.email.accessRejected">
-                <source>The access to the requested documents were rejected:</source>
-            </trans-unit>
-            <trans-unit id="kitodoAccessGrantedNotification.email.accessGranted">
-                <source>The access to the requested documents were granted:</source>
-            </trans-unit>
-            <trans-unit id="kitodoAccessExpirationNotification.email.subject">
-                <source>[DiGA.Sax FE Management] Expiration Information</source>
-            </trans-unit>
-            <trans-unit id="kitodoAccessExpirationNotification.email.message">
-                <source>The access to the following documents will expire soon:</source>
-            </trans-unit>
-            <trans-unit id="kitodoAccessExpirationNotification.email.messageLogin">
-                <source>You can use this url to login:</source>
-            </trans-unit>
-            <trans-unit id="requestKitodoAccess.email.subject">
-                <source>[DiGA.Sax FE Management] Access requested</source>
-            </trans-unit>
-            <trans-unit id="requestKitodoAccessUser.email.subject">
-                <source>[DiGA.Sax FE Management] Access requested</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.district">
-                <source>District</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.zip">
-                <source>Zipcode</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.city">
-                <source>City</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.email">
-                <source>Email</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.gender">
-                <source>Salutation</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.lastName">
-                <source>Lastname</source>
-            </trans-unit>
-            <trans-unit id="tx_femanager_domain_model_user.country">
-                <source>Country</source>
-            </trans-unit>
-
-            <trans-unit id="emailCreateUserNotifyText1">
-                <source>Your user account was confirmed and successfully created.</source>
-            </trans-unit>
-
-            <trans-unit id="emailInvitationText1">
-                <source>Ihr Benutzerkonto für DiGA.Sax - dem Digitalen Geologischen Archiv Sachsens - wurde soeben erstellt.</source>
-            </trans-unit>
-
-            <trans-unit id="emailInvitationText2">
-                <source>Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:</source>
-            </trans-unit>
-
-            <trans-unit id="emailInvitationLinkConfirmRefused">
-                <source>Delete user account</source>
-            </trans-unit>
-
+Please login in the next %s days to avoid the account deletion.]]></source>
+			</trans-unit>
+			<trans-unit id="remindUnusedAccounts.email.messageLogin">
+				<source><![CDATA[You can use this address to login again:]]></source>
+			</trans-unit>
+			<trans-unit id="remindUnusedAccounts.email.subject">
+				<source><![CDATA[[DiGA.Sax] Inactive Warning]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.subject">
+				<source><![CDATA[[DiGA.Sax] Access requested]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.error">
+				<source><![CDATA[Error while access to documents requested]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.success">
+				<source><![CDATA[Access to documents were successfully requested]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccessUser.email.subject">
+				<source><![CDATA[[DiGA.Sax] Access requested]]></source>
+			</trans-unit>
+			<trans-unit id="search">
+				<source><![CDATA[Search]]></source>
+			</trans-unit>
+			<trans-unit id="search.created.success">
+				<source><![CDATA[Search was saved]]></source>
+			</trans-unit>
+			<trans-unit id="search.deleted.confirm">
+				<source><![CDATA[Do you really want to delete the entry?]]></source>
+			</trans-unit>
+			<trans-unit id="search.deleted.success">
+				<source><![CDATA[Entry was deleted successfully]]></source>
+			</trans-unit>
+			<trans-unit id="search.entry.delete">
+				<source><![CDATA[delete]]></source>
+			</trans-unit>
+			<trans-unit id="search.save.button">
+				<source><![CDATA[Save search]]></source>
+			</trans-unit>
+			<trans-unit id="search.save.title">
+				<source><![CDATA[Please assign a name for the search]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.dateFrom.validationError">
+				<source><![CDATA[Given Date from ist not valid.]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.dateTo.validationError">
+				<source><![CDATA[Given Date to is not valid.]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.filterForm.dateFrom">
+				<source><![CDATA[Filter from Date]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.filterForm.dateTo">
+				<source><![CDATA[Filter to Date]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.filterForm.filter">
+				<source><![CDATA[filter]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.noRecordsFound">
+				<source><![CDATA[No statistic data found.]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.table.document">
+				<source><![CDATA[Documents]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.table.downloadPages">
+				<source><![CDATA[Single Page Downloads]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.table.downloadWork">
+				<source><![CDATA[Full PDF Downloads]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.table.workViews">
+				<source><![CDATA[Views in Workview]]></source>
+			</trans-unit>
+			<trans-unit id="submitChangeEmail">
+				<source><![CDATA[Change e-mail-address]]></source>
+			</trans-unit>
+			<trans-unit id="titleInvitationSetPassword">
+				<source><![CDATA[Please set a new password. It must include at least one uppercase and one special character.]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.10000">
+				<source><![CDATA[Administration]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.10001">
+				<source><![CDATA[User with username "%s" deactivated.]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.10002">
+				<source><![CDATA[User with username "%s" activated.]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.address">
+				<source><![CDATA[Street / Number]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.city">
+				<source><![CDATA[City]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company">
+				<source><![CDATA[Name of organization]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company_type">
+				<source><![CDATA[Organizational unit]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.country">
+				<source><![CDATA[Country]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.disable">
+				<source><![CDATA[Deactivate Account]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.district">
+				<source><![CDATA[District]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.email">
+				<source><![CDATA[Email]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender">
+				<source><![CDATA[Salutation]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item0">
+				<source><![CDATA[-]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item1">
+				<source><![CDATA[Mrs]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item2">
+				<source><![CDATA[Mr]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.inactivemessage_tstamp">
+				<source><![CDATA[Inactive Message Date]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.lastName">
+				<source><![CDATA[Lastname]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.name">
+				<source><![CDATA[Name]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.new_email">
+				<source><![CDATA[new E-Mail-Address]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.tab.kitodo">
+				<source><![CDATA[Kitodo]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.tempUserAreaLocation">
+				<source><![CDATA[Location of the area for which geological data are requested]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.tempUserOrderingParty">
+				<source><![CDATA[Ordering party]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.tempUserPurpose">
+				<source><![CDATA[Purpose of the visit]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.temp_user_area_location">
+				<source><![CDATA[Location of the area for which geological data are requested]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.temp_user_ordering_party">
+				<source><![CDATA[Ordering party]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.temp_user_purpose">
+				<source><![CDATA[Purpose of the visit]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.terms">
+				<source><![CDATA[I accept the terms and conditions]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.terms.post">
+				<source><![CDATA[Information on data processing can be found in our]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.terms.pre">
+				<source><![CDATA[I / we accept the terms of use (Germany - attribution - version 2.0) of the data offered on this website in the current version.]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.termslinktext">
+				<source><![CDATA[data protection declaration]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.usergroup">
+				<source><![CDATA[Usergroup]]></source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.zip">
+				<source><![CDATA[Zipcode]]></source>
+			</trans-unit>
+			<trans-unit id="validationErrorPasswordUpperCaseSpecialChar">
+				<source><![CDATA[Please use at least one uppercase and one special character]]></source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
