@@ -104,30 +104,30 @@ class AccessController extends AbstractController
         //sort records by access granted / pending
         /** @var Access $document */
         foreach ($documents as $document) {
-            //access rejected documents: hidden and rejected are true
+            // access rejected documents: hidden and rejected are true
             if ($document->getHidden() === true && $document->getRejected() === true) {
                 $accessRejected[] = $document;
                 //documents about whose rejections the user has not yet been informed
-                if(!$document->getInformUser() && !$document->getAccessGrantedNotification()) {
+                if (!$document->getInformUser() && !$document->getAccessGrantedNotification()) {
                     $informUser++;
                 }
-            }//access pending documents: hidden is true
+            }// access pending documents: hidden is true
             elseif ($document->getHidden() === true) {
                 $accessPending[] = $document;
-            } //access expired documents: endTime is lower than today's date
+            } // access expired documents: endTime is lower than today's date
             elseif ($document->getEndtime() < time()) {
                 $accessExpired[] = $document;
-            } //access granted documents
+            } // access granted documents
             else {
                 $accessGranted[] = $document;
                 //documents about whose access the user has not yet been informed
-                if(!$document->getInformUser() && !$document->getAccessGrantedNotification()) {
+                if (!$document->getInformUser() && !$document->getAccessGrantedNotification()) {
                     $informUser++;
                 }
             }
         }
 
-        //get request arguments for error handling
+        // get request arguments for error handling
         $arguments = $this->request->getArguments();
 
         $this->view->assignMultiple([
@@ -140,7 +140,7 @@ class AccessController extends AbstractController
             'informUser' => $informUser
         ]);
 
-        if($informUser) {
+        if ($informUser) {
             $this->addFlashMessage(
                 LocalizationUtility::translate($this->settings['languageFile'] . ':access.user.inform'), '' ,1
             );
@@ -158,7 +158,7 @@ class AccessController extends AbstractController
     {
         /** @var Access $documentAccess */
         foreach ($user->getKitodoDocumentAccess() as $documentAccess) {
-            if(!$documentAccess->getInformUser()) {
+            if (!$documentAccess->getInformUser()) {
                 $documentAccess->setInformUser(1);
                 $this->accessRepository->update($documentAccess);
             }
@@ -194,17 +194,17 @@ class AccessController extends AbstractController
      */
     public function createAction(User $user, Access $access)
     {
-        //process and validate form data
+        // process and validate form data
         $access = $this->processFormData($user, $access, 'new');
 
-        //add to database
+        // add to database
         $this->accessRepository->add($access);
 
-        //add success message
+        // add success message
         $message = LocalizationUtility::translate($this->settings['languageFile'] . ':access.success.granted');
         $this->addFlashMessage(sprintf($message, $access->getRecordId()));
 
-        //redirect to list view
+        // redirect to list view
         $this->redirect('list', null, null, ['user' => $user]);
     }
 
@@ -221,18 +221,18 @@ class AccessController extends AbstractController
      */
     public function approveAction(User $user, Access $access)
     {
-        //process and validate form data
+        // process and validate form data
         $access = $this->processFormData($user, $access);
 
-        //update access to document
+        // update access to document
         $this->accessRepository->update($access);
 
-        //add success message
+        // add success message
         $arguments = $this->request->getArguments();
         $message = LocalizationUtility::translate($this->settings['languageFile'] . ':access.success.' . ($arguments['edit'] ? 'updated' : 'granted'));
         $this->addFlashMessage(sprintf($message, $access->getRecordId()));
 
-        //redirect to list view
+        // redirect to list view
         $this->redirect('list', null, null, ['user' => $user]);
     }
 
@@ -248,24 +248,24 @@ class AccessController extends AbstractController
     {
         $access->setEndtime($access->getEndtimeString());
 
-        //set dlfDocument for new entries
+        // set dlfDocument for new entries
         if (!$access->getDlfDocument() && $access->getRecordId() && $action === 'new') {
             $dlfDocument = $this->kitodoDocumentRepository->findDocumentsByRecordId([$access->getRecordId()]);
             if (!empty($dlfDocument) && isset($dlfDocument[0])) {
                 $access->setDlfDocument($dlfDocument[0]);
             }
         }
-        //set feUser for new entries
+        // set feUser for new entries
         if (!$access->getFeUser() && $action === 'new') {
             $access->setFeUser($user->getUid());
         }
 
-        //check if validation failed
+        // check if validation failed
         if ($this->validateApproval($access, $user, $action) === false) {
             $this->forward($action, null, null, ['user' => $user, 'access' => $access, 'error' => $access->getUid()]);
         }
 
-        //set record unhidden - set starttime & endtime
+        // set record unhidden - set starttime & endtime
         $access->setStarttime(strtotime('today'));
         $access->setHidden(false);
         $access->setRejected(false);
@@ -285,7 +285,7 @@ class AccessController extends AbstractController
     {
         $validate = true;
 
-        //starttime < endtime
+        // starttime < endtime
         if ($access->getEndtimeString() && $access->getEndtimeString() < strtotime("today + 1day")) {
 
             $validate = false;
@@ -295,7 +295,7 @@ class AccessController extends AbstractController
             );
         }
 
-        //recordId empty
+        // recordId empty
         if (!$access->getRecordId() && $action === 'new') {
             $validate = false;
             $this->addFlashMessage(
@@ -304,7 +304,7 @@ class AccessController extends AbstractController
             );
         }
 
-        //dlfDocument not found
+        // dlfDocument not found
         if ($access->getRecordId() && !$access->getDlfDocument() && $action === 'new') {
             $validate = false;
             $this->addFlashMessage(
@@ -313,16 +313,16 @@ class AccessController extends AbstractController
             );
         }
 
-        //dlfDocument already exists in access list
+        // dlfDocument already exists in access list
         if ($access->getDlfDocument() && $action === 'new') {
             $checkAvailableDocuments = [];
 
-            if($user->getKitodoDocumentAccess()) {
+            if ($user->getKitodoDocumentAccess()) {
                 foreach ($user->getKitodoDocumentAccess() as $document) {
                     $checkAvailableDocuments[$document->getRecordId()] = $document;
                 }
 
-                if(array_key_exists($access->getRecordId(), $checkAvailableDocuments)) {
+                if (array_key_exists($access->getRecordId(), $checkAvailableDocuments)) {
                     $validate = false;
                     $this->addFlashMessage(
                         LocalizationUtility::translate($this->settings['languageFile'] . ':access.error.dlfDocument.exists'),
@@ -373,19 +373,19 @@ class AccessController extends AbstractController
         $access->setAccessGrantedNotification(0);
         $access->setInformUser(0);
 
-        if($access->getRejectedReason()) {
+        if ($access->getRejectedReason()) {
             $rejectedReason = strip_tags($access->getRejectedReason());
             $access->setRejectedReason($rejectedReason);
         }
 
-        //update access to document
+        // update access to document
         $this->accessRepository->update($access);
 
-        //add success message
+        // add success message
         $message = LocalizationUtility::translate($this->settings['languageFile'] . ':access.success.deleted');
         $this->addFlashMessage(sprintf($message, $access->getDlfDocument()->getTitle()));
 
-        //redirect to list view
+        // redirect to list view
         $this->redirect('list', null, null, ['user' => $user]);
     }
 }

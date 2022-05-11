@@ -14,7 +14,7 @@ class SaveSearch {
     let that = this;
     this.saveForm.addEventListener('submit',function(e){
       e.preventDefault();
-      if($('.tx-dlf-search-form').length) {
+      if ($('.tx-dlf-search-form').length) {
         that.sendRequest();
       }
       else {
@@ -34,7 +34,7 @@ class SaveSearch {
 
     //read search params from search form
     $.each($('.tx-dlf-search-form').serializeArray(), function(index, value) {
-      if(value.name != 'tx_dlf[hashed]' && value.name != 'tx_dlf[encrypted]') {
+      if (value.name != 'tx_dlf[hashed]' && value.name != 'tx_dlf[encrypted]') {
         params+= '&'+value.name+'='+value.value;
       }
     });
@@ -53,7 +53,6 @@ class SaveSearch {
 }
 
 let saveSearchForm = document.getElementById('save-search-form');
-if(typeof(saveSearchForm) != 'undefined' && saveSearchForm != null){
+if (typeof(saveSearchForm) != 'undefined' && saveSearchForm != null){
   new SaveSearch(saveSearchForm);
 }
-

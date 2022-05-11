@@ -77,7 +77,7 @@ class SearchController extends AbstractController
      */
     public function createAction()
     {
-        if($this->user !==NULL && $this->user->getUid()) {
+        if ($this->user !==NULL && $this->user->getUid()) {
 
             $searchParams = GeneralUtility::_GP('tx_dlf_search');
 
@@ -118,7 +118,7 @@ class SearchController extends AbstractController
      */
     public function deleteAction(Search $search)
     {
-        if($this->user !==NULL && $this->user->getUid() && $search->getFeUser() === $this->user->getUid()) {
+        if ($this->user !==NULL && $this->user->getUid() && $search->getFeUser() === $this->user->getUid()) {
             $this->searchRepository->remove($search);
             $this->addFlashMessage(
                 LocalizationUtility::translate(

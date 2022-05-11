@@ -73,7 +73,7 @@ class KitodoSessionViewHelper extends AbstractConditionViewHelper
         $user = GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user', 'id', 0) > 0;
 
         //user is logged in
-        if($user) {
+        if ($user) {
             return true;
         }
 

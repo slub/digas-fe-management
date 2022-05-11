@@ -55,7 +55,7 @@ class RedirectViewHelper extends PageViewHelper
     public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
         //check if redirect contains kitodo gp-id and setCookie-param - redirect to set pageUid / set cookie for basket
-        if(!empty($arguments['additionalParams']['setCookie']) && !empty($arguments['additionalParams']['gp-id'])) {
+        if (!empty($arguments['additionalParams']['setCookie']) && !empty($arguments['additionalParams']['gp-id'])) {
             //set cookie by request params
             RedirectViewHelper::setCookie($arguments['additionalParams']['gp-id']);
 
@@ -83,7 +83,7 @@ class RedirectViewHelper extends PageViewHelper
         $kitodoRequestIds = !empty($kitodoRequestIds) ? json_decode($kitodoRequestIds) : [];
 
         //add ID to cookie 'dlf-request' if ID is not already contained
-        if(!in_array($newKitodoRequestId, $kitodoRequestIds)) {
+        if (!in_array($newKitodoRequestId, $kitodoRequestIds)) {
             array_push($kitodoRequestIds, $newKitodoRequestId);
             setcookie('dlf-requests', json_encode($kitodoRequestIds), '', '/');
         }
