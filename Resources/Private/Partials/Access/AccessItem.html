@@ -29,6 +29,12 @@
                     </f:if>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="access-control-label"><f:translate key="access.rejectedReasonLastmodified" />:</label>
+                <div class="access-item-rejectedReason">
+                    {access.accessGrantedNotification ->f:format.date(format:'%d.%m.%Y')}
+                </div>
+            </div>
         </f:if>
 
         <f:if condition="!{access.rejected} && {access.hidden} && {access.rejectedReason}">

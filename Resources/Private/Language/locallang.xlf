@@ -74,6 +74,9 @@
 			<trans-unit id="access.rejectedReason">
 				<source><![CDATA[Reason for rejection]]></source>
 			</trans-unit>
+			<trans-unit id="access.rejectedReasonLastmodified">
+				<source><![CDATA[Last modification of rejection]]></source>
+			</trans-unit>
 			<trans-unit id="access.rejectedReason.new">
 				<source><![CDATA[Release has been denied before and has been requested again.]]></source>
 			</trans-unit>

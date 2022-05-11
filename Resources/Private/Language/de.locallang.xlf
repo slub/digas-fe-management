@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T09:28:16Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T15:07:05Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -100,6 +100,10 @@
 			<trans-unit id="access.rejectedReason.new" approved="yes">
 				<source><![CDATA[Release has been denied before and has been requested again.]]></source>
 				<target><![CDATA[Die Freigabe wurde bereits einmal angefragt und abgelehnt. Dies ist eine erneuter Antrag.]]></target>
+			</trans-unit>
+			<trans-unit id="access.rejectedReasonLastmodified" approved="yes">
+				<source><![CDATA[Last modification of rejection]]></source>
+				<target><![CDATA[Datum der Ablehnung]]></target>
 			</trans-unit>
 			<trans-unit id="access.success.deleted" approved="yes">
 				<source><![CDATA[Access for document "%s" was deleted]]></source>
