@@ -101,7 +101,7 @@ class AccessController extends AbstractController
 
         $documents = $this->accessRepository->findRequestsForUser($user->getUid());
 
-        //sort records by access granted / pending
+        // sort records by access granted / pending
         /** @var Access $document */
         foreach ($documents as $document) {
             // access rejected documents: hidden and rejected are true
@@ -111,7 +111,7 @@ class AccessController extends AbstractController
                 if (!$document->getInformUser() && !$document->getAccessGrantedNotification()) {
                     $informUser++;
                 }
-            }// access pending documents: hidden is true
+            } // access pending documents: hidden is true
             elseif ($document->getHidden() === true) {
                 $accessPending[] = $document;
             } // access expired documents: endTime is lower than today's date
@@ -188,6 +188,7 @@ class AccessController extends AbstractController
     /**
      * @param User $user
      * @param Access $access
+     * @return void
      * @throws IllegalObjectTypeException
      * @throws StopActionException
      * @throws UnsupportedRequestTypeException
@@ -268,7 +269,10 @@ class AccessController extends AbstractController
         // set record unhidden - set starttime & endtime
         $access->setStarttime(strtotime('today'));
         $access->setHidden(false);
+
+        // (re-)set reject state and reason
         $access->setRejected(false);
+        $access->setRejectedReason('');
 
         return $access;
     }

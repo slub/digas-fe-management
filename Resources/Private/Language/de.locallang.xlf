@@ -99,7 +99,7 @@
 			</trans-unit>
 			<trans-unit id="access.rejectedReason.new" approved="yes">
 				<source><![CDATA[Release has been denied before and has been requested again.]]></source>
-				<target><![CDATA[Freigabe wurde schon einmal abgelehnt und wurde erneut angefragt.]]></target>
+				<target><![CDATA[Die Freigabe wurde bereits einmal angefragt und abgelehnt. Dies ist eine erneuter Antrag.]]></target>
 			</trans-unit>
 			<trans-unit id="access.success.deleted" approved="yes">
 				<source><![CDATA[Access for document "%s" was deleted]]></source>
