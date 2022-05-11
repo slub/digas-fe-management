@@ -127,7 +127,6 @@ class Access extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $informUser;
 
-
     /**
      * Sets the dlfDocument
      *
@@ -159,7 +158,6 @@ class Access extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->recordId = $recordId;
     }
-
 
     /**
      * Returns the feUser
