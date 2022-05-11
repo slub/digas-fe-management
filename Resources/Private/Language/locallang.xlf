@@ -348,7 +348,7 @@
 				<source><![CDATA[You can use this url to login:]]></source>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.subject">
-				<source><![CDATA[[DiGA.Sax] Access granted]]></source>
+				<source><![CDATA[[DiGA.Sax] Your request for access has been processed]]></source>
 			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.message">
 				<source><![CDATA[Please release the document with the catalog ID:]]></source>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T15:07:05Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T15:12:05Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -470,8 +470,8 @@
 				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Access granted]]></source>
-				<target><![CDATA[[DiGA.Sax] Zugriff gewährt]]></target>
+				<source><![CDATA[[DiGA.Sax] Your request for access has been processed]]></source>
+				<target><![CDATA[[DiGA.Sax] Ihr Antrag auf Freigabe wurde bearbeitet]]></target>
 			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.message" approved="yes">
 				<source><![CDATA[Please release the document with the catalog ID:]]></source>
