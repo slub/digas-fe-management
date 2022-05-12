@@ -68,24 +68,24 @@ class AfterPasswordChange
      */
     public function init()
     {
-        //initialize objectManager
+        // initialize objectManager
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
 
-        //initialize UserRepository
+        // initialize UserRepository
         $this->userRepository = $objectManager->get(UserRepository::class);
 
-        //initialize configurationManager
+        // initialize configurationManager
         $configurationManager = $objectManager->get(ConfigurationManagerInterface::class);
 
-        //get settings for femanager mail service
+        // get settings for femanager mail service
         $this->settings = $configurationManager->getConfiguration(
                 ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS, 'femanager') ?? [];
 
-        //get config for femanager mail service
+        // get config for femanager mail service
         $this->config = $configurationManager->getConfiguration(
                 ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT)['plugin.']['tx_femanager.']['settings.'] ?? [];
 
-        //invoke sendMailService
+        // invoke sendMailService
         $this->sendMailService = $objectManager->get(SendMailService::class);
     }
 

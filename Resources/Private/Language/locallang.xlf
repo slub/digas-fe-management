@@ -74,6 +74,9 @@
 			<trans-unit id="access.rejectedReason">
 				<source><![CDATA[Reason for rejection]]></source>
 			</trans-unit>
+			<trans-unit id="access.rejectedReasonLastmodified">
+				<source><![CDATA[Last modification of rejection]]></source>
+			</trans-unit>
 			<trans-unit id="access.rejectedReason.new">
 				<source><![CDATA[Release has been denied before and has been requested again.]]></source>
 			</trans-unit>
@@ -345,7 +348,7 @@
 				<source><![CDATA[You can use this url to login:]]></source>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.subject">
-				<source><![CDATA[[DiGA.Sax] Access granted]]></source>
+				<source><![CDATA[[DiGA.Sax] Your request for access has been processed]]></source>
 			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.message">
 				<source><![CDATA[Please release the document with the catalog ID:]]></source>
@@ -534,6 +537,15 @@ Please login in the next %s days to avoid the account deletion.]]></source>
 			</trans-unit>
 			<trans-unit id="validationErrorPasswordUpperCaseSpecialChar">
 				<source><![CDATA[Please use at least one uppercase and one special character]]></source>
+			</trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationSubject">
+				<source><![CDATA[[DiGA.Sax] Please confirm the user account for DiGA.Sax which has been created for you]]></source>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationSubject">
+				<source><![CDATA[[DiGA.Sax] Please confirm your account creation request]]></source>
+			</trans-unit>
+			<trans-unit id="emailCreateUserNotifySubject">
+				<source><![CDATA[[DiGA.Sax] Your registration was confirmed]]></source>
 			</trans-unit>
 		</body>
 	</file>

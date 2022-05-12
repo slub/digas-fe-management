@@ -76,7 +76,7 @@ class NewController extends \In2code\Femanager\Controller\NewController
     public function createAction(\In2code\Femanager\Domain\Model\User $user)
     {
 
-        //change e-mail
+        // change e-mail
         if ($this->settings['new']['changeEmail']) {
 
             //get new e-mail-address

@@ -65,6 +65,6 @@ plugin.tx_fechangepwd {
         }
 
         # What to do after a successful password change (allowed values are "redirect" or "view")
-        afterPasswordChangeAction = redirect
+        afterPasswordChangeAction = view
     }
 }

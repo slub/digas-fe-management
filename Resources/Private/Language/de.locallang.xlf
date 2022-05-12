@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T09:28:16Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2022-05-11T20:32:53Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -100,6 +100,10 @@
 			<trans-unit id="access.rejectedReason.new" approved="yes">
 				<source><![CDATA[Release has been denied before and has been requested again.]]></source>
 				<target><![CDATA[Die Freigabe wurde bereits einmal angefragt und abgelehnt. Dies ist eine erneuter Antrag.]]></target>
+			</trans-unit>
+			<trans-unit id="access.rejectedReasonLastmodified" approved="yes">
+				<source><![CDATA[Last modification of rejection]]></source>
+				<target><![CDATA[Datum der Ablehnung]]></target>
 			</trans-unit>
 			<trans-unit id="access.success.deleted" approved="yes">
 				<source><![CDATA[Access for document "%s" was deleted]]></source>
@@ -365,6 +369,10 @@
 				<source><![CDATA[Your Account has been disabled]]></source>
 				<target><![CDATA[Ihr Nutzerkonto wurde deaktiviert]]></target>
 			</trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationSubject" approved="yes">
+				<source><![CDATA[[DiGA.Sax] Please confirm the user account for DiGA.Sax which has been created for you]]></source>
+				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie das angelegte DiGA.Sax Benutzerkonto]]></target>
+			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationLinkConfirm" approved="yes">
 				<source><![CDATA[Registrierung abschließen]]></source>
 				<target><![CDATA[Registrierung abschließen]]></target>
@@ -372,6 +380,10 @@
 			<trans-unit id="emailCreateUserConfirmationLinkConfirmEmail" approved="yes">
 				<source><![CDATA[Confirm e-mail-address]]></source>
 				<target><![CDATA[E-Mail-Adresse bestätigen]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationSubject" approved="yes">
+				<source><![CDATA[[DiGA.Sax] Please confirm your account creation request]]></source>
+				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie Ihre Registrierungsanfrage]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText1" approved="yes">
 				<source><![CDATA[Vielen Dank für Ihre Registrierung in DiGA.Sax – dem Digitalen Geologischen Archiv Sachsens.]]></source>
@@ -392,6 +404,10 @@
 			<trans-unit id="emailCreateUserConfirmationTextChangeMail" approved="yes">
 				<source><![CDATA[Please confirm your change of e-mail request on our server by clicking the following link:]]></source>
 				<target><![CDATA[Bitte bestätigen Sie die Änderung Ihr E-Mail-Adresse, indem sie auf den folgenden Link klicken:]]></target>
+			</trans-unit>
+			<trans-unit id="emailCreateUserNotifySubject" approved="yes">
+				<source><![CDATA[[DiGA.Sax] Your registration was confirmed]]></source>
+				<target><![CDATA[[DiGA.Sax] Ihre Registrierung wurde bestätigt]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserNotifyText1" approved="yes">
 				<source><![CDATA[Your user account was confirmed and successfully created.]]></source>
@@ -466,8 +482,8 @@
 				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Access granted]]></source>
-				<target><![CDATA[[DiGA.Sax] Zugriff gewährt]]></target>
+				<source><![CDATA[[DiGA.Sax] Your request for access has been processed]]></source>
+				<target><![CDATA[[DiGA.Sax] Ihr Antrag auf Freigabe wurde bearbeitet]]></target>
 			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.message" approved="yes">
 				<source><![CDATA[Please release the document with the catalog ID:]]></source>

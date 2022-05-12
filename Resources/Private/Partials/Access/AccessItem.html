@@ -1,4 +1,4 @@
-<div class="access-item {f:if (condition:'{access.uid} == {errorItem}',then:'error')}" id="access-item-{access.uid}">
+<div class="access-item {f:if(condition:'{access.uid} == {errorItem}',then:'error')}" id="access-item-{access.uid}">
 
     <h3 class="access-item-heading">
         <f:if condition="{access.recordId}">
@@ -27,6 +27,12 @@
                             -
                         </f:else>
                     </f:if>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="access-control-label"><f:translate key="access.rejectedReasonLastmodified" />:</label>
+                <div class="access-item-rejectedReason">
+                    {access.accessGrantedNotification ->f:format.date(format:'%d.%m.%Y')}
                 </div>
             </div>
         </f:if>

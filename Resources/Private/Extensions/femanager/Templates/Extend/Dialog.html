@@ -13,7 +13,7 @@
         <div class="femanager_fieldset femanager_gender form-group">
             <div class="radio">
                 <label for="user_commercial">
-                    <input type="radio" id="user_commercial" name="user_type" {f:if (condition:'{checkYes}',then:'checked="checked"')} value="1"/>
+                    <input type="radio" id="user_commercial" name="user_type" {f:if(condition:'{checkYes}',then:'checked="checked"')} value="1"/>
                     <f:translate key="dialog.yes" />
                 </label>
             </div>
@@ -36,7 +36,7 @@
         </div>
 
 
-        <div id="user_commercial_form" class="{f:if (condition:'!{checkYes}',then:'digas-fe-management--hidden')}">
+        <div id="user_commercial_form" class="{f:if(condition:'!{checkYes}',then:'digas-fe-management--hidden')}">
             <f:cObject typoscriptObjectPath="lib.kitodoTempUserForm" />
         </div>
 

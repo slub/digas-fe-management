@@ -55,6 +55,10 @@ indent_size = 3
 indent_style = space
 indent_size = 4
 
+# XLF-Files
+[*.xlf]
+indent_style = tab
+
 # YML-Files
 [{*.yml,*.yaml}]
 indent_style = space
