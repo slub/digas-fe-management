@@ -104,14 +104,14 @@ class BasketController extends AbstractController
             }
         }
 
-        //new requests
+        // new requests
         $newDocumentRequests = [];
-        //already requested documents
+        // already requested documents
         $oldDocumentRequests = [];
-        //rejected documents
+        // rejected documents
         $rejectedDocumentRequests = [];
 
-        //check if documents were already requested
+        // check if documents were already requested
         if (!empty($documents)) {
             // get former requested kitodo access
             $requestedAccess = $this->accessRepository->findRequestsForUser($this->user->getUid());
@@ -160,13 +160,13 @@ class BasketController extends AbstractController
         $this->view->assignMultiple([
             'documents' => [
                 'oldDocumentRequests' => $this->documents['oldDocumentRequests'],
-                //join new requests for access with rejected documents that can be requested again
+                // join new requests for access with rejected documents that can be requested again
                 'newDocumentRequests' => array_merge($this->documents['newDocumentRequests'], $this->documents['rejectedDocumentRequests'])
             ],
             'request' => $this->requestParams
         ]);
 
-        //add basket empty message
+        // add basket empty message
         if (!$this->documents['newDocumentRequests'] && !$this->documents['oldDocumentRequests'] && !$this->requestParams['sent']) {
             $this->addFlashMessage(
                 LocalizationUtility::translate('basket.empty', 'DigasFeManagement'), '', -2
@@ -200,12 +200,10 @@ class BasketController extends AbstractController
      */
     public function requestAction()
     {
-        $documents = array_merge($this->documents['newDocumentRequests'], $this->documents['rejectedDocumentRequests']);
-
-        if (!empty($documents)) {
-            //request new documents
+        if (!empty($this->documents)) {
+            // request new documents
             if (!empty($this->documents['newDocumentRequests'])) {
-                foreach ($documents as $key => $document) {
+                foreach ($this->documents['newDocumentRequests'] as $key => $document) {
                     $requestAccess = new Access();
                     $requestAccess->setFeUser($this->user->getUid());
                     $requestAccess->setRecordId($document->getRecordId());
@@ -214,14 +212,12 @@ class BasketController extends AbstractController
 
                     $this->accessRepository->add($requestAccess);
                 }
-
-                $this->persistenceManager->persistAll();
             }
 
-            //request rejected documents again
+            // request rejected documents again
             if (!empty($this->documents['rejectedDocumentRequests'])) {
                 /** @var Access $accessRejectedNewRequest */
-                foreach($this->documents['rejectedDocumentRequests'] as $accessRejectedNewRequest) {
+                foreach ($this->documents['rejectedDocumentRequests'] as $accessRejectedNewRequest) {
                     $accessRejectedNewRequest->setExpireNotification(0);
                     $accessRejectedNewRequest->setAccessGrantedNotification(0);
                     $accessRejectedNewRequest->setRejected(0);
@@ -236,7 +232,7 @@ class BasketController extends AbstractController
             setcookie('dlf-requests', '[]', '', '/');
 
             $message = !empty($this->requestParams['message']) ? $this->requestParams['message'] : '';
-            $this->sendRequestAccessMail($documents, $message);
+            $this->sendRequestAccessMail($this->documents, $message);
 
             $this->addFlashMessage(
                 LocalizationUtility::translate(
