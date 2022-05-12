@@ -1,4 +1,6 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" lang="en">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:digas="http://typo3.org/ns/Slub/DigasFeManagement/ViewHelpers"
+      data-namespace-typo3-fluid="true" lang="en">
 
 <table class="digas-fe-management-administration-table">
     <thead>
@@ -22,6 +24,7 @@
     </thead>
     <tbody>
         <f:for each="{users}" as="user">
+
             <tr class="{f:if(condition:user.disable,then:'disabled',else:'enabled')}">
                 <td>
                     <f:link.action
@@ -60,6 +63,9 @@
                                 title="{f:translate(key:'access.list')}"
                                 arguments="{user:user}">
                                 {f:translate(key:'access.list.short')}
+                                <f:if condition="{digas:countPending(feuser:'{user.uid}')} > 0">
+                                    <span class="counter"><digas:countPending feuser="{user.uid}" /></span>
+                                </f:if>
                             </f:link.action>
                         </li>
                         <li>
