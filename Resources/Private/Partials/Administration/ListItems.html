@@ -9,86 +9,91 @@
     </tr>
     </thead>
     <tbody>
-    <f:for each="{users}" as="user">
-        <tr>
-            <td>
-                <f:link.action
-                    action="show"
-                    title="{f:translate(key:'administration.show.viewUser')}"
-                    arguments="{user:user}">{user.firstName} {user.lastName}
-                </f:link.action>
-            </td>
-            <td>{user.email}</td>
-            <td>
-                <f:if condition="{user.company} != ''">
-                    <f:then>{user.company}</f:then>
-                    <f:else>
-                        <f:translate key="administration.listing.table.privateUser"/>
-                    </f:else>
-                </f:if>
-            </td>
-            <td>
-                <f:if condition="{user.disable}">
-                    <f:then><f:translate key="administration.userInactive"/></f:then>
-                    <f:else><f:translate key="administration.userActive"/></f:else>
-                </f:if>
-            </td>
-            <td>
-                <span class="digas-fe-management-administration-action">
-                    <f:link.action
-                        pageUid="{settings.pids.kitodoAccessAdministriationPid}"
-                        action="list"
-                        controller="Access"
-                        title="{f:translate(key:'access.list')}"
-                        arguments="{user:user}">
-                        {f:translate(key:'access.list.short')}</f:link.action>
-                </span>
-                <span>&nbsp;</span>
-
-                <span class="digas-fe-management-administration-action">
+        <f:for each="{users}" as="user">
+            <tr>
+                <td>
                     <f:link.action
                         action="show"
-                        class="icon"
                         title="{f:translate(key:'administration.show.viewUser')}"
-                        arguments="{user:user}">
-                        <span class="icon-eye" title="{f:translate(key:'administration.show.viewUser')}"></span>
+                        arguments="{user:user}">{user.firstName} {user.lastName}
                     </f:link.action>
-                </span>
-                <span>&nbsp;</span>
-                <span class="digas-fe-management-administration-action">
-                    <f:link.action
-                        action="editUser"
-                        class="icon"
-                        title="{f:translate(key:'administration.show.editUser')}"
-                        arguments="{user:user}">
-                        <span  class="icon-pencil" title="{f:translate(key:'administration.show.editUser')}"></span >
-                    </f:link.action>
-                </span>
-                <span>&nbsp;</span>
-                <span class="digas-fe-management-administration-action">
-                    <f:if condition="!{user.disable}">
-                        <f:then>
-                            <f:link.action
-                                action="deactivateUser"
-                                class="icon"
-                                title="{f:translate(key:'administration.show.deactivateUser')}"
-                                arguments="{user:user}">
-                            <span  class="icon-user" title="{f:translate(key:'administration.show.deactivate')}"></span >
-                            </f:link.action>
-                        </f:then>
+                </td>
+                <td>{user.email}</td>
+                <td>
+                    <f:if condition="{user.company} != ''">
+                        <f:then>{user.company}</f:then>
                         <f:else>
-                            <f:link.action
-                                action="deactivateUser"
-                                class="icon"
-                                title="{f:translate(key:'administration.show.activateUser')}"
-                                arguments="{user:user, setActiveState:1}">
-                            <span  class="icon-user-minus" title="{f:translate(key:'administration.show.activate')}"></span >
-                            </f:link.action>
-                    </f:else>
-                </span>
-                </f:if>
-            </td>
-        </tr>
-    </f:for>
+                            <f:translate key="administration.listing.table.privateUser"/>
+                        </f:else>
+                    </f:if>
+                </td>
+                <td>
+                    <f:if condition="{user.disable}">
+                        <f:then><f:translate key="administration.userInactive"/></f:then>
+                        <f:else><f:translate key="administration.userActive"/></f:else>
+                    </f:if>
+                </td>
+                <td>
+                    <span class="digas-fe-management-administration-action">
+                        <f:link.action
+                            pageUid="{settings.pids.kitodoAccessAdministriationPid}"
+                            action="list"
+                            controller="Access"
+                            title="{f:translate(key:'access.list')}"
+                            arguments="{user:user}">
+                            {f:translate(key:'access.list.short')}</f:link.action>
+                    </span>
+
+                    <span>&nbsp;</span>
+
+                    <span class="digas-fe-management-administration-action">
+                        <f:link.action
+                            action="show"
+                            class="icon"
+                            title="{f:translate(key:'administration.show.viewUser')}"
+                            arguments="{user:user}">
+                            <span class="icon-eye" title="{f:translate(key:'administration.show.viewUser')}"></span>
+                        </f:link.action>
+                    </span>
+
+                    <span>&nbsp;</span>
+
+                    <span class="digas-fe-management-administration-action">
+                        <f:link.action
+                            action="editUser"
+                            class="icon"
+                            title="{f:translate(key:'administration.show.editUser')}"
+                            arguments="{user:user}">
+                            <span  class="icon-pencil" title="{f:translate(key:'administration.show.editUser')}"></span >
+                        </f:link.action>
+                    </span>
+
+                    <span>&nbsp;</span>
+
+                    <span class="digas-fe-management-administration-action">
+                        <f:if condition="!{user.disable}">
+                            <f:then>
+                                <f:link.action
+                                    action="deactivateUser"
+                                    class="icon"
+                                    title="{f:translate(key:'administration.show.deactivateUser')}"
+                                    arguments="{user:user}">
+                                <span  class="icon-user" title="{f:translate(key:'administration.show.deactivate')}"></span >
+                                </f:link.action>
+                            </f:then>
+                            <f:else>
+                                <f:link.action
+                                    action="deactivateUser"
+                                    class="icon"
+                                    title="{f:translate(key:'administration.show.activateUser')}"
+                                    arguments="{user:user, setActiveState:1}">
+                                <span  class="icon-user-minus" title="{f:translate(key:'administration.show.activate')}"></span >
+                                </f:link.action>
+                            </f:else>
+                        </f:if>
+                    </span>
+                </td>
+            </tr>
+        </f:for>
     </tbody>
 </table>
