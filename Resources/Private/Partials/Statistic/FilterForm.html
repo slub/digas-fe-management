@@ -1,21 +1,30 @@
-<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-<f:form action="{action}" name="statistic" object="{filter}">
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" lang="en">
+
+<f:form action="{action}" name="statistic" object="{filter}" class="digas-fe-management-date-form">
     <f:form.hidden value="1" property="filter"/>
     <f:if condition="{userId}">
         <f:comment><!-- helper to show viewSingle on administration detail page --></f:comment>
-        <input type="hidden" value="show" name="tx_digasfemanagement_administration[action]" />
-        <input type="hidden" value="Administration" name="tx_digasfemanagement_administration[controller]" />
-        <input type="hidden" value="{userId}" name="tx_digasfemanagement_administration[user]" />
+        <input type="hidden" value="show" name="tx_digasfemanagement_administration[action]"/>
+        <input type="hidden" value="Administration" name="tx_digasfemanagement_administration[controller]"/>
+        <input type="hidden" value="{userId}" name="tx_digasfemanagement_administration[user]"/>
     </f:if>
-    <label for="date-from" class="accessibility">
-        <f:translate key="statistic.filterForm.dateFrom"/>
-    </label>
-    <f:form.textfield id="date-from" type="date" value="{dateFrom}" property="dateFrom" additionalAttributes="{max: '{f:format.date(date: \'now\', format: \'Y-m-d\')}'}"/>
+    <div class="date-form-element">
+        <label for="date-from" class="accessibility">
+            <f:translate key="statistic.filterForm.dateFrom"/>
+        </label>
+        <f:form.textfield id="date-from" type="date" value="{dateFrom}" property="dateFrom" additionalAttributes="{max: '{f:format.date(date: \'now\', format: \'Y-m-d\')}'}"/>
+    </div>
 
-    <label for="date-to" class="accessibility">
-        <f:translate key="statistic.filterForm.dateTo"/>
-    </label>
-    <f:form.textfield id="date-to" type="date" value="{dateTo}" property="dateTo" additionalAttributes="{max: '{f:format.date(date: \'now\', format: \'Y-m-d\')}'}"/>
-    <f:form.submit value="{f:translate(key:'statistic.filterForm.filter')}"/>
+    <div class="date-form-element">
+        <label for="date-to" class="accessibility">
+            <f:translate key="statistic.filterForm.dateTo"/>
+        </label>
+        <f:form.textfield id="date-to" type="date" value="{dateTo}" property="dateTo" additionalAttributes="{max: '{f:format.date(date: \'now\', format: \'Y-m-d\')}'}"/>
+    </div>
+
+    <div class="date-form-element">
+        <f:form.button type="submit">{f:translate(key:'statistic.filterForm.filter')}</f:form.button>
+    </div>
 </f:form>
+
 </html>

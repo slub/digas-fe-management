@@ -127,7 +127,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
     ]
 );
 
-//fe_login hooks
+// fe_login hooks
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['login_confirmed'] = [
     'Slub\DigasFeManagement\Hooks\FeUserHook->unsetInactiveMessageTstamp'
 ];
@@ -136,7 +136,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['postProcContent'] = [
     'Slub\DigasFeManagement\Hooks\FeUserHook->checkChangedUsername'
 ];
 
-//fe_change_pwd signal
+// fe_change_pwd signal
 $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
 $signalSlotDispatcher->connect(
     \Derhansen\FeChangePwd\Controller\PasswordController::class,
