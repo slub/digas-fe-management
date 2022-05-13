@@ -211,6 +211,7 @@ class BasketController extends AbstractController
                     $requestAccess->setDlfDocument($document);
 
                     $this->accessRepository->add($requestAccess);
+                    $documents[] = $requestAccess;
                 }
             }
 
@@ -226,13 +227,14 @@ class BasketController extends AbstractController
                     $accessRejectedNewRequest->setEndtime(0);
                     $accessRejectedNewRequest->setInformUser(0);
                     $this->accessRepository->update($accessRejectedNewRequest);
+                    $documents[] = $accessRejectedNewRequest;
                 }
             }
 
             setcookie('dlf-requests', '[]', '', '/');
 
             $message = !empty($this->requestParams['message']) ? $this->requestParams['message'] : '';
-            $this->sendRequestAccessMail($this->documents, $message);
+            $this->sendRequestAccessMail($documents, $message);
 
             $this->addFlashMessage(
                 LocalizationUtility::translate(

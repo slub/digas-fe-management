@@ -210,6 +210,7 @@ class DigasBaseCommand extends Command
                 $documentsList[] = [
                     'recordId' => $accessEntry->getDlfDocument()->getRecordId(),
                     'documentTitle' => $accessEntry->getDlfDocument()->getTitle(),
+                    'endtime' => $accessEntry->getEndtime(),
                     'rejected' => $accessEntry->getRejected(),
                     'rejectedReason' => $accessEntry->getRejectedReason()
                 ];

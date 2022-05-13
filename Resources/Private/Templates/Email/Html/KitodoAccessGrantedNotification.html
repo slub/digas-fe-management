@@ -4,7 +4,7 @@
     <ul>
     <f:for each="{documentsList}" as="accessGrantedEntry">
         <f:if condition="!{accessGrantedEntry.rejected}">
-            <li>{accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle}</li>
+            <li>{accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle} - <f:translate extensionName="DigasFeManagement" key="access.list.endtime"/>: {accessGrantedEntry.endtime ->f:format.date(format:'%d.%m.%Y')}</li>
         </f:if>
     </f:for>
     </ul>
