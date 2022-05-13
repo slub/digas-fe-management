@@ -119,7 +119,7 @@
 			</trans-unit>
 			<trans-unit id="access.user.inform" approved="yes">
 				<source><![CDATA[Inform user about new access / rejected access]]></source>
-				<target><![CDATA[Nutzer über neue Freigaben / Ablehungen informieren]]></target>
+				<target><![CDATA[Nutzer über neue Freigaben / Ablehnungen informieren]]></target>
 			</trans-unit>
 			<trans-unit id="access.user.inform.queued" approved="yes">
 				<source><![CDATA[Message to user about new document access / rejection was queued]]></source>
