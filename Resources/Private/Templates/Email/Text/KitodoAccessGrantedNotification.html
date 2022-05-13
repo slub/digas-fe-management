@@ -2,7 +2,7 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 <f:format.raw><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessGranted"/></f:format.raw>
 <f:format.raw><f:for each="{documentsList}" as="accessGrantedEntry">
-<f:if condition="!{accessGrantedEntry.rejected}">- {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle}</f:if>
+<f:if condition="!{accessGrantedEntry.rejected}">- {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle} -  - <f:translate extensionName="DigasFeManagement" key="access.list.endtime"/>: {accessGrantedEntry.endtime -> f:format.date(format:'%d.%m.%Y')}</f:if>
 </f:for></f:format.raw>
 <f:format.raw><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessRejected"/></f:format.raw>
 <f:format.raw><f:for each="{documentsList}" as="accessGrantedEntry"><f:if condition="{accessGrantedEntry.rejected}">- {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle}<f:if condition="{accessGrantedEntry.rejectedReason}"><f:translate extensionName="DigasFeManagement" key="tx_digasfemanagement_domain_model_access.rejected_reason"/>
