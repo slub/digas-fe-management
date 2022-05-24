@@ -32,7 +32,6 @@ use Slub\DigasFeManagement\Domain\Model\User;
  */
 class EditController extends \In2code\Femanager\Controller\EditController
 {
-
     /**
      * @return void
      */

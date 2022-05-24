@@ -35,12 +35,10 @@
                     </td>
                     <td>{user.email}</td>
                     <td>
-                        <f:if condition="{user.company} != ''">
-                            <f:then>{user.company}</f:then>
-                            <f:else>
-                                <f:translate key="administration.listing.table.privateUser"/>
-                            </f:else>
-                        </f:if>
+                        <f:comment>Loop through usergroups due to multiple usergroups can be set</f:comment>
+                        <f:for each="{user.usergroup}" as="usergroup">
+                            {usergroup.title}
+                        </f:for>
                     </td>
                     <td>
                         <f:if condition="{user.disable}">
