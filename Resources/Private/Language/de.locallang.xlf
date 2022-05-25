@@ -741,6 +741,18 @@ Bitte melden Sie sich in Ihr Benutzerkonto innerhalb der nächsten %s Tage ein, 
 				<source><![CDATA[Please use at least one uppercase and one special character]]></source>
 				<target><![CDATA[Bitte verwenden Sie mindestens einen Großbuchstaben und ein Sonderzeichen]]></target>
 			</trans-unit>
+			<trans-unit id="administration.list.pending.showAll">
+				<source><![CDATA[show all users]]></source>
+				<target><![CDATA[Alle Benutzer anzeigen]]></target>
+			</trans-unit>
+			<trans-unit id="administration.list.pending.showPending">
+				<source><![CDATA[show users with pending access]]></source>
+				<target><![CDATA[Benutzer mit ausstehenden Freigaben anzeigen]]></target>
+			</trans-unit>
+			<trans-unit id="administration.list.pending.headline">
+				<source><![CDATA[Users with pending access]]></source>
+				<target><![CDATA[Benutzer mit ausstehenden Freigaben]]></target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

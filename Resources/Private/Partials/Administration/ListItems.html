@@ -24,93 +24,92 @@
     </thead>
     <tbody>
         <f:for each="{users}" as="user">
-
-            <tr class="{f:if(condition:user.disable,then:'disabled',else:'enabled')}">
-                <td>
-                    <f:link.action
-                        action="show"
-                        title="{f:translate(key:'administration.show.viewUser')}"
-                        arguments="{user:user}">{user.firstName} {user.lastName}
-                    </f:link.action>
-                </td>
-                <td>{user.email}</td>
-                <td>
-                    <f:if condition="{user.company} != ''">
-                        <f:then>{user.company}</f:then>
-                        <f:else>
-                            <f:translate key="administration.listing.table.privateUser"/>
-                        </f:else>
-                    </f:if>
-                </td>
-                <td>
-                    <f:if condition="{user.disable}">
-                        <f:then>
-                            <f:translate key="administration.userInactive"/>
-                        </f:then>
-                        <f:else>
-                            <f:translate key="administration.userActive"/>
-                        </f:else>
-                    </f:if>
-                </td>
-                <td>
-                    <ul class="digas-fe-management-administration-actions">
-                        <li>
-                            <f:link.action
-                                pageUid="{settings.pids.kitodoAccessAdministriationPid}"
-                                action="list"
-                                class="btn action-access"
-                                controller="Access"
-                                title="{f:translate(key:'access.list')}"
-                                arguments="{user:user}">
-                                {f:translate(key:'access.list.short')}
-                                <f:if condition="{digas:countPending(feuser:'{user.uid}')} > 0">
-                                    <span class="counter"><digas:countPending feuser="{user.uid}" /></span>
+            <f:if condition="{digas:countPending(feuser:'{user.uid}')} || !{accessPending}">
+                <tr class="{f:if(condition:user.disable,then:'disabled',else:'enabled')}">
+                    <td>
+                        <f:link.action
+                            action="show"
+                            title="{f:translate(key:'administration.show.viewUser')}"
+                            arguments="{user:user}">{user.firstName} {user.lastName}
+                        </f:link.action>
+                    </td>
+                    <td>{user.email}</td>
+                    <td>
+                        <f:comment>Loop through usergroups due to multiple usergroups can be set</f:comment>
+                        <f:for each="{user.usergroup}" as="usergroup">
+                            {usergroup.title}
+                        </f:for>
+                    </td>
+                    <td>
+                        <f:if condition="{user.disable}">
+                            <f:then>
+                                <f:translate key="administration.userInactive"/>
+                            </f:then>
+                            <f:else>
+                                <f:translate key="administration.userActive"/>
+                            </f:else>
+                        </f:if>
+                    </td>
+                    <td>
+                        <ul class="digas-fe-management-administration-actions">
+                            <li>
+                                <f:link.action
+                                    pageUid="{settings.pids.kitodoAccessAdministriationPid}"
+                                    action="list"
+                                    class="btn action-access"
+                                    controller="Access"
+                                    title="{f:translate(key:'access.list')}"
+                                    arguments="{user:user}">
+                                    {f:translate(key:'access.list.short')}
+                                    <f:if condition="{digas:countPending(feuser:'{user.uid}')} > 0">
+                                        <span class="counter"><digas:countPending feuser="{user.uid}" /></span>
+                                    </f:if>
+                                </f:link.action>
+                            </li>
+                            <li>
+                                <f:link.action
+                                    action="show"
+                                    class="btn action-showuser"
+                                    title="{f:translate(key:'administration.show.viewUser')}"
+                                    arguments="{user:user}">
+                                    {f:translate(key:'administration.show.viewUser')}
+                                </f:link.action>
+                            </li>
+                            <li>
+                                <f:link.action
+                                    action="editUser"
+                                    class="btn action-edituser"
+                                    title="{f:translate(key:'administration.show.editUser')}"
+                                    arguments="{user:user}">
+                                    {f:translate(key:'administration.show.editUser')}
+                                </f:link.action>
+                            </li>
+                            <li>
+                                <f:if condition="!{user.disable}">
+                                    <f:then>
+                                        <f:link.action
+                                            action="deactivateUser"
+                                            class="btn action-userstate user-deactivate"
+                                            title="{f:translate(key:'administration.show.deactivateUser')}"
+                                            arguments="{user:user}">
+                                            {f:translate(key:'administration.show.deactivate')}
+                                        </f:link.action>
+                                    </f:then>
+                                    <f:else>
+                                        <f:link.action
+                                            action="deactivateUser"
+                                            class="btn action-userstate user-activate"
+                                            title="{f:translate(key:'administration.show.activateUser')}"
+                                            arguments="{user:user, setActiveState:1}">
+                                            {f:translate(key:'administration.show.activate')}
+                                        </f:link.action>
+                                    </f:else>
                                 </f:if>
-                            </f:link.action>
-                        </li>
-                        <li>
-                            <f:link.action
-                                action="show"
-                                class="btn action-showuser"
-                                title="{f:translate(key:'administration.show.viewUser')}"
-                                arguments="{user:user}">
-                                {f:translate(key:'administration.show.viewUser')}
-                            </f:link.action>
-                        </li>
-                        <li>
-                            <f:link.action
-                                action="editUser"
-                                class="btn action-edituser"
-                                title="{f:translate(key:'administration.show.editUser')}"
-                                arguments="{user:user}">
-                                {f:translate(key:'administration.show.editUser')}
-                            </f:link.action>
-                        </li>
-                        <li>
-                            <f:if condition="!{user.disable}">
-                                <f:then>
-                                    <f:link.action
-                                        action="deactivateUser"
-                                        class="btn action-userstate user-deactivate"
-                                        title="{f:translate(key:'administration.show.deactivateUser')}"
-                                        arguments="{user:user}">
-                                        {f:translate(key:'administration.show.deactivate')}
-                                    </f:link.action>
-                                </f:then>
-                                <f:else>
-                                    <f:link.action
-                                        action="deactivateUser"
-                                        class="btn action-userstate user-activate"
-                                        title="{f:translate(key:'administration.show.activateUser')}"
-                                        arguments="{user:user, setActiveState:1}">
-                                        {f:translate(key:'administration.show.activate')}
-                                    </f:link.action>
-                                </f:else>
-                            </f:if>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </f:if>
         </f:for>
     </tbody>
 </table>

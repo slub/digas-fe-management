@@ -58,6 +58,8 @@ class AdministrationController extends AbstractController
      */
     public function listAction(array $filter = [])
     {
+        $arguments = $this->request->getArguments();
+
         $this->view->assignMultiple(
             [
                 'users' => $this->userRepository->findByUsergroups(
@@ -65,7 +67,8 @@ class AdministrationController extends AbstractController
                     $this->settings,
                     $filter
                 ),
-                'filter' => $filter
+                'filter' => isset($arguments['accessPending']) ? [] : $filter,
+                'accessPending' => isset($arguments['accessPending'])
             ]
         );
         $this->assignForAll();

@@ -6,18 +6,34 @@
     <div class="femanager_list">
         <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
 
-        <f:render partial="User/Searchform" arguments="{_all}"/>
+        <f:if condition="{accessPending}">
+            <f:then>
+                <h3>
+                    <f:translate key="administration.list.pending.headline" />
+                </h3>
+                <f:link.page class="btn btn-primary btn-margin-top">
+                    <f:translate key="administration.list.pending.showAll" />
+                </f:link.page>
+            </f:then>
+            <f:else>
+                <f:render partial="User/Searchform" arguments="{_all}"/>
+
+                <f:link.action class="btn btn-primary btn-margin-top" action="list" arguments="{accessPending:1}">
+                    <f:translate key="administration.list.pending.showPending" />
+                </f:link.action>
+            </f:else>
+        </f:if>
 
         <f:if condition="{users}">
             <f:then>
-                <f:if condition="{settings.list.pagination} && {settings.list.limitPerPage} < {f:count(subject: users)}">
+                <f:if condition="{settings.list.pagination} && {settings.list.limitPerPage} < {f:count(subject: users)} && !{accessPending}">
                     <f:then>
                         <f:widget.paginate objects="{users}" as="paginatedUsers" configuration="{itemsPerPage: '{settings.list.limitPerPage}', insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
-                            <f:render partial="Administration/ListItems" arguments="{users:paginatedUsers}"/>
+                            <f:render partial="Administration/ListItems" arguments="{users:paginatedUsers,accessPending:accessPending}"/>
                         </f:widget.paginate>
                     </f:then>
                     <f:else>
-                        <f:render partial="Administration/ListItems" arguments="{users:users}"/>
+                        <f:render partial="Administration/ListItems" arguments="{users:users,accessPending:accessPending}"/>
                     </f:else>
                 </f:if>
             </f:then>

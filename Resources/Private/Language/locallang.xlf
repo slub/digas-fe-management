@@ -547,6 +547,15 @@ Please login in the next %s days to avoid the account deletion.]]></source>
 			<trans-unit id="emailCreateUserNotifySubject">
 				<source><![CDATA[[DiGA.Sax] Your registration was confirmed]]></source>
 			</trans-unit>
+			<trans-unit id="administration.list.pending.showAll">
+				<source><![CDATA[show all users]]></source>
+			</trans-unit>
+			<trans-unit id="administration.list.pending.showPending">
+				<source><![CDATA[show users with pending access]]></source>
+			</trans-unit>
+			<trans-unit id="administration.list.pending.headline">
+				<source><![CDATA[Users with pending access]]></source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
