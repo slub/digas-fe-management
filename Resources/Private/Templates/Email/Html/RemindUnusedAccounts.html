@@ -2,6 +2,6 @@
 <div>
     <p><f:translate extensionName="DigasFeManagement" key="remindUnusedAccounts.email.message" arguments="{0: '{unusedTimespan}', 1: '{deleteTimespan}'}" /></p>
     <p><f:translate extensionName="DigasFeManagement" key="remindUnusedAccounts.email.messageLogin"/></p>
-    <p><f:link.typolink parameter="{loginPid}">{f:uri.typolink(parameter:'{loginPid}')}</f:link.typolink></p>
+    <p><f:link.external uri="{loginUrl}">{loginUrl}</f:link.external></p>
 </div>
 </html>

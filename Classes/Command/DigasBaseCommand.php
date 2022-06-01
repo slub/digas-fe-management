@@ -34,6 +34,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Exception;
+use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
@@ -237,8 +238,11 @@ class DigasBaseCommand extends Command
         $htmlView = GeneralUtility::makeInstance(StandaloneView::class);
         $htmlView->setFormat($emailType);
         $htmlView->setTemplatePathAndFilename($emailTemplate);
+        // https://stackoverflow.com/questions/46807995/create-a-link-in-backend-to-a-frontend-page
+        $site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($this->settings['pids.']['loginPage']);
+        $loginUrl = (string)$site->getRouter()->generateUri($this->settings['pids.']['loginPage']);
         $htmlView->assignMultiple([
-            'loginPid' => $this->settings['pids.']['loginPage'],
+            'loginUrl' => $loginUrl,
             'documentsList' => $documentsList
         ]);
 
