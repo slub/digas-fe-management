@@ -8,16 +8,18 @@
             {user.firstName} {user.lastName} ({user.username})
         </h3>
 
-        <f:link.action class="btn btn-margin-bottom" action="new" arguments="{user:user}">
-            <f:translate key="access.new.create" />
-        </f:link.action>
-
-        <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
-
-        <f:if condition="{informUser}>0">
-            <f:link.action class="btn btn-margin-top" action="informUser" arguments="{user:user}">
-                <f:translate key="access.user.inform" />
+        <f:if condition="{isAdminUser}">
+            <f:link.action class="btn btn-margin-bottom" action="new" arguments="{user:user}">
+                <f:translate key="access.new.create" />
             </f:link.action>
+
+            <f:render partial="Misc/FlashMessages" arguments="{_all}"/>
+
+            <f:if condition="{informUser}>0">
+                <f:link.action class="btn btn-margin-top" action="informUser" arguments="{user:user}">
+                    <f:translate key="access.user.inform" />
+                </f:link.action>
+            </f:if>
         </f:if>
 
 
@@ -28,7 +30,7 @@
         <f:if condition="{accessPending}">
             <f:then>
                 <f:for each="{accessPending}" as="access">
-                    <f:render partial="Access/AccessItem" arguments="{access:access, user:user, errorItem:errorItem}"/>
+                    <f:render partial="Access/AccessItem" arguments="{access:access, user:user, errorItem:errorItem, isAdminUser: isAdminUser}"/>
                 </f:for>
             </f:then>
             <f:else>
@@ -43,7 +45,7 @@
         <f:if condition="{accessGranted}">
             <f:then>
                 <f:for each="{accessGranted}" as="access">
-                    <f:render partial="Access/AccessItem" arguments="{access:access, user:user, errorItem:errorItem, edit:1}"/>
+                    <f:render partial="Access/AccessItem" arguments="{access:access, user:user, errorItem:errorItem, edit:1, isAdminUser: isAdminUser}"/>
                 </f:for>
             </f:then>
             <f:else>
@@ -58,7 +60,7 @@
         <f:if condition="{accessExpired}">
             <f:then>
                 <f:for each="{accessExpired}" as="access">
-                    <f:render partial="Access/AccessItem" arguments="{access:access, user:user, errorItem:errorItem, edit:1}"/>
+                    <f:render partial="Access/AccessItem" arguments="{access:access, user:user, errorItem:errorItem, edit:1, isAdminUser: isAdminUser}"/>
                 </f:for>
             </f:then>
             <f:else>
@@ -73,7 +75,7 @@
         <f:if condition="{accessRejected}">
             <f:then>
                 <f:for each="{accessRejected}" as="access">
-                    <f:render partial="Access/AccessItem" arguments="{access:access, user:user, errorItem:errorItem, rejected:1}"/>
+                    <f:render partial="Access/AccessItem" arguments="{access:access, user:user, errorItem:errorItem, rejected:1, isAdminUser: isAdminUser}"/>
                 </f:for>
             </f:then>
             <f:else>

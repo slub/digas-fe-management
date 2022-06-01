@@ -48,16 +48,19 @@ femanager {
         basketUid =
     }
 
-    # cat=plugin.tx_digasfemanagement/; type=string; label=Comma-separated list of uids for frontend users
+    # cat=plugin.tx_digasfemanagement/; type=string; label=List of all user groups (comma separated)
     feUserGroups =
 
-    # cat=plugin.tx_digasfemanagement/; type=string; label=Comma-separated list of uids of institutional fe_user groups
+    # cat=plugin.tx_digasfemanagement/; type=string; label=List of administration user groups (comma separated)
+    feUserAdminGroups =
+
+    # cat=plugin.tx_digasfemanagement/; type=string; label=List of user groups with institutional status (comma separated)
     institutionalFeUserGroups =
 
-    # cat=plugin.tx_digasfemanagement/; type=ing; label=FE-usergroup with general access to login area (excludes temp user group)
+    # cat=plugin.tx_digasfemanagement/; type=ing; label=List of user groups with general access to login area (excludes temp user group) (comma separated)
     generalAccessFeUserGroup =
 
-    # cat=plugin.tx_digasfemanagement/; type=string; label=Group access for documents (comma separated group uids)
+    # cat=plugin.tx_digasfemanagement/; type=string; label=List of user groups having access to all Kitodo documents (comma separated)
     kitodoAccessGroups =
 
     # cat=plugin.tx_digasfemanagement/; type=string+; label=Cookie name for kitodo private user

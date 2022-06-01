@@ -33,6 +33,7 @@ plugin.tx_femanager {
         adminEmail = {$plugin.tx_femanager.settings.adminEmail}
 
         feUserGroups = {$femanager.feUserGroups}
+        feUserAdminGroups = {$femanager.feUserAdminGroups}
         generalAccessFeUserGroup = {$femanager.generalAccessFeUserGroup}
         kitodoTempUserGroup = {$femanager.kitodoTempUserGroup}
 

@@ -41,21 +41,21 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][In2code\Femanager\Controller\Invit
 ];
 
 
-//override femanager extension settings
+// override femanager extension settings
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['femanager']['setCookieOnLogin'] = '1';
 
-//load additional pageTSconfig
+// load additional pageTSconfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
     '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:digas_fe_management/Configuration/PageTSconfig/setup.typoscript">'
 );
 
-//german language file for fe_change_pwd
+// german language file for fe_change_pwd
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:fe_change_pwd/Resources/Private/Language/locallang.xlf'][] = 'EXT:digas_fe_management/Resources/Private/Language/Overrides/de.locallang_fe_change_pwd.xlf';
 
-//addtional german language file for fe_manager
+// addtional german language file for fe_manager
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/Resources/Private/Language/locallang.xlf'][] = 'EXT:digas_fe_management/Resources/Private/Language/de.locallang.xlf';
 
-//plugin FE_Manager extended
+// plugin FE_Manager extended
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.DigasFeManagement',
     'Femanagerextended',
@@ -67,7 +67,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
     ]
 );
 
-//plugin DigasFeManagement Administration
+// plugin DigasFeManagement Administration
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.DigasFeManagement',
     'Administration',
@@ -79,7 +79,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
     ]
 );
 
-//plugin DigasFeManagement Administration - Access Kitodo Documents
+// plugin DigasFeManagement Administration - Access Kitodo Documents
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.DigasFeManagement',
     'Access',
@@ -91,7 +91,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
     ]
 );
 
-//plugin DigasFeManagement Statistic
+// plugin DigasFeManagement Statistic
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.DigasFeManagement',
     'Statistic',
@@ -103,7 +103,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
     ]
 );
 
-//plugin save search
+// plugin save search
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.DigasFeManagement',
     'Search',
@@ -115,7 +115,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
     ]
 );
 
-//plugin request kitodo documents from basket
+// plugin request kitodo documents from basket
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.DigasFeManagement',
     'Basket',
