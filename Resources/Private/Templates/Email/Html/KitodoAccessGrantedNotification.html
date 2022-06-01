@@ -25,6 +25,6 @@
     </ul>
     <hr/>
     <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.messageLogin"/></p>
-    <p><f:link.typolink parameter="{loginPid}">{f:uri.typolink(parameter:'{loginPid}')}</f:link.typolink></p>
+    <p><f:uri.page pageUid="{loginPid}">{f:uri.page(pageUid:'{loginPid}', absolute: 1)}</f:uri.page></p>
 </div>
 </html>

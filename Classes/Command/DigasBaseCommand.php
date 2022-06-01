@@ -234,10 +234,9 @@ class DigasBaseCommand extends Command
     protected function generateNotificationEmail(array $documentsList, string $emailTemplate, string $emailType = 'text')
     {
         // generate email template by given emailType
-        $template = GeneralUtility::getFileAbsFileName($emailTemplate);
         $htmlView = GeneralUtility::makeInstance(StandaloneView::class);
         $htmlView->setFormat($emailType);
-        $htmlView->setTemplatePathAndFilename($template);
+        $htmlView->setTemplatePathAndFilename($emailTemplate);
         $htmlView->assignMultiple([
             'loginPid' => $this->settings['pids.']['loginPage'],
             'documentsList' => $documentsList
