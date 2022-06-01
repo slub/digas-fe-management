@@ -71,8 +71,8 @@ class ExtendController extends AbstractController
             $this->view->assign('checkYes', true);
         }
 
-        //check if fe_user exists OR cookie for private usage is set
-        //return empty string
+        // check if fe_user exists OR cookie for private usage is set
+        // return empty string
         if ($user || $GLOBALS["TSFE"]->fe_user->getKey("ses", $this->settings['dialog']['cookieName'])) {
             return '';
         }

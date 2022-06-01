@@ -5,7 +5,7 @@
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Slub.DigasFeManagement',
     'Femanagerextended',
-    'FE_Manager extended'
+    'DiGA.Sax Extend Femanager'
 );
 
 /**
@@ -14,7 +14,7 @@
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Slub.DigasFeManagement',
     'Search',
-    'Extend search'
+    'DiGA.Sax Extend Search'
 );
 
 
@@ -40,7 +40,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['digasfem
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Slub.DigasFeManagement',
     'Administration',
-    'FE_Manager Administration'
+    'DiGA.Sax Administration'
 );
 
 /**
@@ -59,7 +59,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['digasfemanag
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Slub.DigasFeManagement',
     'Access',
-    'FE_Manager Access Kitodo Documents'
+    'DiGA.Sax Access Kitodo Documents'
 );
 
 /**
@@ -73,7 +73,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['digasfem
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Slub.DigasFeManagement',
     'Statistic',
-    'FE_Manager Statistic'
+    'DiGA.Sax Statistic'
 );
 
 /**
@@ -93,7 +93,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['digasfemanag
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Slub.DigasFeManagement',
     'Basket',
-    'FE_Manager Basket'
+    'DiGA.Sax Basket'
 );
 
 /**

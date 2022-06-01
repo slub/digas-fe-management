@@ -99,6 +99,11 @@ class AccessController extends AbstractController
         $accessRejected = [];
         $informUser = 0;
 
+        // if user is not part of the admin user group, he can only see its own requests
+        if ($this->isAdminAccessGranted() === false) {
+            $user = $this->user;
+        }
+
         $documents = $this->accessRepository->findRequestsForUser($user->getUid());
 
         // sort records by access granted / pending
@@ -137,7 +142,8 @@ class AccessController extends AbstractController
             'accessRejected' => $accessRejected,
             'user' => $user,
             'errorItem' => $arguments['error'],
-            'informUser' => $informUser
+            'informUser' => $informUser,
+            'isAdminUser' => $this->isAdminAccessGranted()
         ]);
 
         if ($informUser) {
@@ -156,6 +162,10 @@ class AccessController extends AbstractController
      */
     public function informUserAction(User $user)
     {
+        if ($this->isAdminAccessGranted() === false) {
+            return;
+        }
+
         /** @var Access $documentAccess */
         foreach ($user->getKitodoDocumentAccess() as $documentAccess) {
             if (!$documentAccess->getInformUser()) {
@@ -179,6 +189,10 @@ class AccessController extends AbstractController
      */
     public function newAction(User $user, Access $access = null)
     {
+        if ($this->isAdminAccessGranted() === false) {
+             return;
+        }
+
         $this->view->assignMultiple([
             'user' => $user,
             'access' => $access
@@ -195,6 +209,10 @@ class AccessController extends AbstractController
      */
     public function createAction(User $user, Access $access)
     {
+        if ($this->isAdminAccessGranted() === false) {
+             return;
+        }
+
         // process and validate form data
         $access = $this->processFormData($user, $access, 'new');
 
@@ -222,6 +240,10 @@ class AccessController extends AbstractController
      */
     public function approveAction(User $user, Access $access)
     {
+        if ($this->isAdminAccessGranted() === false) {
+             return;
+        }
+
         // process and validate form data
         $access = $this->processFormData($user, $access);
 
@@ -348,6 +370,10 @@ class AccessController extends AbstractController
      */
     public function rejectReasonAction(Access $access, User $user)
     {
+        if ($this->isAdminAccessGranted() === false) {
+            throw  new StopActionException('Access denied');
+        }
+
         $this->view->assignMultiple([
             'access' => $access,
             'user' => $user
@@ -369,6 +395,10 @@ class AccessController extends AbstractController
      */
     public function rejectAction(Access $access, User $user)
     {
+        if ($this->isAdminAccessGranted() === false) {
+             return;
+        }
+
         $access->setHidden(1);
         $access->setRejected(1);
         $access->setStarttime(0);
@@ -392,4 +422,29 @@ class AccessController extends AbstractController
         // redirect to list view
         $this->redirect('list', null, null, ['user' => $user]);
     }
+
+
+    /**
+     * Check if the current fe_user is allowed to do administration tasks
+     *
+     * @return boolean
+     */
+    protected function isAdminAccessGranted()
+    {
+        $isAdmin = false;
+
+        // first check, if we are allowed to access this action (be part of feUserAdminGroups)
+        $feUserAdminGroups = array_intersect(
+            explode(',', $GLOBALS['TSFE']->fe_user->user['usergroup']),
+            explode(',', $this->settings['feUserAdminGroups'])
+        );
+
+        // if user is not part of the admin user group, he can only see its own requests
+        if (!empty($feUserAdminGroups)) {
+            $isAdmin = true;
+        }
+
+        return $isAdmin;
+    }
+
 }

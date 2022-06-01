@@ -3,7 +3,7 @@
         <label class="access-control-label">
             <f:translate key="access.list.starttime" />
         </label>
-        <f:if condition="{access.starttime}>0">
+        <f:if condition="{access.starttime} > 0">
             <f:then>
                 <f:format.date date="{access.starttime}" format="%d.%m.%Y" />
             </f:then>
@@ -19,7 +19,7 @@
             <f:translate key="access.list.endtime" />
         </label>
 
-        <f:if condition="{access.endtime}>0">
+        <f:if condition="{access.endtime} > 0">
             <f:then>
                 <f:variable name="endDateValue" value="{access.endtime->f:format.date(format:'%Y-%m-%d')}" />
             </f:then>
@@ -28,12 +28,22 @@
             </f:else>
         </f:if>
 
-        <f:form.textfield id="access-endtime-{access.uid}"
-                          maxlength="10"
-                          type="date"
-                          required="required"
-                          property="endtimeString"
-                          value="{endDateValue}"
-                          additionalAttributes="{min:'{f:format.date(date:\'today + 1 day\',format:\'%Y-%m-%d\')}'}"/>
+        <f:if condition="{isAdminUser}">
+            <f:then>
+                <f:form.textfield id="access-endtime-{access.uid}"
+                    maxlength="10"
+                    type="date"
+                    required="required"
+                    property="endtimeString"
+                    value="{endDateValue}"
+                    readonly="{f:if(condition:isAdminUser, then: '', else: 'readonly')}"
+                    additionalAttributes="{min:'{f:format.date(date:\'today + 1 day\',format:\'%Y-%m-%d\')}'}"/>
+            </f:then>
+            <f:else>
+                <f:if condition="{access.endtime} > 0">
+                    <f:format.date date="{access.endtime}" format="%d.%m.%Y" />
+                </f:if>
+            </f:else>
+        </f:if>
     </div>
 </div>
