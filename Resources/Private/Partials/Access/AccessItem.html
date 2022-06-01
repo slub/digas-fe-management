@@ -32,7 +32,16 @@
             <div class="form-group">
                 <label class="access-control-label"><f:translate key="access.rejectedReasonLastmodified" />:</label>
                 <div class="access-item-rejectedReason">
-                    {access.accessGrantedNotification ->f:format.date(format:'%d.%m.%Y')}
+                    <f:comment>accessGrantedNotification will be set after email notification.
+                        Before this is done, we show the current date to avoid confusion.</f:comment>
+                    <f:if condition="{access.accessGrantedNotification}">
+                        <f:then>
+                            {access.accessGrantedNotification ->f:format.date(format:'%d.%m.%Y')}
+                        </f:then>
+                        <f:else>
+                            <f:format.date format="%d.%m.%Y">now</f:format.date>
+                        </f:else>
+                    </f:if>
                 </div>
             </div>
         </f:if>
