@@ -1,7 +1,8 @@
-<f:spaceless>
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:spaceless>
 <f:format.raw><f:translate extensionName="DigasFeManagement" key="remindUnusedAccounts.email.message" arguments="{0: '{unusedTimespan}', 1: '{deleteTimespan}'}" /></f:format.raw>
 
 <f:format.raw><f:translate extensionName="DigasFeManagement" key="remindUnusedAccounts.email.messageLogin"/></f:format.raw>
-{f:uri.typolink(parameter:'{loginPid}')}
+{loginUrl}
 </f:spaceless>
+</html>

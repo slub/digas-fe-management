@@ -31,6 +31,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Mail\MailMessage;
+use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility as ExtbaseLocalizationUtility;
@@ -219,8 +220,11 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $htmlView = GeneralUtility::makeInstance(StandaloneView::class);
         $htmlView->setFormat('html');
         $htmlView->setTemplatePathAndFilename($htmlTemplate);
+        // https://stackoverflow.com/questions/46807995/create-a-link-in-backend-to-a-frontend-page
+        $site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($this->settings['pids.']['loginPage']);
+        $loginUrl = (string)$site->getRouter()->generateUri($this->settings['pids.']['loginPage']);
         $htmlView->assignMultiple([
-            'loginPid' => $this->settings['pids.']['loginPage'],
+            'loginUrl' => $loginUrl,
             'unusedTimespan' => $this->unusedTimespan,
             'deleteTimespan' => $this->deleteTimespan
         ]);
@@ -241,8 +245,11 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $textView = GeneralUtility::makeInstance(StandaloneView::class);
         $textView->setFormat('text');
         $textView->setTemplatePathAndFilename($textTemplate);
+        // https://stackoverflow.com/questions/46807995/create-a-link-in-backend-to-a-frontend-page
+        $site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($this->settings['pids.']['loginPage']);
+        $loginUrl = (string)$site->getRouter()->generateUri($this->settings['pids.']['loginPage']);
         $textView->assignMultiple([
-            'loginPid' => $this->settings['pids.']['loginPage'],
+            'loginUrl' => $loginUrl,
             'unusedTimespan' => $this->unusedTimespan,
             'deleteTimespan' => $this->deleteTimespan
         ]);

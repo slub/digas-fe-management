@@ -5,6 +5,6 @@
         <p>{expirationEntry.recordId} - {expirationEntry.documentTitle}</p>
     </f:for>
     <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessExpirationNotification.email.messageLogin"/></p>
-    <p><f:link.typolink parameter="{loginPid}">{f:uri.typolink(parameter:'{loginPid}')}</f:link.typolink></p>
+    <p><f:link.external uri="{loginUrl}">{loginUrl}</f:link.external></p>
 </div>
 </html>
