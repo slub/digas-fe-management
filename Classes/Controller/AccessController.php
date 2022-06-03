@@ -102,6 +102,9 @@ class AccessController extends AbstractController
         // if user is not part of the admin user group, he can only see its own requests
         if ($this->isAdminAccessGranted() === false) {
             $user = $this->user;
+        } else if($user === null) {
+            // special case: an admin user will see its own requests
+            $user = $this->user;
         }
 
         $documents = $this->accessRepository->findRequestsForUser($user->getUid());
