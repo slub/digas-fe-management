@@ -1,10 +1,7 @@
 <div class="access-item {f:if(condition:'{access.uid} == {errorItem}',then:'error')}" id="access-item-{access.uid}">
 
     <h3 class="access-item-heading">
-        <f:if condition="{access.recordId}">
-            <f:then>{access.recordId}</f:then>
-            <f:else>{access.dlfDocument.recordId}</f:else>
-        </f:if>
+        <f:link.external uri="{access.dlfDocument.purl}">{access.dlfDocument.recordId}</f:link.external>
     </h3>
 
     <strong>
