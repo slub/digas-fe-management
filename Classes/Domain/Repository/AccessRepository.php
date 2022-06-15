@@ -75,6 +75,27 @@ class AccessRepository extends Repository
 
     /**
      * @param int $feUserId
+     * @return int
+     */
+    public function countByFeUserAndOpen(int $feUserId): int
+    {
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setIgnoreEnableFields(true);
+
+        $constraints = [];
+        $constraints[] = $query->equals('fe_user', $feUserId);
+        $constraints[] = $query->equals('endtime', 0);
+        $constraints[] = $query->equals('rejected', 0);
+
+        if (count($constraints)) {
+            $query->matching($query->logicalAnd($constraints));
+        }
+
+        return $query->count();
+    }
+
+    /**
+     * @param int $feUserId
      * @return Access[]
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
      */

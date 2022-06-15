@@ -84,17 +84,8 @@ class CountPendingViewHelper extends AbstractViewHelper
         $accessRepository = GeneralUtility::makeInstance(ObjectManager::class)->get(AccessRepository::class);
 
         // get all
-        $documents = $accessRepository->findRequestsForUser($arguments['feuser']);
-        $accessPending = [];
+        $countPending = $accessRepository->countByFeUserAndOpen($arguments['feuser']);
 
-        foreach ($documents as $document) {
-            // access pending documents: hidden is true
-            if ($document->getHidden() === true) {
-                $accessPending[] = $document;
-            }
-        }
-
-        return count($accessPending);
-
+        return $countPending;
     }
 }
