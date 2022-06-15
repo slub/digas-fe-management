@@ -84,7 +84,7 @@ class AccessRepository extends Repository
 
         $constraints = [];
         $constraints[] = $query->equals('fe_user', $feUserId);
-        $constraints[] = $query->equals('endtime', 0);
+        $constraints[] = $query->equals('hidden', true);
         $constraints[] = $query->equals('rejected', 0);
 
         if (count($constraints)) {
