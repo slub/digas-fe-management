@@ -60,9 +60,25 @@ plugin.tx_femanager {
 
         administration {
             pids {
-                createInstitutional = {$femanager.administration.pids.createInstitutional}
-                createPrivate = {$femanager.administration.pids.createPrivate}
                 editUserUid = {$femanager.administration.pids.editUserUid}
+            }
+            createNewUser {
+                private {
+                    pid = {$femanager.administration.createNewUser.private.pid}
+                    gid = {$femanager.administration.createNewUser.private.gid}
+                }
+                company {
+                    pid = {$femanager.administration.createNewUser.company.pid}
+                    gid = {$femanager.administration.createNewUser.company.gid}
+                }
+                administration {
+                    pid = {$femanager.administration.createNewUser.administration.pid}
+                    gid = {$femanager.administration.createNewUser.administration.gid}
+                }
+                institutional {
+                    pid = {$femanager.administration.createNewUser.institutional.pid}
+                    gid = {$femanager.administration.createNewUser.institutional.gid}
+                }
             }
         }
 

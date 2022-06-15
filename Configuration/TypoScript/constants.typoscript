@@ -2,49 +2,46 @@
 
 femanager {
     pids {
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Root Page of presentation
+        # cat=plugin.tx_digasfemanagement/pids/0110; type=int+; label=Root Page of presentation
         rootPage =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid login plugin
+        # cat=plugin.tx_digasfemanagement/pids/0120; type=int+; label=Page uid login plugin
         loginPage =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Sysfolder uid with fe_users
+        # cat=plugin.tx_digasfemanagement/pids/0130; type=int+; label=Sysfolder uid with fe_users
         feUsers =
 
-        # cat=plugin.tx_digasfemanagement/; type=string; label=Page uids of "create institutional user" plugin (comma-separated)
+        # cat=plugin.tx_digasfemanagement/pids/0140; type=string; label=Page uids of "create institutional user" plugin (comma-separated)
         createInstitutional =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "create private user" plugin
-        createPrivate =
-
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "confirmation" plugin - use same uid as "create private user" plugin page
+        # cat=plugin.tx_digasfemanagement/pids/0160; type=int+; label=Page uid of "confirmation" plugin - use same uid as "create private user" plugin page
         confirmUser =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of page containing confirmation plugin for invited new users
+        # cat=plugin.tx_digasfemanagement/pids/0170; type=int+; label=Page uid of page containing confirmation plugin for invited new users
         confirmInviteUid =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "edit profile" plugin
+        # cat=plugin.tx_digasfemanagement/pids/0180; type=int+; label=Page uid of "edit profile" plugin
         editProfile =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of "edit e-mail & username" plugin
+        # cat=plugin.tx_digasfemanagement/pids/0190; type=int+; label=Page uid of "edit e-mail & username" plugin
         editEmail =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of contact form with restricted access
+        # cat=plugin.tx_digasfemanagement/pids/0200; type=int+; label=Page uid of contact form with restricted access
         contactFormUid =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of page containing search form
+        # cat=plugin.tx_digasfemanagement/pids/0210; type=int+; label=Page uid of page containing search form
         searchFormUid =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of page "terms of use"
+        # cat=plugin.tx_digasfemanagement/pids/0220; type=int+; label=Page uid of page "terms of use"
         termsOfUseUid =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Sysfolder uid with temp fe_users
+        # cat=plugin.tx_digasfemanagement/pids/0230; type=int+; label=Sysfolder uid with temp fe_users
         kitodoTempUserPid =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of kitodo access administration plugin
+        # cat=plugin.tx_digasfemanagement/pids/0240; type=int+; label=Page uid of kitodo access administration plugin
         kitodoAccessAdministriationPid =
 
-        # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid basket plugin
+        # cat=plugin.tx_digasfemanagement/pids/0250; type=int+; label=Page uid basket plugin
         basketUid =
     }
 
@@ -76,15 +73,35 @@ femanager {
 
     administration {
         pids {
-
-            # cat=plugin.tx_digasfemanagement/; type=string; label=Page uids of admin create institutional user plugin (comma-separated)
-            createInstitutional =
-
-            # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of admin create private user plugin
-            createPrivate =
-
             # cat=plugin.tx_digasfemanagement/; type=int+; label=Page uid of admin list,edit,view plugin
             editUserUid =
+        }
+
+        createNewUser {
+            private {
+                # cat=plugin.tx_digasfemanagement/createnew/100; type=int+; label=Page uid of admin create private user plugin
+                pid =
+                # cat=plugin.tx_digasfemanagement/createnew/110; type=int+; label=User group id of private users
+                gid =
+            }
+            company {
+                # cat=plugin.tx_digasfemanagement/createnew/200; type=int+; label=Page uid of admin create company user plugin
+                pid =
+                # cat=plugin.tx_digasfemanagement/createnew/210; type=int+; label=User group id of company users
+                gid =
+            }
+            administration {
+                # cat=plugin.tx_digasfemanagement/createnew/300; type=int+; label=Page uid of admin create administration user plugin
+                pid =
+                # cat=plugin.tx_digasfemanagement/createnew/310; type=int+; label=User group id of administration users
+                gid =
+            }
+            institutional {
+                # cat=plugin.tx_digasfemanagement/createnew/400; type=int+; label=Page uid of admin create institutional user plugin
+                pid =
+                # cat=plugin.tx_digasfemanagement/createnew/410; type=int+; label=User group id of institutional users
+                gid =
+            }
         }
 
         #  cat=plugin.tx_digasfemanagement/; type=string; label=Listing View - Administration user search fields (possible values are address, city, company, country, email, fax, first_name, image, last_name, middle_name, name, telephone, title, usergroup.title, username, www, zip)

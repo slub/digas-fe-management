@@ -101,7 +101,7 @@ plugin.tx_femanager {
     }
 }
 
-[page["uid"] in [{$femanager.administration.pids.createInstitutional}]]
+[page["uid"] in [{$femanager.administration.createNewUser.company.pid},{$femanager.administration.createNewUser.administration.pid},{$femanager.administration.createNewUser.institutional.pid}]]
     plugin.tx_femanager {
         # override "lastName" label
         _LOCAL_LANG.de.tx_femanager_domain_model_user.lastName = Gesetzlicher Vertreter
@@ -120,7 +120,77 @@ plugin.tx_femanager {
             }
         }
     }
-[end]
+[END]
+
+[page["uid"] == {$femanager.administration.createNewUser.private.pid}]
+    plugin.tx_femanager {
+
+        settings {
+            invitation {
+                # overwrite any user values with TypoScript
+                forceValues {
+                    # Overwrite initally (default)
+                    beforeAnyConfirmation {
+                        usergroup = TEXT
+                        usergroup.value = {$femanager.administration.createNewUser.private.gid}
+                    }
+                }
+            }
+        }
+    }
+[END]
+
+[page["uid"] == {$femanager.administration.createNewUser.company.pid}]
+    plugin.tx_femanager {
+        settings {
+            invitation {
+                # overwrite any user values with TypoScript
+                forceValues {
+                    # Overwrite initally (default)
+                    beforeAnyConfirmation {
+                        usergroup = TEXT
+                        usergroup.value = {$femanager.administration.createNewUser.company.gid}
+                    }
+                }
+            }
+        }
+    }
+[END]
+
+[page["uid"] == {$femanager.administration.createNewUser.administration.pid}]
+    plugin.tx_femanager {
+        settings {
+            invitation {
+                # overwrite any user values with TypoScript
+                forceValues {
+                    # Overwrite initally (default)
+                    beforeAnyConfirmation {
+                        usergroup = TEXT
+                        usergroup.value = {$femanager.administration.createNewUser.administration.gid}
+                    }
+                }
+            }
+        }
+    }
+[END]
+
+[page["uid"] == {$femanager.administration.createNewUser.institutional.pid}]
+    plugin.tx_femanager {
+        settings {
+            invitation {
+                # overwrite any user values with TypoScript
+                forceValues {
+                    # Overwrite initally (default)
+                    beforeAnyConfirmation {
+                        usergroup = TEXT
+                        usergroup.value = {$femanager.administration.createNewUser.institutional.gid}
+                    }
+                }
+            }
+        }
+    }
+[END]
+
 
 //set confirmation pid in e-mails
 lib.confirmInivitedUserPid = TEXT
