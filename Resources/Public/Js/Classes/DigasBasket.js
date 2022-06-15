@@ -74,7 +74,7 @@ class DigasBasket {
         this.basketLinks = document.querySelectorAll(`.${this.options.basketLinkCls}`);
         if (this.basketLinks !== null) {
             this.basketLinks.forEach((basketLink) => {
-                const listEntry = basketLink.parentNode;
+                const listEntry = basketLink.parentNode.parentNode;
 
                 const entryIdentifier = listEntry.querySelector(`${this.options.listIdentifierCls}`);
                 const entryRestriction = listEntry.querySelector(`${this.options.listRestrictionCLs}`);
