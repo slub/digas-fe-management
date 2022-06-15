@@ -369,7 +369,7 @@
 				<source><![CDATA[Your Account has been disabled]]></source>
 				<target><![CDATA[Ihr Nutzerkonto wurde deaktiviert]]></target>
 			</trans-unit>
-			<trans-unit id="emailCreateAdminConfirmationSubject" approved="yes">
+			<trans-unit id="emailInvitationSubject" approved="yes">
 				<source><![CDATA[[DiGA.Sax] Please confirm the user account for DiGA.Sax which has been created for you]]></source>
 				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie das angelegte DiGA.Sax Benutzerkonto]]></target>
 			</trans-unit>

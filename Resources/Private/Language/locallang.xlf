@@ -538,7 +538,7 @@ Please login in the next %s days to avoid the account deletion.]]></source>
 			<trans-unit id="validationErrorPasswordUpperCaseSpecialChar">
 				<source><![CDATA[Please use at least one uppercase and one special character]]></source>
 			</trans-unit>
-			<trans-unit id="emailCreateAdminConfirmationSubject">
+			<trans-unit id="emailInvitationSubject">
 				<source><![CDATA[[DiGA.Sax] Please confirm the user account for DiGA.Sax which has been created for you]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationSubject">
