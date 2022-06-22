@@ -1,39 +1,46 @@
 
-identifier: contactRegisteredUsers
-label: contactRegisteredUsers
+renderingOptions:
+  submitButtonLabel: Submit
+identifier: contactRegisteredUsersLocal
+label: contactRegisteredUsersLocal
 type: Form
 prototypeName: standard
 finishers:
   -
     options:
-      subject: 'finisher.EmailToReceiver.subject'
-      recipientAddress: example@example.com
-      recipientName: 'LfULG DiGA.Sax'
-      senderAddress: example@example.com
-      senderName: 'LfULG DiGA.Sax'
-      replyToAddress: '{email}'
-      format: html
+      subject: finisher.EmailToReceiver.subject
+      senderAddress: contact@example.com
+      senderName: 'LfULG DiGAS'
       attachUploads: false
       translation:
-        language: ''
+        language: default
+      recipients:
+        contact@example.com: 'LfULG DiGA.Sax'
+      replyToRecipients:
+        '{email}': ''
+      addHtmlPart: true
     identifier: EmailToReceiver
   -
     options:
-      subject: 'finisher.EmailToSender.subject'
-      recipientAddress: '{email}'
-      recipientName: '{firstname} {lastname}'
-      senderAddress: example@example.com
+      subject: finisher.EmailToSender.subject
+      senderAddress: contact@example.com
       senderName: 'LfULG DiGA.Sax'
-      replyToAddress: example@example.com
-      format: html
       attachUploads: false
+      recipients:
+        '{email}': '{firstname} {lastname}'
+      replyToRecipients:
+        example@example.com: ''
+      addHtmlPart: true
     identifier: EmailToSender
   -
     options:
-      subject: 'finisher.Confirmation.message'
+      subject: finisher.Confirmation.message
     identifier: Confirmation
 renderables:
   -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Neue Seite'
     identifier: page-1
     type: Page
     renderables:
@@ -44,7 +51,8 @@ renderables:
         properties:
           fluidAdditionalAttributes:
             disabled: disabled
-            autocomplete: off
+            autocomplete: 'off'
+        label: Nachname
       -
         defaultValue: ''
         identifier: firstname
@@ -52,7 +60,8 @@ renderables:
         properties:
           fluidAdditionalAttributes:
             disabled: disabled
-            autocomplete: off
+            autocomplete: 'off'
+        label: Vorname
       -
         defaultValue: ''
         identifier: company
@@ -60,7 +69,8 @@ renderables:
         properties:
           fluidAdditionalAttributes:
             disabled: disabled
-            autocomplete: off
+            autocomplete: 'off'
+        label: Firma/Organisation
       -
         defaultValue: ''
         identifier: email
@@ -68,7 +78,8 @@ renderables:
         properties:
           fluidAdditionalAttributes:
             disabled: disabled
-            autocomplete: off
+            autocomplete: 'off'
+        label: 'E-Mail Adresse'
       -
         defaultValue: ''
         identifier: phone
@@ -76,16 +87,17 @@ renderables:
         properties:
           fluidAdditionalAttributes:
             disabled: disabled
-            autocomplete: off
+            autocomplete: 'off'
+        label: Telefonnummer
       -
         defaultValue: ''
         identifier: subject
         type: Text
         properties:
-          rows: 12
           fluidAdditionalAttributes:
-            autocomplete: off
+            autocomplete: 'off'
             required: required
+        label: Betreff
         validators:
           -
             identifier: NotEmpty
@@ -94,8 +106,17 @@ renderables:
         identifier: message
         type: Textarea
         properties:
+          rows: 12
           fluidAdditionalAttributes:
             required: required
+            minlength: '0'
+            maxlength: '2000'
+        label: 'Ihre Nachricht'
         validators:
           -
             identifier: NotEmpty
+          -
+            options:
+              minimum: '0'
+              maximum: '2000'
+            identifier: StringLength
