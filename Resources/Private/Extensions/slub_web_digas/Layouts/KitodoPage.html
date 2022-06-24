@@ -1,6 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:dv="http://typo3.org/ns/Slub/SlubWebDigas/ViewHelpers"
-      xmlns:dc="http://typo3.org/ns/Slub/SlubDigitalcollections/ViewHelpers"
       xmlns:digas="http://typo3.org/ns/Slub/DigasFeManagement/ViewHelpers"
       data-namespace-typo3-fluid="true"
       lang="en">
@@ -40,7 +39,7 @@
                 -->
             </f:comment>
 
-            <digas:redirect pageUid="{settings.basketUid}" additionalParams="{setCookie:1,gp-id:'{dc:xpath(xpath:\'(//mods:recordIdentifier[@source=\"LfULG\"])\')}'}" />
+            <digas:redirect pageUid="{settings.basketUid}" additionalParams="{setCookie:1,gp-id:'{gp-recordId}'}" />
         </f:else>
     </f:if>
 
