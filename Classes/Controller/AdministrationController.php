@@ -147,7 +147,8 @@ class AdministrationController extends AbstractController
     {
         if (!empty($user)) {
             $this->signalSlotDispatcher->dispatch(__CLASS__, __FUNCTION__, [$user, $this]);
-            LogUtility::log(Log::STATUS_ADMINISTRATION_PROFILE_DEACTIVATE, $user);
+            $logUtility = GeneralUtility::makeInstance(LogUtility::class);
+            $logUtility->log(Log::STATUS_ADMINISTRATION_PROFILE_DEACTIVATE, $user);
             if ($setActiveState) {
                 $flashMessageText = ExtbaseLocalizationUtility::translate(
                     'tx_femanager_domain_model_log.state.' . Log::STATUS_ADMINISTRATION_PROFILE_ACTIVATE,
