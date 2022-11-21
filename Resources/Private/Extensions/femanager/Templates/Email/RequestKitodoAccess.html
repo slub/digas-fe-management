@@ -5,7 +5,7 @@
     <f:render partial="Basket/Table" arguments="{documents:documents, showRemoveLink:0}" />
 
     <f:if condition="{message}">
-        <p><f:format.nl2br>{message}</f:format.nl2br></p>
+        <p><f:format.nl2br><f:format.htmlentitiesDecode>{message}</f:format.htmlentitiesDecode></f:format.nl2br></p>
     </f:if>
 
     <p><f:translate key="emailNoReplyNotifyText" /></p>

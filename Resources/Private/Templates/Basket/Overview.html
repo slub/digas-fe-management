@@ -23,7 +23,7 @@
                             <label for="basketMessage">
                                 <f:translate key="basket.message" />
                             </label><br/>
-                            <f:format.nl2br>{request.message}</f:format.nl2br>
+                            <f:format.nl2br><f:format.htmlentitiesDecode>{request.message}</f:format.htmlentitiesDecode></f:format.nl2br>
                         </p>
                     </f:if>
                     <f:form.textarea id="basketMessage" property="message" style="display:none;" readonly="1" />
