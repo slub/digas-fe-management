@@ -35,7 +35,7 @@ class Access extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var \Slub\SlubWebDigas\Domain\Model\KitodoDocument
      */
-    protected $dlfDocument = '';
+    protected $dlfDocument;
 
     /**
      * recordId

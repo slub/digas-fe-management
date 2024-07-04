@@ -119,7 +119,10 @@ class BasketController extends AbstractController
             if (!empty($requestedAccess)) {
                 /** @var Access $access */
                 foreach ($requestedAccess as $access) {
-                    $requestedDocuments[$access->getDlfDocument()->getUid()] = $access;
+                    $document = $access->getDlfDocument();
+                    if ($document != NULL) {
+                        $requestedDocuments[$document->getUid()] = $access;
+                    }
                 }
             }
 
