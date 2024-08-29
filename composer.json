@@ -31,8 +31,8 @@
   "license": "GPL-3.0-or-later",
   "require": {
     "typo3/cms-core": "^10.4|^11.5",
-    "in2code/femanager": "^6.3",
-    "derhansen/fe_change_pwd": "^2.0"
+    "in2code/femanager": "^7.1",
+    "derhansen/fe_change_pwd": "^3.0"
   },
   "autoload": {
     "psr-4": {
