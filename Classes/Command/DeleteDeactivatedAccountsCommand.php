@@ -73,17 +73,17 @@ class DeleteDeactivatedAccountsCommand extends DigasBaseCommand
         // Initialize IO
         parent::execute($input, $output);
 
-        $timespan = null;
+        $timeSpan = 0;
         if (MathUtility::canBeInterpretedAsInteger($input->getArgument('timespan'))) {
-            $timespan = MathUtility::forceIntegerInRange((int)$input->getArgument('timespan'), 0);
+            $timeSpan = MathUtility::forceIntegerInRange((int)$input->getArgument('timespan'), 0);
         }
         $deleteCounter = 0;
-        if ($timespan <= 0) {
+        if ($timeSpan <= 0) {
             $this->io->error('"timespan" has to a positive integer value. Abort.');
             return 1;
         }
         $time = new \DateTime();
-        $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timespan);
+        $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timeSpan);
 
         $feUsers = $this->UserRepository->findDeactivatedAccounts($deleteTimestamp, $this->feUserGroups);
 

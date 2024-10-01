@@ -74,17 +74,17 @@ class DeleteTemporaryUsersCommand extends DigasBaseCommand
         parent::execute($input, $output);
 
         $deleteCounter = 0;
-        $timespan = null;
+        $timeSpan = 0;
         if (MathUtility::canBeInterpretedAsInteger($input->getArgument('timespan'))) {
-            $timespan = MathUtility::forceIntegerInRange((int)$input->getArgument('timespan'), 0);
+            $timeSpan = MathUtility::forceIntegerInRange((int)$input->getArgument('timespan'), 0);
         }
-        if ($timespan <= 0) {
+        if ($timeSpan <= 0) {
             $this->io->error('"timespan" has to a positive integer value. Abort.');
             return 1;
         }
 
         $time = new \DateTime();
-        $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timespan);
+        $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timeSpan);
 
         // set storage pid for temporary fe_users
         $this->UserRepository->setStoragePid($this->settings['pids.']['kitodoTempUserPid']);
