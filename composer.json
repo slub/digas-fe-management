@@ -1,47 +1,53 @@
 {
-  "name": "slub/digas-fe-management",
-  "type": "typo3-cms-extension",
-  "description": "TYPO3 extension for the DiGA.Sax frontend user management.",
-  "homepage": "https://github.com/slub/digas-fe-management",
-  "keywords": [
-    "TYPO3",
-    "extension",
-    "frontend user"
-  ],
-  "authors": [
-    {
-      "name": "Alexander Bigga",
-      "email": "typo3@slub-dresden.de",
-      "homepage": "https://www.slub-dresden.de",
-      "role": "Developer"
+    "name": "slub/digas-fe-management",
+    "type": "typo3-cms-extension",
+    "description": "TYPO3 extension for the DiGA.Sax frontend user management.",
+    "homepage": "https://github.com/slub/digas-fe-management",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "frontend user"
+    ],
+    "authors": [
+        {
+            "name": "Alexander Bigga",
+            "email": "typo3@slub-dresden.de",
+            "homepage": "https://www.slub-dresden.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Stephan Gonder",
+            "email": "stephan.gonder@sandstein.de",
+            "homepage": "https://www.sandstein.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Felix Franz",
+            "email": "Felix.Franz@sandstein.de",
+            "homepage": "https://www.sandstein.de",
+            "role": "Developer"
+        }
+    ],
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "typo3/cms-core": "^10.4|^11.5",
+        "in2code/femanager": "^7.1",
+        "derhansen/fe_change_pwd": "^3.0"
     },
-    {
-      "name": "Stephan Gonder",
-      "email": "stephan.gonder@sandstein.de",
-      "homepage": "https://www.sandstein.de",
-      "role": "Developer"
+    "autoload": {
+        "psr-4": {
+            "Slub\\DigasFeManagement\\": "Classes/"
+        }
     },
-    {
-      "name": "Felix Franz",
-      "email": "Felix.Franz@sandstein.de",
-      "homepage": "https://www.sandstein.de",
-      "role": "Developer"
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "digas_fe_management"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
     }
-  ],
-  "license": "GPL-3.0-or-later",
-  "require": {
-    "typo3/cms-core": "^10.4|^11.5",
-    "in2code/femanager": "^7.1",
-    "derhansen/fe_change_pwd": "^3.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Slub\\DigasFeManagement\\": "Classes/"
-    }
-  },
-  "extra": {
-    "typo3/cms": {
-      "extension-key": "digas_fe_management"
-    }
-  }
 }
