@@ -57,73 +57,73 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/
 
 // plugin FE_Manager extended
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Slub.DigasFeManagement',
+    'DigasFeManagement',
     'Femanagerextended',
     [
-        'Extend' => 'disable,dialog'
+        \Slub\DigasFeManagement\Controller\ExtendController::class => 'disable,dialog'
     ],
     [
-        'Extend' => 'disable,dialog'
+        \Slub\DigasFeManagement\Controller\ExtendController::class => 'disable,dialog'
     ]
 );
 
 // plugin DigasFeManagement Administration
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Slub.DigasFeManagement',
+    'DigasFeManagement',
     'Administration',
     [
-        'Administration' => 'list,show,editUser,deactivateUser,updateUser'
+        \Slub\DigasFeManagement\Controller\AdministrationController::class => 'list,show,editUser,deactivateUser,updateUser'
     ],
     [
-        'Administration' => 'list,show,editUser,deactivateUser,updateUser'
+        \Slub\DigasFeManagement\Controller\AdministrationController::class => 'list,show,editUser,deactivateUser,updateUser'
     ]
 );
 
 // plugin DigasFeManagement Administration - Access Kitodo Documents
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Slub.DigasFeManagement',
+    'DigasFeManagement',
     'Access',
     [
-        'Access' => 'list,approve,rejectReason,reject,new,create,informUser'
+        \Slub\DigasFeManagement\Controller\AccessController::class => 'list,approve,rejectReason,reject,new,create,informUser'
     ],
     [
-        'Access' => 'list,approve,rejectReason,reject,new,create,informUser'
+        \Slub\DigasFeManagement\Controller\AccessController::class => 'list,approve,rejectReason,reject,new,create,informUser'
     ]
 );
 
 // plugin DigasFeManagement Statistic
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Slub.DigasFeManagement',
+    'DigasFeManagement',
     'Statistic',
     [
-        'Statistic' => 'downloadLink,view,viewSingle,administration'
+        \Slub\DigasFeManagement\Controller\StatisticController::class => 'downloadLink,view,viewSingle,administration'
     ],
     [
-        'Statistic' => 'downloadLink,view,viewSingle,administration'
+        \Slub\DigasFeManagement\Controller\StatisticController::class => 'downloadLink,view,viewSingle,administration'
     ]
 );
 
 // plugin save search
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Slub.DigasFeManagement',
+    'DigasFeManagement',
     'Search',
     [
-        'Search' => 'list,save,delete,create'
+        \Slub\DigasFeManagement\Controller\SearchController::class => 'list,save,delete,create'
     ],
     [
-        'Search' => 'list,save,delete,create'
+        \Slub\DigasFeManagement\Controller\SearchController::class => 'list,save,delete,create'
     ]
 );
 
 // plugin request kitodo documents from basket
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Slub.DigasFeManagement',
+    'DigasFeManagement',
     'Basket',
     [
-        'Basket' => 'index,request,overview'
+        \Slub\DigasFeManagement\Controller\BasketController::class => 'index,request,overview'
     ],
     [
-        'Basket' => 'index,request,overview'
+        \Slub\DigasFeManagement\Controller\BasketController::class => 'index,request,overview'
     ]
 );
 
