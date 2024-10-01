@@ -182,7 +182,7 @@ class BasketController extends AbstractController
         $documents = array_merge($this->documents['newDocumentRequests'], $this->documents['rejectedDocumentRequests']);
 
         if (empty($documents)) {
-            $this->redirect('index', 'Basket', 'DigasFeManagement');
+            $this->redirect('index');
         }
 
         $this->view->assignMultiple([
@@ -245,7 +245,7 @@ class BasketController extends AbstractController
                     'DigasFeManagement'
                 )
             );
-            $this->redirect('index', 'Basket', 'DigasFeManagement', ['request' => ['sent' => true]]);
+            $this->redirect('index', null, null, ['request' => ['sent' => true]]);
         } else {
             $this->addFlashMessage(
                 LocalizationUtility::translate(
@@ -257,7 +257,7 @@ class BasketController extends AbstractController
             );
         }
 
-        $this->redirect('index', 'Basket', 'DigasFeManagement');
+        $this->redirect('index');
     }
 
     /**
