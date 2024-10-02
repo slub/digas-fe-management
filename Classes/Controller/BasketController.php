@@ -100,7 +100,7 @@ class BasketController extends AbstractController
                 foreach ($documents as $document) {
                     $kitodoDocuments[] = $document->getRecordId();
                 }
-                setcookie('dlf-requests', json_encode($kitodoDocuments), '', '/');
+                setcookie('dlf-requests', json_encode($kitodoDocuments), 0, '/');
             }
         }
 
@@ -234,7 +234,7 @@ class BasketController extends AbstractController
                 }
             }
 
-            setcookie('dlf-requests', '[]', '', '/');
+            setcookie('dlf-requests', '[]', 0, '/');
 
             $message = !empty($this->requestParams['message']) ? $this->requestParams['message'] : '';
             $this->sendRequestAccessMail($documents, $message);

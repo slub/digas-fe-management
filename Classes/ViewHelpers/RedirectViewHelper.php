@@ -85,7 +85,7 @@ class RedirectViewHelper extends PageViewHelper
         // add ID to cookie 'dlf-request' if ID is not already contained
         if (!in_array($newKitodoRequestId, $kitodoRequestIds)) {
             array_push($kitodoRequestIds, $newKitodoRequestId);
-            setcookie('dlf-requests', json_encode($kitodoRequestIds), '', '/');
+            setcookie('dlf-requests', json_encode($kitodoRequestIds), 0, '/');
         }
     }
 }
