@@ -78,15 +78,6 @@ class User extends \In2code\Femanager\Domain\Model\User
     protected $hidden;
 
     /**
-     * Sets the inactivemessageTstamp
-     *
-     * @param \DateTime $inactivemessageTstamp
-     * @return void
-     * @var int
-     */
-    protected $isOnline = false;
-
-    /**
      * oldAccount
      *
      * @var int
