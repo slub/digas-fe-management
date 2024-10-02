@@ -73,17 +73,17 @@ class DeleteInactiveAccountsCommand extends DigasBaseCommand
         parent::execute($input, $output);
 
         $deleteCounter = 0;
-        $timespan = null;
+        $timeSpan = 0;
         if (MathUtility::canBeInterpretedAsInteger($input->getArgument('timespan'))) {
-            $timespan = MathUtility::forceIntegerInRange((int)$input->getArgument('timespan'), 0);
+            $timeSpan = MathUtility::forceIntegerInRange((int)$input->getArgument('timespan'), 0);
         }
-        if ($timespan <= 0) {
+        if ($timeSpan <= 0) {
             $this->io->error('"timespan" has to a positive integer value. Abort.');
             return 1;
         }
-        $deleteTimespan = time() - (60 * 60 * (int)$timespan);
+        $deleteTimeSpan = time() - (60 * 60 * (int)$timeSpan);
 
-        $feUsers = $this->UserRepository->findInactiveAccounts($deleteTimespan, $this->feUserGroups);
+        $feUsers = $this->UserRepository->findInactiveAccounts($deleteTimeSpan, $this->feUserGroups);
 
         if (!empty($feUsers)) {
             $deleteCounter = $this->deleteFeUsers($feUsers);
