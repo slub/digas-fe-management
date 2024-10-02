@@ -26,13 +26,19 @@
             "email": "Felix.Franz@sandstein.de",
             "homepage": "https://www.sandstein.de",
             "role": "Developer"
+        },
+        {
+            "name": "Beatrycze Volk",
+            "email": "Beatrycze.Volk@slub-dresden.de",
+            "homepage": "https://www.slub-dresden.de",
+            "role": "Developer"
         }
     ],
     "license": "GPL-3.0-or-later",
     "require": {
         "typo3/cms-core": "^10.4|^11.5",
-        "in2code/femanager": "^7.1",
-        "derhansen/fe_change_pwd": "^3.0"
+        "in2code/femanager": "^7.2",
+        "derhansen/fe_change_pwd": "^3.1"
     },
     "autoload": {
         "psr-4": {
