@@ -61,7 +61,7 @@
 				<source><![CDATA[Kitodo document uid]]></source>
 				<target><![CDATA[Kitodo uid]]></target>
 			</trans-unit>
-			<trans-unit id="tx_digasfemanagement_domain_model_access.endtime" approved="yes">
+			<trans-unit id="tx_digasfemanagement_domain_model_access.end_time" approved="yes">
 				<source><![CDATA[Access end]]></source>
 				<target><![CDATA[Zugriff ende]]></target>
 			</trans-unit>
@@ -85,7 +85,7 @@
 				<source><![CDATA[Rejected reason]]></source>
 				<target><![CDATA[Zugriff verweigert Begründung]]></target>
 			</trans-unit>
-			<trans-unit id="tx_digasfemanagement_domain_model_access.starttime" approved="yes">
+			<trans-unit id="tx_digasfemanagement_domain_model_access.start_time" approved="yes">
 				<source><![CDATA[Access start]]></source>
 				<target><![CDATA[Zugriff start]]></target>
 			</trans-unit>

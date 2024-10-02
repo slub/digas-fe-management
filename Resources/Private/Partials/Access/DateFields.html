@@ -3,9 +3,9 @@
         <label class="access-control-label">
             <f:translate key="access.list.starttime" />
         </label>
-        <f:if condition="{access.starttime} > 0">
+        <f:if condition="{access.startTime} > 0">
             <f:then>
-                <f:format.date date="{access.starttime}" format="%d.%m.%Y" />
+                <f:format.date date="{access.startTime}" format="%d.%m.%Y" />
             </f:then>
             <f:else>
                 <f:format.date date="today" format="%d.%m.%Y" />
@@ -19,9 +19,9 @@
             <f:translate key="access.list.endtime" />
         </label>
 
-        <f:if condition="{access.endtime} > 0">
+        <f:if condition="{access.endTime} > 0">
             <f:then>
-                <f:variable name="endDateValue" value="{access.endtime->f:format.date(format:'%Y-%m-%d')}" />
+                <f:variable name="endDateValue" value="{access.endTime->f:format.date(format:'%Y-%m-%d')}" />
             </f:then>
             <f:else>
                 <f:variable name="endDateValue" value="{f:if(condition:settings.access.endTimeFieldDefaultValue,then:'{f:format.date(date:settings.access.endTimeFieldDefaultValue,format:\'%Y-%m-%d\')}')}" />
@@ -34,14 +34,14 @@
                     maxlength="10"
                     type="date"
                     required="required"
-                    property="endtimeString"
+                    property="endTimeString"
                     value="{endDateValue}"
                     readonly="{f:if(condition:isAdminUser, then: '', else: 'readonly')}"
                     additionalAttributes="{min:'{f:format.date(date:\'today + 1 day\',format:\'%Y-%m-%d\')}'}"/>
             </f:then>
             <f:else>
-                <f:if condition="{access.endtime} > 0">
-                    <f:format.date date="{access.endtime}" format="%d.%m.%Y" />
+                <f:if condition="{access.endTime} > 0">
+                    <f:format.date date="{access.endTimeString}" format="%d.%m.%Y" />
                 </f:if>
             </f:else>
         </f:if>

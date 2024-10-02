@@ -102,7 +102,7 @@ class AccessRepository extends Repository
     public function findAccessGrantedEntriesByUser(int $feUserId): array
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->tableName)->createQueryBuilder();
-        // starttime + endtime get checked by typo3 core logic
+        // start_time + end_time get checked by typo3 core logic
         //remove hidden restriction
         $queryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
 
@@ -130,7 +130,7 @@ class AccessRepository extends Repository
     public function findAccessGrantedUsers()
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->tableName)->createQueryBuilder();
-        // starttime + endtime get checked by typo3 core logic
+        // start_time + end_time get checked by typo3 core logic
         //remove hidden restriction
         $queryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
 
@@ -160,7 +160,7 @@ class AccessRepository extends Repository
         $rows = $queryBuilder->select('*')
             ->where(
                 $queryBuilder->expr()->eq($this->tableName . '.expire_notification', 0),
-                $queryBuilder->expr()->lte($this->tableName . '.endtime', $expirationTimestamp)
+                $queryBuilder->expr()->lte($this->tableName . '.end_time', $expirationTimestamp)
             )
             ->from($this->tableName)
             ->groupBy($this->tableName . '.fe_user')
@@ -180,11 +180,11 @@ class AccessRepository extends Repository
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->tableName)->createQueryBuilder();
 
-        // starttime + endtime get checked by typo3 core logic
+        // start_time + end_time get checked by typo3 core logic
         $rows = $queryBuilder->select('*')
             ->where(
                 $queryBuilder->expr()->eq($this->tableName . '.expire_notification', 0),
-                $queryBuilder->expr()->lte($this->tableName . '.endtime', $expirationTimestamp),
+                $queryBuilder->expr()->lte($this->tableName . '.end_time', $expirationTimestamp),
                 $queryBuilder->expr()->eq($this->tableName . '.fe_user', $feUserId)
             )
             ->from($this->tableName)
