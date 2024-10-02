@@ -123,7 +123,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
      * Update access model object and set accessGrantedNotification
      *
      * @param Access $accessEntry
-     * @param string $notificationTimestamp
+     * @param int $notificationTimestamp
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      */
