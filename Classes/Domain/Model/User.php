@@ -355,7 +355,7 @@ class User extends \In2code\Femanager\Domain\Model\User
     /**
      * Sets the savedSearches
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Search> $icons
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Search> $savedSearches
      * @return void
      */
     public function setSavedSearches(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $savedSearches)
@@ -492,7 +492,7 @@ class User extends \In2code\Femanager\Domain\Model\User
     /**
      * Sets the kitodoDocumentAccess
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Access> $icons
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DigasFeManagement\Domain\Model\Access> $kitodoDocumentAccess
      * @return void
      */
     public function setKitodoDocumentAccess(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $kitodoDocumentAccess)
