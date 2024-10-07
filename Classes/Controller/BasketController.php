@@ -224,11 +224,11 @@ class BasketController extends AbstractController
                 foreach ($this->documents['rejectedDocumentRequests'] as $accessRejectedNewRequest) {
                     $accessRejectedNewRequest->setExpireNotification(0);
                     $accessRejectedNewRequest->setAccessGrantedNotification(0);
-                    $accessRejectedNewRequest->setRejected(0);
-                    $accessRejectedNewRequest->setHidden(1);
+                    $accessRejectedNewRequest->setRejected(false);
+                    $accessRejectedNewRequest->setHidden(true);
                     $accessRejectedNewRequest->setStartTime(0);
                     $accessRejectedNewRequest->setEndTime(0);
-                    $accessRejectedNewRequest->setInformUser(0);
+                    $accessRejectedNewRequest->setInformUser(false);
                     $this->accessRepository->update($accessRejectedNewRequest);
                     $documents[] = $accessRejectedNewRequest;
                 }
