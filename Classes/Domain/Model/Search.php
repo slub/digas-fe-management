@@ -124,7 +124,7 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the feUser
      *
-     * @return string $feUser
+     * @return int $feUser
      */
     public function getFeUser()
     {
@@ -134,7 +134,7 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the feUser
      *
-     * @param string $feUser
+     * @param int $feUser
      * @return void
      */
     public function setFeUser($feUser)
