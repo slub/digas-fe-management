@@ -97,7 +97,7 @@ class AdministrationController extends AbstractController
     public function editUserAction(User $user)
     {
         if (!empty($user) && !empty($user->getUid())) {
-            $token = GeneralUtility::hmac($user->getUid(), (string)$user->getCrdate()->getTimestamp());
+            $token = GeneralUtility::hmac((string)$user->getUid(), (string)$user->getCrdate()->getTimestamp());
 
             /** @var UserGroup[] $feUserGroup */
             $feUserGroup = $user->getUsergroup()->getArray();

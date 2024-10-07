@@ -55,7 +55,7 @@ class SearchController extends AbstractController
 
         $this->view->assignMultiple([
             'savedSearches' => $this->searchRepository->findByFeUser($userUid),
-            'token' => GeneralUtility::hmac($userUid, (string) $this->user->getCrdate()->getTimestamp()),
+            'token' => GeneralUtility::hmac((string)$userUid, (string) $this->user->getCrdate()->getTimestamp()),
             'user' => $userUid
         ]);
     }
