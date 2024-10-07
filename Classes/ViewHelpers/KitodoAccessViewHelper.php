@@ -27,6 +27,7 @@ namespace Slub\DigasFeManagement\ViewHelpers;
 
 use Slub\DigasFeManagement\Domain\Model\User;
 use Slub\DigasFeManagement\Domain\Repository\UserRepository;
+use Slub\SlubWebDigas\Domain\Model\KitodoDocument;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -113,7 +114,7 @@ class KitodoAccessViewHelper extends AbstractViewHelper
              */
             $currentUser = $userRepository->findByUid($GLOBALS['TSFE']->fe_user->user['uid']);
             //get accessible documents of current fe_user
-            $accessIds = KitodoAccessViewHelper::getKitodoDocmentAccessIdsAsArray($currentUser->getKitodoDocumentAccess());
+            $accessIds = KitodoAccessViewHelper::getKitodoDocumentAccessIdsAsArray($currentUser->getKitodoDocumentAccess());
 
             return in_array($kitodoDocument['record_id'], $accessIds);
         }
@@ -140,7 +141,7 @@ class KitodoAccessViewHelper extends AbstractViewHelper
      * @param ObjectStorage $kitodoDocumentAccess
      * @return array
      */
-    protected static function getKitodoDocmentAccessIdsAsArray(ObjectStorage $kitodoDocumentAccess) : array
+    protected static function getKitodoDocumentAccessIdsAsArray(ObjectStorage $kitodoDocumentAccess) : array
     {
         $accessIds = [];
 
@@ -157,7 +158,7 @@ class KitodoAccessViewHelper extends AbstractViewHelper
      * fetch dlf document by uid
      *
      * @param int $uid
-     * @return void
+     * @return KitodoDocument
      */
     protected static function getDlfDocument(int $uid) {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
