@@ -121,7 +121,6 @@ class AdministrationController extends AbstractController
      * @param User $user
      * @TYPO3\CMS\Extbase\Annotation\Validate("Slub\DigasFeManagement\Domain\Validator\ServersideValidator", param="user")
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      */
     public function updateUserAction(User $user)
     {
@@ -187,7 +186,6 @@ class AdministrationController extends AbstractController
      * @param User $user
      * @return void
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      * @see \In2code\Femanager\Controller\EditController::redirectIfDirtyObject()
      *
      */

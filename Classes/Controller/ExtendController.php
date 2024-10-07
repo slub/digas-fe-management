@@ -32,7 +32,6 @@ use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
-use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 
 /**
@@ -64,7 +63,7 @@ class ExtendController extends AbstractController
                 $this->controllerContext->getFlashMessageQueue('extbase.flashmessages.tx_femanager_pi1')->getAllMessagesAndFlush();
                 //redirect
                 $this->redirectToKitodoView(['tx_dlf' => $kitodoParams]);
-            } catch (StopActionException | UnsupportedRequestTypeException $e) {
+            } catch (StopActionException $e) {
             }
         }
         elseif ($femanagerParams['action'] === 'create') {
@@ -86,7 +85,7 @@ class ExtendController extends AbstractController
             $GLOBALS["TSFE"]->fe_user->setKey("ses", $this->settings['dialog']['cookieName'], true);
             try {
                 $this->redirectToKitodoView(['tx_dlf' => $kitodoParams]);
-            } catch (StopActionException | UnsupportedRequestTypeException $e) {
+            } catch (StopActionException $e) {
             }
         }
 
@@ -98,7 +97,6 @@ class ExtendController extends AbstractController
     /**
      * @param array $parameters
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      */
     protected function redirectToKitodoView(array $parameters)
     {
@@ -184,7 +182,7 @@ class ExtendController extends AbstractController
                     ->build();
                 try {
                     $this->redirectToUri($uri, null, 404);
-                } catch (StopActionException | UnsupportedRequestTypeException $e) {
+                } catch (StopActionException $e) {
                 }
             }
         }
