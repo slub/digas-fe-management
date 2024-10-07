@@ -74,7 +74,7 @@ class ExtendController extends AbstractController
         // check if fe_user exists OR cookie for private usage is set
         // return empty string
         if ($user || $GLOBALS["TSFE"]->fe_user->getKey("ses", $this->settings['dialog']['cookieName'])) {
-            return '';
+            return;
         }
 
         //get request arguments
