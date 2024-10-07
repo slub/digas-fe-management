@@ -26,6 +26,7 @@ namespace Slub\DigasFeManagement\Controller;
  ***************************************************************/
 
 use In2code\Femanager\Utility\LocalizationUtility;
+use Psr\Http\Message\ResponseInterface;
 use Slub\DigasFeManagement\Domain\Model\User;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
@@ -52,16 +53,16 @@ class NewController extends \In2code\Femanager\Controller\NewController
      * Render registration form
      *
      * @param User|\In2code\Femanager\Domain\Model\User $user
-     * @return void
+     * @return ResponseInterface
      */
-    public function newAction(\In2code\Femanager\Domain\Model\User $user = null)
+    public function newAction(\In2code\Femanager\Domain\Model\User $user = null): ResponseInterface
     {
         //get kitodo ID if set
         $kitodoParams = GeneralUtility::_GET('tx_dlf');
         $this->view->assign('kitodoParams', $kitodoParams);
 
         $this->view->assign('currentUser', $this->user);
-        parent::newAction($user);
+        return parent::newAction($user);
     }
 
     /**
