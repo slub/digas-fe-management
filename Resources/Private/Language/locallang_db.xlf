@@ -111,10 +111,10 @@
             <trans-unit id="tx_digasfemanagement_domain_model_access">
                 <source>Kitodo FE user access</source>
             </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.starttime">
+            <trans-unit id="tx_digasfemanagement_domain_model_access.start_time">
                 <source>Access start</source>
             </trans-unit>
-            <trans-unit id="tx_digasfemanagement_domain_model_access.endtime">
+            <trans-unit id="tx_digasfemanagement_domain_model_access.end_time">
                 <source>Access end</source>
             </trans-unit>
             <trans-unit id="tx_digasfemanagement_domain_model_access.dlf_document">

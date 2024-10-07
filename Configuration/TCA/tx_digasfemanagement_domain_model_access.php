@@ -12,8 +12,8 @@ return [
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'hidden',
-            'starttime' => 'starttime',
-            'endtime' => 'endtime',
+            'start_time' => 'start_time',
+            'end_time' => 'end_time',
         ],
         'searchFields' => '',
         'iconfile' => 'EXT:digas_fe_management/Resources/Public/Icons/tx_digasfemanagement_domain_model_access.gif'
@@ -28,7 +28,7 @@ return [
             'showitem' => 'dlf_document,record_id,',
         ],
         'access_dlf_documents' => [
-            'showitem' => 'hidden,rejected,--linebreak--,starttime,endtime,--linebreak--,',
+            'showitem' => 'hidden,rejected,--linebreak--,start_time,end_time,--linebreak--,',
         ],
         'access_notifications' => [
             'showitem' => 'access_granted_notification,expire_notification, inform_user',
@@ -50,8 +50,8 @@ return [
                 'default' => 1
             ],
         ],
-        'starttime' => [
-            'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_access.starttime',
+        'start_time' => [
+            'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_access.start_time',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -60,8 +60,8 @@ return [
                 'default' => 0,
             ],
         ],
-        'endtime' => [
-            'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_access.endtime',
+        'end_time' => [
+            'label' => 'LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_access.end_time',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',

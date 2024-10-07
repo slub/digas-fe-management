@@ -226,8 +226,8 @@ class BasketController extends AbstractController
                     $accessRejectedNewRequest->setAccessGrantedNotification(0);
                     $accessRejectedNewRequest->setRejected(0);
                     $accessRejectedNewRequest->setHidden(1);
-                    $accessRejectedNewRequest->setStarttime(0);
-                    $accessRejectedNewRequest->setEndtime(0);
+                    $accessRejectedNewRequest->setStartTime(0);
+                    $accessRejectedNewRequest->setEndTime(0);
                     $accessRejectedNewRequest->setInformUser(0);
                     $this->accessRepository->update($accessRejectedNewRequest);
                     $documents[] = $accessRejectedNewRequest;

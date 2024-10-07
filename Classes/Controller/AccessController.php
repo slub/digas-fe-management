@@ -79,10 +79,10 @@ class AccessController extends AbstractController
     {
         parent::initializeAction();
 
-        // remove "disabled", "starttime" & "endtime" column to show hidden access
+        // remove "disabled", "start_time" & "end_time" column to show hidden access
         unset($GLOBALS['TCA']['tx_digasfemanagement_domain_model_access']['ctrl']['enablecolumns']['disabled']);
-        unset($GLOBALS['TCA']['tx_digasfemanagement_domain_model_access']['ctrl']['enablecolumns']['starttime']);
-        unset($GLOBALS['TCA']['tx_digasfemanagement_domain_model_access']['ctrl']['enablecolumns']['endtime']);
+        unset($GLOBALS['TCA']['tx_digasfemanagement_domain_model_access']['ctrl']['enablecolumns']['start_time']);
+        unset($GLOBALS['TCA']['tx_digasfemanagement_domain_model_access']['ctrl']['enablecolumns']['end_time']);
     }
 
     /**
@@ -123,7 +123,7 @@ class AccessController extends AbstractController
             elseif ($document->getHidden() === true) {
                 $accessPending[] = $document;
             } // access expired documents: endTime is lower than today's date
-            elseif ($document->getEndtime() < time()) {
+            elseif ($document->getEndTime() < time()) {
                 $accessExpired[] = $document;
             } // access granted documents
             else {
@@ -291,8 +291,8 @@ class AccessController extends AbstractController
             $this->forward($action, null, null, ['user' => $user, 'access' => $access, 'error' => $access->getUid()]);
         }
 
-        // set record unhidden - set starttime & endtime
-        $access->setStarttime(strtotime('today'));
+        // set record unhidden - set start_time & end_time
+        $access->setStartTimeString('today');
         $access->setHidden(false);
 
         // (re-)set reject state and reason
@@ -314,8 +314,8 @@ class AccessController extends AbstractController
     {
         $validate = true;
 
-        // starttime < endtime
-        if ($access->getEndtimeString() && $access->getEndtimeString() < strtotime("today + 1day")) {
+        // start_time < end_time
+        if ($access->getEndTime() && $access->getEndTime() < strtotime("today + 1day")) {
 
             $validate = false;
             $this->addFlashMessage(
@@ -404,8 +404,8 @@ class AccessController extends AbstractController
 
         $access->setHidden(1);
         $access->setRejected(1);
-        $access->setStarttime(0);
-        $access->setEndtime(0);
+        $access->setStartTime(0);
+        $access->setEndTime(0);
         $access->setExpireNotification(0);
         $access->setAccessGrantedNotification(0);
         $access->setInformUser(0);

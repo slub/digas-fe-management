@@ -59,32 +59,32 @@ class Access extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $hidden;
 
     /**
-     * starttimeString
-     *
-     * @var string
-     */
-    protected $starttimeString;
-
-    /**
-     * endtimeString
-     *
-     * @var string
-     */
-    protected $endtimeString;
-
-    /**
-     * starttime
+     * startTime
      *
      * @var int
      */
-    protected $starttime;
+    protected $startTime;
 
     /**
-     * endtime
+     * endTime
      *
      * @var int
      */
-    protected $endtime;
+    protected $endTime;
+
+    /**
+     * startTimeString
+     *
+     * @var string
+     */
+    protected $startTimeString;
+
+    /**
+     * endTimeString
+     *
+     * @var string
+     */
+    protected $endTimeString;
 
     /**
      * @var int Timestamp of email notification to user for granted access
@@ -202,87 +202,89 @@ class Access extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the starttime
+     * Returns the start time
      *
-     * @return string $starttime
+     * @return int $startTime
      */
-    public function getStarttime()
+    public function getStartTime()
     {
-        return $this->starttime;
+        return $this->startTime;
     }
 
     /**
-     * Sets the starttime
+     * Sets the start time
      *
-     * @param string $starttime
+     * @param int $startTime
      * @return void
      */
-    public function setStarttime($starttime)
+    public function setStartTime(int $startTime)
     {
-        $this->starttime = $starttime;
+        $this->startTime = $startTime;
     }
 
     /**
-     * Returns the endtime
+     * Returns the end time
      *
-     * @return int $endtime
+     * @return int $endTime
      */
-    public function getEndtime()
+    public function getEndTime()
     {
-        return $this->endtime;
+        return $this->endTime;
     }
 
     /**
-     * Sets the endtime
+     * Sets the end time
      *
-     * @param int $endtime
+     * @param int $endTime
      * @return void
      */
-    public function setEndtime($endtime)
+    public function setEndTime(int $endTime)
     {
-        $this->endtime = $endtime;
+        $this->endTime = $endTime;
     }
 
     /**
-     * Returns the starttimeString
+     * Returns the start time as string
      *
-     * @return int $starttimeString
+     * @return string $startTimeString
      */
-    public function getStarttimeString()
+    public function getStartTimeString()
     {
-        return $this->starttimeString;
+        return $this->startTimeString;
     }
 
     /**
-     * Sets the starttimeString
+     * Sets the start time as string
      *
-     * @param string $starttimeString
+     * @param string $startTimeString
      * @return void
      */
-    public function setStarttimeString($starttimeString)
+    public function setStartTimeString(string $startTimeString)
     {
-        $this->starttimeString = strtotime($starttimeString);
+        $this->startTime = strtotime($startTimeString);
+        $this->startTimeString = $startTimeString;
     }
 
     /**
-     * Returns the endtimeString
+     * Returns the end time as string
      *
-     * @return int $endtimeString
+     * @return int $endTimeString
      */
-    public function getEndtimeString()
+    public function getEndTimeString()
     {
-        return $this->endtimeString;
+        return $this->endTimeString;
     }
 
     /**
-     * Sets the endtimeString
+     * Sets the end time as string
      *
-     * @param int $endtimeString
+     * @param string $endTimeString
      * @return void
      */
-    public function setEndtimeString($endtimeString)
+    public function setEndTimeString(string $endTimeString)
     {
-        $this->endtimeString = strtotime($endtimeString);
+        $this->endTime = $endTimeString;
+        $this->endTimeString = strtotime($endTimeString);
     }
 
     /**

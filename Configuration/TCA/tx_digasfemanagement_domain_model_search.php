@@ -15,8 +15,8 @@ return [
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'hidden',
-            'starttime' => 'starttime',
-            'endtime' => 'endtime',
+            'start_time' => 'start_time',
+            'end_time' => 'end_time',
         ],
         'searchFields' => 'title,fe_user,search_params',
         'iconfile' => 'EXT:digas_fe_management/Resources/Public/Icons/tx_digasfemanagement_domain_model_search.gif'
