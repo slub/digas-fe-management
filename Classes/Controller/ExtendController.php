@@ -183,7 +183,7 @@ class ExtendController extends AbstractController
                     ->setTargetPageUid($this->settings['pids']['rootPage'])
                     ->build();
                 try {
-                    $this->redirectToUri($uri, 0, 404);
+                    $this->redirectToUri($uri, null, 404);
                 } catch (StopActionException | UnsupportedRequestTypeException $e) {
                 }
             }
