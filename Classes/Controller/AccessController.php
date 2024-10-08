@@ -172,7 +172,7 @@ class AccessController extends AbstractController
         /** @var Access $documentAccess */
         foreach ($user->getKitodoDocumentAccess() as $documentAccess) {
             if (!$documentAccess->getInformUser()) {
-                $documentAccess->setInformUser(1);
+                $documentAccess->setInformUser(true);
                 $this->accessRepository->update($documentAccess);
             }
         }
@@ -402,13 +402,13 @@ class AccessController extends AbstractController
              return;
         }
 
-        $access->setHidden(1);
-        $access->setRejected(1);
+        $access->setHidden(true);
+        $access->setRejected(true);
         $access->setStartTime(0);
         $access->setEndTime(0);
         $access->setExpireNotification(0);
         $access->setAccessGrantedNotification(0);
-        $access->setInformUser(0);
+        $access->setInformUser(false);
 
         if ($access->getRejectedReason()) {
             $rejectedReason = strip_tags($access->getRejectedReason());

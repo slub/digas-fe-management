@@ -108,7 +108,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
     {
         // update access entry with notification time
         $accessEntry->setAccessGrantedNotification($notificationTimestamp);
-        $accessEntry->setInformUser(0);
+        $accessEntry->setInformUser(false);
         $this->AccessRepository->update($accessEntry);
     }
 
