@@ -32,7 +32,6 @@ use Slub\DigasFeManagement\Domain\Repository\AccessRepository;
 use Slub\DigasFeManagement\Domain\Repository\KitodoDocumentRepository;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
-use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -161,7 +160,6 @@ class AccessController extends AbstractController
      * @throws IllegalObjectTypeException
      * @throws StopActionException
      * @throws UnknownObjectException
-     * @throws UnsupportedRequestTypeException
      */
     public function informUserAction(User $user)
     {
@@ -208,7 +206,6 @@ class AccessController extends AbstractController
      * @return void
      * @throws IllegalObjectTypeException
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      */
     public function createAction(User $user, Access $access)
     {
@@ -236,7 +233,6 @@ class AccessController extends AbstractController
      * @param User $user
      * @param Access $access
      * @return void
-     * @throws UnsupportedRequestTypeException
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
      * @throws StopActionException
@@ -392,7 +388,6 @@ class AccessController extends AbstractController
      * @param User $user
      * @return void
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
      */

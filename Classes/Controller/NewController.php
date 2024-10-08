@@ -29,7 +29,6 @@ use In2code\Femanager\Utility\LocalizationUtility;
 use Psr\Http\Message\ResponseInterface;
 use Slub\DigasFeManagement\Domain\Model\User;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
 
 /**
  * Class NewController
@@ -106,7 +105,6 @@ class NewController extends \In2code\Femanager\Controller\NewController
      *
      * @param User|\In2code\Femanager\Domain\Model\User $user
      * @return void
-     * @throws UnsupportedRequestTypeException
      */
     protected function createUserConfirmationRequest(\In2code\Femanager\Domain\Model\User $user)
     {

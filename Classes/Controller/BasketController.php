@@ -30,7 +30,6 @@ use In2code\Femanager\Utility\StringUtility;
 use Slub\DigasFeManagement\Domain\Model\Access;
 use Slub\SlubWebDigas\Domain\Model\KitodoDocument;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
-use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
@@ -81,7 +80,6 @@ class BasketController extends AbstractController
 
     /**
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      */
     public function initializeAction()
     {
@@ -156,7 +154,6 @@ class BasketController extends AbstractController
      *
      * @return void
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      */
     public function indexAction()
     {
@@ -197,7 +194,6 @@ class BasketController extends AbstractController
      *
      * @return void
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
      */
@@ -264,7 +260,6 @@ class BasketController extends AbstractController
      * test is user is logged in
      *
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      */
     protected function checkUserLoggedIn()
     {
