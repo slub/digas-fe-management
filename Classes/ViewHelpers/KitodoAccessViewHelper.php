@@ -124,7 +124,7 @@ class KitodoAccessViewHelper extends AbstractViewHelper
     /**
      * get extension settings
      *
-     * @return void
+     * @return array
      */
     protected static function getSettings() {
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
