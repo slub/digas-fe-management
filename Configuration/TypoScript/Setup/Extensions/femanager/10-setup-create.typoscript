@@ -93,7 +93,7 @@ plugin.tx_femanager {
     }
 }
 
-[page["uid"] in [{$femanager.pids.createInstitutional}]]
+[traverse(page, "uid") in [{$femanager.pids.createInstitutional}]]
     plugin.tx_femanager {
         # override "lastName" label
         _LOCAL_LANG.de.tx_femanager_domain_model_user.lastName = Gesetzlicher Vertreter

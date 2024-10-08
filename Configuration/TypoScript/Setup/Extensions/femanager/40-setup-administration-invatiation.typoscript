@@ -101,7 +101,7 @@ plugin.tx_femanager {
     }
 }
 
-[page["uid"] in [{$femanager.administration.createNewUser.company.pid},{$femanager.administration.createNewUser.administration.pid},{$femanager.administration.createNewUser.institutional.pid}]]
+[traverse(page, "uid") in [{$femanager.administration.createNewUser.company.pid},{$femanager.administration.createNewUser.administration.pid},{$femanager.administration.createNewUser.institutional.pid}]]
     plugin.tx_femanager {
         # override "lastName" label
         _LOCAL_LANG.de.tx_femanager_domain_model_user.lastName = Gesetzlicher Vertreter
@@ -122,7 +122,7 @@ plugin.tx_femanager {
     }
 [END]
 
-[page["uid"] == {$femanager.administration.createNewUser.private.pid}]
+[traverse(page, "uid") == {$femanager.administration.createNewUser.private.pid}]
     plugin.tx_femanager {
 
         settings {
@@ -140,7 +140,7 @@ plugin.tx_femanager {
     }
 [END]
 
-[page["uid"] == {$femanager.administration.createNewUser.company.pid}]
+[traverse(page, "uid") == {$femanager.administration.createNewUser.company.pid}]
     plugin.tx_femanager {
         settings {
             invitation {
@@ -157,7 +157,7 @@ plugin.tx_femanager {
     }
 [END]
 
-[page["uid"] == {$femanager.administration.createNewUser.administration.pid}]
+[traverse(page, "uid") == {$femanager.administration.createNewUser.administration.pid}]
     plugin.tx_femanager {
         settings {
             invitation {
@@ -174,7 +174,7 @@ plugin.tx_femanager {
     }
 [END]
 
-[page["uid"] == {$femanager.administration.createNewUser.institutional.pid}]
+[traverse(page, "uid") == {$femanager.administration.createNewUser.institutional.pid}]
     plugin.tx_femanager {
         settings {
             invitation {
