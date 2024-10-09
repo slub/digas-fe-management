@@ -5,11 +5,11 @@
 # - if private, continue with cookie
 # - if commercial, register a "temp commercial users" fe_users
 ####################################################################
-[page["uid"] == {$config.kitodoPageView}]
+[traverse(page, "uid") == {$config.kitodoPageView}]
     plugin.tx_femanager {
         # add dedicated template path
         view {
-            templateRootPaths.101 =  {$plugin.tx_femanager.view.templateRootPath}TempUser/
+            templateRootPaths.101 = {$plugin.tx_femanager.view.templateRootPath}TempUser/
         }
         # set dedicated storagePid
         persistence {

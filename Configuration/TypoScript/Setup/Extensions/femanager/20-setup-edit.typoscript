@@ -47,7 +47,7 @@ plugin.tx_femanager {
     }
 }
 
-[page["uid"] == {$femanager.pids.editProfile}]
+[traverse(page, "uid") == {$femanager.pids.editProfile}]
     plugin.tx_femanager {
         settings {
             showCompanyFields = 0
@@ -77,7 +77,7 @@ plugin.tx_femanager {
 [end]
 
 
-[page["uid"] == {$femanager.pids.editEmail}]
+[traverse(page, "uid") == {$femanager.pids.editEmail}]
     plugin.tx_femanager {
         view {
             partialRootPaths.101 =  {$plugin.tx_femanager.view.partialRootPath}ChangeEmail/

@@ -33,7 +33,7 @@ plugin.tx_femanager {
     }
 }
 
-[page["uid"] == {$femanager.administration.pids.editUserUid}]
+[traverse(page, "uid") == {$femanager.administration.pids.editUserUid}]
     plugin.tx_femanager {
         settings {
             showCompanyFields = 1
