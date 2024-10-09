@@ -55,11 +55,13 @@ plugin.tx_femanager {
     }
 [end]
 
-[getTSFE().fe_user.user["usergroup"] in [{$femanager.institutionalFeUserGroups}]]
+[frontend.user.userGroupIds in [{$femanager.institutionalFeUserGroups}]]
     plugin.tx_femanager {
         # override "lastName" label
-        _LOCAL_LANG.de.tx_femanager_domain_model_user.lastName = Gesetzlicher Vertreter
-        _LOCAL_LANG.en.tx_femanager_domain_model_user.lastName = Legal representatives
+        _LOCAL_LANG {
+            de.tx_femanager_domain_model_user.lastName = Gesetzlicher Vertreter
+            en.tx_femanager_domain_model_user.lastName = Legal representatives
+        }
 
         settings {
             showCompanyFields = 1
