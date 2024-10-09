@@ -1,4 +1,4 @@
-plugin.tx_felogin_pi1 {
+plugin.tx_felogin_login {
     redirectPageLogin = {$femanager.pids.loginPage}
     redirectPageLoginError = {$femanager.pids.loginPage}
     redirectPageLogout = {$femanager.pids.loginPage}
@@ -23,12 +23,16 @@ plugin.tx_felogin_pi1 {
         )
     }
 
-    plugin.tx_felogin_pi1 {
+    plugin.tx_felogin_login {
         _LOCAL_LANG {
-            de.logout = Jetzt anmelden
-            default.logout = Login now
-            de.ll_status_message = Falls Sie bereits einen Login besitzen, können Sie sich hier anmelden:
-            default.ll_status_message = If you already have a login, you can register here:
+            de {
+                logout = Jetzt anmelden
+                ll_status_message = Falls Sie bereits einen Login besitzen, können Sie sich hier anmelden:
+            }
+            default {
+                logout = Login now
+                ll_status_message = If you already have a login, you can register here:
+            }
         }
     }
 [end]
