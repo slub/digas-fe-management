@@ -28,9 +28,9 @@
             <f:then>
                 <f:if condition="{settings.list.pagination} && {settings.list.limitPerPage} < {f:count(subject: users)} && !{accessPending}">
                     <f:then>
-                        <f:widget.paginate objects="{users}" as="paginatedUsers" configuration="{itemsPerPage: '{settings.list.limitPerPage}', insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+                        <f:for each=="{users}" as="paginatedUsers">
                             <f:render partial="Administration/ListItems" arguments="{users:paginatedUsers,accessPending:accessPending}"/>
-                        </f:widget.paginate>
+                        </f:for>
                     </f:then>
                     <f:else>
                         <f:render partial="Administration/ListItems" arguments="{users:users,accessPending:accessPending}"/>
