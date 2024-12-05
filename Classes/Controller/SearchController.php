@@ -27,6 +27,7 @@ namespace Slub\DigasFeManagement\Controller;
 
 use In2code\Femanager\Controller\AbstractController;
 use Slub\DigasFeManagement\Domain\Model\Search;
+use Slub\DigasFeManagement\Domain\Repository\SearchRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
@@ -37,12 +38,22 @@ class SearchController extends AbstractController
 {
 
     /**
-     * searchRepository
-     *
-     * @var \Slub\DigasFeManagement\Domain\Repository\SearchRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
+     * @access protected
+     * @var SearchRepository
      */
-    protected $searchRepository = null;
+    protected SearchRepository $searchRepository;
+
+    /**
+     * @access public
+     *
+     * @param SearchRepository $searchRepository
+     *
+     * @return void
+     */
+    public function injectSearchRepository(SearchRepository $searchRepository): void
+    {
+        $this->searchRepository = $searchRepository;
+    }
 
     /**
      * action list
