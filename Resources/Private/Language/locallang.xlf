@@ -290,6 +290,9 @@
 			<trans-unit id="emailCreateUserConfirmationText4">
 				<source><![CDATA[Wenn Sie die Registrierung auf der Website nicht selbst vorgenommen haben, können Sie diese E-Mail ignorieren.]]></source>
 			</trans-unit>
+			<trans-unit id="emailCreateUserConfirmationText5">
+				<source><![CDATA[Bitte verwenden Sie als Standardbrowser Microsoft Edge oder Mozilla Firefox. Bei Verwendung des Internet Explorers als Standardbrowser kann es zu Problem kommen. Ist dies der Fall, dann nutzen Sie bitte die Passwort-Vergessen-Funktion auf der DiGA.Sax Webseite.]]></source>
+			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationTextChangeMail">
 				<source><![CDATA[Please confirm your change of e-mail request on our server by clicking the following link:]]></source>
 			</trans-unit>
