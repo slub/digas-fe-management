@@ -47,6 +47,8 @@ CREATE TABLE tx_digasfemanagement_domain_model_statistic (
 
 CREATE TABLE tx_digasfemanagement_domain_model_access (
     dlf_document int(11) DEFAULT '0' NOT NULL,
+    start_time int(11) DEFAULT '0' NOT NULL,
+    end_time int(11) DEFAULT '0' NOT NULL,
     record_id varchar(255) DEFAULT '' NOT NULL,
     fe_user int(11) unsigned DEFAULT '0' NOT NULL,
     access_granted_notification int(11) DEFAULT '0' NOT NULL,
