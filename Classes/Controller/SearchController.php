@@ -109,8 +109,8 @@ class SearchController extends AbstractController
                     'DigasFeManagement'
                 );
 
-                if (GeneralUtility::_GET('type')>0) {
-                    return $statusMessage;
+                if (GeneralUtility::_GET('type') > 0) {
+                    return;
                 }
 
                 $this->addFlashMessage($statusMessage);
