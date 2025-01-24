@@ -263,7 +263,7 @@ class BasketController extends AbstractController
      */
     protected function checkUserLoggedIn()
     {
-        if (empty($this->user) || empty($this->user->getUid())) {
+        if (empty($this->user->getUid())) {
             $uriBuilder = $this->uriBuilder;
             $uri = $uriBuilder->setTargetPageUid($this->settings['pids']['loginPage'])->build();
             $this->redirectToUri($uri);

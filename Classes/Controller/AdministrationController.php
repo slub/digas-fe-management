@@ -83,7 +83,7 @@ class AdministrationController extends AbstractController
      */
     public function showAction(User $user)
     {
-        if (!empty($user) && !empty($user->getUid())) {
+        if (!empty($user->getUid())) {
             $this->view->assign('user', $this->userRepository->findByUid($user->getUid()));
             $this->assignForAll();
         }
@@ -96,7 +96,7 @@ class AdministrationController extends AbstractController
      */
     public function editUserAction(User $user)
     {
-        if (!empty($user) && !empty($user->getUid())) {
+        if (!empty($user->getUid())) {
             $token = GeneralUtility::hmac((string)$user->getUid(), (string)$user->getCrdate()->getTimestamp());
 
             /** @var UserGroup[] $feUserGroup */
@@ -144,7 +144,7 @@ class AdministrationController extends AbstractController
      */
     public function deactivateUserAction(User $user, $setActiveState = false)
     {
-        if (!empty($user)) {
+        if (!empty($user->getUid())) {
             $this->signalSlotDispatcher->dispatch(__CLASS__, __FUNCTION__, [$user, $this]);
             $logUtility = GeneralUtility::makeInstance(LogUtility::class);
             $logUtility->log(Log::STATUS_ADMINISTRATION_PROFILE_DEACTIVATE, $user);

@@ -205,7 +205,7 @@ class DigasBaseCommand extends Command
     protected function notifyUser(User $feUser, array $userDocumentEntries)
     {
         // get fe_user data
-        if (!empty($feUser) && !empty($userDocumentEntries)) {
+        if (!empty($userDocumentEntries)) {
             $documentsList = [];
             foreach ($userDocumentEntries as $accessEntry) {
                 $documentsList[] = [
