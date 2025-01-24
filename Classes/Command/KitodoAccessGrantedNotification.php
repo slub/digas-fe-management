@@ -100,11 +100,11 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
      * Update access model object and set accessGrantedNotification
      *
      * @param Access $accessEntry
-     * @param string $notificationTimestamp
+     * @param int $notificationTimestamp
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      */
-    protected function updateAccessEntry(Access $accessEntry, $notificationTimestamp)
+    protected function updateAccessEntry(Access $accessEntry, int $notificationTimestamp)
     {
         // update access entry with notification time
         $accessEntry->setAccessGrantedNotification($notificationTimestamp);
