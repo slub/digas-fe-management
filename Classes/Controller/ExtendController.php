@@ -73,9 +73,10 @@ class ExtendController extends AbstractController
         // check if fe_user exists OR cookie for private usage is set
         // return empty string
         if ($user || $GLOBALS["TSFE"]->fe_user->getKey("ses", $this->settings['dialog']['cookieName'])) {
+            $this->view->assign('hideDialog', true);
             return;
         }
-
+   
         //get request arguments
         $arguments = $this->request->getArguments();
 
@@ -83,10 +84,7 @@ class ExtendController extends AbstractController
         if (isset($arguments['setCookie'])) {
             //set cookie for private user
             $GLOBALS["TSFE"]->fe_user->setKey("ses", $this->settings['dialog']['cookieName'], true);
-            try {
-                $this->redirectToKitodoView(['tx_dlf' => $kitodoParams]);
-            } catch (StopActionException $e) {
-            }
+            $this->redirectToKitodoView(['tx_dlf' => $kitodoParams]);
         }
 
         //add assets
