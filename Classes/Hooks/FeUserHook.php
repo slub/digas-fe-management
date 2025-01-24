@@ -104,11 +104,9 @@ class FeUserHook {
                     //login existing user with new username / email
                     $this->loginUser($userToChange);
                 } catch (UnknownObjectException $e) {
-                    new UnknownObjectException('User could not be updated. UnknownObjectException');
-                    return;
+                    throw new UnknownObjectException('User could not be updated. ' . $e->getMessage());
                 } catch (IllegalObjectTypeException $e) {
-                    new Exception('User could not be updated. IllegalObjectTypeException');
-                    return;
+                    throw new IllegalObjectTypeException('User could not be updated. ' . $e->getMessage());
                 }
             }
         }
