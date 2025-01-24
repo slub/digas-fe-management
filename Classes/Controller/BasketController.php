@@ -67,7 +67,7 @@ class BasketController extends AbstractController
     }
 
     /**
-     * @var QueryResult
+     * @var array
      */
     protected $documents;
 
