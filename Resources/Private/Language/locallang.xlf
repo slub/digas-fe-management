@@ -213,13 +213,13 @@
 				<source><![CDATA[continue]]></source>
 			</trans-unit>
 			<trans-unit id="dialog.hint">
-				<source><![CDATA[Hinweis: Ihre Antwort wird für die gesamte Sitzung verwendet. Wenn Sie für mehrereVorhaben recherchieren, müssen Sie jeweils eine neue Browser-Sitzung für DiGA.Sax starten.]]></source>
+				<source><![CDATA[Note: The selection you make will apply to the entire session. If you are conducting research for multiple purposes, please start a new browser session for each DiGA.Sax inquiry]]></source>
 			</trans-unit>
 			<trans-unit id="dialog.no">
 				<source><![CDATA[no]]></source>
 			</trans-unit>
 			<trans-unit id="dialog.question">
-				<source><![CDATA[Soll die Einsichtnahme und Nutzung der markierten Dokumente im Rahmen einer gewerblichen Tätigkeit erfolgen?]]></source>
+				<source><![CDATA[Is the review and use of the marked documents intended to be part of a commercial activity?]]></source>
 			</trans-unit>
 			<trans-unit id="dialog.title">
 				<source><![CDATA[Purpose of use]]></source>
@@ -273,25 +273,25 @@
 				<source><![CDATA[Your Account has been disabled]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationLinkConfirm">
-				<source><![CDATA[Registrierung abschließen]]></source>
+				<source><![CDATA[Complete registration]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationLinkConfirmEmail">
 				<source><![CDATA[Confirm e-mail-address]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText1">
-				<source><![CDATA[Vielen Dank für Ihre Registrierung in DiGA.Sax – dem Digitalen Geologischen Archiv Sachsens.]]></source>
+				<source><![CDATA[Thank you for your registration at DiGA.Sax - the Digital Geological Archive Saxony.]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText2">
-				<source><![CDATA[Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:]]></source>
+				<source><![CDATA[Please click on the following link to activate your user account:]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText3">
-				<source><![CDATA[Beachten Sie bitte, dass der Link nur für 24 Stunden gültig ist.]]></source>
+				<source><![CDATA[Please note that the link is only valid for 24 hours.]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText4">
-				<source><![CDATA[Wenn Sie die Registrierung auf der Website nicht selbst vorgenommen haben, können Sie diese E-Mail ignorieren.]]></source>
+				<source><![CDATA[If you did not request this registration, you can safely ignore this e-mail.]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText5">
-				<source><![CDATA[Bitte verwenden Sie als Standardbrowser Microsoft Edge oder Mozilla Firefox. Bei Verwendung des Internet Explorers als Standardbrowser kann es zu Problem kommen. Ist dies der Fall, dann nutzen Sie bitte die Passwort-Vergessen-Funktion auf der DiGA.Sax Webseite.]]></source>
+				<source><![CDATA[Please use Microsoft Edge, Mozilla Firefox or Google Chrome as your default browser. Using Internet Explorer as the default browser may cause issues. If this occurs, please use the password recovery function on the DiGA.Sax website.]]></source>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationTextChangeMail">
 				<source><![CDATA[Please confirm your change of e-mail request on our server by clicking the following link:]]></source>
@@ -318,10 +318,10 @@
 				<source><![CDATA[Delete user account]]></source>
 			</trans-unit>
 			<trans-unit id="emailInvitationText1">
-				<source><![CDATA[Ihr Benutzerkonto für DiGA.Sax - dem Digitalen Geologischen Archiv Sachsens - wurde soeben erstellt.]]></source>
+				<source><![CDATA[Your user profile for DiGA.Sax - the Digital Geological Archive Saxony - has just been created.]]></source>
 			</trans-unit>
 			<trans-unit id="emailInvitationText2">
-				<source><![CDATA[Bitte klicken Sie auf den nachfolgenden Link zur Aktivierung Ihres Benutzerkontos:]]></source>
+				<source><![CDATA[Please click on the following link to activate your user account:]]></source>
 			</trans-unit>
 			<trans-unit id="extend.disable.button">
 				<source><![CDATA[Deactivate account]]></source>
