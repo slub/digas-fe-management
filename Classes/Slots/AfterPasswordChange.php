@@ -118,13 +118,10 @@ class AfterPasswordChange
             try {
                 //update user
                 $this->userRepository->update($userToUpdate);
-
             } catch (UnknownObjectException $e) {
-                new UnknownObjectException('User could not be updated. UnknownObjectException');
-                return;
+                throw new UnknownObjectException('User could not be updated. ' . $e->getMessage());
             } catch (IllegalObjectTypeException $e) {
-                new Exception('User could not be updated. IllegalObjectTypeException');
-                return;
+                throw new IllegalObjectTypeException('User could not be updated. ' . $e->getMessage());
             }
         }
     }
