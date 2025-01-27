@@ -126,7 +126,7 @@ class StatisticController extends AbstractController
         }
 
         // check, if there is a record from the last 24h
-        $statisticEntry = $this->statisticRepository->findOneByFeUserAndDocument($this->user, $this->document->getUid());
+        $statisticEntry = $this->statisticRepository->findOneByFeUserAndDocument($this->user->getUid(), $this->document->getUid());
 
         $isUpdate = true;
 
