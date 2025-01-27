@@ -92,7 +92,7 @@ class StatisticController extends AbstractController
         $typoscriptConfiguration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
 
         if (!empty($typoscriptConfiguration['plugin.']['tx_dlf.']['persistence.']['storagePid'])) {
-            /** @var $defaultQuerySettings Typo3QuerySettings */
+            /** @var Typo3QuerySettings $defaultQuerySettings */
             $defaultQuerySettings = $this->objectManager->get(Typo3QuerySettings::class);
 
             // overwrite (probably empty) storagePid
