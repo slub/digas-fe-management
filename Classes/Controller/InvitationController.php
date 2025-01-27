@@ -64,11 +64,12 @@ class InvitationController extends \In2code\Femanager\Controller\InvitationContr
      * Set setTxFemanagerConfirmedbyuser=true
      *
      * @param \In2code\Femanager\Domain\Model\User $user
+     * @param string $hash
      * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\ServersideValidator", param="user")
      * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\PasswordValidator", param="user")
      * @return void
      */
-    public function updateAction($user)
+    public function updateAction(\In2code\Femanager\Domain\Model\User $user, $hash = null)
     {
         $user->setTxFemanagerConfirmedbyuser(true);
         parent::updateAction($user);
