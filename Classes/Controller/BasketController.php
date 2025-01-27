@@ -199,6 +199,8 @@ class BasketController extends AbstractController
      */
     public function requestAction()
     {
+        $documents = [];
+
         if (!empty($this->documents)) {
             // request new documents
             if (!empty($this->documents['newDocumentRequests'])) {
