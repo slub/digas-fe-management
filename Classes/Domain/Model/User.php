@@ -45,7 +45,7 @@ class User extends \In2code\Femanager\Domain\Model\User
     protected $deleted;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      */
     protected $inactivemessageTstamp;
 
@@ -136,7 +136,7 @@ class User extends \In2code\Femanager\Domain\Model\User
     /**
      * Get the inactivemessageTstamp
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getInactivemessageTstamp()
     {
@@ -146,7 +146,7 @@ class User extends \In2code\Femanager\Domain\Model\User
     /**
      * Sets the inactivemessageTstamp
      *
-     * @param \DateTime $inactivemessageTstamp
+     * @param \DateTime|null $inactivemessageTstamp
      * @return void
      */
     public function setInactivemessageTstamp($inactivemessageTstamp)
