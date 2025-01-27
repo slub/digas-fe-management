@@ -268,7 +268,7 @@ class Access extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the end time as string
      *
-     * @return int $endTimeString
+     * @return string $endTimeString
      */
     public function getEndTimeString()
     {
@@ -283,8 +283,8 @@ class Access extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function setEndTimeString(string $endTimeString)
     {
-        $this->endTime = $endTimeString;
-        $this->endTimeString = strtotime($endTimeString);
+        $this->endTime = strtotime($endTimeString);
+        $this->endTimeString = $endTimeString;
     }
 
     /**
