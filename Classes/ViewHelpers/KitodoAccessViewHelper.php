@@ -101,6 +101,7 @@ class KitodoAccessViewHelper extends AbstractViewHelper
 
         // check if document has public access
         // restrictions === 'nein' means, there are no restrictions.
+        // @phpstan-ignore-next-line
         if ($kitodoDocument['restrictions'] === 'nein' ) {
             return true;
         }
@@ -116,6 +117,7 @@ class KitodoAccessViewHelper extends AbstractViewHelper
             //get accessible documents of current fe_user
             $accessIds = KitodoAccessViewHelper::getKitodoDocumentAccessIdsAsArray($currentUser->getKitodoDocumentAccess());
 
+            // @phpstan-ignore-next-line
             return in_array($kitodoDocument['record_id'], $accessIds);
         }
         return false;

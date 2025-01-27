@@ -1,5 +1,18 @@
 parameters:
-    level: 5
-    paths:
-        - ../Classes/
-    treatPhpDocTypesAsCertain: false
+  ignoreErrors:
+    - '#Call to method getRecordId\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
+    - '#Call to method getTitle\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
+    - '#Call to method getUid\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
+    - '#Call to method findOneByRecordId\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
+    - '#Call to method setDefaultQuerySettings\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
+    - '#Class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument not found\.#'
+    - '#Method Slub\\DigasFeManagement\\Domain\\Repository\\KitodoDocumentRepository::dataMapQueryResult\(\) has invalid return type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
+    - '#Method Slub\\DigasFeManagement\\ViewHelpers\\KitodoAccessViewHelper::getDlfDocument\(\) has invalid return type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
+    - '#Parameter \$kitodoDocumentRepository of method Slub\\DigasFeManagement\\Controller\\StatisticController::injectKitodoDocumentRepository\(\) has invalid type Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
+    - '#Parameter \$dlfDocument of method Slub\\DigasFeManagement\\Domain\\Model\\Access::setDlfDocument\(\) has invalid type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
+    - '#Parameter \$documents of method Slub\\DigasFeManagement\\Controller\\BasketController::sendRequestAccessMail\(\) has invalid type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
+    - '#Property Slub\\DigasFeManagement\\Controller\\StatisticController::\$kitodoDocumentRepository has unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository as its type\.#'
+  level: 5
+  paths:
+    - ../Classes/
+  treatPhpDocTypesAsCertain: false
