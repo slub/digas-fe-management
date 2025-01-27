@@ -147,7 +147,7 @@ class KitodoAccessViewHelper extends AbstractViewHelper
     {
         $accessIds = [];
 
-        if (!empty($kitodoDocumentAccess)) {
+        if (!empty($kitodoDocumentAccess->toArray())) {
             foreach ($kitodoDocumentAccess as $document) {
                 array_push($accessIds, trim($document->getRecordId()));
             }
