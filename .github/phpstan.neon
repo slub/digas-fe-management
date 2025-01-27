@@ -6,12 +6,16 @@ parameters:
     - '#Call to method findOneByRecordId\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
     - '#Call to method setDefaultQuerySettings\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
     - '#Class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument not found\.#'
+    - '#Method Slub\\DigasFeManagement\\Domain\\Model\\Access::getDlfDocument\(\) has invalid return type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
+    - '#Method Slub\\DigasFeManagement\\Domain\\Model\\Statistic::getDocument\(\) has invalid return type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
     - '#Method Slub\\DigasFeManagement\\Domain\\Repository\\KitodoDocumentRepository::dataMapQueryResult\(\) has invalid return type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
     - '#Method Slub\\DigasFeManagement\\ViewHelpers\\KitodoAccessViewHelper::getDlfDocument\(\) has invalid return type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
     - '#Parameter \$kitodoDocumentRepository of method Slub\\DigasFeManagement\\Controller\\StatisticController::injectKitodoDocumentRepository\(\) has invalid type Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
     - '#Parameter \$dlfDocument of method Slub\\DigasFeManagement\\Domain\\Model\\Access::setDlfDocument\(\) has invalid type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
     - '#Parameter \$documents of method Slub\\DigasFeManagement\\Controller\\BasketController::sendRequestAccessMail\(\) has invalid type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
     - '#Property Slub\\DigasFeManagement\\Controller\\StatisticController::\$kitodoDocumentRepository has unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository as its type\.#'
+    - '#Property Slub\\DigasFeManagement\\Domain\\Model\\Access::\$dlfDocument has unknown class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument as its type\.#'
+    - '#Property Slub\\DigasFeManagement\\Domain\\Model\\Statistic::\$document has unknown class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument as its type\.#'
   level: 5
   paths:
     - ../Classes/
