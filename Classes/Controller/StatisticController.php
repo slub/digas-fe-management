@@ -109,7 +109,7 @@ class StatisticController extends AbstractController
     public function downloadLinkAction(string $id, string $countType)
     {
         // make sure, the user is logged in
-        if (empty($this->user) || empty($this->user->getUid())) {
+        if (empty($this->user->getUid())) {
             $this->view->assign('counted', -1);
             return;
         }
