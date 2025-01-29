@@ -58,13 +58,10 @@ class ExtendController extends AbstractController
 
         //check if fe_user exists AND action is create --> redirect
         if ($user && $femanagerParams['action'] === 'create') {
-            try {
-                //remove all femanager flashMessages concerning profile create / login
-                $this->controllerContext->getFlashMessageQueue('extbase.flashmessages.tx_femanager_pi1')->getAllMessagesAndFlush();
-                //redirect
-                $this->redirectToKitodoView(['tx_dlf' => $kitodoParams]);
-            } catch (StopActionException $e) {
-            }
+            //remove all femanager flashMessages concerning profile create / login
+            $this->controllerContext->getFlashMessageQueue('extbase.flashmessages.tx_femanager_pi1')->getAllMessagesAndFlush();
+            //redirect
+            $this->redirectToKitodoView(['tx_dlf' => $kitodoParams]);
         }
         elseif ($femanagerParams['action'] === 'create') {
             $this->view->assign('checkYes', true);
@@ -178,10 +175,7 @@ class ExtendController extends AbstractController
                 $uri = $uriBuilder
                     ->setTargetPageUid($this->settings['pids']['rootPage'])
                     ->build();
-                try {
-                    $this->redirectToUri($uri, null, 404);
-                } catch (StopActionException $e) {
-                }
+                $this->redirectToUri($uri, null, 404);
             }
         }
     }
