@@ -268,8 +268,6 @@ class AccessController extends AbstractController
      */
     protected function processFormData(User $user, Access $access, string $action = 'list'): Access
     {
-        $access->setEndtime($access->getEndtimeString());
-
         // set dlfDocument for new entries
         if (!$access->getDlfDocument() && $access->getRecordId() && $action === 'new') {
             $dlfDocument = $this->kitodoDocumentRepository->findDocumentsByRecordId([$access->getRecordId()]);
