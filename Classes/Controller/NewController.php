@@ -93,7 +93,9 @@ class NewController extends \In2code\Femanager\Controller\NewController
             $user->setEmail($newEmailAddress);
             $user->setUsername($newEmailAddress);
             $user->setUsergroup($this->user->getUsergroup());
+            // @phpstan-ignore-next-line
             $user->setOldAccount($this->user->getUid());
+            // @phpstan-ignore-next-line
             $user->setTxFemanagerConfirmedbyuser(false);
         }
 

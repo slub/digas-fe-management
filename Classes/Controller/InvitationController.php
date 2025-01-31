@@ -71,6 +71,7 @@ class InvitationController extends \In2code\Femanager\Controller\InvitationContr
      */
     public function updateAction(\In2code\Femanager\Domain\Model\User $user, $hash = null)
     {
+        // @phpstan-ignore-next-line
         $user->setTxFemanagerConfirmedbyuser(true);
         parent::updateAction($user);
     }

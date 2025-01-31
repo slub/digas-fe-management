@@ -71,7 +71,7 @@ class FeUserHook {
      * check if user has changed e-mail/username on login
      *
      * @param array $params
-     * @return void
+     * @return mixed
      */
     public function checkChangedUsername(&$params)
     {
