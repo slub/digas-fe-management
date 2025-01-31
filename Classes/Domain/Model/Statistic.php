@@ -95,7 +95,7 @@ class Statistic extends AbstractEntity
     /**
      * Sets the document
      *
-     * @param int $document
+     * @param \Slub\SlubWebDigas\Domain\Model\KitodoDocument $document
      * @return void
      */
     public function setDocument($document)
