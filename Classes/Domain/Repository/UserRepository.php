@@ -160,7 +160,7 @@ class UserRepository extends Repository
         $query = $this->createQuery();
         $query->getQuerySettings()->setStoragePageIds([$this->storagePid]);
 
-        /** @var User[] $user */
+        /** @var User[] */
         return $query->matching(
             $query->logicalAnd([
                 $query->in('usergroup', $tempFeUserGroups),
