@@ -71,7 +71,7 @@ class InvitationController extends \In2code\Femanager\Controller\InvitationContr
      */
     public function updateAction(\In2code\Femanager\Domain\Model\User $user, $hash = null)
     {
-        $user->setTxFemanagerConfirmedbyuser(true);
+        $user->setTxFemanagerConfirmedbyuser((bool) TRUE);
         parent::updateAction($user);
     }
 }

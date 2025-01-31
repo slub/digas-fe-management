@@ -94,7 +94,7 @@ class NewController extends \In2code\Femanager\Controller\NewController
             $user->setUsername($newEmailAddress);
             $user->setUsergroup($this->user->getUsergroup());
             $user->setOldAccount($this->user->getUid());
-            $user->setTxFemanagerConfirmedbyuser(false);
+            $user->setTxFemanagerConfirmedbyuser(FALSE);
         }
 
         parent::createAction($user);
