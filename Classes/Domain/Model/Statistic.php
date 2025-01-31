@@ -118,6 +118,7 @@ class Statistic extends AbstractEntity
      */
     public function setFeUser($feUser)
     {
+        // @phpstan-ignore-next-line
         $this->feUser = $feUser;
     }
 
