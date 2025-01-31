@@ -80,9 +80,9 @@ class StatisticRepository extends Repository
     /**
      * Filter statistic data
      *
-     * @param int|null $dateFrom
-     * @param int|null $dateTo
-     * @param int|null $feUserUid
+     * @param string|null $dateFrom
+     * @param string|null $dateTo
+     * @param string|null $feUserUid
      * @return array
      */
     public function findForFilter($dateFrom = null, $dateTo = null, $feUserUid = null)
