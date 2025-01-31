@@ -28,11 +28,9 @@ namespace Slub\DigasFeManagement\Controller;
 use In2code\Femanager\Controller\AbstractController;
 use In2code\Femanager\Utility\StringUtility;
 use Slub\DigasFeManagement\Domain\Model\Access;
-use Slub\SlubWebDigas\Domain\Model\KitodoDocument;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
-use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -275,7 +273,7 @@ class BasketController extends AbstractController
     /**
      * Send request access mail with kitodo documents and reset basket cookie
      *
-     * @param KitodoDocument[] $documents
+     * @param Access[] $documents
      * @param string $message
      * @return bool
      */
