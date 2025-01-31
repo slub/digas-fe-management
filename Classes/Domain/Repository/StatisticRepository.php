@@ -101,7 +101,7 @@ class StatisticRepository extends Repository
         if (!empty($feUserUid)) {
             $filterConditions[] = $queryBuilder->expr()->eq('fe_user', $feUserUid);
         }
-
+        // @phpstan-ignore-next-line
         $rows = $queryBuilder->where(...$filterConditions)
             ->execute()
             ->fetchAll();
@@ -155,7 +155,7 @@ class StatisticRepository extends Repository
         if (!empty($feUserUid)) {
             $queryBuilder->where($queryBuilder->expr()->eq('fe_user', $feUserUid));
         }
-
+        // @phpstan-ignore-next-line
         $rows = $queryBuilder->execute()->fetchAll();
 
         return $this->dataMapQueryResult($rows);

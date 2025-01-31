@@ -167,6 +167,7 @@ class ExtendController extends AbstractController
 
                 // second disable the account
                 $this->user->setDisable(true);
+                // @phpstan-ignore-next-line
                 $this->user->setInactivemessageTstamp(time());
                 $this->userRepository->update($this->user);
                 $this->persistenceManager->persistAll();

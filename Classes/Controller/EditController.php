@@ -64,7 +64,7 @@ class EditController extends \In2code\Femanager\Controller\EditController
      * @return void
      */
     public function disableAction() {
-        exit();
         $this->view->assign('user', $this->user);
+        exit();
     }
 }
