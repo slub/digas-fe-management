@@ -63,8 +63,9 @@ class SearchController extends AbstractController
     public function listAction()
     {
         $userUid = $this->user->getUid();
-        // @phpstan-ignore-next-line
+
         $this->view->assignMultiple([
+            // @phpstan-ignore-next-line
             'savedSearches' => $this->searchRepository->findByFeUser($userUid),
             'token' => GeneralUtility::hmac((string)$userUid, (string) $this->user->getCrdate()->getTimestamp()),
             'user' => $userUid
