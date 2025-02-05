@@ -263,7 +263,8 @@ class BasketController extends AbstractController
      */
     protected function checkUserLoggedIn()
     {
-        if (empty($this->user->getUid())) {
+        // @phpstan-ignore-next-line in fact user is not always set even if var definition says so
+        if (empty($this->user) || empty($this->user->getUid())) {
             $uriBuilder = $this->uriBuilder;
             $uri = $uriBuilder->setTargetPageUid($this->settings['pids']['loginPage'])->build();
             $this->redirectToUri($uri);
