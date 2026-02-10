@@ -15,8 +15,7 @@ finishers:
           replyToRecipients:
               "{email}": ""
           addHtmlPart: true
-          templateRootPaths:
-              10: "EXT:digas_fe_management/Resources/Private/Extensions/Form/"
+          templatePathAndFilename: "EXT:digas_fe_management/Resources/Private/Extensions/Form/EmailToReceiver{@format}.html"
       identifier: EmailToReceiver
     - options:
           subject: finisher.EmailToSender.subject
@@ -28,8 +27,7 @@ finishers:
           replyToRecipients:
               example@example.com: ""
           addHtmlPart: true
-          templateRootPaths:
-              10: "EXT:digas_fe_management/Resources/Private/Extensions/Form/"
+          templatePathAndFilename: "EXT:digas_fe_management/Resources/Private/Extensions/Form/EmailToSender{@format}.html"
       identifier: EmailToSender
     - options:
           subject: finisher.Confirmation.message
