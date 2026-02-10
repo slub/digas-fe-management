@@ -1,4 +1,4 @@
-<f:layout name="Email" />
+<f:layout name="Email"/>
 <f:section name="main">
     <h2>Dokumentenanfrage</h2>
 
@@ -7,19 +7,16 @@
         <tr>
             <td style="padding: 5px 10px 5px 0; font-weight: bold">Name:</td>
             <td style="padding: 5px 0">
-                <f:format.htmlentitiesDecode
-                    >{user.firstname}</f:format.htmlentitiesDecode
+                <f:format.htmlentitiesDecode>{user.firstname}</f:format.htmlentitiesDecode
                 >
-                <f:format.htmlentitiesDecode
-                    >{user.lastname}</f:format.htmlentitiesDecode
+                <f:format.htmlentitiesDecode>{user.lastname}</f:format.htmlentitiesDecode
                 >
             </td>
         </tr>
         <tr>
             <td style="padding: 5px 10px 5px 0; font-weight: bold">E-Mail:</td>
             <td style="padding: 5px 0">
-                <f:format.htmlentitiesDecode
-                    >{user.email}</f:format.htmlentitiesDecode
+                <f:format.htmlentitiesDecode>{user.email}</f:format.htmlentitiesDecode
                 >
             </td>
         </tr>
@@ -27,27 +24,15 @@
 
     <f:if condition="{message}">
         <h3>Nachricht</h3>
-        <div
-            style="
-                background: #f5f5f5;
-                padding: 15px;
-                border-left: 3px solid #5ca15c;
-                margin: 10px 0 20px 0;
-            "
-        >
-            <f:format.nl2br
-                ><f:format.htmlentitiesDecode
-                    >{message}</f:format.htmlentitiesDecode
+        <div style="background: #f5f5f5; padding: 15px; border-left: 3px solid #5ca15c; margin: 10px 0 20px 0;" >
+            <f:format.nl2br><f:format.htmlentitiesDecode>{message}</f:format.htmlentitiesDecode
                 ></f:format.nl2br
             >
         </div>
     </f:if>
 
     <h3>Angeforderte Dokumente</h3>
-    <f:render
-        partial="Basket/Table"
-        arguments="{documents:documents, showRemoveLink:0}"
-    />
+    <f:render partial="Basket/Table" arguments="{documents:documents, showRemoveLink:0}"/>
 
     <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd" />
 </f:section>
