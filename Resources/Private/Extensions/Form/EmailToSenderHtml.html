@@ -8,7 +8,9 @@
   </head>
   <body>
     <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif">
-      <h2 style="color: #519651; margin-bottom: 20px">Kontaktanfrage</h2>
+      <h2 style="color: #519651; margin-bottom: 20px">
+        <f:translate key="LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_form.xlf:contactRegisteredUsers.finisher.EmailToSender.subject" />
+      </h2>
 
       <table width="600" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0">
         <formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
@@ -16,8 +18,7 @@
             <f:then>
               <tr>
                 <td colspan="2" style="padding: 10px 0 5px 0; font-weight: bold">
-                  {formvh:translateElementProperty(element: formValue.element,
-                  property: 'label')}
+                  {formvh:translateElementProperty(element: formValue.element, property: 'label')}
                 </td>
               </tr>
               <tr>
@@ -45,8 +46,7 @@
             <f:else>
               <tr>
                 <td style="padding: 5px 10px 5px 0; font-weight: bold">
-                  {formvh:translateElementProperty(element: formValue.element,
-                  property: 'label')}
+                  {formvh:translateElementProperty(element: formValue.element, property: 'label')}
                 </td>
                 <td style="padding: 5px 0">
                   <f:if condition="{formValue.value}">
@@ -72,6 +72,10 @@
       </table>
 
       <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd" />
+
+      <p style="font-size: 12px; color: #666">
+        <f:translate key="emailNoReplyNotifyText" extensionName="digas_fe_management" />
+      </p>
     </div>
   </body>
 </html>
