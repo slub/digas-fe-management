@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
 	<file source-language="en" datatype="plaintext" original="messages" date="2022-05-11T09:28:16Z">
 		<header>
@@ -205,6 +205,12 @@
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject">
 				<source><![CDATA[[DiGA.Sax] Your request to DiGA.Sax]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.toUser.subject">
+				<source><![CDATA[You have requested the following documents:]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.toUser.message">
+				<source><![CDATA[Your message for us:]]></source>
 			</trans-unit>
 			<trans-unit id="createRequestWaitingForUserConfirm">
 				<source><![CDATA[Thank you for your request. Please check your mail account to confirm the profile.]]></source>

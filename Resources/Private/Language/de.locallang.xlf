@@ -270,6 +270,14 @@
 				<source><![CDATA[Change e-mail]]></source>
 				<target><![CDATA[E-Mail-Adresse ändern]]></target>
 			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.toUser.subject" approved="yes">
+				<source><![CDATA[You have requested the following documents]]></source>
+				<target><![CDATA[Sie haben die folgenden Dokumente angefragt:]]></target>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.toUser.message" approved="yes">
+				<source><![CDATA[Your message for us:]]></source>
+				<target><![CDATA[Ihre Nachricht an uns:]]></target>
+			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.Confirmation.message" approved="yes">
 				<source><![CDATA[Thanks for your message. We're getting back to you as soon as possible.]]></source>
 				<target><![CDATA[Vielen Dank für Ihre Nachricht. Wir melden uns schnellstmöglich bei Ihnen.]]></target>
@@ -432,7 +440,7 @@
 			</trans-unit>
 			<trans-unit id="emailDisable.text2" approved="yes">
 				<source><![CDATA[To reactivate your account, please send an email to the administrator.]]></source>
-				<target><![CDATA[Um Ihr Nutzerkonto zu reaktivieren, wenden Sie sich bitte an den Administrator.]]></target>
+				<target><![CDATA[Um Ihr Nutzerkonto zu reaktivieren, wenden Sie sich bitte an bohrarchiv@lfulg.sachsen.de.]]></target>
 			</trans-unit>
 			<trans-unit id="emailDisable.text3" approved="yes">
 				<source><![CDATA[You may register a new account. Please note, you cannot use the same email address as in this disabled account.]]></source>

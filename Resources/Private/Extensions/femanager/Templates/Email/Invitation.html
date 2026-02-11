@@ -1,47 +1,55 @@
 <f:layout name="Email" />
 
-	Email / Invitation
-
-	This mail will be send to the user, to confirm his new profile and set a password.
-	It's everytime activated.
-
-	Available variables:
-		{user} User Object
-		{hash} Hash to ensure authentication of link
+<!-- Email / Invitation
+This mail will be send to the user, to confirm his new profile and set a password.
+It's everytime activated.
+Available variables: {user} User Object {hash} Hash to ensure authentication of link
+-->
 
 <f:section name="main">
-	<p>
-        <f:translate key="emailInvitationText1" />
+  <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif">
+    <h2 style="color: #519651; margin-bottom: 20px">
+      <f:translate key="emailInvitationText1" />
+    </h2>
+
+    <p style="line-height: 1.6; color: #333; margin-bottom: 20px">
+      <f:translate key="emailInvitationText2" />
     </p>
 
-	<p>
-		<f:translate key="emailInvitationText2" />
+    <div style="margin: 30px 0; text-align: center">
+      <f:link.action
+        action="edit"
+        controller="Invitation"
+        absolute="1"
+        pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmInivitedUserPid')}"
+        arguments="{user:user, hash:hash}"
+        style="display: inline-block; background-color: #519651; color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: bold"
+      >
+        <f:translate key="emailCreateUserConfirmationLinkConfirm" />
+      </f:link.action>
+    </div>
+
+    <p style="line-height: 1.6; color: #333; margin: 30px 0 20px 0">
+      <f:translate key="emailCreateUserConfirmationText2" />
     </p>
 
-    <p>
-		<f:link.action action="edit" controller="Invitation" absolute="1" pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmInivitedUserPid')}" arguments="{user:user, hash:hash}">
-			<f:translate key="emailCreateUserConfirmationLinkConfirm" />
-		</f:link.action>
-	</p>
+    <div style="margin: 20px 0; text-align: center">
+      <f:link.action
+        action="delete"
+        controller="Invitation"
+        absolute="1"
+        pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmInivitedUserPid')}"
+        arguments="{user:user, hash:hash}"
+        style="display: inline-block; background-color: #f5f5f5; color: #666666; padding: 10px 25px; text-decoration: none; border-radius: 4px; border: 1px solid #ddd"
+      >
+        <f:translate key="emailCreateUserConfirmationLinkConfirmRefused" />
+      </f:link.action>
+    </div>
 
-    <p>
-        <f:translate key="emailCreateUserConfirmationText3"/>
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd" />
+
+    <p style="font-size: 12px; color: #666">
+      <f:translate key="emailNoReplyNotifyText" extensionName="digas_fe_management" />
     </p>
-
-    <p>
-        <f:translate key="emailCreateUserConfirmationText5"/>
-    </p>
-
-    <p>
-		<f:translate key="emailInvitationText3" />
-    </p>
-
-    <p>
-		<f:link.action action="delete" controller="Invitation" absolute="1" pageUid="{f:cObject(typoscriptObjectPath:'lib.confirmInivitedUserPid')}" arguments="{user:user, hash:hash}">
-			<f:translate key="emailInvitationLinkConfirmRefused" />
-		</f:link.action>
-	</p>
-
-	<p><f:translate key="emailNoReplyNotifyText" /></p>
-
+  </div>
 </f:section>

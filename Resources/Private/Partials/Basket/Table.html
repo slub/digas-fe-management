@@ -1,37 +1,41 @@
-<table class="fe-management-basket-entries">
+<table class="fe-management-basket-entries" style="width: 100%; border-collapse: collapse;">
     <thead>
-    <tr>
-        <th><f:translate key="basket.table.recordId"/></th>
-        <th><f:translate key="basket.table.title"/></th>
-        <f:if condition="{showRemoveLink}">
-            <th><f:translate key="basket.table.actions"/></th>
-        </f:if>
-    </tr>
-    </thead>
-    <tbody>
-    <f:for each="{documents}" as="document">
-
-        <f:comment>
-            <!--
-            document was already rejected
-            - access can be requested again
-            -->
-        </f:comment>
-        <f:if condition="{document.dlfDocument}">
-            <f:variable name="document" value="{document.dlfDocument}" />
-        </f:if>
-
-        <tr class="fe-management-basket-entry">
-            <td>{document.recordId}</td>
-            <td>{document.title}</td>
+        <tr>
+            <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">
+                <f:translate key="basket.table.recordId"/>
+            </th>
+            <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">
+                <f:translate key="basket.table.title"/>
+            </th>
             <f:if condition="{showRemoveLink}">
-                <td>
-                    <a class="fe-management-basket-remove-link" data-id="{document.recordId}" href="javascript:void(0)">
-                        <f:translate key="basket.table.actions.remove" />
-                    </a>
-                </td>
+                <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">
+                    <f:translate key="basket.table.actions"/>
+                </th>
             </f:if>
         </tr>
-    </f:for>
+    </thead>
+    <tbody>
+        <f:for each="{documents}" as="document">
+            <f:comment>
+                <!--
+                document was already rejected
+                - access can be requested again
+                -->
+            </f:comment>
+            <f:if condition="{document.dlfDocument}">
+                <f:variable name="document" value="{document.dlfDocument}" />
+            </f:if>
+            <tr class="fe-management-basket-entry">
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{document.recordId}</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{document.title}</td>
+                <f:if condition="{showRemoveLink}">
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">
+                        <a class="fe-management-basket-remove-link" data-id="{document.recordId}" href="javascript:void(0)">
+                            <f:translate key="basket.table.actions.remove" />
+                        </a>
+                    </td>
+                </f:if>
+            </tr>
+        </f:for>
     </tbody>
 </table>

@@ -54,11 +54,11 @@
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject">
 				<source>Your request to DiGA.Sax</source>
-				<target>Ihre Anfrage DiGA.Sax</target>
+				<target>Ihre Anfrage an DiGA.Sax</target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject">
 				<source>New request via DiGA.Sax</source>
-				<target>Neue Anfrage DiGA.Sax</target>
+				<target>Neue Anfrage an DiGA.Sax</target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.Confirmation.message">
 				<source>Thanks for your message. We're getting back to you as soon as possible.</source>
@@ -66,11 +66,11 @@
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsersLocal.finisher.EmailToSender.subject">
 				<source>Your request to DiGA.Sax</source>
-				<target>Ihre Anfrage DiGA.Sax</target>
+				<target>Ihre Anfrage an DiGA.Sax</target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsersLocal.finisher.EmailToReceiver.subject">
 				<source>New request via DiGA.Sax</source>
-				<target>Neue Anfrage DiGA.Sax</target>
+				<target>Neue Anfrage an DiGA.Sax</target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsersLocal.finisher.Confirmation.message">
 				<source>Thanks for your message. We're getting back to you as soon as possible.</source>
