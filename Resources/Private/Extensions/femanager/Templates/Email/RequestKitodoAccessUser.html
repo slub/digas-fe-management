@@ -1,35 +1,33 @@
-<f:layout name="Email"/>
+<f:layout name="Email" />
 
 <f:section name="main">
+  <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif">
+    <h2 style="color: #519651; margin-bottom: 20px">
+      <f:translate key="requestKitodoAccess.email.toUser.subject" extensionName="digas_fe_management" />
+    </h2>
 
-    <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif" >
-        <h2 style="color: #519651; margin-bottom: 20px">
-            <f:translate key="requestKitodoAccess.email.toUser.subject" extensionName="digas_fe_management"/>
-        </h2>
-
-    <f:render partial="Basket/Table" arguments="{documents:documents, showRemoveLink:0}"/>
+    <f:render partial="Basket/Table" arguments="{documents:documents, showRemoveLink:0}" />
 
     <f:if condition="{message}">
-        <h3>
-            <f:translate key="emailRequestKitodoAccessUserMessage" extensionName="digas_fe_management"/>
+      <h3>
+        <f:translate key="emailRequestKitodoAccessUserMessage" extensionName="digas_fe_management" />
+      </h3>
+      <blockquote style="margin: 10px 0; padding: 10px; border-left: 3px solid #519651; background-color: #f9f9f9">
+        <h3 style="line-height: 1.6; color: #333; margin-bottom: 20px">
+          <f:translate key="requestKitodoAccess.email.toUser.message" extensionName="digas_fe_management" />
         </h3>
-        <blockquote style="margin: 10px 0; padding: 10px; border-left: 3px solid #519651; background-color: #f9f9f9;" >
-            <p>
-            <h3 style="line-height: 1.6; color: #333; margin-bottom: 20px">
-                <f:translate key="requestKitodoAccess.email.toUser.message" extensionName="digas_fe_management"/>
-            </h3>
-            </p>
-            <p>
-                <f:format.nl2br><f:format.htmlentitiesDecode>{message}</f:format.htmlentitiesDecode
-                    ></f:format.nl2br
-                >
-            </p>
-        </blockquote>
+        <p>
+          <f:format.nl2br>
+            <f:format.htmlentitiesDecode>{message}</f:format.htmlentitiesDecode>
+          </f:format.nl2br>
+        </p>
+      </blockquote>
     </f:if>
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd" />
 
     <p style="font-size: 12px; color: #666">
-        <f:translate key="emailNoReplyNotifyText" extensionName="digas_fe_management"/>
+      <f:translate key="emailNoReplyNotifyText" extensionName="digas_fe_management" />
     </p>
+  </div>
 </f:section>
