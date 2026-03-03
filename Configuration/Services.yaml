@@ -1,0 +1,58 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: false
+    public: false
+
+  Slub\DigasFeManagement\:
+    resource: '../Classes/*'
+    exclude:
+      - '../Classes/Command/*'
+
+  Slub\DigasFeManagement\Command\DeleteInactiveAccountsCommand:
+    public: true
+    tags:
+      - name: console.command
+        command: 'digas-fe-management:deleteInactiveAccounts'
+        schedulable: true
+
+  Slub\DigasFeManagement\Command\RemindUnusedAccountsCommand:
+    public: true
+    tags:
+      - name: console.command
+        command: 'digas-fe-management:remindUnusedAccounts'
+        schedulable: true
+
+  Slub\DigasFeManagement\Command\DeleteDeactivatedAccountsCommand:
+    public: true
+    tags:
+      - name: console.command
+        command: 'digas-fe-management:deleteDeactivatedAccountsCommand'
+        schedulable: true
+
+  Slub\DigasFeManagement\Command\KitodoAccessGrantedNotification:
+    public: true
+    tags:
+      - name: console.command
+        command: 'digas-fe-management:kitodoAccessGrantedNotification'
+        schedulable: true
+
+  Slub\DigasFeManagement\Command\KitodoAccessExpirationNotification:
+    public: true
+    tags:
+      - name: console.command
+        command: 'digas-fe-management:kitodoAccessExpirationNotification'
+        schedulable: true
+
+  Slub\DigasFeManagement\Command\DeleteTemporaryUsersCommand:
+    public: true
+    tags:
+      - name: console.command
+        command: 'digas-fe-management:DeleteTemporaryUsersCommand'
+        schedulable: true
+
+  Slub\DigasFeManagement\EventListener\AfterPasswordChangedEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'digasFeManagement/afterPasswordUpdated'
+        event: Derhansen\FeChangePwd\Event\AfterPasswordUpdatedEvent
