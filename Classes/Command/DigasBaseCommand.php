@@ -36,7 +36,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
@@ -46,11 +46,6 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
  */
 class DigasBaseCommand extends Command
 {
-    /**
-     * @var ObjectManager
-     */
-    protected $objectManager;
-
     /**
      * @var UserRepository
      */
@@ -65,6 +60,11 @@ class DigasBaseCommand extends Command
      * @var PersistenceManager
      */
     protected $persistenceManager;
+
+    /**
+     * @var ConfigurationManagerInterface
+     */
+    protected $configurationManager;
 
     /**
      * @var SymfonyStyle
@@ -86,6 +86,20 @@ class DigasBaseCommand extends Command
      */
     protected $kitodoTempUserGroup;
 
+    public function __construct(
+        UserRepository $userRepository,
+        AccessRepository $accessRepository,
+        PersistenceManager $persistenceManager,
+        ConfigurationManagerInterface $configurationManager,
+        string $name = null
+    ) {
+        $this->UserRepository = $userRepository;
+        $this->AccessRepository = $accessRepository;
+        $this->persistenceManager = $persistenceManager;
+        $this->configurationManager = $configurationManager;
+        parent::__construct($name);
+    }
+
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
@@ -94,13 +108,9 @@ class DigasBaseCommand extends Command
     {
         parent::initialize($input, $output);
 
-        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        $this->UserRepository = $this->objectManager->get(UserRepository::class);
-        $this->AccessRepository = $this->objectManager->get(AccessRepository::class);
-        $this->persistenceManager = $this->objectManager->get(PersistenceManager::class);
-
-        $configurationManager = $this->objectManager->get('TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface');
-        $typoscriptConfiguration = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+        $typoscriptConfiguration = $this->configurationManager->getConfiguration(
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT
+        );
         if (!empty($extSettings = $typoscriptConfiguration['plugin.']['tx_femanager.']['settings.'])) {
             $this->settings = $extSettings;
             $this->UserRepository->setStoragePid($this->settings['pids.']['feUsers']);
@@ -208,6 +218,9 @@ class DigasBaseCommand extends Command
         if (!empty($userDocumentEntries)) {
             $documentsList = [];
             foreach ($userDocumentEntries as $accessEntry) {
+                if ($accessEntry->getDlfDocument() === null) {
+                    continue;
+                }
                 $documentsList[] = [
                     'recordId' => $accessEntry->getDlfDocument()->getRecordId(),
                     'documentTitle' => $accessEntry->getDlfDocument()->getTitle(),
@@ -218,6 +231,10 @@ class DigasBaseCommand extends Command
 
                 $notificationTimestamp = strtotime('now');
                 $this->updateAccessEntry($accessEntry, $notificationTimestamp);
+            }
+
+            if (empty($documentsList)) {
+                return;
             }
 
             $this->sendNotificationEmail($feUser, $documentsList);
