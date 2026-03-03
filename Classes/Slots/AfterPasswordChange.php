@@ -31,9 +31,7 @@ use In2code\Femanager\Utility\StringUtility;
 use Slub\DigasFeManagement\Domain\Model\User;
 use Slub\DigasFeManagement\Domain\Repository\UserRepository;
 use TYPO3\CMS\Core\Exception;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 
@@ -42,7 +40,7 @@ class AfterPasswordChange
     /**
      * @var UserRepository $userRepository
      */
-    protected $userRepository = null;
+    protected $userRepository;
 
     /**
      * typoscript settings from femanager
@@ -59,34 +57,21 @@ class AfterPasswordChange
     /**
      * @var SendMailService $sendMailService
      */
-    protected $sendMailService = null;
-
+    protected $sendMailService;
 
     /**
-     * initialize userRepository, user, settings, femanagerConfiguration, sendMailService
-     * @return void
+     * @var ConfigurationManagerInterface
      */
-    public function init()
-    {
-        // initialize objectManager
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+    protected $configurationManager;
 
-        // initialize UserRepository
-        $this->userRepository = $objectManager->get(UserRepository::class);
-
-        // initialize configurationManager
-        $configurationManager = $objectManager->get(ConfigurationManagerInterface::class);
-
-        // get settings for femanager mail service
-        $this->settings = $configurationManager->getConfiguration(
-                ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS, 'femanager') ?? [];
-
-        // get config for femanager mail service
-        $this->config = $configurationManager->getConfiguration(
-                ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT)['plugin.']['tx_femanager.']['settings.'] ?? [];
-
-        // invoke sendMailService
-        $this->sendMailService = $objectManager->get(SendMailService::class);
+    public function __construct(
+        UserRepository $userRepository,
+        ConfigurationManagerInterface $configurationManager,
+        SendMailService $sendMailService
+    ) {
+        $this->userRepository = $userRepository;
+        $this->configurationManager = $configurationManager;
+        $this->sendMailService = $sendMailService;
     }
 
     /**
@@ -101,8 +86,13 @@ class AfterPasswordChange
         //check if confirmation mail was already sent
         if ($GLOBALS['TSFE']->fe_user->user['pw_changed_on_confirmation'] === 0) {
 
-            //initialize
-            $this->init();
+            // get settings for femanager mail service
+            $this->settings = $this->configurationManager->getConfiguration(
+                ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS, 'femanager') ?? [];
+
+            // get config for femanager mail service
+            $this->config = $this->configurationManager->getConfiguration(
+                ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT)['plugin.']['tx_femanager.']['settings.'] ?? [];
 
             /**
              * @var User $userToUpdate
