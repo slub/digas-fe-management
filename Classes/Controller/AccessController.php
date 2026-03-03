@@ -401,7 +401,7 @@ class AccessController extends AbstractController
         $access->setEndTime(0);
         $access->setExpireNotification(0);
         $access->setAccessGrantedNotification(0);
-        $access->setInformUser(false);
+        $access->setInformUser(true);
 
         if ($access->getRejectedReason()) {
             $rejectedReason = strip_tags($access->getRejectedReason());
