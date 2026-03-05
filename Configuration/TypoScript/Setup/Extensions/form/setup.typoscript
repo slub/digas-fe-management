@@ -47,7 +47,7 @@ plugin.tx_form.settings {
     }
 }
 
-[traverse(request.getQueryParams(), 'gp-id'') > 0]
+[traverse(request.getQueryParams(), 'gp-id') > 0]
     plugin.tx_form.settings {
         formDefinitionOverrides {
             contactRegisteredUsers {
