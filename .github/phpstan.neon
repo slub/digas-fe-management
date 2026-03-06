@@ -3,7 +3,7 @@ parameters:
     - '#Call to method getRecordId\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
     - '#Call to method getTitle\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
     - '#Call to method getUid\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
-    - '#Call to method findOneByRecordId\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
+    - '#Call to method findByUid\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
     - '#Call to method setDefaultQuerySettings\(\) on an unknown class Slub\\SlubWebDigas\\Domain\\Repository\\KitodoDocumentRepository\.#'
     - '#Class Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument not found\.#'
     - '#Method Slub\\DigasFeManagement\\Domain\\Model\\Access::getDlfDocument\(\) has invalid return type Slub\\SlubWebDigas\\Domain\\Model\\KitodoDocument\.#'
