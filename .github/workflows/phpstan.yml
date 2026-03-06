@@ -17,6 +17,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           command: update
+          args: --no-security-blocking
           php_version: "7.4"
 
       - name: PHPStan Static Analysis
