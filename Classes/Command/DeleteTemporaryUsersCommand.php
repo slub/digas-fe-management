@@ -87,10 +87,10 @@ class DeleteTemporaryUsersCommand extends DigasBaseCommand
         $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timeSpan);
 
         // set storage pid for temporary fe_users
-        $this->UserRepository->setStoragePid($this->settings['pids.']['kitodoTempUserPid']);
+        $this->userRepository->setStoragePid($this->settings['pids.']['kitodoTempUserPid']);
 
         // delete temporary commercial fe_users
-        $feUsers = $this->UserRepository->findTemporaryAccounts($deleteTimestamp, $this->kitodoTempUserGroup);
+        $feUsers = $this->userRepository->findTemporaryAccounts($deleteTimestamp, $this->kitodoTempUserGroup);
 
         if (!empty($feUsers)) {
             $deleteCounter = $this->deleteFeUsers($feUsers);
