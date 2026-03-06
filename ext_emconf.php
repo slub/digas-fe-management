@@ -5,6 +5,14 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'templates',
     'author' => 'Stephan Gonder, Felix Franz, Alexander Bigga, Beatrycze Volk',
     'author_email' => 'typo3@slub-dresden.de',
+    'autoload' => [
+        'psr-4' => [
+            'Slub\\DigasFeManagement\\' => 'Classes/'
+        ],
+        'classmap' => [
+            'vendor/symfony'
+        ]
+    ],
     'state' => 'stable',
     'internal' => '',
     'uploadfolder' => '0',
