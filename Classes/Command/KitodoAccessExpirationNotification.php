@@ -103,7 +103,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
             foreach ($expireAccessUsers as $expireUser) {
                 /** @var User $feUser */
                 $feUser = $this->UserRepository->findByUid($expireUser->getFeUser());
-                if (!$feUser instanceof User) {
+                if (!($feUser instanceof User)) {
                     $this->io->warning(sprintf(
                         '[DiGA.Sax FE Management] Skip expiration notification for missing fe_user (UID: %s).',
                         $expireUser->getFeUser()

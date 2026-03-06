@@ -80,7 +80,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
             foreach ($grantedAccessUsers as $accessUser) {
                 /** @var User $feUser */
                 $feUser = $this->UserRepository->findByUid($accessUser->getFeUser());
-                if (!$feUser instanceof User) {
+                if (!($feUser instanceof User)) {
                     $this->io->warning(sprintf(
                         '[DiGA.Sax FE Management] Skip notification for missing fe_user (UID: %s).',
                         $accessUser->getFeUser()
