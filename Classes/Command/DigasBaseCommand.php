@@ -108,10 +108,11 @@ class DigasBaseCommand extends Command
     {
         parent::initialize($input, $output);
 
-        $typoscriptConfiguration = $this->configurationManager->getConfiguration(
+        $typoScriptConfiguration = $this->configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT
         );
-        if (!empty($extSettings = $typoscriptConfiguration['plugin.']['tx_femanager.']['settings.'])) {
+        $extSettings = $typoScriptConfiguration['plugin.']['tx_femanager.']['settings.'];
+        if (!empty($extSettings)) {
             $this->settings = $extSettings;
             $this->UserRepository->setStoragePid($this->settings['pids.']['feUsers']);
             $this->AccessRepository->setStoragePid($this->settings['pids.']['feUsers']);
