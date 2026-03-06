@@ -29,7 +29,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use TYPO3\CMS\Core\Utility\MathUtility;
 
 /**
  * Class DeleteDeactivatedAccountsCommand
@@ -74,17 +73,14 @@ class DeleteDeactivatedAccountsCommand extends DigasBaseCommand
         // Initialize IO
         parent::execute($input, $output);
 
-        $timeSpan = 0;
-        if (MathUtility::canBeInterpretedAsInteger($input->getArgument('timespan'))) {
-            $timeSpan = MathUtility::forceIntegerInRange((int)$input->getArgument('timespan'), 0);
-        }
+        $timespan = $this->getTimespan($input);
         $deleteCounter = 0;
-        if ($timeSpan <= 0) {
+        if ($timespan <= 0) {
             $this->io->error('"timespan" has to a positive integer value. Abort.');
             return Command::FAILURE;
         }
         $time = new \DateTime();
-        $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timeSpan);
+        $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timespan);
 
         $feUsers = $this->userRepository->findDeactivatedAccounts($deleteTimestamp, $this->feUserGroups);
 
