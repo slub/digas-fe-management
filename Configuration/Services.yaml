@@ -1,0 +1,59 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: true
+
+    Slub\DigasFeManagement\:
+        resource: "../Classes/*"
+        exclude:
+            - "../Classes/Command/*"
+
+    Slub\DigasFeManagement\Command\DeleteInactiveAccountsCommand:
+        tags:
+            - name: console.command
+              command: "digas-fe-management:deleteInactiveAccounts"
+              description: "Delete fe_users registrations which were not activated."
+              schedulable: true
+
+    Slub\DigasFeManagement\Command\RemindUnusedAccountsCommand:
+        tags:
+            - name: console.command
+              command: "digas-fe-management:remindUnusedAccounts"
+              description: "Remind fe_users which have not logged in for a while and delete them after a given timespan."
+              schedulable: true
+
+    Slub\DigasFeManagement\Command\DeleteDeactivatedAccountsCommand:
+        tags:
+            - name: console.command
+              command: "digas-fe-management:deleteDeactivatedAccountsCommand"
+              description: "Delete deactivated (disable=1) fe_users after a given timespan."
+              schedulable: true
+
+    Slub\DigasFeManagement\Command\KitodoAccessGrantedNotification:
+        tags:
+            - name: console.command
+              command: "digas-fe-management:kitodoAccessGrantedNotification"
+              description: "Notify fe_users about access granted for kitodo documents."
+              schedulable: true
+
+    Slub\DigasFeManagement\Command\KitodoAccessExpirationNotification:
+        tags:
+            - name: console.command
+              command: "digas-fe-management:kitodoAccessExpirationNotification"
+              description: "Notify fe_users about expiring kitodo documents."
+              schedulable: true
+
+    Slub\DigasFeManagement\Command\DeleteTemporaryUsersCommand:
+        tags:
+            - name: console.command
+              command: "digas-fe-management:DeleteTemporaryUsersCommand"
+              description: "Delete temporary commercial fe_users after a given timespan."
+              schedulable: true
+
+    Slub\DigasFeManagement\EventListener\AfterPasswordChangedEventListener:
+        public: false
+        tags:
+            - name: event.listener
+              identifier: "digasFeManagement/afterPasswordUpdated"
+              event: Derhansen\FeChangePwd\Event\AfterPasswordUpdatedEvent

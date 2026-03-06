@@ -27,12 +27,12 @@ namespace Slub\DigasFeManagement\Domain\Repository;
 
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Driver\Exception;
+use PDO;
 use Slub\DigasFeManagement\Domain\Model\Access;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
@@ -119,23 +119,43 @@ class AccessRepository extends Repository
     public function findAccessGrantedEntriesByUser(int $feUserId): array
     {
         $queryBuilder = $this->getQueryBuilder();
+        $rejectedQueryBuilder = $this->getQueryBuilder();
+        $currentTimestamp = time();
 
-        // start_time + end_time get checked by typo3 core logic
-        //remove hidden restriction
+        // remove hidden restriction and filter manually to ensure consistent behavior in CLI context
         $queryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
 
         $rows = $queryBuilder->select('*')
             ->where(
-                $queryBuilder->expr()->eq($this->tableName . '.access_granted_notification', 0),
-                $queryBuilder->expr()->eq($this->tableName . '.inform_user', 1),
-                $queryBuilder->expr()->eq($this->tableName . '.fe_user', $feUserId),
+                $queryBuilder->expr()->eq($this->tableName . '.access_granted_notification', $queryBuilder->createNamedParameter(0, PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq($this->tableName . '.inform_user', $queryBuilder->createNamedParameter(1, PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq($this->tableName . '.hidden', $queryBuilder->createNamedParameter(0, PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq($this->tableName . '.rejected', $queryBuilder->createNamedParameter(0, PDO::PARAM_INT)),
+                $queryBuilder->expr()->lte($this->tableName . '.start_time', $queryBuilder->createNamedParameter($currentTimestamp, PDO::PARAM_INT)),
+                $queryBuilder->expr()->gt($this->tableName . '.end_time', $queryBuilder->createNamedParameter($currentTimestamp, PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq($this->tableName . '.fe_user', $queryBuilder->createNamedParameter($feUserId, PDO::PARAM_INT))
             )
             ->from($this->tableName)
             ->orderBy($this->tableName . '.rejected','ASC')
             ->execute()
             ->fetchAllAssociative();
 
-        $dataMapper = GeneralUtility::makeInstance(ObjectManager::class)->get(DataMapper::class);
+        $rejectedQueryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
+
+        $rejectedRows = $rejectedQueryBuilder->select('*')
+            ->where(
+                $rejectedQueryBuilder->expr()->eq($this->tableName . '.access_granted_notification', $rejectedQueryBuilder->createNamedParameter(0, PDO::PARAM_INT)),
+                $rejectedQueryBuilder->expr()->eq($this->tableName . '.inform_user', $rejectedQueryBuilder->createNamedParameter(1, PDO::PARAM_INT)),
+                $rejectedQueryBuilder->expr()->eq($this->tableName . '.rejected', $rejectedQueryBuilder->createNamedParameter(1, PDO::PARAM_INT)),
+                $rejectedQueryBuilder->expr()->eq($this->tableName . '.fe_user', $rejectedQueryBuilder->createNamedParameter($feUserId, PDO::PARAM_INT))
+            )
+            ->from($this->tableName)
+            ->execute()
+            ->fetchAllAssociative();
+
+        $rows = array_merge($rows, $rejectedRows);
+
+        $dataMapper = GeneralUtility::makeInstance(DataMapper::class);
 
         return $dataMapper->map(Access::class, $rows);
     }
@@ -151,22 +171,49 @@ class AccessRepository extends Repository
     public function findAccessGrantedUsers(): array
     {
         $queryBuilder = $this->getQueryBuilder();
+        $rejectedQueryBuilder = $this->getQueryBuilder();
+        $currentTimestamp = time();
 
-        // start_time + end_time get checked by typo3 core logic
-        //remove hidden restriction
+        // remove hidden restriction and filter manually to ensure consistent behavior in CLI context
         $queryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
 
         $rows = $queryBuilder->select('*')
             ->where(
-                $queryBuilder->expr()->eq($this->tableName . '.access_granted_notification', 0),
-                $queryBuilder->expr()->eq($this->tableName . '.inform_user', true),
+                $queryBuilder->expr()->eq($this->tableName . '.access_granted_notification', $queryBuilder->createNamedParameter(0, PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq($this->tableName . '.inform_user', $queryBuilder->createNamedParameter(1, PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq($this->tableName . '.hidden', $queryBuilder->createNamedParameter(0, PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq($this->tableName . '.rejected', $queryBuilder->createNamedParameter(0, PDO::PARAM_INT)),
+                $queryBuilder->expr()->lte($this->tableName . '.start_time', $queryBuilder->createNamedParameter($currentTimestamp, PDO::PARAM_INT)),
+                $queryBuilder->expr()->gt($this->tableName . '.end_time', $queryBuilder->createNamedParameter($currentTimestamp, PDO::PARAM_INT))
             )
             ->from($this->tableName)
             ->groupBy($this->tableName . '.fe_user')
             ->execute()
             ->fetchAllAssociative();
 
-        $dataMapper = GeneralUtility::makeInstance(ObjectManager::class)->get(DataMapper::class);
+        $rejectedQueryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
+
+        $rejectedRows = $rejectedQueryBuilder->select('*')
+            ->where(
+                $rejectedQueryBuilder->expr()->eq($this->tableName . '.access_granted_notification', $rejectedQueryBuilder->createNamedParameter(0, PDO::PARAM_INT)),
+                $rejectedQueryBuilder->expr()->eq($this->tableName . '.inform_user', $rejectedQueryBuilder->createNamedParameter(1, PDO::PARAM_INT)),
+                $rejectedQueryBuilder->expr()->eq($this->tableName . '.rejected', $rejectedQueryBuilder->createNamedParameter(1, PDO::PARAM_INT))
+            )
+            ->from($this->tableName)
+            ->groupBy($this->tableName . '.fe_user')
+            ->execute()
+            ->fetchAllAssociative();
+
+        $rows = array_values(array_reduce(
+            array_merge($rows, $rejectedRows),
+            static function (array $carry, array $row): array {
+                $carry[$row['fe_user']] = $row;
+                return $carry;
+            },
+            []
+        ));
+
+        $dataMapper = GeneralUtility::makeInstance(DataMapper::class);
         return $dataMapper->map(Access::class, $rows);
     }
 
@@ -194,7 +241,7 @@ class AccessRepository extends Repository
             ->execute()
             ->fetchAllAssociative();
 
-        $dataMapper = GeneralUtility::makeInstance(ObjectManager::class)->get(DataMapper::class);
+        $dataMapper = GeneralUtility::makeInstance(DataMapper::class);
         return $dataMapper->map(Access::class, $rows);
     }
 
@@ -225,7 +272,7 @@ class AccessRepository extends Repository
             ->execute()
             ->fetchAllAssociative();
 
-        $dataMapper = GeneralUtility::makeInstance(ObjectManager::class)->get(DataMapper::class);
+        $dataMapper = GeneralUtility::makeInstance(DataMapper::class);
 
         return $dataMapper->map(Access::class, $rows);
     }

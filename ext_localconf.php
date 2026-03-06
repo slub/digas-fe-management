@@ -23,7 +23,7 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 //xclass for PHP error thrown because of extended user model
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Extbase\Mvc\Controller\Argument::class] = [
@@ -139,11 +139,4 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['postProcContent'] = [
     'Slub\DigasFeManagement\Hooks\FeUserHook->checkChangedUsername'
 ];
 
-// fe_change_pwd signal
-$signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
-$signalSlotDispatcher->connect(
-    \Derhansen\FeChangePwd\Controller\PasswordController::class,
-    'updateActionAfterUpdatePassword',
-    \Slub\DigasFeManagement\Slots\AfterPasswordChange::class,
-    'createUserNotifyMail'
-);
+// fe_change_pwd PSR-14 event listener is registered via Configuration/Services.yaml
