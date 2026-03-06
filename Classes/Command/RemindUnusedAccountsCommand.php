@@ -26,6 +26,7 @@ namespace Slub\DigasFeManagement\Command;
  ***************************************************************/
 
 use Slub\DigasFeManagement\Domain\Model\User;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -102,7 +103,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
 
         if ($this->unusedTimespan <= 0 || $this->deleteTimespan <= 0) {
             $this->io->error('"unusedTimespan" and "deleteTimespan" have to a positive integer value. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
         $this->io->text('Begin Task "remindUnusedAccounts"');
         $remindCounter = $this->remindUnusedAccounts();
@@ -112,7 +113,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $deleteCounter = $this->deleteUnusedAccounts();
         $this->io->success('Task finished successfully. Deleted fe_users entries: ' . $deleteCounter);
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     /**

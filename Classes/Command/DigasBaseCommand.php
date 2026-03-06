@@ -132,32 +132,32 @@ class DigasBaseCommand extends Command
         $this->io = new SymfonyStyle($input, $output);
         $this->io->title($this->getDescription());
 
-        // throw error if necessary typoscript configuration is missing
+        // throw error if necessary TypoScript configuration is missing
         if (empty($this->settings['pids.']['feUsers'])) {
             $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.feUsers} is not set. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
         if (empty($this->settings['pids.']['loginPage'])) {
             $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.pids.loginPage} is not set. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
 
         if (empty($this->settings['feUserGroups'])) {
             $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.feUserGroups} is not set. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
 
         if (empty($this->settings['adminName'])) {
             $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.adminName} is not set. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
 
         if (empty($this->settings['adminEmail'])) {
             $this->io->error('[DiGA.Sax FE Management] Typoscript variable {plugin.tx_femanager.settings.adminEmail} is not set. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     /**
