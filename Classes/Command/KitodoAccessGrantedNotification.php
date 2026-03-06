@@ -27,6 +27,7 @@ namespace Slub\DigasFeManagement\Command;
 
 use Slub\DigasFeManagement\Domain\Model\Access;
 use Slub\DigasFeManagement\Domain\Model\User;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Mail\MailMessage;
@@ -100,7 +101,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
 
         $this->io->success('Task finished successfully.');
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     /**
