@@ -49,27 +49,27 @@ class DigasBaseCommand extends Command
     /**
      * @var UserRepository
      */
-    protected $UserRepository;
+    protected UserRepository $userRepository;
 
     /**
      * @var AccessRepository
      */
-    protected $AccessRepository;
+    protected AccessRepository $accessRepository;
 
     /**
      * @var PersistenceManager
      */
-    protected $persistenceManager;
+    protected PersistenceManager $persistenceManager;
 
     /**
      * @var ConfigurationManagerInterface
      */
-    protected $configurationManager;
+    protected ConfigurationManagerInterface $configurationManager;
 
     /**
      * @var SymfonyStyle
      */
-    protected $io;
+    protected SymfonyStyle $io;
 
     /**
      * @var array
@@ -93,8 +93,8 @@ class DigasBaseCommand extends Command
         ConfigurationManagerInterface $configurationManager,
         string $name = null
     ) {
-        $this->UserRepository = $userRepository;
-        $this->AccessRepository = $accessRepository;
+        $this->userRepository = $userRepository;
+        $this->accessRepository = $accessRepository;
         $this->persistenceManager = $persistenceManager;
         $this->configurationManager = $configurationManager;
         parent::__construct($name);
@@ -113,8 +113,8 @@ class DigasBaseCommand extends Command
         );
         if (!empty($extSettings = $typoscriptConfiguration['plugin.']['tx_femanager.']['settings.'])) {
             $this->settings = $extSettings;
-            $this->UserRepository->setStoragePid($this->settings['pids.']['feUsers']);
-            $this->AccessRepository->setStoragePid($this->settings['pids.']['feUsers']);
+            $this->userRepository->setStoragePid($this->settings['pids.']['feUsers']);
+            $this->accessRepository->setStoragePid($this->settings['pids.']['feUsers']);
             $this->feUserGroups = explode(',', $this->settings['feUserGroups']);
             $this->kitodoTempUserGroup = explode(',', $this->settings['kitodoTempUserGroup']);
         }
@@ -172,7 +172,7 @@ class DigasBaseCommand extends Command
 
         foreach ($feUsers as $feUser) {
             try {
-                $this->UserRepository->remove($feUser);
+                $this->userRepository->remove($feUser);
                 $deleteCounter++;
             } catch (Exception $e) {
                 $this->io->error(sprintf('[DiGA.Sax FE Management] User (UID: %s) could not be deleted. Error Message: %s', $feUser->getUid(), $e->getMessage()));

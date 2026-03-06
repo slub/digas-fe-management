@@ -83,7 +83,7 @@ class DeleteInactiveAccountsCommand extends DigasBaseCommand
         }
         $deleteTimeSpan = time() - (60 * 60 * (int)$timeSpan);
 
-        $feUsers = $this->UserRepository->findInactiveAccounts($deleteTimeSpan, $this->feUserGroups);
+        $feUsers = $this->userRepository->findInactiveAccounts($deleteTimeSpan, $this->feUserGroups);
 
         if (!empty($feUsers)) {
             $deleteCounter = $this->deleteFeUsers($feUsers);
