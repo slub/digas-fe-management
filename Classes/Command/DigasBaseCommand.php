@@ -36,6 +36,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -265,6 +266,23 @@ class DigasBaseCommand extends Command
         ]);
 
         return $htmlView->render();
+    }
+
+    /**
+     * Get timespan from input.
+     *
+     * @access protected
+     *
+     * @param InputInterface $input
+     *
+     * @return int
+     */
+    protected function getTimespan(InputInterface $input): int
+    {
+        if (MathUtility::canBeInterpretedAsInteger($input->getArgument('timespan'))) {
+            return MathUtility::forceIntegerInRange((int) $input->getArgument('timespan'), 0);
+        }
+        return 0;
     }
 
     /**
