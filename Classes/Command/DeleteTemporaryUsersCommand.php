@@ -25,6 +25,7 @@ namespace Slub\DigasFeManagement\Command;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -80,17 +81,17 @@ class DeleteTemporaryUsersCommand extends DigasBaseCommand
         }
         if ($timeSpan <= 0) {
             $this->io->error('"timespan" has to a positive integer value. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
 
         $time = new \DateTime();
         $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $timeSpan);
 
         // set storage pid for temporary fe_users
-        $this->UserRepository->setStoragePid($this->settings['pids.']['kitodoTempUserPid']);
+        $this->userRepository->setStoragePid($this->settings['pids.']['kitodoTempUserPid']);
 
         // delete temporary commercial fe_users
-        $feUsers = $this->UserRepository->findTemporaryAccounts($deleteTimestamp, $this->kitodoTempUserGroup);
+        $feUsers = $this->userRepository->findTemporaryAccounts($deleteTimestamp, $this->kitodoTempUserGroup);
 
         if (!empty($feUsers)) {
             $deleteCounter = $this->deleteFeUsers($feUsers);
@@ -98,12 +99,12 @@ class DeleteTemporaryUsersCommand extends DigasBaseCommand
                 $this->persistenceManager->persistAll();
             } else {
                 $this->io->error('Task not finished successfully due to former errors.');
-                return 1;
+                return Command::FAILURE;
             }
         }
 
         $this->io->success('Task finished successfully. Deleted fe_users entries: ' . $deleteCounter);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

@@ -25,6 +25,7 @@ namespace Slub\DigasFeManagement\Command;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -79,11 +80,11 @@ class DeleteInactiveAccountsCommand extends DigasBaseCommand
         }
         if ($timeSpan <= 0) {
             $this->io->error('"timespan" has to a positive integer value. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
         $deleteTimeSpan = time() - (60 * 60 * (int)$timeSpan);
 
-        $feUsers = $this->UserRepository->findInactiveAccounts($deleteTimeSpan, $this->feUserGroups);
+        $feUsers = $this->userRepository->findInactiveAccounts($deleteTimeSpan, $this->feUserGroups);
 
         if (!empty($feUsers)) {
             $deleteCounter = $this->deleteFeUsers($feUsers);
@@ -91,12 +92,12 @@ class DeleteInactiveAccountsCommand extends DigasBaseCommand
                 $this->persistenceManager->persistAll();
             } else {
                 $this->io->error('Task not finished successfully due to former errors.');
-                return 1;
+                return Command::FAILURE;
             }
         }
 
         $this->io->success('Task finished successfully. Deleted fe_users entries: ' . $deleteCounter);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

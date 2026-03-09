@@ -27,6 +27,7 @@ namespace Slub\DigasFeManagement\Command;
 
 use Slub\DigasFeManagement\Domain\Model\Access;
 use Slub\DigasFeManagement\Domain\Model\User;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -88,7 +89,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
 
         if ($this->expirationTimestamp <= 0) {
             $this->io->error('"expirationTimestamp" has to a positive integer value. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
 
         $time = new \DateTime();
@@ -96,13 +97,13 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
 
         $this->io->text('Get fe_users with nearly expiration documents.');
         // get fe users with requests for access loop
-        $expireAccessUsers = $this->AccessRepository->findExpirationUsers($expirationTimestamp);
+        $expireAccessUsers = $this->accessRepository->findExpirationUsers($expirationTimestamp);
         $this->io->text(count($expireAccessUsers) . ' fe_users with expiring documents were found.');
 
         if (!empty($expireAccessUsers)) {
             foreach ($expireAccessUsers as $expireUser) {
                 /** @var User $feUser */
-                $feUser = $this->UserRepository->findByUid($expireUser->getFeUser());
+                $feUser = $this->userRepository->findByUid($expireUser->getFeUser());
                 if (!($feUser instanceof User)) {
                     $this->io->warning(sprintf(
                         '[DiGA.Sax FE Management] Skip expiration notification for missing fe_user (UID: %s).',
@@ -110,7 +111,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
                     ));
                     continue;
                 }
-                $expiringAccessEntries = $this->AccessRepository->findExpiringEntriesByUser($expireUser->getFeUser(), $expirationTimestamp);
+                $expiringAccessEntries = $this->accessRepository->findExpiringEntriesByUser($expireUser->getFeUser(), $expirationTimestamp);
 
                 if (!empty($expiringAccessEntries)) {
                     $this->io->text(sprintf('Notify fe_user (UID: %s) with %s expiring documents.', $expireUser->getFeUser(), count($expiringAccessEntries)));
@@ -123,7 +124,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
 
         $this->io->success('Task finished successfully.');
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     /**
@@ -138,7 +139,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
     {
         // update access entry with notification time
         $accessEntry->setExpireNotification($notificationTimestamp);
-        $this->AccessRepository->update($accessEntry);
+        $this->accessRepository->update($accessEntry);
     }
 
     /**

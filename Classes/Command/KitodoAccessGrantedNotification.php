@@ -27,6 +27,7 @@ namespace Slub\DigasFeManagement\Command;
 
 use Slub\DigasFeManagement\Domain\Model\Access;
 use Slub\DigasFeManagement\Domain\Model\User;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Mail\MailMessage;
@@ -73,13 +74,13 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
 
         $this->io->text('Get fe_users with document requests.');
         // get fe users with requests for access loop
-        $grantedAccessUsers = $this->AccessRepository->findAccessGrantedUsers();
+        $grantedAccessUsers = $this->accessRepository->findAccessGrantedUsers();
         $this->io->text(count($grantedAccessUsers) . ' fe_users with requests documents were found.');
 
         if (!empty($grantedAccessUsers)) {
             foreach ($grantedAccessUsers as $accessUser) {
                 /** @var User $feUser */
-                $feUser = $this->UserRepository->findByUid($accessUser->getFeUser());
+                $feUser = $this->userRepository->findByUid($accessUser->getFeUser());
                 if (!($feUser instanceof User)) {
                     $this->io->warning(sprintf(
                         '[DiGA.Sax FE Management] Skip notification for missing fe_user (UID: %s).',
@@ -87,7 +88,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
                     ));
                     continue;
                 }
-                $grantedAccessEntries = $this->AccessRepository->findAccessGrantedEntriesByUser($accessUser->getFeUser());
+                $grantedAccessEntries = $this->accessRepository->findAccessGrantedEntriesByUser($accessUser->getFeUser());
 
                 if (!empty($grantedAccessEntries)) {
                     $this->io->text(sprintf('Notify fe_user (UID: %s) with %s document requests.', $accessUser->getFeUser(), count($grantedAccessEntries)));
@@ -100,7 +101,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
 
         $this->io->success('Task finished successfully.');
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     /**
@@ -116,7 +117,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
         // update access entry with notification time
         $accessEntry->setAccessGrantedNotification($notificationTimestamp);
         $accessEntry->setInformUser(false);
-        $this->AccessRepository->update($accessEntry);
+        $this->accessRepository->update($accessEntry);
     }
 
     /**

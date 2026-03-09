@@ -26,6 +26,7 @@ namespace Slub\DigasFeManagement\Command;
  ***************************************************************/
 
 use Slub\DigasFeManagement\Domain\Model\User;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -102,7 +103,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
 
         if ($this->unusedTimespan <= 0 || $this->deleteTimespan <= 0) {
             $this->io->error('"unusedTimespan" and "deleteTimespan" have to a positive integer value. Abort.');
-            return 1;
+            return Command::FAILURE;
         }
         $this->io->text('Begin Task "remindUnusedAccounts"');
         $remindCounter = $this->remindUnusedAccounts();
@@ -112,7 +113,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $deleteCounter = $this->deleteUnusedAccounts();
         $this->io->success('Task finished successfully. Deleted fe_users entries: ' . $deleteCounter);
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     /**
@@ -158,14 +159,14 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $time = new \DateTime();
         $unusedTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $this->unusedTimespan);
 
-        $feUsers = $this->UserRepository->findUnusedAccounts($unusedTimestamp, $this->feUserGroups);
+        $feUsers = $this->userRepository->findUnusedAccounts($unusedTimestamp, $this->feUserGroups);
 
         if (!empty($feUsers)) {
             foreach ($feUsers as $feUser) {
                 $feUser->setInactivemessageTstamp($time);
 
                 try {
-                    $this->UserRepository->update($feUser);
+                    $this->userRepository->update($feUser);
                     $this->sendEmail($feUser);
                     $remindCounter++;
                 } catch (Exception $e) {
@@ -190,12 +191,12 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $time = new \DateTime();
         $deleteTimestamp = $time->getTimestamp() - ((60 * 60 * 24) * $this->deleteTimespan);
 
-        $feUsers = $this->UserRepository->findAccountsToDelete($deleteTimestamp, $this->feUserGroups);
+        $feUsers = $this->userRepository->findAccountsToDelete($deleteTimestamp, $this->feUserGroups);
 
         if (!empty($feUsers)) {
             foreach ($feUsers as $feUser) {
                 try {
-                    $this->UserRepository->remove($feUser);
+                    $this->userRepository->remove($feUser);
                     $deleteCounter++;
                 } catch (Exception $e) {
                     $this->io->warning(sprintf('[DiGA.Sax FE Management] User (UID: %s) could not be deleted. Error Message: %s', $feUser->getUid(), $e->getMessage()));
