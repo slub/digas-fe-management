@@ -3,14 +3,23 @@ $EM_CONF[$_EXTKEY] = [
     'title' => 'SLUB DiGA.Sax FE Management',
     'description' => 'TYPO3 extension for the DiGA.Sax frontend user management.',
     'category' => 'templates',
-    'author' => 'Stephan Gonder, Felix Franz, Alexander Bigga, Beatrycze Volk',
+    'author' => 'Alexander Bigga, Felix Franz, Stephan Gonder, Jessica Hofmann, Beatrycze Volk',
     'author_email' => 'typo3@slub-dresden.de',
-    'state' => 'beta',
+    'author_company' => 'Saxon State and University Library Dresden (SLUB)',
+    'autoload' => [
+        'psr-4' => [
+            'Slub\\DigasFeManagement\\' => 'Classes/'
+        ],
+        'classmap' => [
+            'vendor/symfony'
+        ]
+    ],
+    'state' => 'stable',
     'internal' => '',
     'uploadfolder' => '0',
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '4.0.6',
+    'version' => '4.0.7',
     'constraints' => [
         'depends' => [
             'typo3' => '10.4.0-11.5.99',
