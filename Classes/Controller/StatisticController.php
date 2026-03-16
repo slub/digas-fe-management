@@ -179,6 +179,7 @@ class StatisticController extends AbstractController
 
         $this->view->assignMultiple([
             'statistic' => $statistic['result'],
+            'totals' => $statistic['totals'],
             'dateFrom' => $statistic['dateFrom'],
             'dateTo' => $statistic['dateTo']
         ]);
@@ -204,6 +205,7 @@ class StatisticController extends AbstractController
         $this->view->assignMultiple([
             'userId' => $userId,
             'statistic' => $statistic['result'],
+            'totals' => $statistic['totals'],
             'dateFrom' => $statistic['dateFrom'],
             'dateTo' => $statistic['dateTo']
         ]);
@@ -220,9 +222,28 @@ class StatisticController extends AbstractController
 
         $this->view->assignMultiple([
             'statistic' => $statistic['result'],
+            'totals' => $statistic['totals'],
             'dateFrom' => $statistic['dateFrom'],
             'dateTo' => $statistic['dateTo']
         ]);
+    }
+
+    /**
+     * Compute totals across all statistic entries.
+     *
+     * @param array $result
+     *
+     * @return array
+     */
+    private function computeTotals(array $result): array
+    {
+        $totals = ['downloadPages' => 0, 'downloadWork' => 0, 'workViews' => 0];
+        foreach ($result as $entry) {
+            $totals['downloadPages'] += $entry->getDownloadPages();
+            $totals['downloadWork']  += $entry->getDownloadWork();
+            $totals['workViews']     += $entry->getWorkViews();
+        }
+        return $totals;
     }
 
     /**
@@ -283,16 +304,21 @@ class StatisticController extends AbstractController
         if ($requestMethod === 'POST' && $filterSubmit === true) {
             $filterParams = $this->request->getArgument('statistic');
             $statisticFilter = $this->validateStatisticFilter($filterParams);
+            $result = $this->statisticRepository->findForFilter($statisticFilter['dateFrom'], $statisticFilter['dateTo'], $userId);
 
             return [
-                'result' => $this->statisticRepository->findForFilter($statisticFilter['dateFrom'], $statisticFilter['dateTo'], $userId),
+                'result' => $result,
+                'totals' => $this->computeTotals($result),
                 'dateFrom' => $statisticFilter['dateFrom'],
                 'dateTo' => $statisticFilter['dateTo']
             ];
 
         } else {
+            $result = $this->statisticRepository->findForStatistic($userId);
+
             return [
-                'result' => $this->statisticRepository->findForStatistic($userId),
+                'result' => $result,
+                'totals' => $this->computeTotals($result),
                 'dateFrom' => null,
                 'dateTo' => date('Y-m-d')
             ];

@@ -445,6 +445,9 @@ Please login in the next %s days to avoid the account deletion.]]></source>
 			<trans-unit id="statistic.table.workViews">
 				<source><![CDATA[Views in Workview]]></source>
 			</trans-unit>
+			<trans-unit id="statistic.table.total">
+				<source><![CDATA[Gesamt]]></source>
+			</trans-unit>
 			<trans-unit id="submitChangeEmail">
 				<source><![CDATA[Change e-mail-address]]></source>
 			</trans-unit>
