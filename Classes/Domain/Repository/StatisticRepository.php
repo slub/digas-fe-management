@@ -125,7 +125,7 @@ class StatisticRepository extends Repository
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->tableName)->createQueryBuilder();
         $queryBuilder->select('*')
-            ->addSelectLiteral($queryBuilder->expr()->count('uid', 'download_work'))
+            ->addSelectLiteral($queryBuilder->expr()->sum('download_work', 'download_work'))
             ->addSelectLiteral($queryBuilder->expr()->sum('download_pages', 'download_pages'))
             ->addSelectLiteral($queryBuilder->expr()->sum('work_views', 'work_views'))
             ->from($this->tableName)
