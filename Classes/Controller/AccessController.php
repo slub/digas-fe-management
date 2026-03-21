@@ -115,7 +115,7 @@ class AccessController extends AbstractController
             if ($document->getHidden() === true && $document->getRejected() === true) {
                 $accessRejected[] = $document;
                 // documents about whose rejections the user has not yet been informed
-                if (!$document->getInformUser() && !$document->getAccessGrantedNotification()) {
+                if (!$document->getAccessGrantedNotification()) {
                     $informUser++;
                 }
             } // access pending documents: hidden is true
@@ -128,7 +128,7 @@ class AccessController extends AbstractController
             else {
                 $accessGranted[] = $document;
                 // documents about whose access the user has not yet been informed
-                if (!$document->getInformUser() && !$document->getAccessGrantedNotification()) {
+                if (!$document->getAccessGrantedNotification()) {
                     $informUser++;
                 }
             }
