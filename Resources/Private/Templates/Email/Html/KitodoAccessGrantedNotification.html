@@ -1,5 +1,10 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-<div>
+<div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif">
+
+    <h2 style="color: #519651; margin-bottom: 20px">
+        <f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.subject"/>
+    </h2>
+
     <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessGranted"/></p>
     <ul>
     <f:for each="{documentsList}" as="accessGrantedEntry">
@@ -8,7 +13,9 @@
         </f:if>
     </f:for>
     </ul>
-    <hr/>
+
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd"/>
+
     <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessRejected"/></p>
     <ul>
         <f:for each="{documentsList}" as="accessGrantedEntry">
@@ -16,15 +23,24 @@
                 <li>
                     {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle}
                     <f:if condition="{accessGrantedEntry.rejectedReason}">
-                        <br/><f:translate extensionName="DigasFeManagement" key="tx_digasfemanagement_domain_model_access.rejected_reason"/>
+                        <br/><f:translate key="LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_access.rejected_reason"/>:
                         <em><f:format.nl2br>{accessGrantedEntry.rejectedReason}</f:format.nl2br></em>
                     </f:if>
                 </li>
             </f:if>
         </f:for>
     </ul>
-    <hr/>
+
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd"/>
+
     <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.messageLogin"/></p>
     <p><f:link.external uri="{loginUrl}">{loginUrl}</f:link.external></p>
+
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd"/>
+
+    <p style="font-size: 12px; color: #666">
+        <f:translate key="emailNoReplyNotifyText" extensionName="DigasFeManagement" />
+    </p>
+
 </div>
 </html>
