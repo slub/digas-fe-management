@@ -362,6 +362,9 @@
 			<trans-unit id="kitodoAccessGrantedNotification.email.subject">
 				<source><![CDATA[[DiGA.Sax] Your request for access has been processed]]></source>
 			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.heading">
+				<source><![CDATA[Your request for access has been processed]]></source>
+			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.message">
 				<source><![CDATA[Please release the document with the catalog ID:]]></source>
 			</trans-unit>
