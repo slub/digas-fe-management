@@ -1,10 +1,10 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-<div>
-    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessExpirationNotification.email.message"/></p>
+  <div>
+    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessExpirationNotification.email.message" languageKey="{languageKey}" /></p>
     <f:for each="{documentsList}" as="expirationEntry">
-        <p>{expirationEntry.recordId} - {expirationEntry.documentTitle}</p>
+      <p>{expirationEntry.recordId} - {expirationEntry.documentTitle}</p>
     </f:for>
-    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessExpirationNotification.email.messageLogin"/></p>
+    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessExpirationNotification.email.messageLogin" languageKey="{languageKey}" /></p>
     <p><f:link.external uri="{loginUrl}">{loginUrl}</f:link.external></p>
-</div>
+  </div>
 </html>
