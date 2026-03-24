@@ -129,6 +129,7 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
     protected function sendNotificationEmail(User $feUser, array $documentsList)
     {
         $this->initUserLocal($feUser);
+        $languageKey = $this->getLanguageKeyByUser($feUser);
         $userEmail = $feUser->getEmail();
         $userFullName = $feUser->getFullName();
         if (!GeneralUtility::validEmail($userEmail)) {
@@ -139,15 +140,23 @@ class KitodoAccessGrantedNotification extends DigasBaseCommand
 
         $textEmail = $this->generateNotificationEmail(
             $documentsList,
-            'EXT:digas_fe_management/Resources/Private/Templates/Email/Text/KitodoAccessGrantedNotification.html'
+            'EXT:digas_fe_management/Resources/Private/Templates/Email/Text/KitodoAccessGrantedNotification.html',
+            'text',
+            $languageKey
         );
         $htmlEmail = $this->generateNotificationEmail(
             $documentsList,
             'EXT:digas_fe_management/Resources/Private/Templates/Email/Html/KitodoAccessGrantedNotification.html',
-            'html'
+            'html',
+            $languageKey
         );
 
-        $emailSubject = ExtbaseLocalizationUtility::translate('kitodoAccessGrantedNotification.email.subject', 'DigasFeManagement');
+        $emailSubject = ExtbaseLocalizationUtility::translate(
+            'kitodoAccessGrantedNotification.email.subject',
+            'DigasFeManagement',
+            null,
+            $languageKey
+        );
 
         // Prepare and send the message
         $email->setSubject($emailSubject)
