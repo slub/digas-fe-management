@@ -1,28 +1,55 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
   <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif">
     <h2 style="color: #519651; margin-bottom: 20px">
-      <f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.heading" languageKey="{languageKey}" />
+      <f:translate
+        extensionName="DigasFeManagement"
+        key="kitodoAccessGrantedNotification.email.heading"
+        languageKey="{languageKey}"
+      />
     </h2>
 
-    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessGranted" languageKey="{languageKey}" /></p>
+    <p>
+      <f:translate
+        extensionName="DigasFeManagement"
+        key="kitodoAccessGrantedNotification.email.accessGranted"
+        languageKey="{languageKey}"
+      />
+    </p>
     <ul>
       <f:for each="{documentsList}" as="accessGrantedEntry">
         <f:if condition="!{accessGrantedEntry.rejected}">
-          <li>{accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle} - <f:translate extensionName="DigasFeManagement" key="access.list.endtime" languageKey="{languageKey}" />: {accessGrantedEntry.endTime ->f:format.date(format:'%d.%m.%Y')}</li>
+          <li>
+            {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle} -
+            <f:translate
+              extensionName="DigasFeManagement"
+              key="access.list.endtime"
+              languageKey="{languageKey}"
+            />: {accessGrantedEntry.endTime ->f:format.date(format:'%d.%m.%Y')}
+          </li>
         </f:if>
       </f:for>
     </ul>
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd" />
 
-    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessRejected" languageKey="{languageKey}" /></p>
+    <p>
+      <f:translate
+        extensionName="DigasFeManagement"
+        key="kitodoAccessGrantedNotification.email.accessRejected"
+        languageKey="{languageKey}"
+      />
+    </p>
     <ul>
       <f:for each="{documentsList}" as="accessGrantedEntry">
         <f:if condition="{accessGrantedEntry.rejected}">
           <li>
             {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle}
             <f:if condition="{accessGrantedEntry.rejectedReason}">
-              <br /><f:translate key="LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_access.rejected_reason" languageKey="{languageKey}" />:
+              <br />
+              <f:translate
+                key="LLL:EXT:digas_fe_management/Resources/Private/Language/locallang_db.xlf:tx_digasfemanagement_domain_model_access.rejected_reason"
+                languageKey="{languageKey}"
+              />:
               <em><f:format.nl2br>{accessGrantedEntry.rejectedReason}</f:format.nl2br></em>
             </f:if>
           </li>
@@ -32,13 +59,23 @@
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd" />
 
-    <p><f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.messageLogin" languageKey="{languageKey}" /></p>
+    <p>
+      <f:translate
+        extensionName="DigasFeManagement"
+        key="kitodoAccessGrantedNotification.email.messageLogin"
+        languageKey="{languageKey}"
+      />
+    </p>
     <p><f:link.external uri="{loginUrl}">{loginUrl}</f:link.external></p>
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd" />
 
     <p style="font-size: 12px; color: #666">
-      <f:translate key="emailNoReplyNotifyText" extensionName="DigasFeManagement" languageKey="{languageKey}" />
+      <f:translate
+        extensionName="DigasFeManagement"
+        key="emailNoReplyNotifyText"
+        languageKey="{languageKey}"
+      />
     </p>
   </div>
 </html>
