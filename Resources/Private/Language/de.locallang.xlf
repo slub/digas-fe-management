@@ -502,6 +502,10 @@
 				<source><![CDATA[[DiGA.Sax] Your request for access has been processed]]></source>
 				<target><![CDATA[[DiGA.Sax] Ihr Antrag auf Freigabe wurde bearbeitet]]></target>
 			</trans-unit>
+			<trans-unit id="kitodoAccessGrantedNotification.email.heading" approved="yes">
+				<source><![CDATA[Your request for access has been processed]]></source>
+				<target><![CDATA[Ihr Antrag auf Freigabe wurde bearbeitet]]></target>
+			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.message" approved="yes">
 				<source><![CDATA[Please release the document with the catalog ID:]]></source>
 				<target><![CDATA[Ich bitte um Freigabe des Dokuments mit der Katalog-ID:]]></target>
