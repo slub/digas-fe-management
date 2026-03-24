@@ -207,6 +207,17 @@ class DigasBaseCommand extends Command
     }
 
     /**
+     * Resolve TYPO3 language key by stored FE user locale.
+     *
+     * @param \Slub\DigasFeManagement\Domain\Model\User $feUser
+     * @return string
+     */
+    protected function getLanguageKeyByUser(\Slub\DigasFeManagement\Domain\Model\User $feUser): string
+    {
+        return (string)$feUser->getLocale() === '1' ? 'en' : 'de';
+    }
+
+    /**
      * Prepare notification email for kitodo access
      *
      * @param User $feUser
@@ -251,7 +262,7 @@ class DigasBaseCommand extends Command
      * @param string $emailType Email type (html or text)
      * @return string
      */
-    protected function generateNotificationEmail(array $documentsList, string $emailTemplate, string $emailType = 'text')
+    protected function generateNotificationEmail(array $documentsList, string $emailTemplate, string $emailType = 'text', string $languageKey = 'de')
     {
         // generate email template by given emailType
         $htmlView = GeneralUtility::makeInstance(StandaloneView::class);
@@ -262,7 +273,8 @@ class DigasBaseCommand extends Command
         $loginUrl = (string)$site->getRouter()->generateUri($this->settings['pids.']['loginPage']);
         $htmlView->assignMultiple([
             'loginUrl' => $loginUrl,
-            'documentsList' => $documentsList
+            'documentsList' => $documentsList,
+            'languageKey' => $languageKey
         ]);
 
         return $htmlView->render();

@@ -151,6 +151,7 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
     protected function sendNotificationEmail(User $feUser, array $documentsList)
     {
         $this->initUserLocal($feUser);
+        $languageKey = $this->getLanguageKeyByUser($feUser);
         $userEmail = $feUser->getEmail();
         $userFullName = $feUser->getFullName();
         if (!GeneralUtility::validEmail($userEmail)) {
@@ -161,14 +162,22 @@ class KitodoAccessExpirationNotification extends DigasBaseCommand
 
         $textEmail = $this->generateNotificationEmail(
             $documentsList,
-            'EXT:digas_fe_management/Resources/Private/Templates/Email/Text/KitodoAccessExpirationNotification.html'
+            'EXT:digas_fe_management/Resources/Private/Templates/Email/Text/KitodoAccessExpirationNotification.html',
+            'text',
+            $languageKey
         );
         $htmlEmail = $this->generateNotificationEmail(
             $documentsList,
             'EXT:digas_fe_management/Resources/Private/Templates/Email/Html/KitodoAccessExpirationNotification.html',
-            'html'
+            'html',
+            $languageKey
         );
-        $emailSubject = ExtbaseLocalizationUtility::translate('kitodoAccessExpirationNotification.email.subject', 'DigasFeManagement');
+        $emailSubject = ExtbaseLocalizationUtility::translate(
+            'kitodoAccessExpirationNotification.email.subject',
+            'DigasFeManagement',
+            null,
+            $languageKey
+        );
 
         // Prepare and send the message
         $email->setSubject($emailSubject)
