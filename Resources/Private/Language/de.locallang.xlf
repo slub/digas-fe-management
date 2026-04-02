@@ -538,6 +538,26 @@ Bitte melden Sie sich in Ihr Benutzerkonto innerhalb der nächsten %s Tage ein, 
 				<source><![CDATA[[DiGA.Sax] Access requested]]></source>
 				<target><![CDATA[[DiGA.Sax] Dokumentenfreigabe beantragt]]></target>
 			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.heading" approved="yes">
+				<source><![CDATA[Access request]]></source>
+				<target><![CDATA[Dokumentenanfrage]]></target>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.contactInfo" approved="yes">
+				<source><![CDATA[Contact information]]></source>
+				<target><![CDATA[Kontaktinformationen]]></target>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.messageHeading" approved="yes">
+				<source><![CDATA[Message]]></source>
+				<target><![CDATA[Nachricht]]></target>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.requestedDocumentsHeading" approved="yes">
+				<source><![CDATA[Requested documents]]></source>
+				<target><![CDATA[Angeforderte Dokumente]]></target>
+			</trans-unit>
+			<trans-unit id="emailRequestKitodoAccessUserMessage" approved="yes">
+				<source><![CDATA[Your note:]]></source>
+				<target><![CDATA[Ihre Nachricht:]]></target>
+			</trans-unit>
 			<trans-unit id="requestKitodoAccess.error" approved="yes">
 				<source><![CDATA[Error while access to documents requested]]></source>
 				<target><![CDATA[Fehler beim angeforderten Zugriff auf Dokumente]]></target>
