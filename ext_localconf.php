@@ -58,6 +58,9 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:felogin/Re
 // addtional german language file for fe_manager
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:femanager/Resources/Private/Language/locallang.xlf'][] = 'EXT:digas_fe_management/Resources/Private/Language/Overrides/de.locallang_femanager.xlf';
 
+// additional english (source) keys for femanager used in digas email templates
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:femanager/Resources/Private/Language/locallang.xlf'][] = 'EXT:digas_fe_management/Resources/Private/Language/Overrides/locallang_femanager.xlf';
+
 // plugin FE_Manager extended
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'DigasFeManagement',
