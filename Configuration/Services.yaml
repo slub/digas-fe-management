@@ -31,6 +31,13 @@ services:
               description: "Delete deactivated (disable=1) fe_users after a given timespan."
               schedulable: true
 
+    Slub\DigasFeManagement\Command\PreviewEmailCommand:
+        tags:
+            - name: console.command
+              command: "digas-fe-management:previewEmails"
+              description: "Send all email template previews to Mailpit."
+              schedulable: false
+
     Slub\DigasFeManagement\Command\KitodoAccessGrantedNotification:
         tags:
             - name: console.command
