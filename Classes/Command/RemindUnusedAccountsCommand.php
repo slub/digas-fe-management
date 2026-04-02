@@ -123,6 +123,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
     protected function sendEmail($feUser)
     {
         $this->initUserLocal($feUser);
+        $languageKey = $this->getLanguageKeyByUser($feUser);
         $userEmail = $feUser->getEmail();
         $userFullName = $feUser->getFullName();
         if (!GeneralUtility::validEmail($userEmail)) {
@@ -130,9 +131,14 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
             return;
         }
         $email = GeneralUtility::makeInstance(MailMessage::class);
-        $textEmail = $this->generateTextEmail();
-        $htmlEmail = $this->generateHtmlEmail();
-        $emailSubject = ExtbaseLocalizationUtility::translate('remindUnusedAccounts.email.subject', 'DigasFeManagement');
+        $textEmail = $this->generateTextEmail($languageKey);
+        $htmlEmail = $this->generateHtmlEmail($languageKey);
+        $emailSubject = ExtbaseLocalizationUtility::translate(
+            'remindUnusedAccounts.email.subject',
+            'DigasFeManagement',
+            null,
+            $languageKey
+        );
 
         // Prepare and send the message
         $email->setSubject($emailSubject)
@@ -214,7 +220,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
      *
      * @return string
      */
-    protected function generateHtmlEmail()
+    protected function generateHtmlEmail(string $languageKey)
     {
         // generate html email template
         $htmlTemplate = GeneralUtility::getFileAbsFileName('EXT:digas_fe_management/Resources/Private/Templates/Email/Html/RemindUnusedAccounts.html');
@@ -227,7 +233,8 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $htmlView->assignMultiple([
             'loginUrl' => $loginUrl,
             'unusedTimespan' => $this->unusedTimespan,
-            'deleteTimespan' => $this->deleteTimespan
+            'deleteTimespan' => $this->deleteTimespan,
+            'languageKey' => $languageKey
         ]);
 
         return $htmlView->render();
@@ -239,7 +246,7 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
      *
      * @return string
      */
-    protected function generateTextEmail()
+    protected function generateTextEmail(string $languageKey)
     {
         // generate text email template
         $textTemplate = GeneralUtility::getFileAbsFileName('EXT:digas_fe_management/Resources/Private/Templates/Email/Text/RemindUnusedAccounts.html');
@@ -252,7 +259,8 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $textView->assignMultiple([
             'loginUrl' => $loginUrl,
             'unusedTimespan' => $this->unusedTimespan,
-            'deleteTimespan' => $this->deleteTimespan
+            'deleteTimespan' => $this->deleteTimespan,
+            'languageKey' => $languageKey
         ]);
 
         return $textView->render();
