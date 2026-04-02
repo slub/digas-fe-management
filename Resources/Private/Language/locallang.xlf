@@ -388,6 +388,21 @@ Please login in the next %s days to avoid the account deletion.]]></source>
 			<trans-unit id="requestKitodoAccess.email.subject">
 				<source><![CDATA[[DiGA.Sax] Access requested]]></source>
 			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.heading">
+				<source><![CDATA[Access request]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.contactInfo">
+				<source><![CDATA[Contact information]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.messageHeading">
+				<source><![CDATA[Message]]></source>
+			</trans-unit>
+			<trans-unit id="requestKitodoAccess.email.requestedDocumentsHeading">
+				<source><![CDATA[Requested documents]]></source>
+			</trans-unit>
+			<trans-unit id="emailRequestKitodoAccessUserMessage">
+				<source><![CDATA[Your note:]]></source>
+			</trans-unit>
 			<trans-unit id="requestKitodoAccess.error">
 				<source><![CDATA[Error while access to documents requested]]></source>
 			</trans-unit>
