@@ -283,12 +283,12 @@
 				<target><![CDATA[Vielen Dank für Ihre Nachricht. Wir melden uns schnellstmöglich bei Ihnen.]]></target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToReceiver.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] New request via DiGA.Sax]]></source>
-				<target><![CDATA[[DiGA.Sax] Neue Anfrage an DiGA.Sax]]></target>
+				<source><![CDATA[New request via DiGA.Sax]]></source>
+				<target><![CDATA[Neue Anfrage an DiGA.Sax]]></target>
 			</trans-unit>
 			<trans-unit id="contactRegisteredUsers.finisher.EmailToSender.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Your request to DiGA.Sax]]></source>
-				<target><![CDATA[[DiGA.Sax] Ihre Anfrage an DiGA.Sax]]></target>
+				<source><![CDATA[Your request to DiGA.Sax]]></source>
+				<target><![CDATA[Ihre Anfrage an DiGA.Sax]]></target>
 			</trans-unit>
 			<trans-unit id="createRequestWaitingForUserConfirm" approved="yes">
 				<source><![CDATA[Thank you for your request. Please check your mail account to confirm the profile.]]></source>
@@ -367,8 +367,8 @@
 				<target><![CDATA[Betreff]]></target>
 			</trans-unit>
 			<trans-unit id="emailChangeUserConfirmationSubject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Please confirm your e-mail change request]]></source>
-				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie die Änderung Ihrer E-Mail-Adresse]]></target>
+				<source><![CDATA[Please confirm your e-mail change request]]></source>
+				<target><![CDATA[Bitte bestätigen Sie die Änderung Ihrer E-Mail-Adresse]]></target>
 			</trans-unit>
 			<trans-unit id="emailChangedRequestWaitingForUserConfirm" approved="yes">
 				<source><![CDATA[Thank you for your request. Please check your mail account to confirm your e-mail-address.]]></source>
@@ -379,8 +379,8 @@
 				<target><![CDATA[Ihr Nutzerkonto wurde deaktiviert]]></target>
 			</trans-unit>
 			<trans-unit id="emailInvitationSubject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Please confirm the user account for DiGA.Sax which has been created for you]]></source>
-				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie das angelegte DiGA.Sax Benutzerkonto]]></target>
+				<source><![CDATA[Please confirm the user account for DiGA.Sax which has been created for you]]></source>
+				<target><![CDATA[Bitte bestätigen Sie das angelegte DiGA.Sax Benutzerkonto]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationLinkConfirm" approved="yes">
 				<source><![CDATA[Complete registration]]></source>
@@ -391,8 +391,8 @@
 				<target><![CDATA[E-Mail-Adresse bestätigen]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationSubject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Please confirm your account creation request]]></source>
-				<target><![CDATA[[DiGA.Sax] Bitte bestätigen Sie Ihre Registrierungsanfrage]]></target>
+				<source><![CDATA[Please confirm your account creation request]]></source>
+				<target><![CDATA[Bitte bestätigen Sie Ihre Registrierungsanfrage]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText1" approved="yes">
 				<source><![CDATA[Thank you for your registration at DiGA.Sax - the Digital Geological Archive Saxony.]]></source>
@@ -419,8 +419,8 @@
 				<target><![CDATA[Bitte bestätigen Sie die Änderung Ihr E-Mail-Adresse, indem sie auf den folgenden Link klicken:]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserNotifySubject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Your registration was confirmed]]></source>
-				<target><![CDATA[[DiGA.Sax] Ihre Registrierung wurde bestätigt]]></target>
+				<source><![CDATA[Your registration was confirmed]]></source>
+				<target><![CDATA[Ihre Registrierung wurde bestätigt]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserNotifyText1" approved="yes">
 				<source><![CDATA[Your user account was confirmed and successfully created.]]></source>
@@ -479,8 +479,8 @@
 				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessExpirationNotification.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Expiration Information]]></source>
-				<target><![CDATA[[DiGA.Sax] Freigabe läuft bald ab]]></target>
+				<source><![CDATA[Expiration Information]]></source>
+				<target><![CDATA[Freigabe läuft bald ab]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.accessGranted" approved="yes">
 				<source><![CDATA[The access to the requested documents were granted:]]></source>
@@ -499,8 +499,8 @@
 				<target><![CDATA[Sie können sich über folgende Url anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Your request for access has been processed]]></source>
-				<target><![CDATA[[DiGA.Sax] Ihr Antrag auf Freigabe wurde bearbeitet]]></target>
+				<source><![CDATA[Your request for access has been processed]]></source>
+				<target><![CDATA[Ihr Antrag auf Freigabe wurde bearbeitet]]></target>
 			</trans-unit>
 			<trans-unit id="kitodoAccessGrantedNotification.email.heading" approved="yes">
 				<source><![CDATA[Your request for access has been processed]]></source>
@@ -511,8 +511,8 @@
 				<target><![CDATA[Ich bitte um Freigabe des Dokuments mit der Katalog-ID:]]></target>
 			</trans-unit>
 			<trans-unit id="kitodo_feuser_access.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Release request for catalog ID:]]></source>
-				<target><![CDATA[[DiGA.Sax] Freigabewunsch für Katalog-ID:]]></target>
+				<source><![CDATA[Release request for catalog ID:]]></source>
+				<target><![CDATA[Freigabewunsch für Katalog-ID:]]></target>
 			</trans-unit>
 			<trans-unit id="noChanges" approved="yes">
 				<source><![CDATA[No changes detected]]></source>
@@ -531,12 +531,12 @@ Bitte melden Sie sich in Ihr Benutzerkonto innerhalb der nächsten %s Tage ein, 
 				<target><![CDATA[Sie können sich über folgende Adresse wieder anmelden:]]></target>
 			</trans-unit>
 			<trans-unit id="remindUnusedAccounts.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Inactive Warning]]></source>
-				<target><![CDATA[[DiGA.Sax] Inaktivitätswarnung]]></target>
+				<source><![CDATA[Inactive Warning]]></source>
+				<target><![CDATA[Inaktivitätswarnung]]></target>
 			</trans-unit>
 			<trans-unit id="requestKitodoAccess.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Access requested]]></source>
-				<target><![CDATA[[DiGA.Sax] Dokumentenfreigabe beantragt]]></target>
+				<source><![CDATA[Access requested]]></source>
+				<target><![CDATA[Dokumentenfreigabe beantragt]]></target>
 			</trans-unit>
 			<trans-unit id="requestKitodoAccess.email.heading" approved="yes">
 				<source><![CDATA[Access request]]></source>
@@ -567,8 +567,8 @@ Bitte melden Sie sich in Ihr Benutzerkonto innerhalb der nächsten %s Tage ein, 
 				<target><![CDATA[Zugang zu Dokumenten wurde erfolgreich beantragt]]></target>
 			</trans-unit>
 			<trans-unit id="requestKitodoAccessUser.email.subject" approved="yes">
-				<source><![CDATA[[DiGA.Sax] Access requested]]></source>
-				<target><![CDATA[[DiGA.Sax] Dokumentenfreigabe beantragt]]></target>
+				<source><![CDATA[Access requested]]></source>
+				<target><![CDATA[Dokumentenfreigabe beantragt]]></target>
 			</trans-unit>
 			<trans-unit id="search" approved="yes">
 				<source><![CDATA[Search]]></source>
