@@ -212,6 +212,21 @@
 			<trans-unit id="requestKitodoAccess.email.toUser.message">
 				<source><![CDATA[Your message for us:]]></source>
 			</trans-unit>
+			<trans-unit id="passwordRecovery.email.heading">
+				<source><![CDATA[Reset your password]]></source>
+			</trans-unit>
+			<trans-unit id="passwordRecovery.email.greeting">
+				<source><![CDATA[Hello %s,]]></source>
+			</trans-unit>
+			<trans-unit id="passwordRecovery.email.intro">
+				<source><![CDATA[you have requested to reset the password for your DiGA.Sax account. Please click on the following link to set a new password:]]></source>
+			</trans-unit>
+			<trans-unit id="passwordRecovery.email.validUntil">
+				<source><![CDATA[This link is valid until %s.]]></source>
+			</trans-unit>
+			<trans-unit id="passwordRecovery.email.notRequested">
+				<source><![CDATA[If you did not request a password reset, you can safely ignore this e-mail.]]></source>
+			</trans-unit>
 			<trans-unit id="createRequestWaitingForUserConfirm">
 				<source><![CDATA[Thank you for your request. Please check your mail account to confirm the profile.]]></source>
 			</trans-unit>
