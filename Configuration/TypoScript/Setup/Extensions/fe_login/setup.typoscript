@@ -5,6 +5,17 @@ plugin.tx_felogin_login {
     redirectDisable = 0
     newPasswordMinLength = 8
 
+    settings {
+        # Use the custom DiGA.Sax password-recovery mail template (matches the other femanager mails).
+        # The body texts are translated via extensionName "digas_fe_management"
+        # (keys passwordRecovery.email.* in locallang.xlf / de.locallang.xlf).
+        email {
+            templateRootPaths {
+                20 = EXT:digas_fe_management/Resources/Private/Extensions/fe_login/Templates/Email/
+            }
+        }
+    }
+
     _LOCAL_LANG {
         de.username = Email-Adresse
         default.username = Email-Address
