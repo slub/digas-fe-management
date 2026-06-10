@@ -469,6 +469,12 @@ Please login in the next %s days to avoid the account deletion.]]></source>
 			<trans-unit id="statistic.table.document">
 				<source><![CDATA[Documents]]></source>
 			</trans-unit>
+			<trans-unit id="statistic.table.documentTitle">
+				<source><![CDATA[Document title]]></source>
+			</trans-unit>
+			<trans-unit id="statistic.table.vorgang">
+				<source><![CDATA[Process]]></source>
+			</trans-unit>
 			<trans-unit id="statistic.table.downloadPages">
 				<source><![CDATA[Single Page Downloads]]></source>
 			</trans-unit>

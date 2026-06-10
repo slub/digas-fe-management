@@ -2,7 +2,15 @@
 <table class="fe-management-statistic-entries">
     <thead>
     <tr>
-        <th><f:translate key="statistic.table.document"/></th>
+        <f:if condition="{showVorgang}">
+            <th><f:translate key="statistic.table.vorgang"/></th>
+        </f:if>
+        <th>
+            <f:if condition="{showVorgang}">
+                <f:then><f:translate key="statistic.table.documentTitle"/></f:then>
+                <f:else><f:translate key="statistic.table.document"/></f:else>
+            </f:if>
+        </th>
         <th><f:translate key="statistic.table.downloadPages"/></th>
         <th><f:translate key="statistic.table.downloadWork"/></th>
         <th><f:translate key="statistic.table.workViews"/></th>
@@ -11,18 +19,28 @@
     <tbody>
     <f:for each="{statistic}" as="statisticEntry">
         <tr>
+            <f:if condition="{showVorgang}">
+                <td>{statisticEntry.document.recordId}</td>
+            </f:if>
             <td>{statisticEntry.document.title}</td>
             <td>{statisticEntry.downloadPages}</td>
             <td>{statisticEntry.downloadWork}</td>
             <td>{statisticEntry.workViews}</td>
         </tr>
     </f:for>
-    <tr class="fe-management-statistic-total">
-        <td><strong><f:translate key="statistic.table.total"/></strong></td>
-        <td><strong>{totals.downloadPages}</strong></td>
-        <td><strong>{totals.downloadWork}</strong></td>
-        <td><strong>{totals.workViews}</strong></td>
-    </tr>
+    <f:if condition="{hideTotalsRow}">
+        <f:else>
+            <tr class="fe-management-statistic-total">
+                <f:if condition="{showVorgang}">
+                    <td></td>
+                </f:if>
+                <td><strong><f:translate key="statistic.table.total"/></strong></td>
+                <td><strong>{totals.downloadPages}</strong></td>
+                <td><strong>{totals.downloadWork}</strong></td>
+                <td><strong>{totals.workViews}</strong></td>
+            </tr>
+        </f:else>
+    </f:if>
     </tbody>
 </table>
 </html>

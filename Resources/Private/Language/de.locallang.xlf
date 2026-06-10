@@ -638,6 +638,14 @@ Bitte melden Sie sich in Ihr Benutzerkonto innerhalb der nächsten %s Tage ein, 
 				<source><![CDATA[Documents]]></source>
 				<target><![CDATA[Dokumente]]></target>
 			</trans-unit>
+			<trans-unit id="statistic.table.documentTitle" approved="yes">
+				<source><![CDATA[Document title]]></source>
+				<target><![CDATA[Dokumenttitel]]></target>
+			</trans-unit>
+			<trans-unit id="statistic.table.vorgang" approved="yes">
+				<source><![CDATA[Process]]></source>
+				<target><![CDATA[Vorgang]]></target>
+			</trans-unit>
 			<trans-unit id="statistic.table.downloadPages" approved="yes">
 				<source><![CDATA[Single Page Downloads]]></source>
 				<target><![CDATA[Einzelseiten Downloads]]></target>
