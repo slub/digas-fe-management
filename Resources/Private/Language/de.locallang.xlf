@@ -642,7 +642,7 @@ Bitte melden Sie sich in Ihr Benutzerkonto innerhalb der nächsten %s Tage ein, 
 				<source><![CDATA[Document title]]></source>
 				<target><![CDATA[Dokumenttitel]]></target>
 			</trans-unit>
-			<trans-unit id="statistic.table.vorgang" approved="yes">
+			<trans-unit id="statistic.table.process" approved="yes">
 				<source><![CDATA[Process]]></source>
 				<target><![CDATA[Vorgang]]></target>
 			</trans-unit>

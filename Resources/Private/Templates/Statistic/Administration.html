@@ -10,16 +10,16 @@
             <dl class="fe-management-statistic-summary">
                 <dt><f:translate key="statistic.table.total"/></dt>
                 <dd>
-                    <span class="fe-management-statistic-summary--label"><f:translate key="statistic.table.downloadPages"/></span>
-                    <span class="fe-management-statistic-summary--value">{totals.downloadPages}</span>
+                    <span class="fe-management-statistic-summary-label"><f:translate key="statistic.table.downloadPages"/></span>
+                    <span class="fe-management-statistic-summary-value">{totals.downloadPages}</span>
                 </dd>
                 <dd>
-                    <span class="fe-management-statistic-summary--label"><f:translate key="statistic.table.downloadWork"/></span>
-                    <span class="fe-management-statistic-summary--value">{totals.downloadWork}</span>
+                    <span class="fe-management-statistic-summary-label"><f:translate key="statistic.table.downloadWork"/></span>
+                    <span class="fe-management-statistic-summary-value">{totals.downloadWork}</span>
                 </dd>
                 <dd>
-                    <span class="fe-management-statistic-summary--label"><f:translate key="statistic.table.workViews"/></span>
-                    <span class="fe-management-statistic-summary--value">{totals.workViews}</span>
+                    <span class="fe-management-statistic-summary-label"><f:translate key="statistic.table.workViews"/></span>
+                    <span class="fe-management-statistic-summary-value">{totals.workViews}</span>
                 </dd>
             </dl>
         </f:if>
@@ -28,7 +28,7 @@
 
         <f:if condition="{statistic}">
             <f:then>
-                <f:render partial="Statistic/Result" arguments="{statistic: statistic, totals: totals, hideTotalsRow: 1, showVorgang: 1}"/>
+                <f:render partial="Statistic/Result" arguments="{statistic: statistic, totals: totals, hideTotalsRow: 1, showProcess: 1}"/>
             </f:then>
             <f:else>
                 <div class="fe-management-statistic--note">

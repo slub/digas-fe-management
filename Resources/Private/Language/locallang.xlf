@@ -472,7 +472,7 @@ Please login in the next %s days to avoid the account deletion.]]></source>
 			<trans-unit id="statistic.table.documentTitle">
 				<source><![CDATA[Document title]]></source>
 			</trans-unit>
-			<trans-unit id="statistic.table.vorgang">
+			<trans-unit id="statistic.table.process">
 				<source><![CDATA[Process]]></source>
 			</trans-unit>
 			<trans-unit id="statistic.table.downloadPages">
