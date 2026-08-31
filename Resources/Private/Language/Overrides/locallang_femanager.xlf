@@ -7,8 +7,16 @@
 				of femanager's own locallang.</note>
 		</header>
 		<body>
+			<trans-unit id="emailInvitationText2">
+				<source><![CDATA[Please confirm your profile registration on DiGA.Sax by clicking the button below. After that, you can define a password.]]></source>
+			</trans-unit>
+
+			<trans-unit id="emailCreateUserConfirmationText2">
+				<source><![CDATA[If you do not want to be registered on DiGA.Sax, use this button:]]></source>
+			</trans-unit>
+
 			<trans-unit id="emailCreateUserConfirmationText5">
-				<source><![CDATA[Please use Microsoft Edge, Mozilla Firefox or Google Chrome as your default browser. Using Internet Explorer as the default browser may cause issues. If this occurs, please use the password recovery function on the DiGA.Sax website.]]></source>
+				<source><![CDATA[Please use an up-to-date browser such as Microsoft Edge, Mozilla Firefox or Google Chrome.]]></source>
 			</trans-unit>
 
 			<trans-unit id="emailNoReplyNotifyText">

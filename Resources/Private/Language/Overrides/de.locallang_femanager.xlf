@@ -405,9 +405,8 @@
 				<target>Profil bestätigen</target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationText2">
-				<source>If you don't want to be registered on our system, click this link:</source>
-				<target>Falls Sie nicht auf DiGA.Sax registriert werden möchten, klicken Sie
-					auf diesen Link:</target>
+				<source><![CDATA[If you do not want to be registered on DiGA.Sax, use this button:]]></source>
+				<target><![CDATA[Falls Sie nicht auf DiGA.Sax registriert werden möchten, klicken Sie auf diesen Button:]]></target>
 			</trans-unit>
 			<trans-unit id="emailCreateUserConfirmationLinkConfirmRefused">
 				<source>Delete profile</source>
@@ -491,10 +490,8 @@
 				<target>Ihr neues Profil wurde soeben erstellt.</target>
 			</trans-unit>
 			<trans-unit id="emailInvitationText2">
-				<source>Please confirm your profile registration on our server by clicking the
-					following link. After that, you can define a password.</source>
-				<target>Bitte bestätigen Sie Ihre Profilregistrierung auf DiGA.Sax indem Sie
-					auf den folgenden Link klicken. Danach können Sie Ihr Passwort festlegen.</target>
+				<source><![CDATA[Please confirm your profile registration on DiGA.Sax by clicking the button below. After that, you can define a password.]]></source>
+				<target><![CDATA[Bitte bestätigen Sie Ihre Profilregistrierung auf DiGA.Sax, indem Sie auf den folgenden Button klicken. Danach können Sie Ihr Passwort festlegen.]]></target>
 			</trans-unit>
 			<trans-unit id="emailInvitationLinkConfirm">
 				<source>Confirm Profile</source>
@@ -772,8 +769,8 @@
 			</trans-unit>
 
 			<trans-unit id="emailCreateUserConfirmationText5" approved="yes">
-				<source><![CDATA[Please use Microsoft Edge, Mozilla Firefox or Google Chrome as your default browser. Using Internet Explorer as the default browser may cause issues. If this occurs, please use the password recovery function on the DiGA.Sax website.]]></source>
-				<target><![CDATA[Bitte verwenden Sie als Standardbrowser Microsoft Edge, Mozilla Firefox oder Google Chrome. Bei Verwendung des Internet Explorers als Standardbrowser kann es zu Problem kommen. Ist dies der Fall, dann nutzen Sie bitte die Passwort-Vergessen-Funktion auf der DiGA.Sax Webseite.]]></target>
+				<source><![CDATA[Please use an up-to-date browser such as Microsoft Edge, Mozilla Firefox or Google Chrome.]]></source>
+				<target><![CDATA[Bitte verwenden Sie einen aktuellen Browser wie Microsoft Edge, Mozilla Firefox oder Google Chrome.]]></target>
 			</trans-unit>
 
 			<trans-unit id="emailNoReplyNotifyText" approved="yes">
