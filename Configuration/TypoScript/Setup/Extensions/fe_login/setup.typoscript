@@ -6,12 +6,22 @@ plugin.tx_felogin_login {
     newPasswordMinLength = 8
 
     settings {
+        # German date format for the "valid until" line in the recovery mail.
+        dateFormat = d.m.Y H:i
+
+        # Hours the recovery link stays valid. Same as the TYPO3 default.
+        forgotLinkHashValidTime = 12
+
         # Use the custom DiGA.Sax password-recovery mail template (matches the other femanager mails).
         # The body texts are translated via extensionName "digas_fe_management"
         # (keys passwordRecovery.email.* in locallang.xlf / de.locallang.xlf).
         email {
             templateRootPaths {
                 20 = EXT:digas_fe_management/Resources/Private/Extensions/fe_login/Templates/Email/
+            }
+            # Needed so the template can use <f:layout name="Email" />.
+            layoutRootPaths {
+                20 = EXT:digas_fe_management/Resources/Private/Layouts/
             }
         }
     }
