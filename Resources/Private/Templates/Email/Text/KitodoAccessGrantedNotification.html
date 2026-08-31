@@ -4,7 +4,7 @@
     <f:format.raw
       ><f:for each="{documentsList}" as="accessGrantedEntry">
         <f:if condition="!{accessGrantedEntry.rejected}"
-          >- {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle} - - <f:translate extensionName="DigasFeManagement" key="access.list.endtime" languageKey="{languageKey}" />: {accessGrantedEntry.endTime -> f:format.date(format:'%d.%m.%Y')}</f:if
+          >- {accessGrantedEntry.recordId} - {accessGrantedEntry.documentTitle} - - <f:translate extensionName="DigasFeManagement" key="kitodoAccessGrantedNotification.email.accessUntil" languageKey="{languageKey}" />: {accessGrantedEntry.endTime -> f:format.date(format:'%d.%m.%Y')}</f:if
         >
       </f:for></f:format.raw
     >

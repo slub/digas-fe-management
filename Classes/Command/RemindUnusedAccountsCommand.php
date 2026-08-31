@@ -227,6 +227,8 @@ class RemindUnusedAccountsCommand extends DigasBaseCommand
         $htmlView = GeneralUtility::makeInstance(StandaloneView::class);
         $htmlView->setFormat('html');
         $htmlView->setTemplatePathAndFilename($htmlTemplate);
+        // Needed so the html template can use <f:layout name="Email" />.
+        $htmlView->setLayoutRootPaths(['EXT:digas_fe_management/Resources/Private/Layouts/']);
         // https://stackoverflow.com/questions/46807995/create-a-link-in-backend-to-a-frontend-page
         $site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($this->settings['pids.']['loginPage']);
         $loginUrl = (string)$site->getRouter()->generateUri($this->settings['pids.']['loginPage']);

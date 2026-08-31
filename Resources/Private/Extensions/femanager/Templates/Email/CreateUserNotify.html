@@ -1,17 +1,17 @@
 <f:layout name="Email" />
 
-	Email / CreateUserNotify
-
-	This mail will be send to the user, to inform him about his new profile.
-	It's always activated, even if the admin confirmation and/or the double-opt-in is activated.
-
-	Available variables:
-		{user} User Object
+<!-- Email / CreateUserNotify
+This mail will be send to the user, to inform him about his new profile.
+Currently disabled in TypoScript (_enable.value = 0) at every call site.
+Available variables: {user} User Object {settings}
+-->
 
 <f:section name="main">
+    <h2><f:translate key="emailCreateUserNotifyText1" /></h2>
 
-	<p><f:translate key="emailCreateUserNotifyText1" /></p>
+    <p><f:translate key="emailCreateUserNotifyAfterPwChangeText" extensionName="digas_fe_management" /></p>
 
-	<p><f:translate key="emailNoReplyNotifyText" /></p>
-
+    <div class="action">
+        <f:link.page pageUid="{settings.pids.loginPage}" absolute="1" class="button"><f:translate key="emailLinkLogin" extensionName="digas_fe_management" /></f:link.page>
+    </div>
 </f:section>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- lang is only known for the scheduler mails, which pass {languageKey}.
+     Frontend mails render in the current site language. -->
+<html<f:if condition="{languageKey}"> lang="{languageKey}"</f:if>>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+        Central styling for all DiGA.Sax mails.
+
+    -->
+    <style>
+        .digas-mail h2 { color: #519651; margin: 0 0 20px 0; font-size: 20px }
+        .digas-mail h3 { margin: 20px 0 10px 0; font-size: 16px }
+        .digas-mail p { margin: 0 0 20px 0 }
+        .digas-mail hr { margin: 30px 0; border: 0; border-top: 1px solid #dddddd }
+        .digas-mail .action { margin: 30px 0; text-align: center }
+        .digas-mail .button { display: inline-block; background-color: #519651; color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: bold }
+        .digas-mail .button-secondary { display: inline-block; background-color: #f5f5f5; color: #666666; padding: 10px 25px; text-decoration: none; border-radius: 4px; border: 1px solid #dddddd }
+        .digas-mail .contact { margin: 20px 0 }
+        .digas-mail .contact td { padding: 5px 0 }
+        .digas-mail .contact .label { padding-right: 10px; font-weight: bold }
+        .digas-mail .quote { background-color: #f9f9f9; border-left: 3px solid #519651; padding: 15px; margin: 10px 0 20px 0 }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #ffffff">
+    <div class="digas-mail" style="max-width: 600px; margin: 0 auto; font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; color: #333333">
+        <f:render section="main" />
+
+        <f:if condition="{f:render(section: 'noFooter', optional: 1)}">
+            <f:else>
+                <hr style="margin: 30px 0; border: 0; border-top: 1px solid #dddddd" />
+                <p style="margin: 0; font-size: 12px; color: #666666"><f:translate key="emailNoReplyNotifyText" extensionName="digas_fe_management" languageKey="{languageKey}" /></p>
+            </f:else>
+        </f:if>
+    </div>
+</body>
+</html>
