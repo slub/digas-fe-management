@@ -23,7 +23,7 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'typo3' => '10.4.0-11.5.99',
-            'femanager' => '7.2.3',
+            'femanager' => '7.5.5-7.99.99',
             'fe_change_pwd' => '3.1.0-3.99.99'
         ],
         'conflicts' => [

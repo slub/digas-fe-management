@@ -25,7 +25,7 @@ namespace Slub\DigasFeManagement\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
- use Slub\DigasFeManagement\Domain\Model\User;
+use Slub\DigasFeManagement\Domain\Model\User;
 
 /**
  * Class InvitationController
@@ -60,6 +60,40 @@ class InvitationController extends \In2code\Femanager\Controller\InvitationContr
     }
 
     /**
+     * Reapply the usergroup from TypoScript forceValues, which the femanager 7.5.5
+     * sanitizer drops for new records.
+     *
+     * @param \In2code\Femanager\Domain\Model\User $user
+     * @return void
+     */
+    public function createAllConfirmed(\In2code\Femanager\Domain\Model\User $user)
+    {
+        $user = \In2code\Femanager\Utility\FrontendUtility::forceValues(
+            $user,
+            \In2code\Femanager\Utility\ConfigurationUtility::getValue(
+                'invitation./forceValues./beforeAnyConfirmation.',
+                $this->config
+            )
+        );
+        parent::createAllConfirmed($user);
+    }
+
+    /**
+     * Set the data type to the digas subclass, otherwise the parent's preloaded
+     * user is not found and the still disabled record cannot be resolved.
+     */
+    public function initializeUpdateAction(): void
+    {
+        if ($this->arguments->hasArgument('user')) {
+            // Workaround to avoid php7 warnings of wrong type hint.
+            /** @var \Slub\DigasFeManagement\Xclass\Extbase\Mvc\Controller\Argument $user */
+            $user = $this->arguments['user'];
+            $user->setDataType(User::class);
+        }
+        parent::initializeUpdateAction();
+    }
+
+    /**
      * action update
      * Set setTxFemanagerConfirmedbyuser=true
      *
@@ -71,8 +105,12 @@ class InvitationController extends \In2code\Femanager\Controller\InvitationContr
      */
     public function updateAction(\In2code\Femanager\Domain\Model\User $user, $hash = null)
     {
+        // A missing hash would reach validHash(string $hash) as null and raise a TypeError.
+        if (!is_string($hash) || $hash === '') {
+            $this->redirect('status');
+        }
         // @phpstan-ignore-next-line
         $user->setTxFemanagerConfirmedbyuser(true);
-        parent::updateAction($user);
+        parent::updateAction($user, $hash);
     }
 }
