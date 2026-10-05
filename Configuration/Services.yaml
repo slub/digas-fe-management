@@ -58,3 +58,10 @@ services:
             - name: event.listener
               identifier: "digasFeManagement/afterPasswordUpdated"
               event: Derhansen\FeChangePwd\Event\AfterPasswordUpdatedEvent
+
+    Slub\DigasFeManagement\EventListener\LoginAfterInvitationEventListener:
+        public: false
+        tags:
+            - name: event.listener
+              identifier: "digasFeManagement/loginAfterInvitation"
+              event: In2code\Femanager\Event\InviteUserUpdateEvent
