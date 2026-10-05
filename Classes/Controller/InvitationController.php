@@ -25,7 +25,9 @@ namespace Slub\DigasFeManagement\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use In2code\Femanager\Utility\LocalizationUtility;
 use Slub\DigasFeManagement\Domain\Model\User;
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
 
 /**
  * Class InvitationController
@@ -95,7 +97,8 @@ class InvitationController extends \In2code\Femanager\Controller\InvitationContr
 
     /**
      * action update
-     * Set setTxFemanagerConfirmedbyuser=true
+     * Set setTxFemanagerConfirmedbyuser=true. The user sets the password here, so
+     * fe_change_pwd must not ask again and the AfterPasswordChange mail must not be sent.
      *
      * @param \In2code\Femanager\Domain\Model\User $user
      * @param string $hash
@@ -109,8 +112,18 @@ class InvitationController extends \In2code\Femanager\Controller\InvitationContr
         if (!is_string($hash) || $hash === '') {
             $this->redirect('status');
         }
+        // femanager checks this only in editAction. Without it, the never-expiring link
+        // would overwrite the password of an already active account and log it in.
+        if (!$user->getDisable()) {
+            $this->addFlashMessage(LocalizationUtility::translate('userAlreadyConfirmed'), '', AbstractMessage::ERROR);
+            $this->redirect('status');
+        }
         // @phpstan-ignore-next-line
         $user->setTxFemanagerConfirmedbyuser(true);
+        // @phpstan-ignore-next-line
+        $user->setMustChangePassword(false);
+        // @phpstan-ignore-next-line
+        $user->setPwChangedOnConfirmation(true);
         parent::updateAction($user, $hash);
     }
 }
