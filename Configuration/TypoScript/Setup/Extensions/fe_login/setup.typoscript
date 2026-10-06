@@ -3,9 +3,55 @@ plugin.tx_felogin_login {
     redirectPageLoginError = {$femanager.pids.loginPage}
     redirectPageLogout = {$femanager.pids.loginPage}
     redirectDisable = 0
-    newPasswordMinLength = 8
+
+    # Validation errors without the internal error code (e.g. "1554971665: ...").
+    view.partialRootPaths.20 = EXT:digas_fe_management/Resources/Private/Extensions/fe_login/Partials/
 
     settings {
+        # Password rules for "forgot password", same as EXT:fe_change_pwd (passwordComplexity).
+        # Patterns are taken from its ChangePasswordValidator.
+        passwordValidators {
+            # Replaces the core StringLengthValidator, whose message is not translatable here.
+            20 >
+            20 {
+                className = TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator
+                options {
+                    regularExpression = /^.{8,}$/su
+                    errorMessage = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:passwordPolicy.minLength
+                }
+            }
+            30 {
+                className = TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator
+                options {
+                    regularExpression = /[A-Z]/
+                    errorMessage = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:passwordPolicy.capitalChar
+                }
+            }
+            40 {
+                className = TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator
+                options {
+                    regularExpression = /[a-z]/
+                    errorMessage = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:passwordPolicy.lowerCaseChar
+                }
+            }
+            50 {
+                className = TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator
+                options {
+                    regularExpression = /[0-9]/
+                    errorMessage = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:passwordPolicy.digit
+                }
+            }
+            60 {
+                className = TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator
+                options {
+                    regularExpression = /[^0-9a-z]/i
+                    errorMessage = LLL:EXT:digas_fe_management/Resources/Private/Language/locallang.xlf:passwordPolicy.specialChar
+                }
+            }
+        }
+        # Used in the hint text above the form (change_password_message).
+        newPasswordMinLength = 8
+
         # German date format for the "valid until" line in the recovery mail.
         dateFormat = d.m.Y H:i
 
@@ -29,6 +75,9 @@ plugin.tx_felogin_login {
     _LOCAL_LANG {
         de.username = Email-Adresse
         default.username = Email-Address
+        # Hint matches the passwordValidators above. %s = settings.newPasswordMinLength
+        de.change_password_message = Bitte geben Sie Ihr neues Passwort zweimal ein. Das Passwort muss mindestens %s Zeichen lang sein und einen Großbuchstaben, einen Kleinbuchstaben, eine Ziffer und ein Sonderzeichen enthalten.
+        default.change_password_message = Please enter your new password twice. The password must be at least %s characters long and contain an uppercase letter, a lowercase letter, a digit and a special character.
     }
 }
 

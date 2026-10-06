@@ -14,11 +14,11 @@
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.password">
 				<source>Password</source>
-				<target>Kennwort</target>
+				<target>Passwort</target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.password_repeat">
 				<source>Repeat Password</source>
-				<target>Kennwort wiederholen</target>
+				<target>Passwort wiederholen</target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.usergroup">
 				<source>Usergroup</source>
