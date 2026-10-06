@@ -575,19 +575,19 @@ Please login in the next %s days to avoid the account deletion.]]></source>
 				<source><![CDATA[Location of the area for which geological data are requested]]></source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.tempUserOrderingParty">
-				<source><![CDATA[Ordering party]]></source>
+				<source><![CDATA[Client]]></source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.tempUserPurpose">
-				<source><![CDATA[Purpose of the visit]]></source>
+				<source><![CDATA[Purpose of the research]]></source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.temp_user_area_location">
 				<source><![CDATA[Location of the area for which geological data are requested]]></source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.temp_user_ordering_party">
-				<source><![CDATA[Ordering party]]></source>
+				<source><![CDATA[Client]]></source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.temp_user_purpose">
-				<source><![CDATA[Purpose of the visit]]></source>
+				<source><![CDATA[Purpose of the research]]></source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.terms">
 				<source><![CDATA[I accept the terms and conditions]]></source>

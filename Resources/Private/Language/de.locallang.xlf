@@ -784,27 +784,27 @@ Bitte melden Sie sich innerhalb der nächsten %s Tage in Ihrem Benutzerkonto an,
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.tempUserAreaLocation" approved="yes">
 				<source><![CDATA[Location of the area for which geological data are requested]]></source>
-				<target><![CDATA[Lage des Gebiets, für das geologische Daten begehrt werden]]></target>
+				<target><![CDATA[Lage des Gebiets, für das geologische Daten angefragt werden]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.tempUserOrderingParty" approved="yes">
-				<source><![CDATA[Ordering party]]></source>
+				<source><![CDATA[Client]]></source>
 				<target><![CDATA[Auftraggeber]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.tempUserPurpose" approved="yes">
-				<source><![CDATA[Purpose of the visit]]></source>
-				<target><![CDATA[Zweck des Besuchs]]></target>
+				<source><![CDATA[Purpose of the research]]></source>
+				<target><![CDATA[Zweck der Recherche]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.temp_user_area_location" approved="yes">
 				<source><![CDATA[Location of the area for which geological data are requested]]></source>
-				<target><![CDATA[Lage des Gebiets, für das geologische Daten begehrt werden]]></target>
+				<target><![CDATA[Lage des Gebiets, für das geologische Daten angefragt werden]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.temp_user_ordering_party" approved="yes">
-				<source><![CDATA[Ordering party]]></source>
+				<source><![CDATA[Client]]></source>
 				<target><![CDATA[Auftraggeber]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.temp_user_purpose" approved="yes">
-				<source><![CDATA[Purpose of the visit]]></source>
-				<target><![CDATA[Zweck des Besuchs]]></target>
+				<source><![CDATA[Purpose of the research]]></source>
+				<target><![CDATA[Zweck der Recherche]]></target>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_user.terms" approved="yes">
 				<source><![CDATA[I accept the terms and conditions]]></source>
