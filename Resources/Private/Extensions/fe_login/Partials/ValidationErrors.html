@@ -1,0 +1,16 @@
+<f:comment>Copy of EXT:felogin Partials/ValidationErrors.html without the internal error code in front of each message.</f:comment>
+<f:form.validationResults>
+    <f:if condition="{validationResults.flattenedErrors}">
+        <ul>
+            <f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
+                <li>{propertyPath}
+                    <ul>
+                        <f:for each="{errors}" as="error">
+                            <li>{error}</li>
+                        </f:for>
+                    </ul>
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
+</f:form.validationResults>
